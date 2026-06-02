@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">FahMai Adviser Brief Pipeline</title>
+  <desc id="desc">Evidence-backed pipeline diagram for explaining the FahMai hackathon work to an adviser.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f8fb; }
+      .panel { fill: #ffffff; stroke: #c9d3e4; stroke-width: 2; rx: 16; }
+      .stage { fill: #eaf2ff; stroke: #6b91d6; stroke-width: 2; rx: 14; }
+      .done { fill: #ecf8f1; stroke: #4f9b6d; stroke-width: 2; rx: 14; }
+      .doing { fill: #fff7e6; stroke: #cc8a1f; stroke-width: 2; rx: 14; }
+      .next { fill: #f2edff; stroke: #8264c8; stroke-width: 2; rx: 14; }
+      .risk { fill: #fff0f0; stroke: #d66b6b; stroke-width: 2; rx: 14; }
+      .title { font: 700 34px Arial, sans-serif; fill: #1c2533; }
+      .subtitle { font: 400 17px Arial, sans-serif; fill: #506070; }
+      .h { font: 700 20px Arial, sans-serif; fill: #1c2533; }
+      .t { font: 400 15px Arial, sans-serif; fill: #273548; }
+      .small { font: 400 12.5px Arial, sans-serif; fill: #4b5c70; }
+      .mono { font: 400 12px Consolas, monospace; fill: #334155; }
+      .arrow { stroke: #667085; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#667085"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1440" height="900"/>
+  <text x="60" y="62" class="title">FahMai Adviser Brief: Evidence-backed DB/RAG Work</text>
+  <text x="60" y="92" class="subtitle">Every box cites file + row/line + column/object so the discussion can be audited.</text>
+
+  <rect x="50" y="125" width="1340" height="770" class="panel"/>
+
+  <rect x="90" y="165" width="260" height="205" class="stage"/>
+  <text x="110" y="195" class="h">1) Problem</text>
+  <text x="110" y="225" class="t">Answer 100 questions</text>
+  <text x="110" y="248" class="small">file: questions.csv</text>
+  <text x="110" y="268" class="small">rows: 100</text>
+  <text x="110" y="288" class="small">columns: id, question</text>
+  <text x="110" y="322" class="t">Use structured + text data</text>
+  <text x="110" y="345" class="small">tables: 31 CSV files</text>
+
+  <rect x="410" y="165" width="320" height="205" class="done"/>
+  <text x="430" y="195" class="h">2) Already Done</text>
+  <text x="430" y="225" class="t">Issues + source risks documented</text>
+  <text x="430" y="248" class="small">fahmai_tables_issues.md line 5</text>
+  <text x="430" y="268" class="small">fahmai_bundle_issues.md line 31</text>
+  <text x="430" y="302" class="t">DB/RAG schema built</text>
+  <text x="430" y="325" class="small">db/001 lines 8-12: schemas</text>
+  <text x="430" y="345" class="small">db/002 line 15: eval.questions</text>
+
+  <rect x="790" y="165" width="320" height="205" class="doing"/>
+  <text x="810" y="195" class="h">3) Doing Now</text>
+  <text x="810" y="225" class="t">Optimization round 2</text>
+  <text x="810" y="248" class="small">db/optimization_round2.md</text>
+  <text x="810" y="268" class="small">line 18: db/006 hybrid retrieval</text>
+  <text x="810" y="288" class="small">line 216: db/007 tuning</text>
+  <text x="810" y="322" class="t">Adviser-ready evidence pack</text>
+  <text x="810" y="345" class="small">this MD + this SVG</text>
+
+  <rect x="470" y="455" width="320" height="215" class="next"/>
+  <text x="490" y="485" class="h">4) Next Steps</text>
+  <text x="490" y="515" class="t">Run DB ingest + embeddings</text>
+  <text x="490" y="538" class="small">scripts/ingest line 161: COPY</text>
+  <text x="490" y="558" class="small">scripts/embed line 33: dim 1536</text>
+  <text x="490" y="592" class="t">Evaluate and trace answers</text>
+  <text x="490" y="615" class="small">db/002 line 38: eval.answer_runs</text>
+  <text x="490" y="635" class="small">columns: SQL, sources, confidence</text>
+
+  <rect x="910" y="455" width="330" height="215" class="risk"/>
+  <text x="930" y="485" class="h">5) Adviser Questions</text>
+  <text x="930" y="515" class="t">Which date resolves policy?</text>
+  <text x="930" y="538" class="small">columns: business_event_date, posting_date</text>
+  <text x="930" y="572" class="t">Is deposit batch virtual?</text>
+  <text x="930" y="595" class="small">FACT_BANK_TRANSACTION.related_entity_table</text>
+  <text x="930" y="629" class="t">What source is authoritative?</text>
+  <text x="930" y="652" class="small">core tables vs public-safe RAG</text>
+
+  <path class="arrow" d="M350 267 C375 267,385 267,410 267"/>
+  <path class="arrow" d="M730 267 C760 267,760 267,790 267"/>
+  <path class="arrow" d="M950 370 C895 430,830 485,790 535"/>
+  <path class="arrow" d="M790 562 C840 562,870 562,910 562"/>
+
+  <rect x="90" y="720" width="1160" height="105" class="panel"/>
+  <text x="110" y="750" class="h">Evidence anchors for adviser discussion</text>
+  <text x="110" y="778" class="mono">questions.csv rows=100 columns=id,question | tables/*.csv count=31 | FACT_SALES rows=117105 column=txn_id | FACT_SALES_LINE_ITEM rows=309129 column=line_item_id</text>
+  <text x="110" y="803" class="mono">FACT_BANK_TRANSACTION rows=65334 columns=related_entity_table,related_entity_id | db/004 line 72 object=mart.mv_sales_order | db/005 line 17 object=rag.mv_public_retrievable_chunks</text>
+</svg>

@@ -1,3 +1,12 @@
 # Heavy generated render outputs kept out of the GitHub repo.
 super-ai-engineer-season-6-fah-mai-the-finale/renders/
 super-ai-engineer-season-6-fah-mai-the-finale-ocr/fahmai_renders_with_json/fahmai_renders_with_json/renders/
+
+# OS metadata and generated chat exports.
+.DS_Store
+super-ai-engineer-season-6-fah-mai-the-finale/docs/chat_line_oa_jsonl/
+super-ai-engineer-season-6-fah-mai-the-finale/docs/chat_line_works_jsonl/
+
+# Python bytecode.
+__pycache__/
+*.pyc

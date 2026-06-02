@@ -64,8 +64,9 @@ Official CSV ที่รองรับมี 31 tables:
 - vector index: HNSW cosine
 - full-text index: GIN บน `search_tsv`
 
-Retriever ควรเริ่มจาก view:
-- `rag.v_public_retrievable_chunks`
+Retriever paths:
+- `rag.v_public_retrievable_chunks` สำหรับ inspection, fallback, และ chunks ที่ยังไม่มี embedding
+- `rag.match_public_chunks(...)` หลังรัน `db/005_rag_hnsw_and_public_chunks_mv.sql`; function นี้ใช้ `rag.mv_public_retrievable_chunks` เพื่อลด repeated joins ระหว่าง chunks/documents/embeddings
 
 view นี้กรองเฉพาะ:
 - `source_documents.is_public_safe = true`
@@ -246,8 +247,16 @@ Expected row count หลัง load official data:
 ## Files Added
 
 - `db/001_init_fahmai_model_schema.sql`
+- `db/002_eval_retrieval_workflow.sql`
+- `db/003_performance_indexes.sql`
+- `db/004_materialized_marts.sql`
+- `db/005_rag_hnsw_and_public_chunks_mv.sql`
+- `db/sql_templates/fahmai_question_cookbook.sql`
+- `scripts/ingest_fahmai_to_postgres.py`
+- `scripts/embed_chunks_openai.py`
 - `fahmai_model_erd.mmd`
 - `fahmai_model_database_schema.md`
+- `fahmai_eval_retrieval_workflow.md`
 
 ## Notes for the Model Team
 
