@@ -45,10 +45,4 @@
 
 ## 6. Inventory Health
 - Total (SKU, branch) positions: 1,090
-- Zero / negative inventory positions: 227
-  - SKU-MASS-013 @ BKK-CTW
-  - SKU-MASS-013 @ BKK-PKT
-  - SKU-MASS-013 @ BKK-SIAM
-  - SKU-MASS-014 @ BKK-CTW
-  - SKU-MASS-014 @ BKK-PKT
-  - … (+222 more)
+- Zero / negative inventory positions: 0
