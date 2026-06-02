@@ -2,39 +2,93 @@
 """Embed public-safe FahMai chunks into rag.chunk_embeddings.
 
 Prerequisites:
-  pip install psycopg[binary] openai
+  pip install psycopg[binary]
+
+For local Qwen3-Embedding-8B via Hugging Face Text Embeddings Inference:
+  docker run --gpus all -p 8080:80 -v hf_cache:/data --pull always ghcr.io/huggingface/text-embeddings-inference:1.7.2 --model-id Qwen/Qwen3-Embedding-8B --dtype float16
 
 Usage:
   $env:DATABASE_URL = "postgresql://user:pass@localhost:5432/fahmai"
-  $env:OPENAI_API_KEY = "..."
-  python scripts/embed_chunks_openai.py --batch-size 64
-  python scripts/embed_chunks_openai.py --batch-size 64 --refresh-materialized
+  python scripts/embed_chunks_openai.py --provider tei --endpoint http://localhost:8080/embed --batch-size 64
+  python scripts/embed_chunks_openai.py --provider tei --batch-size 64 --refresh-materialized
+
+OpenAI-compatible gateways are also supported:
+  pip install openai
+  $env:EMBEDDING_BASE_URL = "https://..."
+  $env:EMBEDDING_API_KEY = "..."
+  python scripts/embed_chunks_openai.py --provider openai-compatible --batch-size 64
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import sys
+import time
 from typing import Sequence
+from urllib import error, request
 
 try:
     import psycopg
 except ImportError as exc:  # pragma: no cover - dependency guard
     raise SystemExit("Missing dependency: pip install psycopg[binary]") from exc
 
-try:
-    from openai import OpenAI
-except ImportError as exc:  # pragma: no cover - dependency guard
-    raise SystemExit("Missing dependency: pip install openai") from exc
 
-
-DEFAULT_MODEL = "text-embedding-3-small"
-DEFAULT_DIMENSION = 1536
+DEFAULT_MODEL = "Qwen/Qwen3-Embedding-8B"
+DEFAULT_DIMENSION = 4096
+DEFAULT_TEI_ENDPOINT = "http://localhost:8080/embed"
 
 
 def vector_literal(values: Sequence[float]) -> str:
     return "[" + ",".join(f"{float(value):.9g}" for value in values) + "]"
+
+
+def normalize_embedding_response(payload) -> list[list[float]]:
+    if isinstance(payload, list):
+        if not payload:
+            return []
+        if isinstance(payload[0], dict) and "embedding" in payload[0]:
+            return [item["embedding"] for item in payload]
+        return payload
+    if isinstance(payload, dict) and "data" in payload:
+        return [item["embedding"] for item in payload["data"]]
+    raise ValueError("Embedding endpoint returned an unsupported response shape")
+
+
+def embed_with_tei(endpoint: str, inputs: list[str], timeout_seconds: int, max_retries: int) -> list[list[float]]:
+    body = json.dumps({"inputs": inputs}).encode("utf-8")
+    headers = {"Content-Type": "application/json"}
+
+    for attempt in range(max_retries + 1):
+        try:
+            req = request.Request(endpoint, data=body, headers=headers, method="POST")
+            with request.urlopen(req, timeout=timeout_seconds) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+            return normalize_embedding_response(payload)
+        except (TimeoutError, error.URLError, error.HTTPError) as exc:
+            if attempt >= max_retries:
+                raise RuntimeError(f"TEI embedding request failed after {attempt + 1} attempts: {exc}") from exc
+            time.sleep(min(2**attempt, 8))
+
+    raise RuntimeError("TEI embedding request failed")
+
+
+def embed_with_openai_compatible(
+    model: str,
+    inputs: list[str],
+    base_url: str | None,
+    api_key: str | None,
+    max_retries: int,
+) -> list[list[float]]:
+    try:
+        from openai import OpenAI
+    except ImportError as exc:  # pragma: no cover - dependency guard
+        raise SystemExit("Missing dependency for --provider openai-compatible: pip install openai") from exc
+
+    client = OpenAI(api_key=api_key, base_url=base_url, max_retries=max_retries)
+    response = client.embeddings.create(model=model, input=inputs)
+    return [item.embedding for item in response.data]
 
 
 def fetch_missing_chunks(conn, batch_size: int) -> list[tuple[str, str]]:
@@ -96,9 +150,32 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--database-url", default=os.getenv("DATABASE_URL"), help="Postgres connection URL")
     parser.add_argument("--model", default=os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL))
+    parser.add_argument(
+        "--provider",
+        choices=["tei", "openai-compatible"],
+        default=os.getenv("EMBEDDING_PROVIDER", "tei"),
+        help="Embedding backend. Use tei for local Hugging Face Text Embeddings Inference.",
+    )
+    parser.add_argument(
+        "--endpoint",
+        default=os.getenv("EMBEDDING_ENDPOINT", DEFAULT_TEI_ENDPOINT),
+        help="TEI /embed endpoint used when --provider tei.",
+    )
+    parser.add_argument(
+        "--base-url",
+        default=os.getenv("EMBEDDING_BASE_URL"),
+        help="OpenAI-compatible base URL used when --provider openai-compatible.",
+    )
+    parser.add_argument(
+        "--api-key",
+        default=os.getenv("EMBEDDING_API_KEY") or os.getenv("OPENAI_API_KEY"),
+        help="API key used when --provider openai-compatible.",
+    )
     parser.add_argument("--batch-size", type=int, default=64)
     parser.add_argument("--max-chunks", type=int, default=0, help="0 means embed all missing chunks")
-    parser.add_argument("--dry-run", action="store_true", help="Count missing chunks without calling OpenAI")
+    parser.add_argument("--dry-run", action="store_true", help="Count missing chunks without calling the embedding backend")
+    parser.add_argument("--timeout-seconds", type=int, default=120)
+    parser.add_argument("--max-retries", type=int, default=3)
     parser.add_argument(
         "--refresh-materialized",
         action="store_true",
@@ -110,8 +187,11 @@ def main() -> int:
         raise SystemExit("Set DATABASE_URL or pass --database-url")
     if args.batch_size < 1:
         raise SystemExit("--batch-size must be >= 1")
+    if args.timeout_seconds < 1:
+        raise SystemExit("--timeout-seconds must be >= 1")
+    if args.max_retries < 0:
+        raise SystemExit("--max-retries must be >= 0")
 
-    client = None if args.dry_run else OpenAI()
     total = 0
     with psycopg.connect(args.database_url) as conn:
         while True:
@@ -129,12 +209,17 @@ def main() -> int:
                     continue
                 break
 
-            response = client.embeddings.create(
-                model=args.model,
-                input=[text for _, text in rows],
-                dimensions=DEFAULT_DIMENSION,
-            )
-            embeddings = [item.embedding for item in response.data]
+            inputs = [text for _, text in rows]
+            if args.provider == "tei":
+                embeddings = embed_with_tei(args.endpoint, inputs, args.timeout_seconds, args.max_retries)
+            else:
+                embeddings = embed_with_openai_compatible(
+                    args.model,
+                    inputs,
+                    args.base_url,
+                    args.api_key,
+                    args.max_retries,
+                )
             with conn.transaction():
                 inserted = upsert_embeddings(conn, rows, args.model, embeddings)
             total += inserted

@@ -55,12 +55,12 @@ Official CSV ที่รองรับมี 31 tables:
 ตารางหลัก:
 - `rag.source_documents`: metadata ของเอกสาร/ไฟล์/ข้อความ
 - `rag.document_chunks`: text chunks ที่นำไปค้นได้
-- `rag.chunk_embeddings`: embedding แบบ `vector(1536)`
+- `rag.chunk_embeddings`: embedding แบบ `vector(4096)`
 - `rag.entity_links`: public-safe links จากเอกสาร/chunk กลับไปหา official entities
 
 ค่า default:
-- embedding model: `text-embedding-3-small`
-- embedding dimension: `1536`
+- embedding model: `Qwen/Qwen3-Embedding-8B`
+- embedding dimension: `4096`
 - vector index: HNSW cosine
 - full-text index: GIN บน `search_tsv`
 
@@ -237,7 +237,7 @@ Expected row count หลัง load official data:
 - row counts ตรงกับไฟล์จริง
 - primary keys ใน `core` ไม่ซ้ำและไม่ null
 - FK สำคัญผ่าน
-- `rag.chunk_embeddings.embedding` ทุก row มี dimension 1536
+- `rag.chunk_embeddings.embedding` ทุก row มี dimension 4096
 - `rag.v_public_retrievable_chunks` ไม่มี source ที่ `is_public_safe=false`
 - `mart.v_sales_order` มี row count เท่ากับ `core.fact_sales`
 - `mart.v_sales_line` มี row count เท่ากับ `core.fact_sales_line_item`

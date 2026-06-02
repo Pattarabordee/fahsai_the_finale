@@ -44,8 +44,7 @@ psql $env:DATABASE_URL -c "SELECT mart.refresh_all_materialized_views(false);"
 6. สร้าง embeddings สำหรับ public-safe chunks
 
 ```powershell
-$env:OPENAI_API_KEY = "..."
-python scripts/embed_chunks_openai.py --batch-size 64
+python scripts/embed_chunks_openai.py --provider tei --endpoint http://localhost:8080/embed --batch-size 64
 ```
 
 7. เพิ่ม RAG materialized view + HNSW tuning แล้ว refresh อีกครั้ง
@@ -78,7 +77,7 @@ python scripts/ingest_fahmai_to_postgres.py --truncate --refresh-materialized
 หลังรัน migration `005` แล้ว สามารถให้ embedding script refresh RAG/mart materialized views ต่อท้ายได้:
 
 ```powershell
-python scripts/embed_chunks_openai.py --batch-size 64 --refresh-materialized
+python scripts/embed_chunks_openai.py --provider tei --batch-size 64 --refresh-materialized
 ```
 
 ค่า refresh ใน scripts ใช้ non-concurrent first-load mode เพื่อให้ใช้ได้กับ materialized view ที่ยังไม่เคย populate มาก่อน
@@ -136,7 +135,7 @@ Expected:
 ```sql
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT *
-FROM rag.match_public_chunks(:query_embedding::vector(1536), 8);
+FROM rag.match_public_chunks(:query_embedding::vector(4096), 8);
 ```
 
 ```sql

@@ -58,7 +58,7 @@ fahmai/
 │
 ├── scripts/
 │   ├── ingest_fahmai_to_postgres.py            Load CSVs + markdown docs → DB
-│   ├── embed_chunks_openai.py                  Generate embeddings via OpenAI API
+│   ├── embed_chunks_openai.py                  Generate embeddings via Qwen/TEI or OpenAI-compatible API
 │   └── run_question.py                         ⚠ TODO  end-to-end answer pipeline
 │
 ├── super-ai-engineer-season-6-fah-mai-the-finale/
@@ -80,11 +80,11 @@ fahmai/
 | Layer | Technology | Details |
 |-------|-----------|---------|
 | Database | PostgreSQL 15+ | 5 schemas, 31 core tables |
-| Vector search | pgvector + HNSW | `m=16`, `ef_construction=128`, 1 536-dim |
+| Vector search | pgvector + HNSW | `m=16`, `ef_construction=128`, 4 096-dim |
 | Full-text search | GIN on tsvector | dictionary: `simple` (Thai + English) |
 | Trigram search | pg_trgm | fuzzy / partial keyword match |
 | Monitoring | pg_stat_statements | slow query tracking |
-| Embedding model | `text-embedding-3-small` | OpenAI API, dimension 1 536 |
+| Embedding model | `Qwen/Qwen3-Embedding-8B` | TEI/OpenAI-compatible API, dimension 4 096 |
 | Ingestion | Python 3.11 + psycopg[binary] | bulk `COPY FROM STDIN` |
 | Languages in data | Thai + English mixed | all documents and column values |
 
@@ -335,7 +335,7 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
  │                                 keyset pagination (chunk_id > last_seen)        │
  │                                 batch 128, retry on 429 (backoff 10s→120s)      │
  │                                 executemany upsert                              │
- │                                 ──► rag.chunk_embeddings  (vector 1536)         │
+ │                                 ──► rag.chunk_embeddings  (vector 4096)         │
  └──────────────────────────────────────────────────────────────────────────────────┘
                                          │
                                          ▼
@@ -374,7 +374,7 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
 ## 9. RAG Retrieval Architecture
 
 ```
- Query text  ──►  OpenAI text-embedding-3-small  ──►  query_vector(1536)
+ Query text  ──►  Qwen/Qwen3-Embedding-8B  ──►  query_vector(4096)
                                                               │
                                ┌──────────────────────────── │ ──────────────────────────────────┐
                                │  rag.hybrid_search_public_chunks(query_vector, query_text, k)   │
@@ -703,7 +703,7 @@ done
 
  What it does:
    1. fetch batch of unembedded chunks (ORDER BY chunk_id, LIMIT batch_size)
-   2. call OpenAI embeddings.create(model, batch, dimensions=1536)
+   2. call TEI /embed or an OpenAI-compatible embeddings API
       retry on RateLimitError / APITimeoutError (backoff: 10s → 20s → 40s → max 120s)
    3. executemany upsert  ──►  rag.chunk_embeddings
    4. advance keyset cursor (last_chunk_id = rows[-1][0])
@@ -711,10 +711,10 @@ done
    6. refresh materialized views (if --refresh-materialized)
 
  Key flags:
-   --batch-size 128        chunks per OpenAI API call (default 128)
+   --batch-size 128        chunks per embedding request (default 128)
    --max-retries 5         retry attempts on rate-limit
    --refresh-materialized  run mart.refresh_all_materialized_views(false) at end
-   --dry-run               count missing chunks without calling OpenAI
+   --dry-run               count missing chunks without calling the embedding backend
 ```
 
 ### `scripts/run_question.py` ⚠ TODO
@@ -722,7 +722,7 @@ done
 ```
  What it will do:
    1. load question_text from eval.questions (or accept --question-text directly)
-   2. embed query via OpenAI
+   2. embed query via Qwen embedding backend
    3. call rag.hybrid_search_public_chunks(vector, text, k)
    4. optionally run SQL templates from eval.sql_templates
    5. assemble context + answer
@@ -883,6 +883,7 @@ python scripts/ingest_fahmai_to_postgres.py \
 
 # Generate embeddings
 python scripts/embed_chunks_openai.py \
+  --provider tei \
   --batch-size 128 \
   --max-retries 5 \
   --refresh-materialized

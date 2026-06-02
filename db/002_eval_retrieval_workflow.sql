@@ -348,7 +348,7 @@ ON CONFLICT (template_name) DO UPDATE SET
 -- ---------------------------------------------------------------------------
 
 CREATE OR REPLACE FUNCTION rag.match_public_chunks(
-    query_embedding vector(1536),
+    query_embedding vector(4096),
     match_count integer DEFAULT 8,
     candidate_count integer DEFAULT 80
 )

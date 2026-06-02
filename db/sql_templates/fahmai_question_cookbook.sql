@@ -154,7 +154,7 @@ LIMIT :limit_rows;
 
 -- 9) Public-safe vector retrieval RPC usage.
 SELECT *
-FROM rag.match_public_chunks(:query_embedding::vector(1536), :match_count);
+FROM rag.match_public_chunks(:query_embedding::vector(4096), :match_count);
 
 -- 10) Public-safe keyword/trigram retrieval RPC usage.
 SELECT *

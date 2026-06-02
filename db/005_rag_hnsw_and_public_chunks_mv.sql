@@ -77,7 +77,7 @@ COMMENT ON FUNCTION rag.refresh_public_retrievable_chunks(boolean) IS
     'Refresh the public-safe embedded chunk retrieval cache. Use false for first load; true only after the materialized view is already populated.';
 
 CREATE OR REPLACE FUNCTION rag.match_public_chunks(
-    query_embedding vector(1536),
+    query_embedding vector(4096),
     match_count integer DEFAULT 8,
     candidate_count integer DEFAULT 80
 )

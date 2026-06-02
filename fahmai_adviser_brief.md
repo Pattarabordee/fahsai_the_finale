@@ -34,9 +34,9 @@ Evidence: `fahmai_bundle_issues.md` / line=`121` / object=`Grader Instructions`
 ออกแบบ schema PostgreSQL/RAG แล้ว โดยมี schemas `raw`, `core`, `rag`, `mart`, `audit` สำหรับแยก raw CSV, typed official data, retrieval, model views, และ audit trace  
 Evidence: `db/001_init_fahmai_model_schema.sql` / lines=`8-12` / objects=`raw`, `core`, `rag`, `mart`, `audit`
 
-สร้าง `core` typed tables สำหรับ official CSVs และวาง RAG schema สำหรับ documents/chunks/embeddings โดย embedding dimension เป็น `vector(1536)`  
+สร้าง `core` typed tables สำหรับ official CSVs และวาง RAG schema สำหรับ documents/chunks/embeddings โดย embedding dimension เป็น `vector(4096)`
 Evidence: `db/001_init_fahmai_model_schema.sql` / line=`657` / object=`core.fact_sales`  
-Evidence: `db/001_init_fahmai_model_schema.sql` / line=`936` / object=`rag.chunk_embeddings`, column=`embedding vector(1536)`
+Evidence: `db/001_init_fahmai_model_schema.sql` / line=`936` / object=`rag.chunk_embeddings`, column=`embedding vector(4096)`
 
 สร้าง eval workflow สำหรับเก็บคำถาม คำตอบ SQL/source trace และ retrieval function เพื่อไม่ให้ตอบแล้วหายไปใน chat  
 Evidence: `db/002_eval_retrieval_workflow.sql` / line=`15` / object=`eval.questions`  
@@ -49,11 +49,11 @@ Evidence: `db/004_materialized_marts.sql` / line=`72` / object=`mart.mv_sales_or
 Evidence: `db/005_rag_hnsw_and_public_chunks_mv.sql` / line=`17` / object=`rag.mv_public_retrievable_chunks`  
 Evidence: `db/005_rag_hnsw_and_public_chunks_mv.sql` / line=`79` / object=`rag.match_public_chunks`
 
-ทำ ingestion/embedding scripts แล้ว โดย ingest ใช้ `COPY` สำหรับ CSV และ embed script ใช้ `text-embedding-3-small` ขนาด 1536 dimensions  
+ทำ ingestion/embedding scripts แล้ว โดย ingest ใช้ `COPY` สำหรับ CSV และ embed script ใช้ `Qwen/Qwen3-Embedding-8B` ขนาด 4096 dimensions
 Evidence: `scripts/ingest_fahmai_to_postgres.py` / line=`45` / object=`OFFICIAL_TABLES`, rows=`31 table names`  
 Evidence: `scripts/ingest_fahmai_to_postgres.py` / line=`161` / object=`copy_csv`, columns=`raw.*`, `core.*`  
-Evidence: `scripts/embed_chunks_openai.py` / line=`32` / object=`DEFAULT_MODEL`, value=`text-embedding-3-small`  
-Evidence: `scripts/embed_chunks_openai.py` / line=`33` / object=`DEFAULT_DIMENSION`, value=`1536`
+Evidence: `scripts/embed_chunks_openai.py` / line=`38` / object=`DEFAULT_MODEL`, value=`Qwen/Qwen3-Embedding-8B`
+Evidence: `scripts/embed_chunks_openai.py` / line=`39` / object=`DEFAULT_DIMENSION`, value=`4096`
 
 ## 3. กำลังทำอะไรอยู่?
 
@@ -169,4 +169,3 @@ Evidence: `db/optimization_round2.md` / lines=`18`, `216`, `250` / objects=`hybr
 | Materialized sales mart | `db/004_materialized_marts.sql` | line=`72` | `mart.mv_sales_order` |
 | RAG materialized view | `db/005_rag_hnsw_and_public_chunks_mv.sql` | line=`17` | `rag.mv_public_retrievable_chunks` |
 | Current next work | `db/optimization_round2.md` | lines=`18`, `216`, `250` | `db/006`, `db/007`, embed improvements |
-

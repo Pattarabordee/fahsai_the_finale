@@ -935,8 +935,8 @@ CREATE TABLE IF NOT EXISTS rag.document_chunks (
 
 CREATE TABLE IF NOT EXISTS rag.chunk_embeddings (
     chunk_id text PRIMARY KEY REFERENCES rag.document_chunks(chunk_id) ON DELETE CASCADE,
-    embedding_model text NOT NULL DEFAULT 'text-embedding-3-small',
-    embedding vector(1536) NOT NULL,
+    embedding_model text NOT NULL DEFAULT 'Qwen/Qwen3-Embedding-8B',
+    embedding vector(4096) NOT NULL,
     embedding_created_at timestamptz NOT NULL DEFAULT now(),
     metadata jsonb NOT NULL DEFAULT '{}'::jsonb
 );

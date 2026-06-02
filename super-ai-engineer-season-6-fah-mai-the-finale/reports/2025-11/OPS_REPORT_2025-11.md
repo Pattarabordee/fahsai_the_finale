@@ -45,4 +45,5 @@
 
 ## 6. Inventory Health
 - Total (SKU, branch) positions: 1,100
-- Zero / negative inventory positions: 0
+- Zero / negative inventory positions: 1
+  - SKU-MASS-048 @ UDN-CTRL
