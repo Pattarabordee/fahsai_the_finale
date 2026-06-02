@@ -896,11 +896,14 @@ python scripts/ingest_fahmai_to_postgres.py \
 # Refresh materialized views after any data change
 psql "$DATABASE_URL" -c "SELECT mart.refresh_all_materialized_views(true);"
 
-# Run a question (after run_question.py is created)
+# Run a retrieval-only eval question and persist evidence
 python scripts/run_question.py \
   --question-id "FAHMAI-Q-L1-001" \
   --match-count 8 \
   --run-label "v1"
+
+# Production rebuild checklist
+# See PRODUCTION_REBUILD_CHECKLIST.md
 
 # Check slow queries (after 007 is applied)
 psql "$DATABASE_URL" -c "

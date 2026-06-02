@@ -154,3 +154,24 @@ WHERE related_entity_table = 'FACT_SALES_DEPOSIT_BATCH';
 ```
 
 ถ้า query ซ้ำ ๆ ยังช้า ให้เพิ่ม index/materialized view เฉพาะ query ที่วัดแล้วว่าช้าจริง ไม่ต้อง materialize ทุกอย่างล่วงหน้า
+
+## Production Rebuild Checklist
+
+Use `PRODUCTION_REBUILD_CHECKLIST.md` as the current production rehearsal
+runbook. It covers the clean-database rebuild, B200/TEI startup, Qwen 4096-dim
+embedding generation, smoke checks, and rollback notes for the embedding
+migration.
+
+## Question Runner
+
+After migrations, ingest, embeddings, and materialized-view refresh complete,
+run retrieval evidence into `eval.answer_runs`:
+
+```powershell
+python scripts/run_question.py --question-id FAHMAI-Q-L1-001 --run-label production-smoke
+python scripts/run_question.py --all --limit 10 --run-label production-smoke-10
+```
+
+`scripts/run_question.py` stores retrieval-only runs as `needs_review`. Treat
+these rows as evidence for downstream answer generation or human review, not as
+final model answers.
