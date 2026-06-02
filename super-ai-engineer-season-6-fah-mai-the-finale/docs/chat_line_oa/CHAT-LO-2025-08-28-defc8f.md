@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็กสถานะการจัดส่งพัสดุให้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ดูแลให้นะคะ รบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ใช้ส่งของด้วยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขอ้างอิง 874521 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ทางเราได้รับข้อมูลแล้วนะคะ ตอนนี้สถานะพัสดุอยู่ระหว่างนำส่งกับขนส่งค่ะ หากลูกค้าได้รับข้อความแจ้งเตือนจากขนส่ง สามารถใช้หมายเลขอ้างอิงนี้ตรวจสอบเพิ่มเติมได้ในระบบของขนส่งค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"โอเคค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ลูกค้ามีเรื่องอื่นให้ช่วยตรวจสอบเพิ่มเติมอีกไหมคะ"}

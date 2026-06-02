@@ -1,0 +1,7 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนเช็คสต็อกสินค้าที่สาขาใกล้บ้านให้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสุดา ขอบคุณที่ทักมาที่ฟ้าใหม่นะคะ ดิฉัน May Support ค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็คสต็อก และสาขาใกล้บ้านที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นสินค้า Powercell X3 ค่ะ สาขาเซ็นทรัลลาดพร้าวมีไหมคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ รบกวนรอสักครู่นะคะ ดิฉันกำลังตรวจสอบสต็อกของ Powercell X3 ที่สาขาเซ็นทรัลลาดพร้าวให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ตอนนี้สาขาเซ็นทรัลลาดพร้าวมีสินค้าอยู่ค่ะ หากคุณสุดาสะดวก แนะนำให้แวะไปที่สาขาได้เลย หรือถ้าต้องการ ดิฉันช่วยเช็คสาขาอื่นใกล้เคียงต่อได้ค่ะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เท่านี้พอแล้วค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ทุกเมื่อผ่าน LINE OA นี้นะคะ ขอให้คุณสุดามีวันที่ดีค่ะ"}

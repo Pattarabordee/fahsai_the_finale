@@ -1,0 +1,25 @@
+{
+  "artifact_id": "VC-010",
+  "renderer_template_id": "t2_doc_vendor_contract",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/t2_doc/2024-07/VC-010.pdf",
+      "page_kind": "page",
+      "source_fact_table": "DIM_VENDOR_CONTRACT_VERSION",
+      "source_row_ids": [
+        "10"
+      ],
+      "visible_fields": [
+        "contract_version_id",
+        "vendor_id",
+        "version_number",
+        "effective_date",
+        "contract_pdf_filename"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "10"
+  ]
+}

@@ -1,0 +1,6 @@
+timestamp	branch_code	payment_terminal_id	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_total_thb	payment_method	loyalty_tier_at_purchase	schema_version
+2025-04-29T20:52:53+07:00	BKK-R9	BKK-R9-POS-01	TXN-202504-29018741	1	SKU-MASS-030	1	4900.00	0.00	debit_card	none	2
+2025-04-29T20:52:53+07:00	BKK-R9	BKK-R9-POS-01	TXN-202504-29018741	2	SKU-MASS-092	1	6900.00	0.00	debit_card	none	2
+2025-04-29T21:55:58+07:00	BKK-R9	BKK-R9-POS-02	TXN-202504-29024014	1	SKU-MASS-034	1	24900.00	0.00	cash	none	2
+2025-04-29T17:39:45+07:00	BKK-R9	BKK-R9-POS-03	TXN-202504-29028404	1	SKU-MASS-050	1	24900.00	0.00	debit_card	none	2
+2025-04-29T11:14:21+07:00	BKK-R9	BKK-R9-POS-01	TXN-202504-29029704	1	SKU-MASS-037	1	18900.00	0.00	cash	none	2

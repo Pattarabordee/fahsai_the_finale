@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอสอบถามเวลาทำการของสาขาหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณอนุชา พรหมณี ยินดีให้บริการค่ะ ดิฉัน May Support จากฟ้าใหม่ค่ะ\nรบกวนแจ้งชื่อสาขาที่ต้องการสอบถามนะคะ ทางเราจะเช็กเวลาเปิด-ปิดให้ค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นสาขากรุงเทพครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณอนุชา สาขากรุงเทพเปิดทุกวันเวลา 09:00-18:00 น. ค่ะ\nหากต้องการสอบถามสาขาอื่น หรือมีเรื่องเพิ่มเติม แจ้งได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ไม่มีแล้วครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีข้อสงสัยเพิ่มเติม ทักมาได้ทุกเมื่อผ่าน LINE OA นี้นะคะ ขอให้เป็นวันที่ดีค่ะ"}

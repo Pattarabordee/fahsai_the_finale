@@ -1,0 +1,49 @@
+{
+  "artifact_id": "RC-TXN-202409-10027800",
+  "renderer_template_id": "receipt_thermal",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/receipt/2024-09/RC-TXN-202409-10027800.png",
+      "page_kind": "page",
+      "source_fact_table": "FACT_SALES",
+      "source_row_ids": [
+        "TXN-202409-10027800",
+        "161617919210",
+        "895316452694",
+        "479649243791",
+        "376411324707",
+        "548832133963",
+        "459660809234",
+        "580281377986",
+        "298596150119",
+        "134055801937",
+        "1038847642713",
+        "589326863729"
+      ],
+      "visible_fields": [
+        "txn_id",
+        "branch_code",
+        "business_event_date",
+        "basket_total_thb",
+        "discount_total_thb",
+        "net_total_thb",
+        "payment_method"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "TXN-202409-10027800",
+    "161617919210",
+    "895316452694",
+    "479649243791",
+    "376411324707",
+    "548832133963",
+    "459660809234",
+    "580281377986",
+    "298596150119",
+    "134055801937",
+    "1038847642713",
+    "589326863729"
+  ]
+}

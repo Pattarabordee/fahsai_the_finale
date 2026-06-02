@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสถานะพัสดุหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณปรีชา พรหมณี ยินดีดูแลค่ะ ทางฟ้าใหม่ขอรับเรื่องตรวจสอบสถานะพัสดุให้ค่ะ รบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ต้องการตรวจสอบได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ หมายเลขพัสดุคือ FM123456789TH ครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ เดี๋ยวทางเราตรวจสอบให้ค่ะ ตอนนี้สถานะขึ้นว่าอยู่ระหว่างการนำส่ง และคาดว่าจะถึงปลายทางภายในวันนี้ค่ะ หากมีการเปลี่ยนแปลง ระบบจะอัปเดตสถานะให้ใน LINE OA นี้นะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการตรวจสอบเรื่องอื่นเพิ่มเติม สามารถแจ้งมาได้เลยนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

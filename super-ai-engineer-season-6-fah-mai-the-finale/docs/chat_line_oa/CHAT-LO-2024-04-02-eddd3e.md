@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสถานะพัสดุหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ยินดีให้บริการจากฟ้าใหม่ค่ะ รบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงให้ทางเราตรวจสอบสถานะจัดส่งได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:34","speaker":"CUSTOMER","message_type":"text","text":"หมายเลขพัสดุคือ FAH-20240402-1188 ครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ทางเราตรวจสอบให้แล้วค่ะ ตอนนี้พัสดุอยู่ระหว่างนำส่ง และมีอัปเดตล่าสุดวันนี้ค่ะ หากลูกค้าต้องการ ทางเราสามารถช่วยแนะนำการติดตามสถานะเพิ่มเติมผ่าน LINE OA นี้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีมากค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

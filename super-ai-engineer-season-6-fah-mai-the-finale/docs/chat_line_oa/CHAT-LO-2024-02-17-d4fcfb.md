@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนเช็คสต็อกสินค้าที่สาขาใกล้บ้านให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณปิติ วรากร ดิฉัน May Support จากฟ้าใหม่ค่ะ ยินดีช่วยดูให้ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็ค และถ้ามีสาขาที่สะดวกใกล้บ้าน แจ้งชื่อสาขาได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็น Powercell X3 ครับ อยากเช็คสาขาแถวบางนา มีของไหมครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ ตอนนี้ขอเช็คสต็อก Powercell X3 ที่สาขาโซนบางนาให้ค่ะ\nหากลูกค้าต้องการความแม่นยำ รบกวนแจ้งชื่อสาขาที่ใกล้บ้านที่สุด หรือส่งข้อความมาระบุจุดที่สะดวกได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"งั้นขอเช็คที่สาขาบางนาเซ็นทรัลครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ สาขาบางนาเซ็นทรัลมี Powercell X3 พร้อมจำหน่ายค่ะ\nถ้าต้องการให้ช่วยสำรองสินค้า หรือสอบถามสาขาอื่นเพิ่มเติม แจ้งได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ไม่มีแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามผ่าน LINE OA นี้ได้ตลอดนะคะ\nขอให้มีวันที่ดีค่ะ"}

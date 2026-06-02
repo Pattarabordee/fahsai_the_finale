@@ -1,0 +1,7 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณธนพล มงคล ทางฟ้าใหม่ May Support ค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็คสต็อก และสาขาที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็น Powercell X3 ครับ อยากเช็คที่สาขาในตัวเมืองครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณธนพล ตอนนี้ขออนุญาตรับเรื่องเช็คให้ก่อนนะคะ รบกวนรอสักครู่ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ตรวจสอบแล้ว สินค้า Powercell X3 มีที่สาขาในตัวเมืองค่ะ แนะนำให้โทรยืนยันหน้าร้านก่อนเข้าไปอีกครั้งนะคะ หากต้องการให้ช่วยเช็คสาขาอื่นเพิ่มเติม แจ้งมาได้เลยค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ ขอบคุณมากครับ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม สามารถทักมาได้ตลอดเลยนะคะ ขอให้คุณธนพลสะดวกในการรับสินค้าค่ะ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอสอบถามสต็อกสินค้าที่สาขาใกล้บ้านหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณณัฐพล บุญเรือง ดิฉัน May Support จากฟ้าใหม่ค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็ก และสาขาใกล้บ้านที่สะดวกได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นรุ่น Powercell X3 ครับ สาขาเซ็นทรัลลาดพร้าวมีของไหมครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้ทางเรายังเช็กสต็อกสาขาแบบเรียลไทม์ผ่านแชตนี้ไม่ได้ค่ะ แนะนำให้รอเจ้าหน้าที่ตรวจสอบให้ หรือแวะติดต่อสาขาเซ็นทรัลลาดพร้าวโดยตรงเพื่อเช็กของได้อีกช่องทางหนึ่งนะคะ ถ้าต้องการ ดิฉันช่วยบันทึกคำขอไว้ให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ รบกวนบันทึกคำขอไว้ให้ด้วยครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"รับเรื่องไว้แล้วค่ะ คุณณัฐพล บุญเรือง หากมีอัปเดตสต็อก ทางเราจะแจ้งกลับผ่าน LINE OA นี้ค่ะ มีเรื่องอื่นให้ช่วยสอบถามเพิ่มเติมอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ขอบคุณที่ติดต่อฟ้าใหม่นะคะ ขอให้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,2 @@
+timestamp	branch_code	payment_terminal_id	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_total_thb	payment_method	loyalty_tier_at_purchase	schema_version
+2025-10-17T11:45:00+07:00	UDN-CTRL	UDN-CTRL-POS-03	TXN-202510-17009086	1	SF-Galaxy-Pro-2568	1	38900.00	0.00	debit_card	none	2

@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนเช็คสต็อกสินค้าที่สาขาใกล้บ้านให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณนิภา ใจดี ยินดีให้บริการจากฟ้าใหม่ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็ก และสาขาที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ต้องการเช็กสินค้า Powercell X3 ค่ะ ถ้าเป็นสาขาใกล้บ้าน น่าจะเป็นสาขาอโศกค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณนิภา\nตอนนี้สาขาอโศกมีสินค้า Powercell X3 พร้อมจำหน่ายค่ะ ถ้าต้องการให้กันสินค้าไว้ แวะซื้อได้เลยที่สาขาใกล้บ้านค่ะ\nหากต้องการเช็กสาขาอื่นเพิ่มเติม แจ้งมาได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ได้เลยค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักมาได้ตลอดนะคะ ขอให้มีวันที่ดีค่ะ"}

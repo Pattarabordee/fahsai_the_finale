@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนเช็กนัดรับสินค้าซ่อมประกันให้หน่อยครับ ผมฝากไว้ก่อนหน้านี้"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณธนพล ทาง May Support ยินดีดูแลให้ค่ะ รบกวนแจ้งหมายเลขอ้างอิงงานซ่อมหรือชื่อรุ่นสินค้าที่ส่งซ่อมไว้ได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ครับ ตอนนี้อยากทราบว่ารับกลับได้วันไหน"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณธนพล ทางทีมตรวจสอบแล้วพบว่าเคสนี้อยู่ในกลุ่มรับประกันของสินค้าล็อตที่มีปัญหาการผลิตค่ะ [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\":\"Powercell X3\"}]]\nตอนนี้สินค้าพร้อมนัดรับได้ค่ะ รบกวนแจ้งช่วงเวลาที่สะดวก หรือถ้าต้องการให้เรานัดให้ ทางเราจะประสานงานกลับอีกครั้งนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ถ้าได้ ขอรับพรุ่งนี้ช่วงบ่ายครับ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ เราบันทึกเป็นนัดรับวันพรุ่งนี้ช่วงบ่ายให้แล้วนะคะ\nหากมีการเปลี่ยนแปลง แชตกลับมาแจ้งได้เลยค่ะ มีเรื่องอื่นให้ช่วยตรวจสอบอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ขอบคุณที่ติดต่อฟ้าใหม่ผ่าน LINE OA นี้นะคะ ขอให้คุณธนพลสะดวกในการรับสินค้าค่ะ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสถานะพัสดุที่ส่งวันนี้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ติดต่อฟ้าใหม่กับ May Support นะคะ ยินดีช่วยตรวจสอบสถานะพัสดุให้ค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่อ้างอิงกับชื่อผู้รับด้วยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"หมายเลขสั่งซื้อยังไม่สะดวกส่งค่ะ ใช้ชื่อผู้รับได้ไหมคะ\nชื่อผู้รับ พิมพ์ชนกค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนแจ้งชื่อผู้รับเป็นภาษาไทยแบบเต็ม และเบอร์โทรที่ใช้ติดต่อสำหรับค้นหาข้อมูลในระบบด้วยนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"พิมพ์ชนก สุวรรณา ค่ะ เบอร์ที่ใช้ติดต่อเป็นเบอร์ลงท้าย 4821 ค่ะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณพิมพ์ชนก ทางทีมตรวจสอบแล้ว พัสดุถูกส่งออกจากคลังวันนี้ และสถานะตอนนี้อยู่ระหว่างนำส่งค่ะ\nหากต้องการติดตามแบบละเอียด สามารถเช็กอัปเดตผ่าน LINE OA นี้ได้อีกครั้งในภายหลังนะคะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้ตลอดนะคะ"}

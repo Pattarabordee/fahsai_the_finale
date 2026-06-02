@@ -1,0 +1,5 @@
+timestamp	branch_code	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_amt	payment_method	schema_version
+2024-02-11T13:37:55+07:00	KKC-CTRL	TXN-202402-11000953	1	SKU-MASS-089	1	29900.00	0.00	credit_card	1
+2024-02-11T13:37:55+07:00	KKC-CTRL	TXN-202402-11000953	2	AW-MN-001	1	16900.00	0.00	credit_card	1
+2024-02-11T19:16:15+07:00	KKC-CTRL	TXN-202402-11029006	1	SKU-MASS-107	1	55900.00	0.00	mobile_wallet	1
+2024-02-11T19:16:15+07:00	KKC-CTRL	TXN-202402-11029006	2	SKU-MASS-079	1	12900.00	0.00	mobile_wallet	1

@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามสต็อกสินค้าที่สาขาใกล้บ้านหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณนันทพร ทางฟ้าใหม่ May Support รับเรื่องให้ค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็ก และสาขาใกล้บ้านที่สะดวกด้วยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจสินค้า Powercell X3 ค่ะ สาขาเซ็นทรัลลาดพร้าวมีไหมคะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้ทางระบบไม่แสดงสต็อกแบบเรียลไทม์ในแชตนี้นะคะ แนะนำให้คุณนันทพรติดต่อสาขาเซ็นทรัลลาดพร้าวโดยตรง หรือแจ้งชื่อสินค้าไว้ เดี๋ยวให้ทีมหน้าสาขาตรวจสอบและตอบกลับผ่าน LINE OA นี้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติมเรื่องสินค้า สาขา หรือบริการอื่น ๆ ทักมาได้ตลอดนะคะ"}

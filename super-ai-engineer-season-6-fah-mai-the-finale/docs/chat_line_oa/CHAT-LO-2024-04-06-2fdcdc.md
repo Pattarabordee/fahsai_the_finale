@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามสถานะพัสดุที่ส่งวันนี้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ May Support จากฟ้าใหม่ค่ะ ยินดีดูแลให้ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือหมายเลขสั่งซื้อที่ต้องการตรวจสอบได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ยังไม่ได้รับเลขพัสดุเลยค่ะ มีแค่ชื่อผู้รับกับวันที่ส่งของวันนี้ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนแจ้งชื่อผู้รับ และชื่อจังหวัดปลายทางมาได้เลยนะคะ เดี๋ยวทางเราช่วยตรวจสอบสถานะให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ชื่อผู้รับคือคุณกานต์ จังหวัดปลายทางกรุงเทพฯ ค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณกานต์ของคุณลูกค้าอยู่ระหว่างจัดส่งวันนี้ค่ะ หากต้องการติดตามเพิ่มเติม แนะนำตรวจสอบอีกครั้งช่วงบ่ายผ่าน LINE OA นี้ได้เลยนะคะ\nมีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ขอบคุณที่ติดต่อฟ้าใหม่นะคะ หากต้องการสอบถามเพิ่มเติม สามารถทักมาได้ตลอดเลยค่ะ"}

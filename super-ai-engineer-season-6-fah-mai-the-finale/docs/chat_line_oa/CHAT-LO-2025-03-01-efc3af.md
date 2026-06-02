@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็กสถานะพัสดุที่ส่งวันนี้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ยินดีดูแลค่ะ May Support จากฟ้าใหม่นะคะ\nรบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่อ้างอิง พร้อมชื่อผู้รับให้หน่อยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขสั่งซื้อคือ 258963 และชื่อผู้รับ คุณอรทัยค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณอรทัย\nตอนนี้สถานะพัสดุอยู่ระหว่างการจัดส่ง และคาดว่าจะนำจ่ายภายในวันนี้ค่ะ หากต้องการติดตามเพิ่ม สามารถแจ้งเลขที่อ้างอิงมาได้อีกครั้งในแชตนี้นะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักมาได้เลยนะคะ ขอให้คุณอรทัยมีวันที่ดีค่ะ"}

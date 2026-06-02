@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ตอนนี้มีโปรโมชั่นอะไรบ้างคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support รับเรื่องให้นะคะ ตอนนี้ทางฟ้าใหม่มีโปรโมชั่นที่กำลังจัดอยู่หลายรายการค่ะ หากลูกค้าสนใจสินค้าแบบไหนเป็นพิเศษ แจ้งมาได้เลย เดี๋ยวเราช่วยเช็กข้อมูลให้ค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจโปรสินค้า Powercell X3 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ สำหรับ Powercell X3 วันนี้มีโปรส่วนลดและของแถมตามเงื่อนไขหน้าร้าน/ช่องทาง LINE OA นี้ค่ะ หากลูกค้าต้องการ เราสามารถสรุปรายละเอียดโปรให้แบบสั้น ๆ ได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"รบกวนสรุปให้หน่อยค่ะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ตอนนี้โปรของ Powercell X3 คือซื้อครบตามเงื่อนไขจะได้รับส่วนลดพิเศษ และมีของแถมในช่วงแคมเปญวันนี้ 18 สิงหาคม 2567 ค่ะ หากลูกค้าต้องการทราบช่องทางสั่งซื้อหรือเงื่อนไขเพิ่มเติม แจ้งได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ไม่มีแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีมากค่ะ หากมีคำถามเพิ่มเติมเกี่ยวกับโปรโมชั่นหรือสินค้าอื่น ๆ ทักมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

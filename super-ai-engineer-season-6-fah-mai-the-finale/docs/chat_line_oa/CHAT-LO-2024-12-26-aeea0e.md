@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ตอนนี้มีโปรโมชั่นอะไรที่กำลังจัดอยู่บ้างครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสิทธิ มงคล ดิฉัน May Support ยินดีดูแลค่ะ ตอนนี้ทางฟ้าใหม่มีโปรโมชันส่งท้ายปีในช่องทาง LINE OA นี้ค่ะ สนใจสินค้าแบบไหนเป็นพิเศษคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจโปรโมชันสินค้ากลุ่มอุปกรณ์ไฟฟ้าค่ะ มีแบบลดราคาไหมครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"มีค่ะ ตอนนี้มีรายการราคาพิเศษบางรุ่น และมีของแถมตามเงื่อนไขด้วยค่ะ หากคุณสิทธิ มงคล ต้องการ ดิฉันช่วยเช็กโปรของสินค้าที่สนใจให้ได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ ขอรายละเอียดเพิ่มเติมหน่อยครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ถ้าสะดวก รบกวนแจ้งชื่อสินค้าหรือรุ่นที่สนใจมาได้เลยค่ะ เดี๋ยวดิฉันช่วยตรวจสอบโปรโมชันให้ค่ะ มีเรื่องอื่นสอบถามเพิ่มเติมไหมคะ"}
+{"message_id":"M-007","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ยังไม่มีครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติม พิมพ์เข้ามาใน LINE OA นี้ได้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

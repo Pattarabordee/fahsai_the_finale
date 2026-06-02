@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามความคืบหน้าการนัดรับสินค้าที่ส่งซ่อมประกันหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมหญิง พิทยา ทาง May Support ยินดีให้บริการค่ะ\nรบกวนแจ้งหมายเลขอ้างอิงการซ่อมหรือชื่อรุ่นสินค้าเพิ่มเติมได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีเลขอ้างอิงค่ะ มีแค่ชื่อรุ่น Powercell X3 ส่งซ่อมไว้ประมาณต้นเดือนนี้ค่ะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ขออนุญาตตรวจสอบจากชื่อรุ่น Powercell X3 และข้อมูลที่แจ้งไว้ก่อนนะคะ\nตอนนี้สถานะอยู่ระหว่างเตรียมนัดรับสินค้า รบกวนรอการติดต่อกลับผ่าน LINE OA นี้อีกครั้งค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ แล้วถ้ามีการติดต่อกลับต้องเตรียมเอกสารอะไรไหมคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"กรุณาเตรียมสินค้าและใบรับซ่อมไว้ให้พร้อมนะคะ หากมีเอกสารเพิ่มเติม ทางเจ้าหน้าที่จะแจ้งอีกครั้งในข้อความถัดไปค่ะ\nมีเรื่องอื่นให้ช่วยสอบถามเพิ่มเติมไหมคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติม สามารถทักมาได้ตลอดผ่าน LINE OA นี้นะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,3 @@
+timestamp	branch_code	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_amt	payment_method	schema_version
+2024-01-24T19:18:23+07:00	CNX-MAYA	TXN-202401-24001111	1	SKU-MASS-045	1	18900.00	0.00	credit_card	1
+2024-01-24T12:03:35+07:00	CNX-MAYA	TXN-202401-24012601	1	SKU-MASS-070	1	4900.00	0.00	cash	1

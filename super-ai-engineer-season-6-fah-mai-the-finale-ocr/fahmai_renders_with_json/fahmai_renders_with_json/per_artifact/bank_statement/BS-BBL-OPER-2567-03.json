@@ -1,0 +1,42 @@
+{
+  "artifact_id": "BS-BBL-OPER-2567-03",
+  "renderer_template_id": "bank_statement_bbl",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/bank_statement/2024-03/BS-BBL-OPER-2567-03_header.png",
+      "page_kind": "header",
+      "source_fact_table": "DIM_BANK_ACCOUNT",
+      "source_row_ids": [
+        "BBL-OPER"
+      ],
+      "visible_fields": [
+        "account_id",
+        "bank",
+        "account_number",
+        "account_role",
+        "currency"
+      ]
+    },
+    {
+      "output_path": "renders/bank_statement/2024-03/BS-BBL-OPER-2567-03_transactions_p1.png",
+      "page_kind": "page",
+      "source_fact_table": "FACT_BANK_TRANSACTION",
+      "source_row_ids": [
+        "BT-202403-978640625779"
+      ],
+      "visible_fields": [
+        "account_id",
+        "business_event_date",
+        "transaction_type",
+        "amount_thb",
+        "balance_after_thb",
+        "description"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "BBL-OPER",
+    "BT-202403-978640625779"
+  ]
+}

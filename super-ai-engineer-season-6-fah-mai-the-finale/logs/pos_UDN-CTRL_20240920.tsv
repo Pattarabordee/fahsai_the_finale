@@ -1,0 +1,4 @@
+timestamp	branch_code	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_amt	payment_method	schema_version
+2024-09-20T09:06:00+07:00	UDN-CTRL	TXN-202409-20015307	1	SKU-MASS-055	1	12900.00	0.00	credit_card	1
+2024-09-20T20:41:25+07:00	UDN-CTRL	TXN-202409-20020628	1	SKU-MASS-109	1	18900.00	0.00	credit_card	1
+2024-09-20T21:12:30+07:00	UDN-CTRL	TXN-202409-20028220	1	SKU-MASS-025	1	29900.00	0.00	mobile_wallet	1

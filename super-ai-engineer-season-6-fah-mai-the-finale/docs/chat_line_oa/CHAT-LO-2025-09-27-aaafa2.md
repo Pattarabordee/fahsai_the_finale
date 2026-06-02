@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอสอบถามสต็อกสินค้าที่สาขาใกล้บ้านหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณธีระ เลิศวานิช ยินดีให้บริการค่ะ ทาง May Support รับเรื่องให้ค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็คสต็อก และสาขาที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"Powercell X3 ครับ ผมอยู่แถวบางนา อยากเช็คสาขาที่ใกล้ที่สุด"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ตอนนี้รบกวนขอเช็คสาขาบางนาที่ลูกค้าสะดวกก่อนนะคะ หากต้องการ เราช่วยเช็คแบบสาขาใกล้ที่สุดให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอเช็คสาขาใกล้ที่สุดเลยครับ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ตอนนี้ทางเรายังไม่เห็นข้อมูลสต็อกแบบเรียลไทม์ในแชตนี้ค่ะ รบกวนลูกค้าติดต่อสาขาใกล้บ้านผ่าน LINE OA นี้ หรือแจ้งชื่อสาขาที่ต้องการให้เราช่วยประสานต่อได้ค่ะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ขอบคุณที่ติดต่อเข้ามานะคะ หากต้องการสอบถามเพิ่มเติม สามารถทักมาได้ตลอดค่ะ"}

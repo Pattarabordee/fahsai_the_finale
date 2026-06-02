@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็กสถานะพัสดุที่ส่งวันนี้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ดิฉัน May Support ยินดีดูแลให้ค่ะ\nรบกวนแจ้งเลขที่อ้างอิงหรือชื่อผู้รับปลายทางสักนิดได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ยังไม่สะดวกส่งเลขค่ะ แต่เป็นพัสดุที่ส่งวันนี้ไปกรุงเทพฯ อยากทราบว่าตอนนี้ถึงไหนแล้ว"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนลูกค้าแจ้งชื่อผู้รับปลายทาง หรือถ่ายรูปใบส่งของมาทาง LINE OA นี้ได้ไหมคะ ทางเราจะช่วยตรวจสอบสถานะล่าสุดให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ส่งรูปใบส่งของให้แล้วค่ะ ช่วยดูให้หน่อยนะคะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ทางเราตรวจสอบให้แล้ว พัสดุตอนนี้อยู่ระหว่างนำส่งและคาดว่าจะส่งถึงปลายทางภายในวันนี้ค่ะ\nหากช่วงบ่ายยังไม่ได้รับสินค้า รบกวนทักกลับมาอีกครั้งได้เลยค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ไม่มีเรื่องอื่นแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีมากค่ะ หากมีเรื่องสอบถามเพิ่มเติม สามารถทักเข้ามาที่ LINE OA นี้ได้ตลอดนะคะ ขอให้คุณลูกค้าวันนี้เป็นวันที่ดีค่ะ"}

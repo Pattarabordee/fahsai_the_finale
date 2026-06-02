@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:12","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ สอบถามสต็อกสินค้าที่สาขาใกล้บ้านหน่อยครับ มีของพร้อมรับไหม"}
+{"message_id":"M-002","timestamp":"10:13","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมพร ชัยมงคล ทางฟ้าใหม่ May Support ยินดีช่วยดูให้นะคะ รบกวนแจ้งชื่อสินค้าที่ต้องการ และสาขาใกล้บ้านที่สะดวกรับหน่อยค่ะ"}
+{"message_id":"M-003","timestamp":"10:15","speaker":"CUSTOMER","message_type":"text","text":"เป็นรุ่น Powercell X3 ครับ สาขาใกล้บ้านคือสาขาบางนา"}
+{"message_id":"M-004","timestamp":"10:17","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้สาขาบางนามี Powercell X3 พร้อมจำหน่ายอยู่ค่ะ หากลูกค้าสะดวกรับสินค้า แนะนำแวะสอบถามหน้าร้านอีกครั้งก่อนเดินทางนะคะ"}
+{"message_id":"M-005","timestamp":"10:19","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:20","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ผ่าน LINE OA นี้ตลอดนะคะ ขอให้มีวันที่ดีค่ะ"}

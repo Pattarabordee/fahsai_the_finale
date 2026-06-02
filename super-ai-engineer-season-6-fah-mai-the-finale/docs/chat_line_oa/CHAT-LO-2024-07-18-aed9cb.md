@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามสถานะพัสดุที่จัดส่งวันนี้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ยินดีดูแลให้ค่ะ ดิฉัน May Support จากฟ้าใหม่นะคะ\nรบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่อ้างอิงสำหรับตรวจสอบสถานะพัสดุให้หน่อยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขสั่งซื้อคือ 18 กรกฎาคม 2567 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณลูกค้า ขอตรวจสอบข้อมูลจากหมายเลขสั่งซื้อที่แจ้งนะคะ\nสถานะตอนนี้พัสดุอยู่ระหว่างจัดส่ง และมีแนวโน้มถึงปลายทางภายในวันนี้ค่ะ รบกวนลูกค้าเผื่อเวลารับพัสดุไว้สักหน่อยนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากคุณลูกค้ามีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้ตลอดผ่าน LINE OA นี้นะคะ"}

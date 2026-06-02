@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ผมสิทธิ มหาเปียรครับ ขอสอบถามความคืบหน้าการนัดรับสินค้าซ่อมประกันหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสิทธิ มหาเปียร ทางฟ้าใหม่ May Support ยินดีดูแลค่ะ\nรบกวนแจ้งหมายเลขงานซ่อมหรือข้อมูลสินค้าที่ส่งเคลมไว้สักนิดนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ครับ ไม่แน่ใจเลขงานซ่อม ขอเช็กแค่สถานะรับกลับได้ไหมครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ตรวจสอบให้แล้วนะคะ งานเคสนี้อยู่ในกลุ่มเคลมที่ผูกกับล็อตสินค้าซึ่งมีปัญหาการผลิตตามเงื่อนไขประกันค่ะ [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\": \"Powercell X3\"}]]\nตอนนี้สินค้าพร้อมนัดรับกลับแล้วค่ะ รบกวนลูกค้ารอการติดต่อจากเจ้าหน้าที่ขนส่งผ่านช่องทาง LINE OA นี้อีกครั้งนะคะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะคุณสิทธิ หากต้องการสอบถามเพิ่มเติมเกี่ยวกับงานซ่อมหรือการรับสินค้า แจ้งมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

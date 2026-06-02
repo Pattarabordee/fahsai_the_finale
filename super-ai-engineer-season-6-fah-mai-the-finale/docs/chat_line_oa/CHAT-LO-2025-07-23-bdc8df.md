@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ตอนนี้มีโปรโมชั่นอะไรอยู่บ้างคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณดารณี บุญรอด ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งว่าลูกค้าสนใจโปรโมชั่นในหมวดไหน เช่น สินค้า, บริการ หรือโปรออนไลน์คะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจโปรสินค้าค่ะ มีตัวไหนแนะนำบ้าง"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ตอนนี้มีโปรสินค้าแบบลดราคาและของแถมในบางรายการค่ะ ลูกค้าสามารถแจ้งชื่อสินค้าที่สนใจมาได้เลย เดี๋ยวดิฉันช่วยเช็กโปรให้ค่ะ\nถ้าต้องการดูโปรทั้งหมดในวันนี้ ทาง LINE OA นี้มีอัปเดตไว้ให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เดี๋ยวลองดูเพิ่มเติมเองก่อนนะคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ ขอบคุณที่ติดต่อฟ้าใหม่นะคะ หากมีคำถามเพิ่มเติม ทักมาได้ตลอดค่ะ"}

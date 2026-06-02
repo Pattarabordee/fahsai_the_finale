@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณอรุณ ภักดี ทาง May Support ยินดีช่วยนะคะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็คสต็อก และสาขาที่สะดวกค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"Powercell X3 ค่ะ สาขาใกล้บ้านเป็นสาขาเซ็นทรัลเวสต์เกตค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ สาขาเซ็นทรัลเวสต์เกตมี Powercell X3 พร้อมจำหน่ายค่ะ\nหากคุณอรุณต้องการให้ช่วยเช็คสาขาอื่นเพิ่มเติม แจ้งชื่อสาขาได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"พอแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ผ่าน LINE OA นี้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

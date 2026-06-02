@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ สนใจสอบถามข้อมูลสินค้าหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมพร วิจิตร ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งชื่อสินค้าหรือบริการที่สนใจ และอยากทราบข้อมูลด้านไหนเป็นพิเศษคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจ Powercell X3 ค่ะ อยากทราบว่ามีแบบไหนบ้าง กับวิธีสั่งซื้อค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ Powercell X3 มีให้เลือกหลายแบบตามการใช้งานค่ะ\nหากคุณสมพรต้องการ เราสามารถส่งรายละเอียดรุ่นที่มีอยู่ พร้อมวิธีสั่งซื้อผ่าน LINE OA นี้ให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รบกวนส่งรายละเอียดมาได้เลยค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ เดี๋ยวเราสรุปข้อมูลให้ทางแชตนี้นะคะ\nถ้าต้องการสอบถามเพิ่มเติมเกี่ยวกับ Powercell X3 หรือขั้นตอนสั่งซื้อ แจ้งได้เลยค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ไม่มีแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณมากค่ะ คุณสมพร หากต้องการสอบถามเพิ่มเติมในภายหลัง ทักมาได้ทุกเมื่อค่ะ\nขอให้วันนี้เป็นวันที่ดีนะคะ"}

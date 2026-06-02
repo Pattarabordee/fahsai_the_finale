@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ อยากเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณพรทิพย์ ขอบคุณที่ติดต่อฟ้าใหม่ค่ะ ดิฉัน May Support ยินดีช่วยตรวจสอบให้ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็ค และสาขาใกล้บ้านที่ต้องการดูสต็อกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นรุ่น Powercell X3 ค่ะ ดูที่สาขาเซ็นทรัลลาดพร้าวได้ไหมคะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ คุณพรทิพย์ สินค้า Powercell X3 ที่สาขาเซ็นทรัลลาดพร้าวยังมีสินค้าพร้อมจำหน่ายค่ะ\nหากต้องการให้กันสินค้าไว้ รบกวนแจ้งเวลาที่สะดวกเข้ารับสินค้าได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เดี๋ยวแวะช่วงบ่ายค่ะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากแวะช่วงบ่าย แนะนำติดต่อสาขาก่อนออกเดินทางอีกครั้งเพื่อเช็กความพร้อมล่าสุดนะคะ\nมีเรื่องอื่นให้ช่วยสอบถามอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ ขอให้คุณพรทิพย์สะดวกในการแวะรับสินค้านะคะ หากต้องการสอบถามเพิ่มเติม ทักมาได้เสมอค่ะ"}

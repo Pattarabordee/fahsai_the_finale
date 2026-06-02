@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ อยากเช็คสต็อกสินค้าที่สาขาใกล้บ้านครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณภูริ วิเศษ ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็ค และสาขาใกล้บ้านที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นสินค้า Powercell X3 ครับ สาขาเซ็นทรัลบางนา มีของไหมครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณภูริ\nตอนนี้ทางระบบยังไม่แสดงสต็อกแบบเรียลไทม์ผ่านแชตนี้ค่ะ รบกวนลูกค้าติดต่อสาขาเซ็นทรัลบางนาโดยตรง หรือแจ้งวันเวลาที่สะดวกให้เราเช็คต่อให้อีกครั้งได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ ขอบคุณครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติมผ่าน LINE OA นี้ได้เลยนะคะ ขอให้เป็นวันที่ดีค่ะ"}

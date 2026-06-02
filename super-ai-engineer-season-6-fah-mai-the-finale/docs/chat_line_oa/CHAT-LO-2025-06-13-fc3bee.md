@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามเรื่องนัดรับสินค้าซ่อมประกันหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณพิมพ์ พรหมณี ทางฟ้าใหม่ May Support ยินดีดูแลค่ะ รบกวนแจ้งหมายเลขอ้างอิงงานซ่อมหรือชื่อรุ่นสินค้าให้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่องที่ส่งซ่อมไปก่อนหน้านี้ค่ะ อยากทราบว่านัดรับได้วันไหนคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนขอชื่อ–นามสกุลผู้ส่งซ่อม และสาขาที่ฝากเครื่องไว้เพิ่มอีกนิดนะคะ เดี๋ยวทางเราช่วยตรวจสอบสถานะนัดรับให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"พิมพ์ พรหมณี ฝากไว้ที่สาขากรุงเทพฯ ค่ะ"}
+{"message_id":"M-006","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณพิมพ์ ทางเราเช็กแล้ว งานซ่อมพร้อมนัดรับที่สาขากรุงเทพฯ แล้วค่ะ รบกวนลูกค้าเข้ารับในวันทำการ พร้อมนำใบรับซ่อมหรือบัตรประชาชนไปแสดงที่หน้าเคาน์เตอร์นะคะ"}
+{"message_id":"M-007","timestamp":"10:45","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:46","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักมาได้เลยนะคะ ขอให้วันนี้สะดวกสบายค่ะ"}

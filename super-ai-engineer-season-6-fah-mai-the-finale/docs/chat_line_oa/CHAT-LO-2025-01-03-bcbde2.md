@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนเช็คสถานะพัสดุให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ดิฉัน May Support จากฟ้าใหม่ค่ะ ยินดีดูแลให้ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ใช้ส่งของไว้ได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ หมายเลขอ้างอิงคือ FM-20250103-118 ครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ รบกวนรอสักครู่นะคะ เดี๋ยวทางเราตรวจสอบสถานะให้ค่ะ\nตอนนี้พัสดุของคุณอยู่ระหว่างการนำส่ง และมีการอัปเดตล่าสุดวันนี้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ ปกติจะถึงช่วงไหนครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"โดยทั่วไปจะมีพนักงานจัดส่งติดต่อก่อนนำส่งค่ะ หากวันนี้ยังไม่สะดวกรับ รบกวนแจ้งช่วงเวลาที่สะดวกไว้ในแชตนี้ได้เลยนะคะ\nหากต้องการ ดิฉันช่วยสรุปสถานะให้แบบสั้น ๆ สำหรับติดตามต่อได้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ยังไม่มีเรื่องอื่นแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องเพิ่มเติม สามารถทักมาใน LINE OA นี้ได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

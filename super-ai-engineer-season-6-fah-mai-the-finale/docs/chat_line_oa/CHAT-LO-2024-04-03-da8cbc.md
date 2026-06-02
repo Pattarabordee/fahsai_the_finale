@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนเช็คสต็อกสินค้าที่สาขาใกล้บ้านให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมศักดิ์ วัฒนพงษ์ ขอบคุณที่ติดต่อฟ้าใหม่ค่ะ ดิฉัน May Support ยินดีช่วยตรวจสอบให้ค่ะ\nรบกวนแจ้งชื่อสินค้า และสาขาใกล้บ้านที่ต้องการเช็กสต็อกได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"สินค้า Powercell X3 ครับ สาขาเซ็นทรัลเวสต์เกตครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ สำหรับ Powercell X3 ที่สาขาเซ็นทรัลเวสต์เกต ตอนนี้มีสินค้าพร้อมจำหน่ายค่ะ\nถ้าคุณสมศักดิ์สะดวก แนะนำให้แวะไปที่สาขาได้เลยนะคะ หากต้องการให้ช่วยดูสาขาอื่นเพิ่มเติม แจ้งมาได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ เท่านี้พอแล้วครับ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ถ้ามีเรื่องอื่นสอบถามได้ผ่าน LINE OA นี้ตลอดนะคะ ขอให้มีวันที่ดีค่ะ"}

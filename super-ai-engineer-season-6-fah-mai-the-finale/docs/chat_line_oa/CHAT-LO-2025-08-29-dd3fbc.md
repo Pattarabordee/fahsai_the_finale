@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอสอบถามสถานะพัสดุหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณปิติ บุญเรือง ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อ หรือเลขที่อ้างอิงพัสดุเข้ามาได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ผมยังไม่มีเลขพัสดุครับ แต่สั่งวันนี้ อยากทราบว่าตอนนี้ส่งออกหรือยัง"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ตอนนี้หากยังไม่มีเลขพัสดุ ขอเช็กจากชื่อผู้รับให้ก่อนนะคะ\nรบกวนแจ้งที่อยู่จัดส่งหรือชื่อผู้รับบนออเดอร์เพิ่มเติมสักนิดค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ชื่อผู้รับ ปิติ บุญเรือง ครับ ส่งไปที่กรุงเทพฯ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ จากข้อมูลที่แจ้งเข้ามา ตอนนี้รายการของคุณปิติอยู่ระหว่างเตรียมจัดส่งค่ะ\nหากระบบออกเลขพัสดุแล้ว จะมีการอัปเดตสถานะผ่าน LINE OA นี้ให้ตรวจสอบได้อีกครั้งค่ะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

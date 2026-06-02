@@ -1,0 +1,7 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอสอบถามสต็อกสินค้าที่สาขาใกล้บ้านหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณภาณุพงศ์ พิพัฒน์ ยินดีให้บริการจากฟ้าใหม่ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็กสต็อก และสาขาที่สะดวกได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ต้องการเช็กสินค้า Powercell X3 ครับ สะดวกสาขาใกล้บ้านแถวปากเกร็ดครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ ตอนนี้ทางร้านช่วยตรวจสอบสต็อกให้ได้ค่ะ\nรบกวนรอสักครู่นะคะ ถ้าสาขาปากเกร็ดมีสินค้าพร้อมรับ จะรีบแจ้งรายละเอียดให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ตรวจสอบแล้วค่ะ สาขาปากเกร็ดมีสินค้า Powercell X3 พร้อมจำหน่ายนะคะ\nหากต้องการให้กันสินค้าไว้ รบกวนแจ้งชื่อและช่วงเวลาที่สะดวกเข้ารับได้เลยค่ะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ เดี๋ยวผมเข้าไปช่วงบ่ายครับ"}
+{"message_id":"M-007","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณภาณุพงศ์ พิพัฒน์\nขอให้เดินทางสะดวกนะคะ หากมีเรื่องอื่นสอบถามผ่าน LINE OA นี้ได้ตลอดค่ะ"}

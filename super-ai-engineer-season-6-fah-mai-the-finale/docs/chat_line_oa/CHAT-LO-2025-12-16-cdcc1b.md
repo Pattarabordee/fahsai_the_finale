@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ตอนนี้มีโปรโมชั่นอะไรบ้างคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ยินดีให้บริการจาก May Support ค่ะ\nตอนนี้ทางฟ้าใหม่มีโปรโมชันประจำวันนี้อยู่ค่ะ ลูกค้าสนใจแบบส่วนลด หรือแบบแถมเพิ่มเติมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"อยากทราบแบบส่วนลดค่ะ มีรายละเอียดไหม"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ โปรที่กำลังจัดคือส่วนลดสำหรับสินค้าที่ร่วมรายการค่ะ\nหากลูกค้าสนใจ แจ้งชื่อสินค้าที่ต้องการได้เลย เดี๋ยวเราเช็กเงื่อนไขให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เดี๋ยวลองดูสินค้าเพิ่มเติมก่อนนะคะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติมหรือให้ช่วยเช็กรายการสินค้าอีกครั้ง ทักมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

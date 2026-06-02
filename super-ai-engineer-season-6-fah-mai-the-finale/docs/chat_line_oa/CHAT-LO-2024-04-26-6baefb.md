@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสต็อกสินค้าในสาขาใกล้บ้านหน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณนันทพร วชิรพันธ์ May Support ยินดีดูแลค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็คสต็อก และสาขาใกล้บ้านที่สะดวกได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ต้องการเช็ค Powercell X3 ค่ะ สาขาเซ็นทรัลเวิลด์มีของไหมคะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้ทางบริษัทขอให้ลูกค้าตรวจสอบสต็อกผ่านช่องทาง LINE OA นี้กับสาขาโดยตรงอีกครั้งนะคะ หากต้องการ ทางเราช่วยแจ้งข้อความสำหรับส่งต่อให้สาขาได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ รบกวนช่วยร่างข้อความให้หน่อยนะคะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ คุณนันทพรสามารถส่งข้อความนี้ได้ค่ะ\n\"สวัสดีค่ะ ขอสอบถามสต็อก Powercell X3 ที่สาขาเซ็นทรัลเวิลด์ค่ะ รบกวนแจ้งจำนวนสินค้าคงเหลือและเวลาที่สามารถรับสินค้าได้ด้วยนะคะ\"\nหากต้องการให้ช่วยเรื่องอื่นเพิ่มเติม แจ้งได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากค่ะ ไม่มีเรื่องอื่นแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีคำถามเพิ่มเติม ทักมาได้ทุกเมื่อเลยนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

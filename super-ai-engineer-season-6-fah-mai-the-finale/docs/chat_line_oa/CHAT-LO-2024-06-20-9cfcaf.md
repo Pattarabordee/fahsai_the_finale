@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสถานะพัสดุหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณวิภา เทียนทอง ยินดีให้บริการค่ะ ดิฉัน May Support จากฟ้าใหม่ค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อ หรือเลขที่อ้างอิงสำหรับตรวจสอบสถานะพัสดุได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขสั่งซื้อคือ OA-20620-781 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณวิภา ดิฉันตรวจสอบข้อมูลให้แล้ว ตอนนี้พัสดุอยู่ระหว่างจัดส่งค่ะ และมีสถานะว่าลูกค้ากำลังรอรับจากขนส่งวันนี้\nหากสะดวก รบกวนติดตามจากหน้าสถานะใน LINE OA นี้ได้อีกครั้งนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากค่ะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากคุณวิภามีเรื่องอื่นสอบถามเพิ่มเติม แจ้งเข้ามาได้ตลอดเลยนะคะ ขอให้ได้รับพัสดุเรียบร้อยค่ะ"}

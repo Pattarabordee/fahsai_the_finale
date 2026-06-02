@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสถานะพัสดุที่ส่งวันนี้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ยินดีดูแลให้ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ใช้ส่งของมาหน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ยังไม่มีเลขพัสดุค่ะ มีแต่เลขที่อ้างอิงการส่งของ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ รบกวนส่งเลขที่อ้างอิงมาได้เลยนะคะ ทางเราจะช่วยตรวจสอบสถานะให้ค่ะ\nถ้าสะดวก บอกชื่อผู้รับเพิ่มเติมได้อีก 1 รายการค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"เลขที่อ้างอิง 25670630-01 ค่ะ ผู้รับชื่อบริษัทเอบีซี"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ จากข้อมูลที่ได้รับ ตอนนี้พัสดุอยู่ระหว่างนำส่งในวันนี้ค่ะ\nรบกวนคุณลูกค้ารอเจ้าหน้าที่ขนส่งติดต่อกลับหรืออัปเดตสถานะอีกครั้งในแชตนี้ได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ไม่มีเรื่องอื่นแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติมสามารถทักมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

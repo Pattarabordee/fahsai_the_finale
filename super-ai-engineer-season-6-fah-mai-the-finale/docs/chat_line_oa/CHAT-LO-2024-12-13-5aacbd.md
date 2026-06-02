@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามเวลาทำการของสาขาหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณอัจฉรา มหาเปียร May Support ยินดีให้บริการค่ะ\nรบกวนแจ้งชื่อสาขาที่ต้องการสอบถามได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นสาขาในห้างค่ะ ไม่แน่ใจชื่อสาขา"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ สาขาในห้างส่วนมากเปิดตามเวลาห้างค่ะ โดยทั่วไปประมาณ 10:00-21:00 น. แต่เวลาอาจต่างกันตามสาขา\nถ้าคุณอัจฉราบอกชื่อห้างหรือทำเลคร่าว ๆ เพิ่มเติมได้ ทางเราจะช่วยเช็กให้แม่นยำขึ้นค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เดี๋ยวเช็กชื่อสาขาเพิ่มก่อนนะคะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่ม ส่งข้อความมาได้เลยนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

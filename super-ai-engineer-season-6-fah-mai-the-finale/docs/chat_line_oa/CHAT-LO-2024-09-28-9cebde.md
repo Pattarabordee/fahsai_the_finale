@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนสอบถามสถานะนัดรับสินค้าซ่อมประกันหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสุดา อังกูร ติดต่อ May Support ค่ะ ขออภัยในความไม่สะดวกนะคะ รบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่อ้างอิงงานซ่อมให้หน่อยค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีหมายเลขค่ะ แต่เป็นสินค้าที่ส่งซ่อมไว้ช่วงต้นเดือนนี้ค่ะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ รบกวนแจ้งชื่อสินค้า รุ่นสินค้า หรือสาขาที่ฝากซ่อมไว้เพิ่มอีกนิดนะคะ ทางเราจะช่วยตรวจสอบสถานะนัดรับให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ค่ะ ฝากซ่อมที่สาขาหน้าศูนย์ค่ะ"}
+{"message_id":"M-006","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณสุดา ทางเราตรวจสอบให้แล้วนะคะ งานซ่อมของ Powercell X3 ตอนนี้รอรับสินค้าที่สาขาหน้าศูนย์อยู่ค่ะ รบกวนคุณสุดาเข้าไปรับที่สาขาได้เลยในช่วงเวลาทำการ และนำใบรับซ่อมมาด้วยนะคะ"}
+{"message_id":"M-007","timestamp":"10:45","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:47","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้เลยนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

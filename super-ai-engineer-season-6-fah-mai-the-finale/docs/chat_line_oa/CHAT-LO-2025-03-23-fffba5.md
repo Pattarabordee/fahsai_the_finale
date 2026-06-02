@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามสต็อกสินค้าที่สาขาใกล้บ้านหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณศิริ บุญเรือง ดิฉัน May Support จากฟ้าใหม่ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็ก และสาขาที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ต้องการเช็ก Powercell X3 ที่สาขาใกล้ BTS อ่อนนุชค่ะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ตอนนี้สาขาใกล้ BTS อ่อนนุชมี Powercell X3 พร้อมจำหน่ายค่ะ\nถ้าคุณศิริต้องการ ดิฉันช่วยเช็กสาขาอื่นเพิ่มเติมให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ แค่นี้พอแล้วค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามผ่าน LINE OA นี้ได้เลยนะคะ ขอให้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนเช็กสถานะการจัดส่งพัสดุให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ขอบคุณที่ติดต่อฟ้าใหม่ค่ะ ดิฉัน May Support รับเรื่องให้ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ต้องการตรวจสอบได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ หมายเลขอ้างอิงคือ 789456123 ครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ดิฉันตรวจสอบให้ค่ะ\nสถานะตอนนี้พัสดุอยู่ระหว่างนำส่งวันนี้ค่ะ หากปลายทางติดต่อไม่ได้ อาจมีการนำจ่ายอีกครั้งในรอบถัดไปค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการตรวจสอบเพิ่มเติมหรือต้องการสอบถามเรื่องอื่น สามารถส่งข้อความมาได้เลยนะคะ"}

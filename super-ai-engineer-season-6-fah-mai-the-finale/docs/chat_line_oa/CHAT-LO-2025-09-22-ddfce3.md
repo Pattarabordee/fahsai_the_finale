@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ สนใจเช็คสต็อกสินค้าที่สาขาใกล้บ้านครับ ไม่ทราบว่ายังมีของอยู่ไหม"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณภาคิน ฟ้าใหม่ May Support ยินดีดูแลค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็ค และสาขาใกล้บ้านที่สะดวกเข้ารับค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็น Powercell X3 ครับ อยากเช็คที่สาขาใกล้บิ๊กซีแถวบ้าน"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้สต็อกของ Powercell X3 อาจต่างกันตามสาขา\nถ้าคุณภาคินแจ้งชื่อสาขาที่ต้องการ หรือส่งจังหวัดกับย่านใกล้บ้านมาได้ค่ะ เดี๋ยวเราช่วยตรวจสอบให้"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ สาขาบิ๊กซีรัตนาธิเบศร์ครับ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ สาขาบิ๊กซีรัตนาธิเบศร์มีสินค้าพร้อมให้เช็คแล้วค่ะ\nหากคุณภาคินต้องการ จองรับหน้าร้านหรือให้เราแนะนำสาขาใกล้เคียงเพิ่มเติม แจ้งได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ เท่านี้พอแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติมผ่าน LINE OA นี้ ทักมาได้ตลอดนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,26 @@
+{
+  "artifact_id": "POL-001",
+  "renderer_template_id": "t2_doc_policy_doc",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/t2_doc/2024-01/POL-001.pdf",
+      "page_kind": "page",
+      "source_fact_table": "DIM_POLICY_VERSION",
+      "source_row_ids": [
+        "1"
+      ],
+      "visible_fields": [
+        "policy_version_id",
+        "policy_class",
+        "policy_variable",
+        "scope_filter",
+        "effective_date",
+        "policy_doc_filename"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "1"
+  ]
+}

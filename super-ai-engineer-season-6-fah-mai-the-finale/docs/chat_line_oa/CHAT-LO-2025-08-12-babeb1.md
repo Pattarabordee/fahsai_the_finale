@@ -1,0 +1,7 @@
+{"message_id":"M-001","timestamp":"09:15","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอรบกวนยืนยันใบแจ้งหนี้และเงื่อนไขการชำระของรอบนี้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"09:17","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ดิฉัน Ben Account จากฟ้าใหม่นะคะ รับเรื่องยืนยันใบแจ้งหนี้และเงื่อนไขการชำระให้ค่ะ"}
+{"message_id":"M-003","timestamp":"09:19","speaker":"CS_AGENT","message_type":"text","text":"รอบนี้ยอดตามใบแจ้งหนี้เป็น 142,500 บาท และกำหนดชำระวันที่ 11 ตุลาคม 2568 ค่ะ"}
+{"message_id":"M-004","timestamp":"09:21","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอทราบช่องทางชำระกับสิ่งที่ต้องแจ้งตอนโอนด้วยครับ"}
+{"message_id":"M-005","timestamp":"09:23","speaker":"CS_AGENT","message_type":"text","text":"ชำระได้ตามช่องทางที่บริษัทแจ้งไว้ในใบแจ้งหนี้นะคะ ตอนโอนรบกวนใส่เลขที่อ้างอิงตามเอกสาร และเก็บหลักฐานการชำระไว้ค่ะ"}
+{"message_id":"M-006","timestamp":"09:25","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ ขอบคุณมากครับ"}
+{"message_id":"M-007","timestamp":"09:27","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการให้ช่วยตรวจสอบรายละเอียดเพิ่มเติมหรือมีเรื่องอื่นสอบถาม แจ้งได้เลยนะคะ"}

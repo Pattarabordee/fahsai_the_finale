@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามข้อมูลสินค้าหน่อยค่ะ"} 
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณพลอย เลิศวานิช ทางฟ้าใหม่ยินดีให้บริการค่ะ ดิฉัน Staff055 Member ค่ะ\nไม่ทราบว่าคุณลูกค้าสนใจสอบถามข้อมูลสินค้าหรือบริการส่วนไหนคะ"} 
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"อยากทราบวิธีใช้งานสินค้าค่ะ"} 
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการสอบถามเพิ่มเติมหน่อยนะคะ ถ้ามีรุ่นหรือจุดที่สงสัยเป็นพิเศษ ส่งมาได้เลยค่ะ"} 
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"เป็นสินค้ากลุ่มอุปกรณ์เสริมค่ะ ใช้งานครั้งแรกเลยอยากทราบแบบคร่าว ๆ"} 
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"เข้าใจค่ะ สำหรับการใช้งานครั้งแรก แนะนำให้ตรวจดูคู่มือในกล่องก่อน และทดลองใช้งานตามขั้นตอนที่ระบุบนสินค้าเป็นลำดับค่ะ\nถ้าคุณลูกค้าสะดวก สามารถส่งรูปสินค้าหรือหน้าคู่มือมาได้ ทางเราจะช่วยดูรายละเอียดให้เพิ่มเติมค่ะ"} 
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"โอเคค่ะ ขอบคุณมากนะคะ"} 
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติมได้ตลอดผ่าน LINE OA นี้นะคะ ขอให้ใช้งานสะดวกค่ะ"}

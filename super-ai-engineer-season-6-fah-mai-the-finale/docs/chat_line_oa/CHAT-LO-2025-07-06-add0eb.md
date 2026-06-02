@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:15","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ สอบถามเวลาทำการของสาขาหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:16","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณดวงใจ ปิ่นทอง ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งชื่อสาขาที่ต้องการสอบถามหน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:18","speaker":"CUSTOMER","message_type":"text","text":"เป็นสาขาในกรุงเทพฯ ค่ะ ขอทราบเวลาทำการโดยรวมได้ไหม"}
+{"message_id":"M-004","timestamp":"10:19","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ โดยทั่วไปสาขาเปิดให้บริการทุกวัน 09:00-18:00 น. ค่ะ\nถ้าคุณดวงใจต้องการทราบเวลาของสาขาใดเป็นพิเศษ ส่งชื่อสาขามาได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:21","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เท่านี้พอแล้วค่ะ"}
+{"message_id":"M-006","timestamp":"10:22","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ผ่าน LINE OA นี้ตลอดนะคะ\nขอให้คุณดวงใจมีวันที่ดีค่ะ"}

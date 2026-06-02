@@ -1,0 +1,7 @@
+{"message_id":"M-001","timestamp":"10:00","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนเช็คสต็อกสินค้าได้ไหมคะ อยากทราบว่าสาขาใกล้บ้านยังมีของอยู่หรือเปล่า"}
+{"message_id":"M-002","timestamp":"10:01","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณวิภา ประเสริฐ ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็คสต็อก และหากมีชื่อสาขาใกล้บ้าน แจ้งมาได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:03","speaker":"CUSTOMER","message_type":"text","text":"เป็นสินค้า Powercell X3 ค่ะ สาขาเมกา บางนา มีของไหมคะ"}
+{"message_id":"M-004","timestamp":"10:05","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้ทางเราช่วยตรวจสอบสต็อกของ Powercell X3 ที่สาขาเมกา บางนาให้ได้ค่ะ\nรบกวนรอสักครู่ เดี๋ยวแจ้งผลให้ทราบทางแชตนี้นะคะ"}
+{"message_id":"M-005","timestamp":"10:07","speaker":"CS_AGENT","message_type":"text","text":"ตรวจสอบแล้ว สาขาเมกา บางนา ยังมีสินค้า Powercell X3 ค่ะ\nหากลูกค้าต้องการให้ช่วยเช็คสาขาอื่นเพิ่มเติม แจ้งมาได้เลยนะคะ"}
+{"message_id":"M-006","timestamp":"10:09","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-007","timestamp":"10:10","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติมผ่าน LINE OA นี้ได้ตลอดนะคะ\nขอให้มีวันที่ดีค่ะ"}

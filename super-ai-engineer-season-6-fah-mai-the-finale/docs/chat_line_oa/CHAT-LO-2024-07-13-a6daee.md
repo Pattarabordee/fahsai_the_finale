@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนเช็คสถานะพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ดูแลให้ค่ะ รบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่อ้างอิง พร้อมชื่อผู้รับสั้น ๆ ได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขสั่งซื้อคือ 20240713-4582 ชื่อผู้รับกิตติพงศ์ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้สถานะพัสดุอยู่ระหว่างจัดส่ง และมีบันทึกเข้าระบบวันนี้ 13 กรกฎาคม 2567 ค่ะ รบกวนรอรับพัสดุที่ปลายทางและตรวจสอบกับผู้รับปลายทางได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ถ้ายังไม่ถึงภายในวันนี้ต้องทำยังไงคะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"หากยังไม่ได้รับภายในวันนี้ รบกวนแจ้งกลับมาพร้อมหมายเลขสั่งซื้อเดิมได้เลยค่ะ ทางเราจะช่วยติดตามสถานะให้ต่อเนื่องค่ะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ขอบคุณที่ติดต่อเข้ามาที่ฟ้าใหม่ค่ะ หากต้องการสอบถามเพิ่มเติม ทักมาได้ตลอดนะคะ"}

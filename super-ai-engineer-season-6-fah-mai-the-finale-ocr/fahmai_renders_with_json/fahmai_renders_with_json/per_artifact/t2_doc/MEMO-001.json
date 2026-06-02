@@ -1,0 +1,25 @@
+{
+  "artifact_id": "MEMO-001",
+  "renderer_template_id": "t2_doc_memo_announcement",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/t2_doc/2024-01/MEMO-001.pdf",
+      "page_kind": "page",
+      "source_fact_table": "T2_DOC_INVENTORY",
+      "source_row_ids": [
+        "MEMO-001"
+      ],
+      "visible_fields": [
+        "doc_id",
+        "doc_kind",
+        "template_name",
+        "body_source",
+        "issue_date"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "MEMO-001"
+  ]
+}

@@ -1,0 +1,7 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ช่วงนี้ทางฟ้าใหม่มีโปรโมชั่นอะไรบ้างครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ยินดีให้บริการค่ะ ดิฉัน May Support จากฟ้าใหม่ค่ะ ตอนนี้มีโปรโมชันสำหรับสินค้า Powercell X3 อยู่ค่ะ ลูกค้าสนใจแบบไหนเป็นพิเศษคะ เช่น ส่วนลด หรือของแถม"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจส่วนลดครับ รบกวนบอกรายละเอียดหน่อย"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ โปรโมชันตอนนี้เป็นส่วนลดสำหรับ Powercell X3 และมีเงื่อนไขตามช่วงแคมเปญค่ะ หากลูกค้าต้องการ ทางเราสามารถส่งรายละเอียดเพิ่มเติมผ่าน LINE OA นี้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ส่งมาได้เลย"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ เดี๋ยวทางเราส่งรายละเอียดโปรโมชันให้ทางแชตนี้เลยนะคะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งได้ตลอดค่ะ"}
+{"message_id":"M-007","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ"}

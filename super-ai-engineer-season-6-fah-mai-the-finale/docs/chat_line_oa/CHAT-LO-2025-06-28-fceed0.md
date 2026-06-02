@@ -1,0 +1,1 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็กสถานะพัสดุที่สั่งไว้หน่อยครับ"}

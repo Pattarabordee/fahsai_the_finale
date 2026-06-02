@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสถานะพัสดุที่ส่งวันนี้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ยินดีดูแลค่ะ ขอตรวจสอบสถานะให้ได้เลยนะคะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ใช้ส่งของมาให้หน่อยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"หมายเลขอ้างอิงคือ FAH-25813 ครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้สถานะพัสดุอยู่ระหว่างขนส่ง และคาดว่าจะถึงปลายทางภายในวันนี้ค่ะ\nหากลูกค้าต้องการ เราช่วยแจ้งแนวทางติดตามต่อได้อีกนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ งั้นเดี๋ยวผมรอดูต่อ ขอบคุณครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แชตเข้ามาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

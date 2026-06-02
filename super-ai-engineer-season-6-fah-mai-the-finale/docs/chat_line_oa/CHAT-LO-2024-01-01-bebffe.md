@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณประยุทธ์ เทียนทอง ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็กสต็อก และสาขาใกล้บ้านที่ต้องการตรวจสอบได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็น Powercell X3 ครับ ขอเช็คที่สาขาใกล้บ้านในกรุงเทพฯ ได้ไหมครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนแจ้งชื่อสาขา หรือพื้นที่ใกล้บ้านที่สะดวกให้หน่อยนะคะ\nถ้าต้องการ ทางเราช่วยเช็กสาขาที่มีสินค้าให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอเช็คสาขาสยามพารากอนครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ตรวจสอบให้แล้วค่ะ ตอนนี้ Powercell X3 ที่สาขาสยามพารากอนมีสินค้าเหลืออยู่ค่ะ\nหากคุณประยุทธ์ต้องการ จองรับหน้าร้านหรือให้ช่วยเช็กสาขาอื่นเพิ่มเติม แจ้งได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ แค่นี้พอแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักมาได้ตลอดนะคะ\nขอให้มีวันที่ดีค่ะ"}

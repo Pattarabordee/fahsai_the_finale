@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:12","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสถานะพัสดุที่สั่งไว้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:14","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณก้อง พรหมณี ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อ หรือเลขที่อ้างอิงสำหรับตรวจสอบสถานะพัสดุได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:16","speaker":"CUSTOMER","message_type":"text","text":"ยังไม่มีเลขสั่งซื้อครับ แต่ส่งไปเมื่อวันนี้ ชื่อก้อง พรหมณีครับ"}
+{"message_id":"M-004","timestamp":"10:18","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ คุณก้อง\nรบกวนแจ้งชื่อผู้รับปลายทาง และที่อยู่จัดส่งแบบย่ออีกนิดได้ไหมคะ ทางเราจะช่วยตรวจสอบให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:20","speaker":"CUSTOMER","message_type":"text","text":"ชื่อผู้รับก้อง พรหมณีครับ ส่งไปกรุงเทพฯ ครับ"}
+{"message_id":"M-006","timestamp":"10:23","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ จากข้อมูลที่แจ้ง ตอนนี้คำสั่งซื้ออยู่ระหว่างรออัปเดตสถานะจัดส่งในระบบค่ะ\nหากมีเลขอ้างอิงเพิ่มเติม รบกวนส่งเข้ามาในแชตนี้ได้เลยนะคะ ทางเราจะช่วยตรวจสอบต่อให้ทันทีค่ะ"}
+{"message_id":"M-007","timestamp":"10:25","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:27","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเรื่องอื่นเพิ่มเติม สามารถทักมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

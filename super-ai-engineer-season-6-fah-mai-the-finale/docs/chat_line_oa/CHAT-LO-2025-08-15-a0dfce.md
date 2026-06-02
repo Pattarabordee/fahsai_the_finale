@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณวราภรณ์ ทาง May Support ยินดีช่วยตรวจสอบให้ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็ก กับสาขาใกล้บ้านที่สะดวกได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"อยากเช็ก Powercell X3 ที่สาขาใกล้บ้านค่ะ ถ้ามีของอยากไปรับวันนี้เลย"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ คุณวราภรณ์ ตอนนี้ทางเราขอช่วยตรวจสอบสต็อกที่สาขาให้ก่อนนะคะ\nหากสะดวก รบกวนบอกชื่อสาขาใกล้บ้านที่ต้องการเช็กมาได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"สาขาเซ็นทรัลปิ่นเกล้าค่ะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ตรวจสอบเบื้องต้นแล้ว สาขาเซ็นทรัลปิ่นเกล้ายังมี Powercell X3 คงเหลือค่ะ\nแนะนำให้โทรยืนยันหน้าร้านก่อนเดินทางอีกครั้งนะคะ หากต้องการ ทางเราช่วยเช็กสาขาอื่นเพิ่มเติมได้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ แค่นี้พอแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณวราภรณ์ หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักมาได้ตลอดนะคะ\nขอให้เดินทางไปรับสินค้าโดยสวัสดิภาพค่ะ"}

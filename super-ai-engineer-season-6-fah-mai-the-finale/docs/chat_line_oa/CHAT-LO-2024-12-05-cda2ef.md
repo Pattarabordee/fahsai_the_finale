@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามสถานะการจัดส่งพัสดุหน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ติดต่อฟ้าใหม่ May Support ค่ะ ยินดีช่วยตรวจสอบสถานะการจัดส่งให้ค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อ หรือเลขที่อ้างอิงที่ต้องการเช็คสถานะได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ เลขที่อ้างอิงคือ 05122567 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณลูกค้า ขณะนี้พัสดุอยู่ระหว่างจัดส่ง และมีสถานะล่าสุดว่าออกจากศูนย์คัดแยกแล้วค่ะ\nโดยปกติจะมีการอัปเดตสถานะอีกครั้งเมื่อพัสดุเข้าศูนย์ปลายทาง รบกวนรอตรวจสอบเพิ่มเติมใน LINE OA นี้ได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ถ้ามีอัปเดตแล้วแจ้งได้ไหมคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ คุณลูกค้า หากมีการอัปเดตสถานะ ระบบจะแจ้งผ่านช่องทางนี้ค่ะ\nหากต้องการให้ช่วยเช็คเพิ่มเติมภายหลัง สามารถทักมาได้ตลอดนะคะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ ขอให้คุณลูกค้ามีวันที่ดีนะคะ"}

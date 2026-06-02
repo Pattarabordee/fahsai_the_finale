@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็กใบแจ้งหนี้ของรอบนี้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีครับ คุณลูกค้า ผม Ben Account จากฟ้าใหม่ครับ ยินดีช่วยตรวจสอบใบแจ้งหนี้ให้ครับ\n\nรบกวนแจ้งหมายเลขอ้างอิงใบแจ้งหนี้ หรือสรุปยอดที่ต้องการเช็กมาได้เลยครับ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นยอด 167,865 บาทครับ อยากทราบกำหนดชำระด้วยครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณครับ ตรวจสอบให้แล้ว ใบแจ้งหนี้ยอด 167,865 บาท กำหนดชำระภายในวันที่ 23 สิงหาคม 2568 ครับ\n\nหากสะดวก รบกวนชำระภายในกำหนด และเก็บหลักฐานการโอนหรือเอกสารชำระเงินไว้ตรวจสอบด้วยนะครับ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ เดี๋ยวส่งต่อให้ฝ่ายการเงินครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณครับ หากต้องการให้ช่วยตรวจสอบรายละเอียดอื่นของใบแจ้งหนี้ หรือมีเรื่องเพิ่มเติม แจ้งมาได้เลยครับ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณครับ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีครับ ขอให้การดำเนินงานราบรื่นนะครับ หากต้องการความช่วยเหลือเพิ่มเติมผ่าน LINE OA นี้ สามารถทักมาได้ตลอดครับ"}

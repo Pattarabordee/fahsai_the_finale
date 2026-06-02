@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ อยากเช็คสถานะพัสดุที่ส่งวันนี้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสุดา จันทร์เพ็ญ ยินดีให้บริการค่ะ ดิฉัน May Support จากฟ้าใหม่ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ต้องการตรวจสอบเข้ามาได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"หมายเลขอ้างอิงไม่มีค่ะ มีแค่ชื่อผู้รับกับวันที่ส่งวันนี้เองค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ ถ้าไม่มีหมายเลขอ้างอิง รบกวนแจ้งชื่อผู้รับและที่อยู่ปลายทางแบบย่อเข้ามาได้ค่ะ ดิฉันจะช่วยตรวจสอบสถานะให้เพิ่มเติมค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ผู้รับชื่อสุดา จันทร์เพ็ญ ส่งในกรุงเทพฯ ค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้จากข้อมูลที่มี สถานะอยู่ระหว่างเข้าระบบขนส่งค่ะ กรุณารอการอัปเดตช่วงถัดไปใน LINE OA นี้ได้เลยค่ะ\nหากมีหมายเลขอ้างอิงเพิ่มเติม ส่งมาได้ตลอดนะคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ไม่มีเรื่องอื่นแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติม สามารถทักมาได้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

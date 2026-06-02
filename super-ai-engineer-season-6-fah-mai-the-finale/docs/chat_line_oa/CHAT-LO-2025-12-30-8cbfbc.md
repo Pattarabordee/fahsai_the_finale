@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ สนใจสอบถามข้อมูลสินค้า/บริการทั่วไปของฟ้าใหม่ครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสิทธิ ดิฉัน Staff127 Member (SUP Staff) ยินดีช่วยดูข้อมูลให้ค่ะ\nรบกวนแจ้งว่าต้องการสอบถามเรื่องสินค้า หรือบริการส่วนไหนเป็นพิเศษคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"อยากทราบรายละเอียดของสินค้า Powercell X3 ครับ มีจุดเด่นอะไรบ้าง"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ สำหรับ Powercell X3 เป็นสินค้ากลุ่มที่ลูกค้านิยมสอบถามเรื่องการใช้งานและการดูแลเป็นหลักค่ะ\nถ้าคุณสิทธิต้องการ เราสามารถสรุปวิธีใช้งานเบื้องต้น จุดเด่น และการรับประกันให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอรายละเอียดแบบสั้น ๆ ได้ไหมครับ และถ้ามีวิธีดูแลรักษาก็บอกด้วย"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ สรุปแบบสั้น ๆ นะคะ\nPowercell X3 เหมาะสำหรับใช้งานทั่วไป ดูแลไม่ยาก และควรเก็บในที่แห้ง อากาศถ่ายเท ไม่วางตากแดดจัดค่ะ\nถ้าต้องการข้อมูลเพิ่มเรื่องการใช้งานหรือการรับประกัน แจ้งได้เลยค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ข้อมูลพอแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติมผ่าน LINE OA นี้ได้ตลอดนะคะ\nขอให้เป็นวันที่ดีค่ะ"}

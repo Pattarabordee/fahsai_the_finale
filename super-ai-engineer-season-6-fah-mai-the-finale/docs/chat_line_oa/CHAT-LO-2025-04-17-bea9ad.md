@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ผมอยากเช็คสต็อกสินค้าที่สาขาใกล้บ้านครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณอนุชา ทางฟ้าใหม่ May Support ค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็คสต็อก และสาขาที่สะดวกได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นรุ่น Powercell X3 ครับ สาขาที่ใกล้คือสาขาเดอะมอลล์บางแค มีของไหมครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ จากข้อมูลเบื้องต้น สาขาเดอะมอลล์บางแคมีสินค้า Powercell X3 คงเหลืออยู่ค่ะ แนะนำให้ติดต่อสาขาก่อนเข้าไปรับของอีกครั้งนะคะ หากต้องการให้ช่วยเช็กสาขาอื่นเพิ่มเติม แจ้งมาได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณอนุชา หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

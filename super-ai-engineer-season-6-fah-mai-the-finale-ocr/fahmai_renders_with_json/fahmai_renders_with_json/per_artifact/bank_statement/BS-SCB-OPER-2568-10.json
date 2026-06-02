@@ -1,0 +1,42 @@
+{
+  "artifact_id": "BS-SCB-OPER-2568-10",
+  "renderer_template_id": "bank_statement_scb",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/bank_statement/2025-10/BS-SCB-OPER-2568-10_header.png",
+      "page_kind": "header",
+      "source_fact_table": "DIM_BANK_ACCOUNT",
+      "source_row_ids": [
+        "SCB-OPER"
+      ],
+      "visible_fields": [
+        "account_id",
+        "bank",
+        "account_number",
+        "account_role",
+        "currency"
+      ]
+    },
+    {
+      "output_path": "renders/bank_statement/2025-10/BS-SCB-OPER-2568-10_transactions_p1.png",
+      "page_kind": "page",
+      "source_fact_table": "FACT_BANK_TRANSACTION",
+      "source_row_ids": [
+        "BT-202510-128105540229"
+      ],
+      "visible_fields": [
+        "account_id",
+        "business_event_date",
+        "transaction_type",
+        "amount_thb",
+        "balance_after_thb",
+        "description"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "SCB-OPER",
+    "BT-202510-128105540229"
+  ]
+}

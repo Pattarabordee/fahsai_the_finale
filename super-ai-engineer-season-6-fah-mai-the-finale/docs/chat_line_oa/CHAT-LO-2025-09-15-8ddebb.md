@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอสอบถามสต็อกสินค้าที่สาขาใกล้บ้านหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณธนพล มหาเปียร ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็กสต็อก และชื่อสาขาที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ต้องการเช็ก Powercell X3 ครับ สาขาใกล้บ้านคือสาขารัชดาครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณธนพล ทางเราเช็กให้ได้ค่ะ\nเบื้องต้น Powercell X3 ที่สาขารัชดามีสินค้าพร้อมจำหน่ายอยู่ค่ะ หากลูกค้าต้องการให้ช่วยสำรองสินค้า รบกวนแจ้งชื่อและเบอร์โทรที่ติดต่อกลับได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ทราบแล้วครับ ขอบคุณมากครับ ไม่มีเรื่องอื่นแล้วครับ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณธนพล หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักมาได้ตลอดนะคะ\nขอให้เป็นวันที่ดีค่ะ"}

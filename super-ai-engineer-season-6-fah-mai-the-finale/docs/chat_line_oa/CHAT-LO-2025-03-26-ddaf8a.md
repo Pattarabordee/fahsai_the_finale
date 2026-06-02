@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามความคืบหน้าการนัดรับสินค้าซ่อมประกันหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณนภา พงศ์เทพ ทางฟ้าใหม่ May Support ค่ะ รับเรื่องให้ค่ะ\nรบกวนแจ้งหมายเลขอ้างอิงงานซ่อมหรือชื่อรุ่นสินค้าที่ส่งซ่อมไว้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่องที่ส่งซ่อมประกันไว้ค่ะ รุ่น Powercell X3 ค่ะ ไม่แน่ใจเลขอ้างอิง"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ จากข้อมูลที่ตรวจสอบได้ งานซ่อมนี้อยู่ระหว่างรอนัดรับคืนค่ะ [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"รุ่นสินค้า\":\"Powercell X3\"}]]\nหากคุณนภาสะดวก รบกวนแจ้งช่วงเวลาที่รับสินค้าได้ หรือส่งชื่อผู้รับไว้ได้เลยค่ะ ทางเราจะช่วยประสานต่อให้นะคะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ช่วงบ่ายวันนี้รับได้ค่ะ ถ้ามีชื่อผู้รับใช้ชื่อเดิมได้เลย"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ ทางเราจะบันทึกช่วงบ่ายของวันนี้ไว้ให้ค่ะ\nหากมีคิวเจ้าหน้าที่ติดต่อกลับอีกครั้ง จะอัปเดตผ่าน LINE OA นี้นะคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากค่ะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้ตลอดนะคะ"}

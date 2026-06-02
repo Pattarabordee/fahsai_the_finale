@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็กสถานะพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ยินดีดูแลให้ค่ะ รบกวนแจ้งเลขพัสดุหรือหมายเลขอ้างอิงที่ต้องการตรวจสอบได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ เลขอ้างอิงคือ PM-123456789 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบให้แล้ว ตอนนี้พัสดุอยู่ระหว่างนำส่ง และคาดว่าจะถึงภายในวันนี้ค่ะ หากสถานะยังไม่อัปเดตในระบบ รบกวนลองตรวจสอบอีกครั้งช่วงบ่ายได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ถ้าถึงแล้วมีการแจ้งเตือนทางไหนบ้างคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"โดยปกติระบบจะแจ้งสถานะผ่านช่องทางที่ใช้ติดตามพัสดุค่ะ หากลูกค้าต้องการ เราสามารถช่วยเช็กสถานะเพิ่มเติมให้ได้ในภายหลังนะคะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ หากมีเรื่องอื่นสอบถามผ่าน LINE OA นี้ได้ตลอดนะคะ ขอให้คุณลูกค้ามีวันที่ดีค่ะ"}

@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยเช็กสถานะพัสดุให้หน่อยครับ"} 
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสิทธิ วิเศษ ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขอ้างอิงที่ต้องการตรวจสอบได้เลยค่ะ"} 
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ หมายเลขอ้างอิงคือ 7894561230 ครับ"} 
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบให้แล้วนะคะ สถานะพัสดุตอนนี้อยู่ระหว่างการนำส่งวันนี้ และมีข้อมูลว่าออกจากศูนย์คัดแยกแล้วค่ะ\nหากสะดวกรบกวนรอติดตามที่อยู่ปลายทางอีกครั้งในช่วงบ่ายได้เลยนะคะ"} 
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ"} 
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากคุณสิทธิมีเรื่องอื่นสอบถามเพิ่มเติม สามารถทักมาได้ตลอดนะคะ\nขอให้วันนี้ได้รับพัสดุเรียบร้อยค่ะ"}

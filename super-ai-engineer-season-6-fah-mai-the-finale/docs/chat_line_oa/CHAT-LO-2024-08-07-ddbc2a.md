@@ -1,0 +1,7 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนสอบถามความคืบหน้านัดรับสินค้าที่ส่งซ่อมประกันหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณภาคิน เกียรติศักดิ์ ทาง May Support ยินดีดูแลค่ะ\nรบกวนแจ้งหมายเลขอ้างอิงงานซ่อมหรือชื่อรุ่นสินค้าที่ส่งเข้ามาได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ผมมีแค่ชื่อรุ่นค่ะ เป็น Powercell X3 ส่งเข้าศูนย์ไว้ตั้งแต่วันนี้ครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้ทางศูนย์ตรวจสอบสถานะให้แล้วนะคะ\nนัดรับสินค้าซ่อมประกันของ Powercell X3 ยังอยู่ระหว่างรอคิวตรวจเช็กปลายทางค่ะ หากพร้อมรับแล้วจะมีเจ้าหน้าที่ติดต่อกลับผ่าน LINE OA นี้อีกครั้งค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ถ้ามีอัปเดตแจ้งได้เลยนะครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณภาคิน หากมีความคืบหน้า ทางเราจะแจ้งกลับทันทีค่ะ\nหากต้องการสอบถามเพิ่มเติมเรื่องการรับเครื่องหรือสถานะงานซ่อม แจ้งเข้ามาได้ตลอดนะคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ"}

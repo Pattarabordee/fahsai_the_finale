@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนเช็คสถานะพัสดุของผมให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ May Support จากฟ้าใหม่ค่ะ ยินดีช่วยดูสถานะการจัดส่งให้ค่ะ\nรบกวนแจ้งหมายเลขติดตามพัสดุ หรือเลขที่อ้างอิงที่เกี่ยวข้องให้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ เลขที่อ้างอิงคือ 20251208-PL001 ครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ขออนุญาตตรวจสอบให้นะคะ\nตอนนี้สถานะพัสดุอยู่ระหว่างนำจ่ายในวันนี้ค่ะ หากไม่มีผู้รับปลายทาง เจ้าหน้าที่ขนส่งจะติดต่อกลับตามข้อมูลที่ลงทะเบียนไว้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการให้ช่วยตรวจสอบเรื่องอื่นเพิ่มเติม แจ้งมาได้เลยนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

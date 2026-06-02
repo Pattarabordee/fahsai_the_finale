@@ -1,0 +1,4 @@
+timestamp	branch_code	payment_terminal_id	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_total_thb	payment_method	loyalty_tier_at_purchase	schema_version
+2025-05-27T09:33:43+07:00	UDN-CTRL	UDN-CTRL-POS-02	TXN-202505-27003862	1	SKU-MASS-062	1	4900.00	0.00	mobile_wallet	none	2
+2025-05-27T16:23:57+07:00	UDN-CTRL	UDN-CTRL-POS-01	TXN-202505-27014222	1	SKU-MASS-019	1	55900.00	0.00	mobile_wallet	none	2
+2025-05-27T16:23:57+07:00	UDN-CTRL	UDN-CTRL-POS-01	TXN-202505-27014222	2	SKU-MASS-096	1	8500.00	0.00	mobile_wallet	none	2

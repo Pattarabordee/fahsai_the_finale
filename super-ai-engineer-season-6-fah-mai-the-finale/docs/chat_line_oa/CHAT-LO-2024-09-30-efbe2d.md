@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนเช็คสถานะพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณพลอย สุขสมบูรณ์ ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงเข้ามาได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ เลขที่อ้างอิงคือตัวที่ส่งไว้ตอนเช้า วันนี้ยังไม่เห็นอัปเดตเลยค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้สถานะยังอยู่ระหว่างการนำจ่ายค่ะ และระบบยังไม่แสดงเวลาส่งสำเร็จในวันนี้ค่ะ\nหากปลายวันยังไม่เปลี่ยนสถานะ รบกวนตรวจสอบอีกครั้งผ่าน LINE OA นี้ได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากคุณพลอยมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้เลยนะคะ"}

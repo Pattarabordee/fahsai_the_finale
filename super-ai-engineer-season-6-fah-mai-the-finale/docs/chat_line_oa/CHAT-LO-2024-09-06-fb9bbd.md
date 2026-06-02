@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ อยากเช็คว่าสินค้าที่สาขาใกล้บ้านยังมีสต็อกไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณอรทัย อภิรักษ์ ทาง May Support ยินดีช่วยดูให้ค่ะ\nขอทราบชื่อสินค้าและสาขาที่ลูกค้าสะดวกเช็คได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็น Powercell X3 ค่ะ อยากเช็คสาขาใกล้บ้านแถวปากเกร็ดค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ ตอนนี้รบกวนแจ้งชื่อสาขาที่ต้องการเช็คแบบชัดเจนอีกนิดนะคะ เช่น ชื่อสาขาหรือพื้นที่ใกล้เคียงค่ะ\nถ้าลูกค้าสะดวก ส่งรูปหน้าร้านหรือชื่อสาขามาได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอเช็คสาขาเซ็นทรัล แจ้งวัฒนะค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ สำหรับสาขาเซ็นทรัล แจ้งวัฒนะ ตอนนี้สินค้ารุ่น Powercell X3 ยังมีอยู่ค่ะ\nหากลูกค้าต้องการ ทางเราช่วยแนะนำวิธีจองสินค้าก่อนเข้ารับหน้าสาขาได้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากค่ะ ไม่มีเรื่องอื่นแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีคำถามเพิ่มเติม ทักมาที่ LINE OA นี้ได้เสมอนะคะ\nขอให้มีวันที่ดีค่ะ"}

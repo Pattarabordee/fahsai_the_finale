@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนเช็คให้หน่อยครับว่าสินค้าที่สาขาใกล้บ้านมีสต็อกไหมครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณธนพล วชิรพันธ์ ดิฉัน May Support จากฟ้าใหม่ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็คกับสาขาที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็น Powercell X3 ครับ อยากเช็คสาขาแถวบางนาได้ไหมครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ตอนนี้ระบบของฟ้าใหม่แสดงว่าสาขาบางนาไม่มียอดพร้อมจำหน่ายในขณะนี้ค่ะ\nถ้าคุณธนพลสะดวก ดิฉันช่วยแนะนำสาขาใกล้เคียงให้ได้ หรือรบกวนติดต่อผ่าน LINE OA นี้อีกครั้งก่อนแวะเข้ารับสินค้าได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ งั้นขอเช็กสาขาใกล้เคียงให้ด้วยครับ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ถ้าคุณธนพลต้องการ ดิฉันช่วยรับคำถามและประสานงานต่อให้ทีมหน้าร้านตรวจสอบเพิ่มเติมได้ค่ะ\nมีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ ขอบคุณที่ติดต่อฟ้าใหม่ผ่าน LINE OA นี้นะคะ"}

@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนเช็กสถานะนัดรับสินค้าซ่อมประกันของฉันหน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณพรทิพย์ ชัยมงคล ทาง May Support รับเรื่องให้ค่ะ รบกวนแจ้งชื่อสินค้าและวันที่ที่นัดรับไว้ล่าสุดได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ค่ะ นัดรับไว้วันนี้ แต่ยังไม่ได้รับการติดต่อกลับ เลยอยากทราบว่ามีเจ้าหน้าที่เข้ารับหรือยัง"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ ขณะนี้ทางฟ้าใหม่กำลังประสานงานนัดรับอยู่ [[CLAIM:CLAIM.E9.RECALL_INITIATED_BY_VENDOR_ADVISORY:{\"date\": \"23 กันยายน 2568\"}]] รบกวนคุณพรทิพย์เตรียมเครื่องและอุปกรณ์ที่เกี่ยวข้องไว้ให้พร้อมนะคะ หากวันนี้ยังไม่มีเจ้าหน้าที่ติดต่อกลับ ช่วยแจ้งเข้ามาอีกครั้งผ่าน LINE OA นี้ได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเรื่องอื่นเพิ่มเติม แจ้งมาได้เลยนะคะ"}

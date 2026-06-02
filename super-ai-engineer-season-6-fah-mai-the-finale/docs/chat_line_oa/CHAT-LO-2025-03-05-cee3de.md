@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสถานะพัสดุที่ส่งวันนี้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ยินดีดูแลค่ะ\nรบกวนแจ้งเลขที่อ้างอิงหรือหมายเลขสั่งซื้อที่ใช้ส่งพัสดุเข้ามาได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ผมไม่มีเลขกับตัวตอนนี้ครับ มีแค่ชื่อผู้รับกับวันที่ส่ง"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนส่งชื่อผู้รับและเวลาประมาณที่ส่งในวันนี้มาได้เลยค่ะ\nถ้ามีรูปใบส่งของหรือหน้าจอแจ้งส่งพัสดุ ส่งผ่านแชตนี้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ชื่อผู้รับเป็นคุณอนุชา ส่งช่วงประมาณ 14:20 ครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณลูกค้า จากข้อมูลที่แจ้ง เราตรวจสอบสถานะเบื้องต้นให้ได้แล้วค่ะ\nตอนนี้พัสดุอยู่ระหว่างนำส่ง และยังไม่พบว่ามีการตีกลับหรือค้างที่จุดคัดแยกค่ะ หากต้องการ เราช่วยติดตามต่อในรอบถัดไปได้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ผ่าน LINE OA นี้ตลอดนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณพิชญา พิทยา ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็กสต็อก และสาขาที่สะดวกได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"อยากเช็ก Powercell X3 ที่สาขาใกล้บ้านค่ะ สาขาไหนมีของบ้างคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ รบกวนขอชื่อสาขาใกล้บ้าน หรือจังหวัดที่สะดวกให้หน่อยนะคะ\nถ้าลูกค้าระบุพื้นที่มา ดิฉันจะช่วยตรวจสอบสาขาที่มีสินค้าให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"อยู่แถวบางนา กรุงเทพฯ ค่ะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณพิชญา ทางบริษัทแนะนำให้ตรวจสอบสต็อกที่สาขาบางนา หรือสาขาใกล้เคียงผ่าน LINE OA นี้ได้เลยนะคะ\nหากลูกค้าต้องการ ดิฉันช่วยรับเรื่องให้ทีมหน้าสาขาตรวจสอบรอบล่าสุดได้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีมากค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติมได้ตลอดนะคะ ขอให้คุณพิชญาได้รับสินค้าที่ต้องการค่ะ"}

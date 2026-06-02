@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ วันนี้มีโปรโมชั่นอะไรบ้างครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณCustomer012817 Jaidee ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nขออนุญาตแจ้งว่า วันนี้ทางฟ้าใหม่มีโปรสำหรับสินค้าบางรายการค่ะ ลูกค้าสนใจสินค้าแบบไหนเป็นพิเศษคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจโปรของ Powercell X3 ครับ มีอะไรบ้าง"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"Powercell X3 มีโปรซื้อ 2 ชิ้นรับส่วนลดเพิ่ม และมีของแถมตามเงื่อนไขค่ะ\nหากลูกค้าต้องการ ดิฉันช่วยเช็กสิทธิ์โปรให้ได้ค่ะ รบกวนแจ้งจำนวนที่สนใจได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ เดี๋ยวผมขอเช็กก่อน"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ หากต้องการสอบถามเพิ่มเกี่ยวกับโปรหรือสินค้า สามารถทักมาได้ตลอดนะคะ ขอบคุณที่ติดต่อฟ้าใหม่ค่ะ"}

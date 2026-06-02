@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามสถานะพัสดุที่ส่งวันนี้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ดิฉัน May Support ยินดีช่วยดูให้ค่ะ รบกวนแจ้งหมายเลขพัสดุหรือหมายเลขสั่งซื้อที่ต้องการตรวจสอบหน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขสั่งซื้อของฉันคือ 022900 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ขณะนี้สถานะพัสดุอยู่ระหว่างจัดส่ง และมีการอัปเดตล่าสุดวันนี้ 26 กุมภาพันธ์ 2568 ค่ะ\nหากต้องการติดตามต่อ รบกวนตรวจสอบสถานะอีกครั้งผ่านช่องทาง LINE OA นี้ได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

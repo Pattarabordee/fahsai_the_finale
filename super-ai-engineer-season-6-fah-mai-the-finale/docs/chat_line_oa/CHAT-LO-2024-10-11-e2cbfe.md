@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามว่าสินค้าที่สาขาใกล้บ้านยังมีสต็อกอยู่ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณชนิดา สำราญ ยินดีให้บริการจาก May Support ค่ะ รบกวนแจ้งชื่อสินค้าและสาขาที่ต้องการตรวจสอบได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นรุ่น Powercell X3 ค่ะ อยากเช็คสาขาเซ็นทรัลบางนา มีของไหมคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้ทางเราช่วยตรวจสอบสต็อกให้ได้จากข้อมูลที่มีในระบบค่ะ หากต้องการความชัดเจนเพิ่มเติม รบกวนรอให้เจ้าหน้าที่เช็กอีกครั้งผ่าน LINE OA นี้นะคะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งได้ตลอดนะคะ"}

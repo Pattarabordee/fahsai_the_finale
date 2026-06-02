@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนสอบถามเรื่องนัดรับสินค้าซ่อมประกันหน่อยค่ะ ไม่ทราบตอนนี้นัดได้หรือยัง"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสุพัตรา ดิฉัน May Support จากฟ้าใหม่ค่ะ ยินดีช่วยดูเรื่องนัดรับสินค้าซ่อมประกันให้นะคะ\nรบกวนแจ้งชื่อสินค้าและวันที่ที่สะดวกรับของได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ค่ะ ส่งซ่อมไว้แล้ว อยากทราบว่าวันนี้มีคิวรับได้ไหมคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ สำหรับ Powercell X3 รายการซ่อมประกันนี้อยู่ในกลุ่มที่ทางผู้ผลิตแจ้งปัญหาการผลิตของล็อตสินค้า [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\": \"Powercell X3\"}]]\nถ้าคุณสุพัตราสะดวกรับวันนี้ รบกวนแจ้งช่วงเวลาที่สะดวกได้เลยค่ะ เดี๋ยวทางเราช่วยเช็กนัดรับให้"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"สะดวกช่วงบ่ายค่ะ ถ้าต้องเตรียมเอกสารอะไรเพิ่มเติมรบกวนแจ้งได้เลยนะคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ช่วงบ่ายทางเรารับเรื่องไว้ให้แล้ว รบกวนเตรียมบัตรประชาชนตัวจริงและใบรับซ่อมตอนมารับสินค้านะคะ\nหากมีผู้รับแทน รบกวนแจ้งชื่อผู้รับแทนล่วงหน้าด้วยค่ะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากค่ะ ไม่มีเรื่องอื่นแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณสุพัตรา หากมีคำถามเพิ่มเติมสามารถทักมาที่ LINE OA นี้ได้ตลอดนะคะ ขอให้วันนี้สะดวกเรียบร้อยค่ะ"}

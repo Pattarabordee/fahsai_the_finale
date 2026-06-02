@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยเช็คสถานะพัสดุให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ดิฉัน May Support ยินดีดูแลให้ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือหมายเลขสั่งซื้อที่ต้องการตรวจสอบได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ เลขที่อ้างอิงเป็น 78451236 ครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ รบกวนรอสักครู่นะคะ\nตอนนี้สถานะพัสดุอยู่ระหว่างนำส่ง และคาดว่าจะถึงภายในวันนี้ค่ะ หากมีการอัปเดตเพิ่ม ระบบจะแจ้งสถานะผ่านช่องทางนี้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากคุณลูกค้ามีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้เลยนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

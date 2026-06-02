@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสถานะพัสดุที่ส่งวันนี้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ติดต่อฟ้าใหม่กับ May Support นะคะ ยินดีช่วยตรวจสอบสถานะพัสดุค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่อ้างอิงที่ใช้ส่งของมาสักนิดได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ยังไม่สะดวกส่งเลขสั่งซื้อค่ะ แต่เป็นพัสดุที่ส่งวันนี้จากฟ้าใหม่ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนแจ้งชื่อผู้รับ หรือเบอร์โทรที่ใช้ในออเดอร์สักนิดได้ไหมคะ\nถ้าลูกค้ามีเลขพัสดุ จะส่งมาในแชตนี้ได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ชื่อผู้รับเป็นคุณศิริพรค่ะ เลขพัสดุคือ FMX1029384756"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบแล้วพัสดุของคุณศิริพรอยู่ระหว่างจัดส่ง และคาดว่าจะถึงปลายทางภายในวันนี้ค่ะ\nหากต้องการให้ช่วยติดตามรอบส่งเพิ่มเติม แจ้งมาได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติมได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

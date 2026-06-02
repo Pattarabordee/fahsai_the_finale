@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณขวัญใจ สุขสมบูรณ์ ขอบคุณที่ติดต่อฟ้าใหม่ค่ะ ดิฉัน May Support ขอรับเรื่องไว้ให้ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็ค กับสาขาใกล้บ้านที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ต้องการเช็ค Powercell X3 ค่ะ สาขาใกล้บ้านน่าจะเป็นสาขาพระราม 2 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้สาขาพระราม 2 มี Powercell X3 พร้อมจำหน่ายค่ะ หากต้องการแวะรับสินค้า แนะนำติดต่อสาขาก่อนเดินทางอีกครั้งผ่าน LINE OA นี้ได้เลยนะคะ\nมีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ คุณขวัญใจ สุขสมบูรณ์ หากต้องการสอบถามเพิ่มเติม สามารถทักมาได้ตลอดนะคะ ขอให้มีวันที่ดีค่ะ"}

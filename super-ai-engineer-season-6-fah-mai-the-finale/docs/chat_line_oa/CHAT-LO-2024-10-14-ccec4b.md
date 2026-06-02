@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามขั้นตอนการคืนสินค้าและคืนเงินหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณมาลี วิจิตร ยินดีให้บริการค่ะ ดิฉัน May Support จากฟ้าใหม่นะคะ\nรบกวนแจ้งชื่อสินค้าและหมายเลขสั่งซื้อที่ต้องการคืนสินค้าค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นสินค้า Powercell X3 ค่ะ หมายเลขสั่งซื้อขอแจ้งทีหลังได้ไหมคะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ สำหรับการคืนสินค้า รบกวนแจ้งหมายเลขสั่งซื้อ หรือส่งรูปใบเสร็จ/กล่องสินค้าเข้ามาได้เลยค่ะ\nหลังจากตรวจสอบแล้ว ทางเราจะส่งรายละเอียดขั้นตอนการส่งคืนและการคืนเงินให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ เดี๋ยวส่งรูปกับเลขที่สั่งซื้อมาให้ทางแชตนะคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ รบกวนส่งเข้ามาได้เลยนะคะ หากต้องการสอบถามเพิ่มเติมเกี่ยวกับการคืนสินค้า หรือสถานะการคืนเงิน แจ้งมาได้ตลอดค่ะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ไม่มีแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม สามารถทักเข้ามาที่ LINE OA นี้ได้ทุกเมื่อค่ะ ขอให้วันนี้เป็นวันที่ดีนะคะ"}

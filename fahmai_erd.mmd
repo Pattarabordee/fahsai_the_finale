@@ -1,0 +1,507 @@
+erDiagram
+    %% FahMai public data bundle ERD.
+    %% Date-role edges to DIM_DATE are intentionally omitted from the drawing.
+    %% See fahmai_table_schema.md for full date coverage and polymorphic-field notes.
+    DIM_BANK_ACCOUNT {
+        string account_id PK
+        string bank
+        string account_number
+        string account_role
+        string associated_branch_code FK
+        string currency
+        decimal opening_balance_thb
+        string statement_cadence
+    }
+
+    DIM_BRANCH {
+        string branch_code PK
+        string name_th
+        string name_en
+        string branch_type
+        boolean is_service_center
+        decimal retail_floor_coefficient
+        decimal traffic_share_pct
+        decimal employee_headcount_share_pct
+    }
+
+    DIM_CUSTOMER {
+        string customer_id PK
+        string first_name_th
+        string last_name_th
+        string first_name_en
+        string last_name_en
+        string email
+        string phone
+        string province
+        string region
+        int age
+        string gender
+        date signup_date
+        string customer_type
+        string b2b_subtype
+        string account_manager_id FK
+        string payment_terms
+        string loyalty_tier
+        string channel_pref
+        boolean uses_line_oa
+    }
+
+    DIM_DATE {
+        date date_iso PK
+        string date_be_string
+        int day_of_week
+        boolean is_thai_public_holiday
+        string holiday_name
+        int fiscal_year
+        int fiscal_quarter
+    }
+
+    DIM_DEPARTMENT {
+        string dept_code PK
+        string dept_name_th
+        string dept_name_en
+        string dept_type
+    }
+
+    DIM_EMPLOYEE {
+        string employee_id PK
+        string first_name_th
+        string last_name_th
+        string first_name_en
+        string last_name_en
+        string email
+        string phone
+        string branch_code FK
+        string dept_code FK
+        string section
+        string unit
+        string position_title
+        string position_level FK
+        string reports_to_employee_id FK
+        date hire_date
+        date termination_date
+        string termination_reason
+        string status
+        string employment_type
+        boolean is_canon_leader
+        string canon_role_label
+    }
+
+    DIM_POLICY_VERSION {
+        string policy_version_id PK
+        string policy_class
+        string policy_variable
+        string scope_filter
+        decimal value_numeric
+        string value_text
+        string policy_value_table_ref
+        date effective_date
+        date end_date
+        string policy_doc_filename
+    }
+
+    DIM_POSITION_LEVEL {
+        string position_level_code PK
+        int rank
+        decimal default_signing_authority_thb
+    }
+
+    DIM_PRODUCT {
+        string sku_id PK
+        string brand_family
+        string dept_code FK
+        string category
+        string subcategory
+        decimal msrp_thb
+        string msrp_tier
+        boolean is_third_party
+        string vendor_id FK
+        date launch_date
+        date end_of_life_date
+        int warranty_months
+        boolean care_plus_eligible
+    }
+
+    DIM_PROMO_CAMPAIGN {
+        string campaign_id PK
+        datetime start_timestamp
+        datetime end_timestamp
+        string scope_filter
+        string description_th
+        string description_en
+    }
+
+    DIM_VENDOR {
+        string vendor_id PK
+        string name_th
+        string name_en
+        string category
+        string role
+        string payment_terms
+        string invoice_cadence
+        boolean is_partner_brand
+        boolean is_component_supplier
+        date start_date
+        date end_date
+    }
+
+    DIM_VENDOR_CONTRACT_VERSION {
+        string contract_version_id PK
+        string vendor_id FK
+        int version_number
+        date effective_date
+        date end_date
+        string contract_pdf_filename
+        string amendment_summary
+    }
+
+    FACT_BANK_TRANSACTION {
+        string bank_txn_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string account_id FK
+        string transaction_type
+        string counterparty
+        string related_entity_id FK
+        string related_entity_table
+        decimal amount_thb
+        decimal balance_after_thb
+        string description
+    }
+
+    FACT_CS_INTERACTION {
+        string cs_interaction_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string customer_id FK
+        string employee_id FK
+        string branch_code FK
+        string channel
+        string interaction_type
+        string resolution_type
+        string related_refund_id FK
+        string related_warranty_claim_id FK
+        string chat_session_id
+    }
+
+    FACT_INVENTORY_MONTHLY_SNAPSHOT {
+        string snapshot_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        date month_end_date
+        string sku_id FK
+        string branch_code FK
+        int closing_units
+    }
+
+    FACT_INVENTORY_MOVEMENT {
+        string movement_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string sku_id FK
+        string branch_code FK
+        string movement_type
+        int quantity
+        string related_txn_id
+    }
+
+    FACT_LOYALTY_LEDGER {
+        string ledger_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string customer_id FK
+        string txn_id FK
+        string event_type
+        int points_delta
+        int resulting_balance_points
+        string resulting_tier
+    }
+
+    FACT_PAYROLL {
+        string payroll_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string employee_id FK
+        string pay_period_start
+        string pay_period_end
+        decimal gross_pay_thb
+        decimal tax_deduction_thb
+        decimal social_security_thb
+        decimal net_pay_thb
+        string bank_txn_id FK
+        string employment_status_at_period_end
+    }
+
+    FACT_PROMO_REDEMPTION {
+        string redemption_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string txn_id FK
+        string customer_id FK
+        string campaign_id FK
+        decimal discount_applied_thb
+        string channel
+    }
+
+    FACT_REFUND_PAID {
+        string refund_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string return_id FK
+        string cs_interaction_id
+        string customer_id FK
+        decimal refund_amount_thb
+        date request_date
+        string approver_employee_id FK
+        string cosig_employee_id
+        string bank_txn_id FK
+    }
+
+    FACT_RETURN {
+        string return_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string original_txn_id FK
+        string line_item_id FK
+        string sku_id FK
+        string branch_code FK
+        string customer_id FK
+        string return_reason
+        string approved_by_employee_id FK
+        int days_since_purchase
+        decimal return_amount_thb
+    }
+
+    FACT_SALES {
+        string txn_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string branch_code FK
+        string customer_id FK
+        string employee_id FK
+        string channel
+        decimal basket_total_thb
+        decimal discount_total_thb
+        decimal net_total_thb
+        decimal shipping_charge_thb
+        string shipping_method
+        string promo_campaign_id FK
+        string payment_method
+        string payment_status
+        date payment_due_date
+        date payment_received_date
+        string settlement_bank_txn_id FK
+        string web_log_line_id
+        int schema_version
+        boolean is_b2b
+        string retry_idempotency_marker
+    }
+
+    sales_deposit_batch_reconciliation {
+        string sales_deposit_batch_id PK
+        date business_event_date
+        string branch_code FK
+        string payment_method
+        int txn_count
+        decimal net_total_thb
+        string settlement_bank_txn_id FK
+        decimal bank_amount_thb
+        string reconciliation_status
+    }
+
+    FACT_SALES_LINE_ITEM {
+        string line_item_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string txn_id FK
+        string sku_id FK
+        boolean quantity
+        decimal unit_price_thb
+        decimal line_discount_thb
+        decimal line_total_thb
+        boolean is_care_plus
+        string pos_log_line_id
+    }
+
+    FACT_SHIPPING {
+        string shipping_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string txn_id FK
+        string vendor_id FK
+        string tracking_number
+        string origin_branch_code FK
+        string destination_province
+        string confirmation_status
+    }
+
+    FACT_VENDOR_PAYMENT {
+        string payment_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string vendor_id FK
+        string vendor_invoice_id
+        string invoice_period_start
+        string invoice_period_end
+        decimal paid_amount_thb
+        string vendor_contract_version_id FK
+        date request_date
+        string signing_employee_id FK
+        string cosig_employee_id FK
+        string bank_txn_id FK
+    }
+
+    FACT_WARRANTY_CLAIM {
+        string claim_id PK
+        date business_event_date
+        date posting_date
+        date effective_date
+        date as_of_date
+        string customer_id FK
+        string sku_id FK
+        string original_txn_id FK
+        string claim_reason
+        decimal claim_amount_thb
+        string routing_destination
+        string resolution_type
+    }
+
+    T2_DOC_INVENTORY {
+        string doc_id PK
+        string doc_kind
+        string template_name
+        string body_source
+        date issue_date
+        string source_table
+        string source_pk
+    }
+
+    dim_care_plus_sku_tier {
+        string tier_row_id PK
+        string policy_version_id FK
+        string sku_id FK
+        string sku_category
+        decimal care_plus_price_thb
+        int coverage_months
+        string description_th
+    }
+
+    dim_product_recall_history {
+        string history_id PK
+        string sku_id FK
+        string status
+        date transition_date
+    }
+
+    dim_promo_mechanic {
+        string promo_mechanic_id PK
+        string campaign_id FK
+        string discount_type
+        decimal discount_value
+        decimal point_multiplier
+        string min_basket_thb
+        string description_th
+    }
+
+    dim_signing_authority_ladder {
+        string ladder_row_id PK
+        string policy_version_id FK
+        string position_level_code FK
+        string dept_code FK
+        decimal amount_ceiling_thb
+        boolean min_co_signers
+        string co_signer_min_position_level_code FK
+        string description_th
+    }
+
+    DIM_BRANCH ||--o{ DIM_BANK_ACCOUNT : associated_branch_code
+    DIM_EMPLOYEE ||--o{ DIM_CUSTOMER : account_manager_id
+    DIM_BRANCH ||--o{ DIM_EMPLOYEE : branch_code
+    DIM_DEPARTMENT ||--o{ DIM_EMPLOYEE : dept_code
+    DIM_POSITION_LEVEL ||--o{ DIM_EMPLOYEE : position_level
+    DIM_EMPLOYEE ||--o{ DIM_EMPLOYEE : reports_to_employee_id
+    DIM_DEPARTMENT ||--o{ DIM_PRODUCT : dept_code
+    DIM_VENDOR ||--o{ DIM_PRODUCT : vendor_id
+    DIM_VENDOR ||--o{ DIM_VENDOR_CONTRACT_VERSION : vendor_id
+    DIM_POLICY_VERSION ||--o{ dim_care_plus_sku_tier : policy_version_id
+    DIM_PRODUCT ||--o{ dim_care_plus_sku_tier : sku_id
+    DIM_PRODUCT ||--o{ dim_product_recall_history : sku_id
+    DIM_PROMO_CAMPAIGN ||--o{ dim_promo_mechanic : campaign_id
+    DIM_POLICY_VERSION ||--o{ dim_signing_authority_ladder : policy_version_id
+    DIM_POSITION_LEVEL ||--o{ dim_signing_authority_ladder : position_level_code
+    DIM_POSITION_LEVEL ||--o{ dim_signing_authority_ladder : co_signer_min_position_level_code
+    DIM_DEPARTMENT ||--o{ dim_signing_authority_ladder : dept_code
+    DIM_BANK_ACCOUNT ||--o{ FACT_BANK_TRANSACTION : account_id
+    DIM_CUSTOMER ||--o{ FACT_CS_INTERACTION : customer_id
+    DIM_EMPLOYEE ||--o{ FACT_CS_INTERACTION : employee_id
+    DIM_BRANCH ||--o{ FACT_CS_INTERACTION : branch_code
+    FACT_REFUND_PAID ||--o{ FACT_CS_INTERACTION : related_refund_id
+    FACT_WARRANTY_CLAIM ||--o{ FACT_CS_INTERACTION : related_warranty_claim_id
+    DIM_PRODUCT ||--o{ FACT_INVENTORY_MONTHLY_SNAPSHOT : sku_id
+    DIM_BRANCH ||--o{ FACT_INVENTORY_MONTHLY_SNAPSHOT : branch_code
+    DIM_PRODUCT ||--o{ FACT_INVENTORY_MOVEMENT : sku_id
+    DIM_BRANCH ||--o{ FACT_INVENTORY_MOVEMENT : branch_code
+    DIM_CUSTOMER ||--o{ FACT_LOYALTY_LEDGER : customer_id
+    FACT_SALES ||--o{ FACT_LOYALTY_LEDGER : txn_id
+    DIM_EMPLOYEE ||--o{ FACT_PAYROLL : employee_id
+    FACT_BANK_TRANSACTION ||--o{ FACT_PAYROLL : bank_txn_id
+    FACT_SALES ||--o{ FACT_PROMO_REDEMPTION : txn_id
+    DIM_CUSTOMER ||--o{ FACT_PROMO_REDEMPTION : customer_id
+    DIM_PROMO_CAMPAIGN ||--o{ FACT_PROMO_REDEMPTION : campaign_id
+    FACT_RETURN ||--o{ FACT_REFUND_PAID : return_id
+    DIM_CUSTOMER ||--o{ FACT_REFUND_PAID : customer_id
+    DIM_EMPLOYEE ||--o{ FACT_REFUND_PAID : approver_employee_id
+    FACT_BANK_TRANSACTION ||--o{ FACT_REFUND_PAID : bank_txn_id
+    FACT_SALES ||--o{ FACT_RETURN : original_txn_id
+    FACT_SALES_LINE_ITEM ||--o{ FACT_RETURN : line_item_id
+    DIM_PRODUCT ||--o{ FACT_RETURN : sku_id
+    DIM_BRANCH ||--o{ FACT_RETURN : branch_code
+    DIM_CUSTOMER ||--o{ FACT_RETURN : customer_id
+    DIM_EMPLOYEE ||--o{ FACT_RETURN : approved_by_employee_id
+    DIM_BRANCH ||--o{ FACT_SALES : branch_code
+    DIM_CUSTOMER ||--o{ FACT_SALES : customer_id
+    DIM_EMPLOYEE ||--o{ FACT_SALES : employee_id
+    DIM_PROMO_CAMPAIGN ||--o{ FACT_SALES : promo_campaign_id
+    FACT_BANK_TRANSACTION ||--o{ FACT_SALES : settlement_bank_txn_id
+    FACT_SALES ||--o{ FACT_SALES_LINE_ITEM : txn_id
+    DIM_PRODUCT ||--o{ FACT_SALES_LINE_ITEM : sku_id
+    FACT_SALES ||--o{ FACT_SHIPPING : txn_id
+    DIM_VENDOR ||--o{ FACT_SHIPPING : vendor_id
+    DIM_BRANCH ||--o{ FACT_SHIPPING : origin_branch_code
+    DIM_VENDOR ||--o{ FACT_VENDOR_PAYMENT : vendor_id
+    DIM_VENDOR_CONTRACT_VERSION ||--o{ FACT_VENDOR_PAYMENT : vendor_contract_version_id
+    DIM_EMPLOYEE ||--o{ FACT_VENDOR_PAYMENT : signing_employee_id
+    DIM_EMPLOYEE ||--o{ FACT_VENDOR_PAYMENT : cosig_employee_id
+    FACT_BANK_TRANSACTION ||--o{ FACT_VENDOR_PAYMENT : bank_txn_id
+    DIM_CUSTOMER ||--o{ FACT_WARRANTY_CLAIM : customer_id
+    DIM_PRODUCT ||--o{ FACT_WARRANTY_CLAIM : sku_id
+    FACT_SALES ||--o{ FACT_WARRANTY_CLAIM : original_txn_id
+    DIM_BRANCH ||--o{ sales_deposit_batch_reconciliation : branch_code
+    FACT_BANK_TRANSACTION ||--o{ sales_deposit_batch_reconciliation : settlement_bank_txn_id
+    sales_deposit_batch_reconciliation ||--o{ FACT_BANK_TRANSACTION : related_entity_id_when_deposit

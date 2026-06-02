@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ สอบถามข้อมูลสินค้าหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ยินดีให้บริการจากฟ้าใหม่ค่ะ ดิฉัน Staff079 Member (SUP Staff) ค่ะ\nไม่ทราบว่าลูกค้าสนใจสอบถามข้อมูลสินค้า หรือบริการส่วนไหนเป็นพิเศษคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจข้อมูลสินค้า Powercell X3 ครับ อยากทราบสเปกคร่าว ๆ กับการรับประกัน"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ Powercell X3 เป็นสินค้าที่ลูกค้าสามารถใช้งานทั่วไปได้สะดวกค่ะ\nในส่วนการรับประกัน รบกวนลูกค้าตรวจสอบจากเอกสารที่มากับสินค้า หรือแจ้งช่องทางที่ซื้อไว้ได้ไหมคะ เดี๋ยวทางเราช่วยแนะนำข้อมูลที่ตรงกับรายการนั้นให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ซื้อผ่าน LINE OA นี้ครับ ถ้ามีวิธีตรวจสอบเพิ่มเติม รบกวนบอกได้เลย"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ หากซื้อผ่าน LINE OA นี้ รบกวนลูกค้าแจ้งชื่อผู้สั่งซื้อ หรือส่งรูปหน้ารายการสั่งซื้อมาได้เลยค่ะ\nทางเราจะช่วยตรวจสอบรายละเอียดสินค้าและข้อมูลรับประกันให้ต่อทันทีค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ เดี๋ยวผมส่งข้อมูลเข้าไปอีกที"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ หากต้องการสอบถามเพิ่มเติม สามารถทักเข้ามาได้ตลอดผ่าน LINE OA นี้นะคะ\nขอให้คุณสมชายภักดีมีวันที่ดีค่ะ"}

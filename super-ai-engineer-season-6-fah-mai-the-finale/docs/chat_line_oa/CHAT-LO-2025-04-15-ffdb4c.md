@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามเวลาทำการของสาขาหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณนิภา ทรัพย์เจริญ ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งชื่อสาขาที่ต้องการสอบถามเพิ่มเติมได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ขอสอบถามสาขาในห้างค่ะ ไม่ทราบว่าเปิดถึงกี่โมง"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"สาขาในห้างโดยทั่วไปเปิดทุกวันตามเวลาห้างค่ะ ปกติประมาณ 10:00-21:00 น. แนะนำให้ตรวจสอบชื่อสาขากับทางร้านอีกครั้งสำหรับเวลาที่แน่นอนนะคะ\nหากต้องการสอบถามสาขาใดเป็นพิเศษ แจ้งชื่อมาได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ไม่มีแล้วค่ะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเรื่องอื่นเพิ่มเติม ทักมาได้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

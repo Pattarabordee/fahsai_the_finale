@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ สอบถามสต็อกสินค้าใกล้บ้านหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณอรทัย ขอบคุณที่ติดต่อมาทาง LINE OA ของฟ้าใหม่ค่ะ ดิฉัน May Support ค่ะ\n\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็กสต็อก และสาขาใกล้บ้านที่สะดวกหน่อยได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ต้องการเช็ก Powercell X3 ค่ะ สาขาเซ็นทรัลบางนาใกล้บ้านสุด"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้ทางเราเช็กข้อมูลสต็อกให้ได้ค่ะ\n\nPowercell X3 ที่สาขาเซ็นทรัลบางนา มีสินค้าอยู่ค่ะ แนะนำให้โทรยืนยันหน้าร้านอีกครั้งก่อนเดินทางนะคะ หากต้องการเช็กสาขาอื่นเพิ่มเติม แจ้งได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ไม่มีแล้วค่ะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีคำถามเพิ่มเติมเกี่ยวกับสินค้า หรือสาขาอื่น ๆ ทักมาได้ตลอดนะคะ ขอให้คุณอรทัยมีวันที่ดีค่ะ"}

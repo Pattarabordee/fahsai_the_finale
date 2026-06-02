@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็กสถานะพัสดุให้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ค่ะ ยินดีช่วยตรวจสอบสถานะพัสดุให้นะคะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ใช้ส่งของมาหน่อยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขพัสดุคือ TH240418001 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้สถานะล่าสุดคือพัสดุอยู่ระหว่างนำส่งในวันนี้ค่ะ\nถ้าปลายทางยังไม่ได้รับ แนะนำให้รอเจ้าหน้าที่ขนส่งติดต่ออีกครั้ง และตรวจสอบสถานที่รับของให้พร้อมนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ถ้ายังไม่ได้รับช่วงเย็นจะทักมาอีกครั้งนะคะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ หากต้องการให้ช่วยตรวจสอบต่อ รบกวนส่งหมายเลขพัสดุเดิมมาได้ตลอดค่ะ\nมีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-008","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ขอบคุณที่ติดต่อฟ้าใหม่ผ่าน LINE OA นี้นะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

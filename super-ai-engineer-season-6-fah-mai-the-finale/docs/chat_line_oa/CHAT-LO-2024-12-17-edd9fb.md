@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสถานะพัสดุหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณอรุณ มหาเปียร ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงให้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ หมายเลขอ้างอิงเป็นเลขจากอีเมลยืนยันสั่งซื้อครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ รบกวนคุณอรุณส่งหมายเลขพัสดุจากอีเมลยืนยันสั่งซื้อมาในแชตนี้ได้เลยนะคะ\nหากสะดวก แคปหน้าจอส่วนที่มีหมายเลขพัสดุส่งมาได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"เจอแล้วครับ หมายเลขพัสดุขึ้นว่าอยู่ระหว่างขนส่ง"}
+{"message_id":"M-006","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ จากสถานะที่แจ้งมา พัสดุอยู่ระหว่างขนส่งแล้วนะคะ\nหากต้องการตรวจสอบรอบถัดไป รบกวนส่งหมายเลขพัสดุในแชตนี้ได้อีกครั้ง หรือแจ้งชื่อผู้รับมาได้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:45","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ แค่นี้พอแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:46","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักมาได้ตลอดนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

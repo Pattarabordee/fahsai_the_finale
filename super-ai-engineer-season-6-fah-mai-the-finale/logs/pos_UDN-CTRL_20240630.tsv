@@ -1,0 +1,4 @@
+timestamp	branch_code	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_amt	payment_method	schema_version
+2024-06-30T08:29:54+07:00	UDN-CTRL	TXN-202406-30008437	1	DN-LT-010	1	84900.00	0.00	credit_card	1
+2024-06-30T15:27:25+07:00	UDN-CTRL	TXN-202406-30017950	1	SKU-MASS-011	1	55900.00	0.00	debit_card	1
+2024-06-30T18:27:12+07:00	UDN-CTRL	TXN-202406-30020681	1	SKU-MASS-073	1	29900.00	0.00	debit_card	1

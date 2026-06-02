@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามสถานะพัสดุที่สั่งไว้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ดูแลให้นะคะ รบกวนแจ้งหมายเลขสั่งซื้อ หรือเลขที่อ้างอิงที่ใช้ติดตามพัสดุได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ยังไม่มีเลขสั่งซื้อค่ะ แต่เป็นรายการส่งวันนี้ รบกวนช่วยเช็กให้ได้ไหมคะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ หากยังไม่มีเลขสั่งซื้อ รบกวนแจ้งชื่อผู้รับ และเบอร์โทรที่ใช้รับพัสดุ หรือส่งภาพใบเสร็จมาได้ค่ะ เดี๋ยว May Support ช่วยตรวจสอบสถานะให้ต่อค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ชื่อผู้รับเป็นบริษัทฟ้าใหม่ค่ะ เบอร์ที่ใช้รับคือเบอร์ที่ลงทะเบียนไว้"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้ในระบบขึ้นว่าพัสดุอยู่ระหว่างขนส่ง และคาดว่าจะนำส่งภายในวันนี้ค่ะ รบกวนลูกค้าเผื่อเจ้าหน้าที่ขนส่งติดต่อกลับไว้ด้วยนะคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งผ่าน LINE OA นี้ได้ตลอดนะคะ ขอให้ได้รับพัสดุเรียบร้อยค่ะ"}

@@ -1,0 +1,11 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ สอบถามข้อมูลสินค้าได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ฟ้าใหม่ ยินดีให้บริการค่ะ ดิฉัน Staff061 Member ค่ะ\nลูกค้าสนใจสอบถามข้อมูลสินค้าเรื่องไหนเป็นพิเศษคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"อยากทราบรายละเอียดสินค้า Powercell X3 ค่ะ มีจุดเด่นยังไงบ้าง"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ Powercell X3 เป็นสินค้าสำหรับใช้งานทั่วไปที่เน้นความสะดวก และมีหลายจุดเด่นให้เลือกพิจารณาค่ะ\nถ้าลูกค้าต้องการ เราสามารถส่งรายละเอียดสเปก วิธีใช้งาน หรือข้อมูลการสั่งซื้อให้เพิ่มเติมได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอรายละเอียดการสั่งซื้อด้วยค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนแจ้งว่าต้องการดูข้อมูลการสั่งซื้อส่วนไหนเป็นหลักคะ เช่น ขั้นตอนสั่งซื้อ ช่องทางชำระเงิน หรือระยะเวลาจัดส่งค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอทราบขั้นตอนสั่งซื้อกับช่องทางชำระเงินค่ะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ลูกค้าสามารถสั่งซื้อผ่าน LINE OA นี้ได้เลยค่ะ แจ้งชื่อสินค้าและจำนวนที่ต้องการ จากนั้นทางเราจะสรุปรายการให้ตรวจสอบก่อนดำเนินการต่อค่ะ\nสำหรับช่องทางชำระเงิน เจ้าหน้าที่จะส่งรายละเอียดให้หลังสรุปรายการสั่งซื้อเรียบร้อยค่ะ"}
+{"message_id":"M-009","timestamp":"10:47","speaker":"CS_AGENT","message_type":"text","text":"มีเรื่องอื่นที่ต้องการสอบถามเพิ่มเติมไหมคะ"}
+{"message_id":"M-010","timestamp":"10:48","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-011","timestamp":"10:49","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ หากต้องการสอบถามเพิ่มเติม สามารถทักมาได้ทุกเมื่อเลยนะคะ ขอให้เป็นวันที่ดีค่ะ"}

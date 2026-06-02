@@ -1,0 +1,9 @@
+{"message_id":"M-001","timestamp":"09:10","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ สอบถามนัดรับสินค้าที่ส่งซ่อมประกันไว้ค่ะ อยากทราบว่าวันนี้รับได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"09:12","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณนิภา อภิรักษ์ ทาง May Support ยินดีช่วยตรวจสอบให้นะคะ รบกวนแจ้งหมายเลขรับซ่อมหรือชื่อสินค้าเพิ่มเติมได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"09:14","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ค่ะ ฝากไว้สาขากรุงเทพฯ เมื่อสัปดาห์ที่แล้วค่ะ"}
+{"message_id":"M-004","timestamp":"09:16","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ รบกวนรอสักครู่นะคะ เดี๋ยวทางเราตรวจสอบสถานะนัดรับให้ค่ะ"}
+{"message_id":"M-005","timestamp":"09:19","speaker":"CS_AGENT","message_type":"text","text":"ตอนนี้รายการซ่อมของคุณนิภาพร้อมนัดรับแล้วค่ะ สามารถเข้ารับได้ที่สาขากรุงเทพฯ วันนี้ในช่วงเวลาทำการนะคะ หากสะดวก รบกวนแจ้งเวลาที่จะเข้ามารับไว้ได้เลยค่ะ"}
+{"message_id":"M-006","timestamp":"09:21","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ งั้นขอเข้าไปรับช่วงบ่ายสามนะคะ"}
+{"message_id":"M-007","timestamp":"09:23","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ ทางเราจะบันทึกเวลารับไว้ช่วงบ่ายสามให้ค่ะ เมื่อมาถึงรบกวนแจ้งชื่อคุณนิภา อภิรักษ์ที่เคาน์เตอร์ได้เลยนะคะ"}
+{"message_id":"M-008","timestamp":"09:25","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากค่ะ ไม่มีเรื่องอื่นแล้วค่ะ"}
+{"message_id":"M-009","timestamp":"09:27","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีคำถามเพิ่มเติมสามารถทักเข้ามาทาง LINE OA นี้ได้ตลอดนะคะ ขอให้คุณนิภาอัปเดตวันดี ๆ ค่ะ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามขั้นตอนการคืนสินค้าและคืนเงินหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณนภา วิเศษ ทางฟ้าใหม่ May Support ยินดีดูแลให้ค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อ หรือชื่อสินค้าที่ต้องการคืนด้วยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นสินค้า Powercell X3 ค่ะ ยังไม่ได้แกะใช้งาน ต้องทำยังไงบ้างคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ หากสินค้ายังอยู่ในสภาพสมบูรณ์และอยู่ในช่วงรับคืน รบกวนเตรียมรูปสินค้าและกล่องที่ได้รับมาด้วยนะคะ\nจากนั้นแจ้งหมายเลขสั่งซื้อผ่าน LINE OA นี้ ทางเราจะตรวจสอบสิทธิ์การคืนให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ถ้าผ่านแล้ว คืนเงินเข้าช่องทางเดิมเลยไหมคะ"}
+{"message_id":"M-006","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"หากคำขอคืนได้รับการอนุมัติ ทางบริษัทจะดำเนินการคืนเงินเข้าช่องทางเดิมค่ะ\nระยะเวลาดำเนินการขึ้นอยู่กับธนาคารหรือผู้ให้บริการชำระเงินที่ลูกค้าใช้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:45","speaker":"CUSTOMER","message_type":"text","text":"เข้าใจแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:47","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งได้เลยนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

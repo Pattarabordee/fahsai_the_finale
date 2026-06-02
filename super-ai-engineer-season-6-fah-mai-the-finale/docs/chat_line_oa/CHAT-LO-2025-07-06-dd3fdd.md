@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอสอบถามเวลาทำการของสาขาหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณวิชัย ประเสริฐ ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งชื่อสาขาที่ต้องการสอบถามด้วยค่ะ ทางเราจะตรวจสอบเวลาเปิด-ปิดให้ค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สอบถามสาขาในกรุงเทพฯ ครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ หากเป็นสาขาในกรุงเทพฯ เวลาทำการทั่วไปคือ 09:00-18:00 น. ค่ะ\nหากคุณวิชัยต้องการให้ช่วยเช็กสาขาใดเป็นพิเศษ แจ้งชื่อสาขาได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ทราบแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้ตลอดผ่าน LINE OA นี้นะคะ ขอให้มีวันที่ดีค่ะ"}

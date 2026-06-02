@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็คสถานะพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ติดต่อ May Support จากฟ้าใหม่ค่ะ รบกวนแจ้งหมายเลขพัสดุหรือเลขอ้างอิงสำหรับตรวจสอบสถานะให้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขอ้างอิงคือ 1234567890 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบเบื้องต้นแล้ว พัสดุอยู่ระหว่างจัดส่งวันนี้ค่ะ ตอนนี้สถานะล่าสุดคือออกจากศูนย์คัดแยกแล้ว และกำลังนำส่งไปปลายทางนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"โอเคค่ะ แล้วคาดว่าจะถึงประมาณกี่โมงคะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"โดยปกติจะถึงภายในวันเดียวกันค่ะ แต่อาจคลาดเคลื่อนได้ตามเส้นทางและรอบรถขนส่งนะคะ หากต้องการให้ติดตามต่อ รบกวนทักเข้ามาพร้อมเลขอ้างอิงเดิมได้เลยค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม สามารถทักมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนสอบถามความคืบหน้าการนัดรับสินค้าซ่อมประกันหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณมาลี ประเสริฐ ยินดีดูแลเรื่องนี้ให้ค่ะ รบกวนแจ้งหมายเลขรับซ่อมหรือชื่อรุ่นสินค้าให้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ค่ะ ส่งเข้าซ่อมไว้แล้ว อยากทราบว่าวันนี้รับได้ไหมคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ทางบริษัทตรวจสอบสถานะให้แล้วนะคะ สินค้ารายนี้อยู่ในงานรับประกันที่เกี่ยวกับข้อบกพร่องจากล็อตการผลิต [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\": \"Powercell X3\"}]] ตอนนี้สินค้าพร้อมนัดรับได้แล้วค่ะ รบกวนคุณมาลีเข้ารับที่จุดบริการเดิมภายในวันนี้ และนำใบรับฝากติดตัวมาด้วยนะคะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ เดี๋ยวแวะไปช่วงบ่าย ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากไปถึงแล้วแจ้งชื่อคุณมาลีที่เคาน์เตอร์ได้เลยนะคะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณค่ะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณที่ติดต่อเข้ามาค่ะ ขอให้คุณมาลีเดินทางสะดวกนะคะ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณขวัญใจ วิจิตร ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งชื่อสินค้าและสาขาที่สะดวก หรือบอกชื่อย่านใกล้บ้านได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สินค้าชื่อ Powercell X3 ค่ะ อยากเช็คสาขาแถวบางนา"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ขณะนี้มีสินค้ารุ่น Powercell X3 ที่สาขาโซนบางนาค่ะ\nรบกวนแจ้งสาขาที่ต้องการอีกครั้ง หรือถ้าสะดวกให้เราช่วยเช็กสาขาใกล้เคียงเพิ่มเติมได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ งั้นขอเช็คสาขาใกล้เคียงเพิ่มด้วยนะคะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ เดี๋ยวเราช่วยตรวจสอบสาขาใกล้เคียงให้เพิ่มเติมนะคะ\nถ้ามีสาขาที่ต้องการเป็นพิเศษ แจ้งเข้ามาได้ตลอดค่ะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ไม่มีแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ หากต้องการสอบถามเพิ่มเติม สามารถทักเข้ามาผ่าน LINE OA นี้ได้ตลอดนะคะ ขอให้มีวันที่ดีค่ะ"}

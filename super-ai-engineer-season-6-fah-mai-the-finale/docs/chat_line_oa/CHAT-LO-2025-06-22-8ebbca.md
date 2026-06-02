@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:12","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสต็อกสินค้าแถวสาขาใกล้บ้านหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:13","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมศักดิ์ เจริญสุข ยินดีให้บริการจาก May Support ค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็ค และสาขาที่สะดวกมาหน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:15","speaker":"CUSTOMER","message_type":"text","text":"Powercell X3 ครับ สาขาใกล้บ้านเป็นสาขาเมเจอร์รัชโยธิน"}
+{"message_id":"M-004","timestamp":"10:17","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้สาขาเมเจอร์รัชโยธินมี Powercell X3 พร้อมจำหน่ายค่ะ ถ้าต้องการให้เราเช็คสาขาใกล้เคียงอื่นเพิ่มเติม แจ้งชื่อสาขาได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:19","speaker":"CUSTOMER","message_type":"text","text":"พอแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:20","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ผ่าน LINE OA นี้ตลอดนะคะ ขอให้มีวันที่ดีค่ะ"}

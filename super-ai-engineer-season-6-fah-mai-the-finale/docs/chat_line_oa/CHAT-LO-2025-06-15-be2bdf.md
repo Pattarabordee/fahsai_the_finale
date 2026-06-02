@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ อยากเช็คสต็อกสินค้าที่สาขาใกล้บ้านครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณธนพล พิทักษ์ ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็คกับสาขาใกล้บ้านที่ต้องการสอบถามได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ขอเช็ค Powercell X3 ที่สาขาใกล้บ้านครับ มีของไหมครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ รบกวนแจ้งชื่อสาขาใกล้บ้านที่ต้องการตรวจสอบ หรือถ้าสะดวกส่งย่านที่อยู่มาได้ค่ะ เดี๋ยวทางเราช่วยเช็คให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"สาขาใกล้บ้านผมคือสาขาเซ็นทรัลบางนา รบกวนเช็คให้หน่อยครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณธนพล ตอนนี้ทางเราขอรับเรื่องตรวจสอบสต็อกที่สาขาเซ็นทรัลบางนาให้ค่ะ\nหากต้องการสอบถามเรื่องอื่นเพิ่มเติม แจ้งมาได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ไม่มีเรื่องอื่นแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการความช่วยเหลือเพิ่มเติม สามารถทักมาได้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,9 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยยืนยันใบแจ้งหนี้ของรอบนี้ให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า Ben Account ฝ่ายดูแลบัญชีของฟ้าใหม่นะคะ รบกวนแจ้งหมายเลขใบแจ้งหนี้ หรือหากสะดวกส่งรายละเอียดรอบบิลมาได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นยอด 224,700 บาท ครับ ขอเช็กกำหนดชำระด้วยครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ ยอดใบแจ้งหนี้คือ 224,700 บาท และกำหนดชำระคือ 22 มีนาคม 2567 นะคะ\n\nหากลูกค้าต้องการ ทางเราสามารถช่วยเตรียมข้อมูลสำหรับส่งต่อทีมบัญชีได้ด้วยค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ช่วยสรุปเงื่อนไขการชำระให้ด้วยได้ไหมครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ เงื่อนไขการชำระของรอบนี้คือชำระเต็มจำนวน 224,700 บาท ภายในวันที่ 22 มีนาคม 2567 นะคะ\n\nหากมีหลักฐานการโอนหรือเอกสารเพิ่มเติม สามารถส่งเข้ามาใน LINE OA นี้ได้เลยค่ะ"}
+{"message_id":"M-007","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"มีเรื่องอื่นที่ต้องการให้ช่วยตรวจสอบอีกไหมคะ"}
+{"message_id":"M-008","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-009","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ขอบคุณที่ติดต่อฟ้าใหม่นะคะ หากต้องการสอบถามเพิ่มเติมในภายหลัง ทักมาได้เสมอค่ะ"}

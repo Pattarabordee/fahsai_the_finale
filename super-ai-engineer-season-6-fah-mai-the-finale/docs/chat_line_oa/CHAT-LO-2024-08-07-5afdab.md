@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ตอนนี้มีโปรโมชั่นอะไรบ้างครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณ Customer005534 Jaidee ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nตอนนี้ทางฟ้าใหม่มีโปรโมชั่นสำหรับลูกค้าที่สั่งซื้อผ่าน LINE OA นี้ค่ะ\nหากลูกค้าสนใจสินค้าใดเป็นพิเศษ แจ้งชื่อสินค้าได้เลย เดี๋ยวช่วยเช็กโปรให้ค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจโปรโมชั่นของ Powercell X3 ครับ มีส่วนลดอะไรไหม"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ สำหรับ Powercell X3 ตอนนี้มีโปรแถมของสมนาคุณตามเงื่อนไขการสั่งซื้อค่ะ\nถ้าลูกค้าต้องการ เดี๋ยวช่วยสรุปรายละเอียดโปรและวิธีสั่งซื้อให้ต่อได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ รบกวนสรุปให้หน่อย"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ลูกค้าสามารถสั่งซื้อผ่าน LINE OA นี้ได้เลย และแจ้งชื่อสินค้ากับจำนวนที่ต้องการค่ะ\nหากพร้อมสั่งซื้อ แจ้งมาได้ทันที เดี๋ยวช่วยดูขั้นตอนต่อให้ค่ะ\nมีเรื่องอื่นสอบถามเพิ่มเติมไหมคะ"}
+{"message_id":"M-007","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ หากต้องการสอบถามเพิ่มเติมสามารถทักมาได้ทุกเมื่อค่ะ\nขอให้มีวันที่ดีนะคะ"}

@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามสต็อกสินค้าที่สาขาใกล้บ้านหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมหญิง อภิรักษ์ ทางฟ้าใหม่ May Support ยินดีช่วยดูข้อมูลให้ค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็ก และสาขาใกล้บ้านที่สะดวกมารับด้วยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"อยากเช็ก Powercell X3 ค่ะ สาขาแถวบ้านเป็นสาขาเดอะมอลล์บางกะปิ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณสมหญิง ตอนนี้สาขาเดอะมอลล์บางกะปิมี Powercell X3 พร้อมจำหน่าย 8 ชิ้นค่ะ หากต้องการกันสินค้าไว้ก่อน แนะนำให้แวะไปที่สาขาได้เลย หรือแจ้งให้เราช่วยประสานงานเพิ่มเติมผ่าน LINE OA นี้ได้นะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากค่ะ ไม่มีเรื่องอื่นแล้วค่ะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติมเกี่ยวกับสินค้า หรือสาขาใกล้บ้าน ทักมาได้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

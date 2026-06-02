@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็กสถานะพัสดุหน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ยินดีดูแลให้ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ต้องการตรวจสอบได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ เลขที่อ้างอิงคือ 15 มิถุนายน 2567\nอยากทราบว่าตอนนี้ถึงไหนแล้วคะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณลูกค้า\nจากข้อมูลที่แจ้ง พัสดุอยู่ระหว่างการนำส่งในวันนี้ค่ะ กรุณารอสถานะอัปเดตจากขนส่งอีกครั้งนะคะ หากต้องการให้ช่วยติดตามต่อ รบกวนส่งเลขที่อ้างอิงมาในแชตนี้ได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นให้ช่วยสอบถามเพิ่มเติมได้ตลอดนะคะ ขอให้คุณลูกค้าวันนี้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,5 @@
+timestamp	branch_code	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_amt	payment_method	schema_version
+2025-01-27T12:20:20+07:00	BKK-R9	TXN-202501-27010048	1	SKU-MASS-093	1	18900.00	0.00	debit_card	1
+2025-01-27T21:08:09+07:00	BKK-R9	TXN-202501-27019340	1	SKU-MASS-100	1	6900.00	0.00	credit_card	1
+2025-01-27T17:14:12+07:00	BKK-R9	TXN-202501-27021717	1	SKU-MASS-091	1	55900.00	0.00	debit_card	1
+2025-01-27T14:04:54+07:00	BKK-R9	TXN-202501-27026730	1	SKU-MASS-051	1	55900.00	0.00	debit_card	1

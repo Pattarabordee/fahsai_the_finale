@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยเช็คสถานะการจัดส่งพัสดุให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณภูริ อรุณกุล ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่อ้างอิงที่ใช้ติดตามพัสดุให้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ หมายเลขสั่งซื้อคือ OA-1582 ครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบเบื้องต้นแล้ว พัสดุอยู่ระหว่างขนส่ง และคาดว่าจะถึงภายในวันนี้ค่ะ\nหากลูกค้าต้องการติดตามเพิ่มเติม รบกวนตรวจสอบสถานะผ่านหน้าอ้างอิงเดิมได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

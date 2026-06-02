@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนเช็คสถานะพัสดุให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณธนพล บุญรอด ทางฟ้าใหม่ May Support รับเรื่องให้นะคะ รบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ต้องการตรวจสอบค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ หมายเลขพัสดุคือ 1234567890 ครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบให้แล้ว ตอนนี้พัสดุอยู่ระหว่างขนส่ง และมีสถานะล่าสุดเข้าศูนย์คัดแยกวันนี้นะคะ หากต้องการ ทางเราสามารถช่วยดูรายละเอียดเส้นทางเพิ่มเติมให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ แบบนี้คาดว่าจะถึงประมาณเมื่อไหร่ครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"โดยทั่วไปจะใช้เวลาตามรอบขนส่งของพื้นที่ปลายทางนะคะ ถ้าคุณธนพลต้องการ เราช่วยติดตามสถานะต่อได้ผ่านช่องทาง LINE OA นี้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ไม่มีเรื่องอื่นแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องสอบถามเพิ่มเติม ทักมาได้ทุกเมื่อค่ะ ขอให้คุณธนพลมีวันที่ดีนะคะ"}

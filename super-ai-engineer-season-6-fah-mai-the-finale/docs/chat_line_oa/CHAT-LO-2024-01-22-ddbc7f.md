@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"09:10","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามเวลาทำการของสาขาหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"09:11","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสุพัตรา อ่อนหวาน ยินดีให้บริการจาก May Support ค่ะ รบกวนแจ้งชื่อสาขาที่ต้องการสอบถามได้ไหมคะ ทางเราจะเช็กเวลาเปิด-ปิดให้ค่ะ"}
+{"message_id":"M-003","timestamp":"09:13","speaker":"CUSTOMER","message_type":"text","text":"ขอสอบถามสาขาในห้างได้ไหมคะ ยังไม่แน่ใจชื่อสาขาค่ะ"}
+{"message_id":"M-004","timestamp":"09:15","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ โดยทั่วไปสาขาในห้างจะเปิดตามเวลาห้าง และบางสาขาอาจปิดต่างกันเล็กน้อยค่ะ ถ้าคุณสุพัตราต้องการ เช็กชื่อห้างหรือสาขาเพิ่มเติมส่งมาได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"09:17","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-006","timestamp":"09:18","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักมาได้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:12","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ผมปิติ มงคล ครับ อยากติดตามนัดรับสินค้าซ่อมประกันครับ"}
+{"message_id":"M-002","timestamp":"10:13","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณปิติ มงคล ยินดีดูแลค่ะ ดิฉัน May Support จากฟ้าใหม่ค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่อ้างอิงที่ใช้ส่งซ่อมไว้ได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:15","speaker":"CUSTOMER","message_type":"text","text":"ผมไม่มีเลขที่อ้างอิงครับ มีแค่ชื่อกับวันที่ส่งซ่อม"}
+{"message_id":"M-004","timestamp":"10:16","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนแจ้งวันที่ส่งซ่อมและชื่อสินค้า หรือสาขาที่ฝากไว้เพิ่มเติมนิดหนึ่งค่ะ เดี๋ยวดิฉันช่วยตรวจสอบนัดรับให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:18","speaker":"CUSTOMER","message_type":"text","text":"ส่งซ่อมวันนี้ครับ เป็นเครื่อง Powercell X3 ที่สาขาเดิม"}
+{"message_id":"M-006","timestamp":"10:20","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณปิติ ขณะนี้นัดรับสินค้าซ่อมของคุณอยู่ระหว่างรอเจ้าหน้าที่ประสานกลับไปค่ะ\nหากวันนี้ยังไม่ได้รับการติดต่อ รบกวนรอข้อความแจ้งนัดหมายผ่าน LINE OA นี้อีกครั้งนะคะ"}
+{"message_id":"M-007","timestamp":"10:22","speaker":"CUSTOMER","message_type":"text","text":"เข้าใจแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:23","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

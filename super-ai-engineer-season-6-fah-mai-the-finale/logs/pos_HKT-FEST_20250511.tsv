@@ -1,0 +1,3 @@
+timestamp	branch_code	payment_terminal_id	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_total_thb	payment_method	loyalty_tier_at_purchase	schema_version
+2025-05-11T15:13:27+07:00	HKT-FEST	HKT-FEST-POS-02	TXN-202505-11015172	1	SKU-MASS-029	1	18900.00	0.00	debit_card	none	2
+2025-05-11T15:10:57+07:00	HKT-FEST	HKT-FEST-POS-03	TXN-202505-11027357	1	SKU-MASS-076	1	6900.00	0.00	credit_card	none	2

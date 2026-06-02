@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยเช็กนัดรับสินค้าซ่อมประกันให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมศักดิ์ เลิศวานิช ขอบคุณที่ติดต่อฟ้าใหม่ค่ะ ดิฉัน May Support ยินดีดูแลให้นะคะ\nรบกวนแจ้งหมายเลขรับซ่อม หรือชื่อรุ่นสินค้าไว้หน่อยค่ะ จะได้ตรวจสอบนัดรับให้ค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ครับ ฝากเช็กว่าวันนี้มีเจ้าหน้าที่เข้ารับไหมครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ จากข้อมูลที่มีอยู่ เคสนี้อยู่ระหว่างงานเคลมประกันที่เกี่ยวกับสินค้าล็อตผลิตมีปัญหา [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\": \"Powercell X3\"}]]\nวันนี้ยังไม่มีรอบแจ้งเข้ารับที่ยืนยันได้ในระบบค่ะ รบกวนคุณสมศักดิ์รอสายแจ้งจากเจ้าหน้าที่ หรือหากสะดวก ดิฉันช่วยส่งเรื่องให้ทีมติดตามอีกรอบได้นะคะ"}
+{"message_id":"M-005","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ ถ้ามีอัปเดตแล้วรบกวนแจ้งผมด้วยนะครับ"}
+{"message_id":"M-006","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ดิฉันบันทึกคำขอติดตามไว้ให้แล้วนะคะ\nหากมีการยืนยันรอบเข้ารับ ทีมงานจะติดต่อกลับผ่านช่องทางเดิมค่ะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ขอบคุณที่ติดต่อฟ้าใหม่นะคะ หากต้องการสอบถามเพิ่มเติม สามารถทักมาได้ตลอดค่ะ"}

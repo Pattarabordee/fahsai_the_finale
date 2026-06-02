@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็คสถานะพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ยินดีดูแลค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงสำหรับตรวจสอบสถานะการจัดส่งด้วยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขอ้างอิงคือ 98321456 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบให้แล้วค่ะ ตอนนี้พัสดุถูกส่งออกจากศูนย์คัดแยกและอยู่ระหว่างนำส่งค่ะ\nหากไม่มีการเปลี่ยนแปลงเพิ่มเติม ปลายทางจะได้รับในวันนี้นะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากค่ะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการให้ช่วยตรวจสอบเรื่องอื่นเพิ่มเติม ทักมาได้ตลอดนะคะ"}

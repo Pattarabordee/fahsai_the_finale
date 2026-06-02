@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามเวลาทำการของสาขาหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณวรรณา วิจิตร May Support ดูแลค่ะ รบกวนแจ้งชื่อสาขาที่ต้องการสอบถามมาหน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นสาขาในห้างค่ะ ยังไม่แน่ใจชื่อเต็ม"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ โดยทั่วไปสาขาในห้างจะเปิดตามเวลาห้าง และอาจมีเวลาปิดต่างกันในแต่ละพื้นที่ค่ะ หากคุณวรรณาสะดวก แจ้งชื่อห้างหรือจังหวัดมาได้เลย เดี๋ยวเราช่วยเช็กให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เดี๋ยวขอเช็กชื่อสาขาก่อนนะคะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ ถ้ามีชื่อสาขาแล้วทักมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

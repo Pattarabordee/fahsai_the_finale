@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยยืนยันใบแจ้งหนี้ของเดือนนี้ให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีครับ คุณCUST-L3-B2B-011300 ผม Ben Account จากทีมดูแลบัญชีครับ\nรับเรื่องยืนยันใบแจ้งหนี้เรียบร้อยครับ รบกวนแจ้งหมายเลขใบแจ้งหนี้ หรือส่งรายละเอียดที่ต้องการให้ตรวจสอบเพิ่มได้เลยครับ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นยอด 169,100 บาทครับ ขอเช็กว่าต้องชำระภายในวันไหน แล้วโอนเข้าบัญชีเดิมได้ไหมครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ตรวจสอบให้แล้วครับ ใบแจ้งหนี้ยอด 169,100 บาท กำหนดชำระภายใน 4 สิงหาคม 2568 ครับ\nลูกค้าสามารถโอนเข้าบัญชีเดิมที่ใช้ชำระตามเงื่อนไขเดิมได้เลยครับ รบกวนแนบสลิปผ่าน LINE OA นี้หลังโอน เพื่อให้ทางเราบันทึกรายการได้ครับ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีครับ หากมีเรื่องอื่นเกี่ยวกับใบแจ้งหนี้หรือการชำระเงิน แจ้งมาได้เลยนะครับ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณครับ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณครับ ขอให้วันนี้เป็นวันที่ดีนะครับ"}

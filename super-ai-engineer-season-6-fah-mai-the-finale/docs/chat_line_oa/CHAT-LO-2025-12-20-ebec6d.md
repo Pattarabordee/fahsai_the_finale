@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยเช็กนัดรับสินค้าที่ส่งซ่อมประกันให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณณัฐพล วรากร ทาง May Support ยินดีช่วยตรวจสอบค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่ใบรับซ่อมที่คุณมีอยู่ให้หน่อยได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ผมไม่มีเลขที่ค่ะ มีแค่ชื่อกับเบอร์ที่ใช้ติดต่อไว้"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนคุณณัฐพลแจ้งชื่อรุ่นสินค้า และวันที่ฝากซ่อมโดยประมาณให้หน่อยนะคะ\nทางเราจะช่วยไล่ตรวจสอบนัดรับให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ฝากไว้ช่วงต้นเดือนนี้ครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ทางระบบพบรายการซ่อมของ Powercell X3 แล้วค่ะ\nสถานะตอนนี้อยู่ระหว่างเตรียมจัดส่งคืนศูนย์รับของ และคาดว่าสามารถนัดรับได้ภายใน 1-2 วันทำการค่ะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ งั้นรอแจ้งนัดอีกทีได้เลย ขอบคุณครับ"}
+{"message_id":"M-008","timestamp":"10:46","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ เดี๋ยวทางเราจะแจ้งอัปเดตผ่าน LINE OA นี้อีกครั้งนะคะ\nหากมีคำถามเพิ่มเติมสามารถทักมาได้ตลอดค่ะ ขอบคุณที่ติดต่อฟ้าใหม่นะคะ"}

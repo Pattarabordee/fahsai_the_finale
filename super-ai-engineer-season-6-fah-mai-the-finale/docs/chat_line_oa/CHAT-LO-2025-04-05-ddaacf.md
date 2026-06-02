@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนสอบถามความคืบหน้านัดรับสินค้าที่ส่งซ่อมประกันไว้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณนริศ ศักดิ์โสภณ ทาง May Support ยินดีดูแลให้นะคะ\nรบกวนแจ้งหมายเลขสั่งซ่อมหรือชื่อรุ่นสินค้า และวันที่ที่นำเข้าซ่อมไว้หน่อยค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ครับ นำเข้าไว้เมื่อต้นเดือนนี้ ยังไม่แน่ใจวันนัดรับครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ คุณนริศ\nทางเราเช็กข้อมูลแล้ว พบว่าสินค้าชุดนี้อยู่ระหว่างเคลมประกัน และรายการนี้อยู่ในเคสที่เกี่ยวกับปัญหาการผลิตของล็อตสินค้าเดียวกันค่ะ [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\": \"Powercell X3\"}]]\nตอนนี้ทางศูนย์กำลังเตรียมสินค้าทดแทนและจัดคิวส่งมอบ รบกวนรอการแจ้งนัดรับจากทางเราอีกครั้งผ่าน LINE OA นี้นะคะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ แล้วถ้ามีอัปเดต ผมจะเห็นในแชตนี้เลยใช่ไหมครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ใช่ค่ะ ระบบจะแจ้งข้อมูลอัปเดตผ่านแชตนี้โดยตรงค่ะ\nหากต้องการให้ช่วยตรวจสอบสถานะอีกครั้ง คุณนริศทักมาได้ตลอดนะคะ มีเรื่องอื่นให้ช่วยเพิ่มเติมอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีมากค่ะ ขอบคุณที่ติดต่อ May Support นะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

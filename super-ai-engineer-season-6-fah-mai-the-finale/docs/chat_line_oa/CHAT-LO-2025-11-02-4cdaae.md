@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ สอบถามเวลาทำการของสาขาหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณอรทัย อ่อนหวาน May Support ยินดีดูแลค่ะ รบกวนแจ้งชื่อสาขาที่ต้องการสอบถามหน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นสาขาในกรุงเทพฯ ค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ สาขาในกรุงเทพฯ ของฟ้าใหม่เปิดทุกวัน 09:00-18:00 น.ค่ะ หากสะดวกไปช่วงบ่ายจะมีเจ้าหน้าที่ดูแลได้ต่อเนื่องค่ะ มีเรื่องอื่นสอบถามเพิ่มเติมไหมคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีมากค่ะ ขอบคุณที่ติดต่อฟ้าใหม่ผ่าน LINE OA นี้นะคะ หากต้องการสอบถามเพิ่มเติม แวะมาคุยได้ตลอดค่ะ"}

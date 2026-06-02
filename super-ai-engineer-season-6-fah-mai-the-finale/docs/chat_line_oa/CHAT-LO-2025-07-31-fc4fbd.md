@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนสอบถามข้อมูลสินค้าได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ฟ้าใหม่ ยินดีให้บริการค่ะ ดิฉัน Staff037 Member (SUP Staff) ค่ะ\nไม่ทราบคุณอรทัยสนใจสอบถามสินค้าเรื่องไหนเป็นพิเศษคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"อยากทราบรายละเอียดสินค้า Powercell X3 ค่ะ ใช้งานกับอะไรได้บ้าง"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"Powercell X3 เป็นสินค้าสำหรับใช้งานกับอุปกรณ์ที่รองรับการจ่ายไฟผ่านพอร์ตมาตรฐานค่ะ\nหากคุณอรทัยต้องการ เราสามารถแนะนำวิธีใช้งานเบื้องต้น หรือช่วยเช็กว่ารุ่นอุปกรณ์ของคุณใช้ร่วมกันได้ไหมคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอวิธีใช้งานเบื้องต้นด้วยค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ แนะนำให้ตรวจสอบสภาพตัวสินค้าและสายก่อนใช้งาน จากนั้นเชื่อมต่อกับอุปกรณ์ที่ต้องการใช้งานตามคู่มือ\nถ้าคุณอรทัยต้องการข้อมูลเพิ่มเรื่องการดูแลสินค้า หรือเงื่อนไขการรับประกัน แจ้งมาได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เท่านี้พอแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีคำถามเพิ่มเติมสามารถทักมาได้ตลอดผ่าน LINE OA นี้นะคะ ขอให้ใช้งานอย่างสะดวกค่ะ"}

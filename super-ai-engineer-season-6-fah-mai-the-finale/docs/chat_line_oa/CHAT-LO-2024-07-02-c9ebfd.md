@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอสอบถามสินค้าที่สาขาใกล้บ้านหน่อยครับ มีของพร้อมไหม"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณวิชัย วรากร ทางฟ้าใหม่ May Support ยินดีดูแลค่ะ รบกวนแจ้งชื่อสินค้าหรือรุ่นที่ต้องการเช็กสต็อก พร้อมสาขาที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ผมสนใจ Powercell X3 ครับ อยากเช็กที่สาขาใกล้บ้าน แถวบ้านผม"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้ทางเรายังไม่เห็นข้อมูลสต็อกแบบเรียลไทม์ใน LINE OA นี้นะคะ แนะนำให้แจ้งชื่อสาขาที่ต้องการ หรือเข้าเช็กหน้าร้านโดยตรงได้ค่ะ ถ้าคุณวิชัยต้องการ ทางเราช่วยแนะนำวิธีหาสาขาใกล้บ้านเพิ่มเติมได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ งั้นขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ผ่าน LINE OA นี้ตลอดนะคะ ขอให้คุณวิชัยสะดวกในการเช็กสินค้าค่ะ"}

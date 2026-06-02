@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็กสถานะพัสดุที่ส่งวันนี้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ค่ะ รบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ต้องการตรวจสอบหน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ยังไม่มีเลขพัสดุครับ มีแค่ชื่อผู้รับกับวันที่ส่งวันนี้"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนแจ้งชื่อผู้รับและชื่อบริษัทปลายทางมาได้เลยนะคะ เดี๋ยวทางเราช่วยตรวจสอบสถานะให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ผู้รับชื่อบีทูบี ครับ ส่งไปบริษัทคู่ค้า"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ จากข้อมูลที่แจ้ง หากเป็นพัสดุที่ส่งวันนี้ ระบบขนส่งอาจยังอัปเดตสถานะไม่ครบในช่วงแรกนะคะ แนะนำให้รออีกสักระยะแล้วลองเช็กใหม่ผ่าน LINE OA นี้ หรือถ้ามีเลขพัสดุภายหลัง ส่งมาให้เราได้เลยค่ะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"เข้าใจแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,9 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ สอบถามขั้นตอนการคืนสินค้าและคืนเงินหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณมาลี สำราญ ยินดีดูแลค่ะ ดิฉัน May Support จากฟ้าใหม่นะคะ\nขอทราบชื่อสินค้าและอาการที่พบสักนิดได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็น Powercell X3 ค่ะ ยังไม่แน่ใจว่าต้องทำยังไงต่อ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ สำหรับ Powercell X3 ทางฟ้าใหม่เปิดรอบรับคืนสินค้าสำหรับสินค้าที่ได้รับผลกระทบ [[CLAIM:CLAIM.E9.RECALL_INITIATED_BY_VENDOR_ADVISORY:{\"product\": \"Powercell X3\", \"customer_action\": \"ติดต่อฟ้าใหม่ผ่าน LINE OA นี้พร้อมแจ้งชื่อสินค้า\"}]]\nรบกวนคุณมาลีส่งรูปสินค้า กล่อง และเลขที่อ้างอิงการสั่งซื้อเข้ามาได้เลยนะคะ เดี๋ยวทางเราตรวจสอบและแจ้งขั้นตอนคืนเงินให้ต่อค่ะ"}
+{"message_id":"M-005","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ เดี๋ยวส่งรูปกับเลขที่อ้างอิงไปให้นะคะ"}
+{"message_id":"M-006","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ เมื่อได้รับข้อมูลแล้ว ทางเราจะตรวจสอบสภาพสินค้าและแจ้งวิธีส่งคืนให้ค่ะ\nหากเอกสารครบถ้วน ขั้นตอนคืนเงินจะดำเนินการตามลำดับงานของทีมค่ะ"}
+{"message_id":"M-007","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"มีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-008","timestamp":"10:46","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-009","timestamp":"10:47","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณมาลี หากส่งข้อมูลเข้ามาเมื่อไร ทางเราจะรีบดูแลต่อให้นะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

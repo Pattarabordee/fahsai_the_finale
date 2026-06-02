@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณดวงใจ ธีรสาร ทางฟ้าใหม่ May Support รับเรื่องให้ค่ะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็ค และสาขาที่สะดวกได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจ Powercell X3 ค่ะ ดูที่สาขาใกล้บ้านได้เลยค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ สำหรับ Powercell X3 รบกวนแจ้งชื่อสาขาใกล้บ้านที่ต้องการเช็คอีกครั้งนะคะ ทางเราจะช่วยตรวจสอบสถานะสต็อกให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เดี๋ยวขอเช็คชื่อสาขาก่อนนะคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ หากพร้อมแล้วส่งชื่อสาขามาในแชตนี้ได้เลยนะคะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}

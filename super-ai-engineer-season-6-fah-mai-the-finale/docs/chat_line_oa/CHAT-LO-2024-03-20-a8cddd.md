@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ อยากเช็คสินค้าที่สาขาใกล้บ้านหน่อยค่ะ ว่ามีของไหม"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณพรทิพย์ นันทพันธุ์ ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็คสต็อก และสาขาที่สะดวกได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็น Powercell X3 ค่ะ อยากทราบที่สาขาใกล้บ้าน มีของพร้อมรับไหม"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ รบกวนแจ้งชื่อสาขาหรือย่านที่คุณพรทิพย์สะดวกได้เลยนะคะ ทางเราจะช่วยตรวจสอบให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"สาขาเซ็นทรัลพระราม 2 ค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณพรทิพย์ ตอนนี้ทางเรายังไม่สามารถเห็นสต็อกแบบเรียลไทม์ผ่านแชตนี้ได้ค่ะ\nรบกวนติดต่อสาขาเซ็นทรัลพระราม 2 โดยตรง หรือฝากชื่อและเบอร์ไว้กับสาขาให้ช่วยเช็กของให้ได้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติมได้ตลอดนะคะ ขอให้คุณพรทิพย์สะดวกในการรับสินค้าค่ะ"}

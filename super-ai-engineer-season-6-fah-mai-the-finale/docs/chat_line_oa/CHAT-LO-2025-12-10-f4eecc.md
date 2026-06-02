@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็กสถานะพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณวันเพ็ญ ดวงดี ทาง May Support ยินดีช่วยดูให้นะคะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขอ้างอิงที่มีอยู่ได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขพัสดุคือ PL123456789TH ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้พัสดุอยู่ระหว่างจัดส่ง และคาดว่าจะนำจ่ายภายในวันนี้ค่ะ\nถ้าต้องการ ทางเราช่วยแนะนำวิธีติดตามสถานะผ่าน LINE OA นี้ต่อได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติมได้ตลอดนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

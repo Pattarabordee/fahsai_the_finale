@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ผมสมศักดิ์ พงษ์ศักดิ์ อยากติดตามนัดรับสินค้าซ่อมประกันครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมศักดิ์ ยินดีช่วยตรวจสอบให้นะคะ\nรบกวนแจ้งชื่อรุ่นสินค้า หรือเลขที่ใบรับซ่อมที่มีอยู่ให้หน่อยค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ครับ เลขที่ใบรับซ่อมผมไม่มีติดตัวตอนนี้"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณสมศักดิ์ ทางเราตรวจจากข้อมูลที่แจ้งได้แล้วนะคะ\nงานซ่อมนี้อยู่ในรายการเคลมประกัน และเกี่ยวข้องกับปัญหาที่พบในสินค้าบางล็อตค่ะ [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\": \"Powercell X3\"}]]\nตอนนี้นัดรับสินค้าพร้อมแล้ว รบกวนลูกค้าเข้ารับที่ศูนย์บริการในวันนี้ตามเวลาที่นัดไว้ได้เลยค่ะ ถ้าสะดวก ขอให้เตรียมบัตรประชาชนหรือเอกสารยืนยันตัวตนมาด้วยนะคะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ เดี๋ยวผมเข้าไปรับวันนี้ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณสมศักดิ์ หากมาถึงแล้วแจ้งเจ้าหน้าที่หน้าจุดรับสินค้าได้เลยนะคะ\nมีเรื่องอื่นให้ช่วยเพิ่มเติมอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณครับ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ขอให้เดินทางสะดวกนะคะ หากต้องการสอบถามเพิ่มเติม สามารถทักเข้ามาที่ LINE OA นี้ได้ตลอดค่ะ"}

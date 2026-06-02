@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็กสถานะพัสดุที่ส่งวันนี้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ขอบคุณที่ติดต่อฟ้าใหม่นะคะ ดิฉัน May Support ค่ะ รบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ต้องการเช็กสถานะให้หน่อยได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เลขที่อ้างอิงมีแค่นี้ครับ ยังไม่ได้รับเลขพัสดุเลย"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ หากยังไม่ได้รับเลขพัสดุ รบกวนแจ้งชื่อผู้รับและเบอร์โทรที่ใช้ติดต่อในคำสั่งซื้อได้ไหมคะ เดี๋ยวทางเราช่วยตรวจสอบสถานะให้เพิ่มเติมค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ชื่อผู้รับเป็นคุณสมชาย และเบอร์ที่ใช้ติดต่อคือ 0xx-xxx-xxxx ครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณสมชาย ตอนนี้ทางเราพบว่าพัสดุอยู่ระหว่างนำส่งวันนี้แล้วค่ะ รบกวนรอรับสายจากเจ้าหน้าที่ขนส่งได้เลยนะคะ หากต้องการให้ช่วยติดตามเพิ่มเติม สามารถส่งข้อความมาได้ตลอดค่ะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}

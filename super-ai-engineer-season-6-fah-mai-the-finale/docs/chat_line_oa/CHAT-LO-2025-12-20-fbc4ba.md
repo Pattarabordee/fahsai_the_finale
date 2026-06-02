@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสถานะพัสดุหน่อยค่ะ ตอนนี้ยังไม่เห็นอัปเดตเลย"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณทัศนีย์ พงศ์เทพ ทางฟ้าใหม่ May Support ยินดีดูแลค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ต้องการตรวจสอบเข้ามาได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขอ้างอิงคือ 1234567890 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบสถานะให้แล้วนะคะ ตอนนี้พัสดุอยู่ระหว่างนำส่ง และระบบยังไม่ได้บันทึกการส่งสำเร็จในวันนี้ค่ะ\nรบกวนลูกค้ารอการอัปเดตอีกสักครู่ หรือเช็กสถานะผ่าน LINE OA นี้ได้อีกครั้งภายหลังนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นที่ต้องการสอบถามเพิ่มเติม แจ้งมาได้เลยนะคะ"}

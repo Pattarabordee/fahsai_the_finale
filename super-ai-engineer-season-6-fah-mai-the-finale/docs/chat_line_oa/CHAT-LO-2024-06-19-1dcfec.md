@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณธีรพงษ์ อรุณกุล ทาง May Support ยินดีช่วยดูให้นะคะ รบกวนแจ้งชื่อสินค้าที่ต้องการเช็คสต็อก และสาขาที่สะดวกได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นรุ่น Powercell X3 ครับ อยากเช็คที่สาขาใกล้บ้าน แถวรามอินทราได้ไหมครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รุ่น Powercell X3 ทางเราช่วยประสานตรวจสอบสต็อกสาขาแถวรามอินทราให้ได้ค่ะ รบกวนแจ้งชื่อสาขาที่สะดวกที่สุด หรือถ้ามีสาขาใกล้บ้านมากกว่า 1 สาขา ส่งมาได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"รบกวนเช็คสาขารามอินทรา 65 ให้หน่อยครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ เดี๋ยวทางเราตรวจสอบให้ค่ะ ตอนนี้สาขารามอินทรา 65 มีสินค้า Powercell X3 พร้อมจำหน่ายอยู่ค่ะ หากลูกค้าต้องการให้ช่วยเช็คสาขาอื่นเพิ่มเติม แจ้งมาได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ไม่มีแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ผ่าน LINE OA นี้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

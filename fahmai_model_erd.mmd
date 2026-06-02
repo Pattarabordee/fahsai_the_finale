@@ -1,0 +1,231 @@
+erDiagram
+    %% FahMai model/RAG database ERD.
+    %% This ERD focuses on the PostgreSQL schemas that the Model team will use.
+    %% The detailed 31-table official ERD remains in fahmai_erd.mmd.
+
+    CORE_DIM_BRANCH {
+        text branch_code PK
+        text name_en
+        text branch_type
+    }
+
+    CORE_DIM_CUSTOMER {
+        text customer_id PK
+        text account_manager_id FK
+        text customer_type
+        text loyalty_tier
+    }
+
+    CORE_DIM_EMPLOYEE {
+        text employee_id PK
+        text branch_code FK
+        text dept_code FK
+        text position_level FK
+        text reports_to_employee_id FK
+    }
+
+    CORE_DIM_PRODUCT {
+        text sku_id PK
+        text dept_code FK
+        text vendor_id FK
+        text brand_family
+        numeric msrp_thb
+    }
+
+    CORE_DIM_VENDOR {
+        text vendor_id PK
+        text name_en
+        text category
+    }
+
+    CORE_DIM_VENDOR_CONTRACT_VERSION {
+        text contract_version_id PK
+        text vendor_id FK
+        int version_number
+        date effective_date
+        date end_date
+    }
+
+    CORE_DIM_PROMO_CAMPAIGN {
+        text campaign_id PK
+        timestamptz start_timestamp
+        timestamptz end_timestamp
+    }
+
+    CORE_DIM_BANK_ACCOUNT {
+        text account_id PK
+        text associated_branch_code FK
+        text account_role
+    }
+
+    CORE_FACT_SALES {
+        text txn_id PK
+        date business_event_date
+        text branch_code FK
+        text customer_id FK
+        text employee_id FK
+        text promo_campaign_id FK
+        text settlement_bank_txn_id FK
+        numeric net_total_thb
+    }
+
+    CORE_FACT_SALES_LINE_ITEM {
+        text line_item_id PK
+        text txn_id FK
+        text sku_id FK
+        int quantity
+        numeric line_total_thb
+    }
+
+    CORE_FACT_BANK_TRANSACTION {
+        text bank_txn_id PK
+        text account_id FK
+        text related_entity_table
+        text related_entity_id
+        numeric amount_thb
+    }
+
+    CORE_FACT_VENDOR_PAYMENT {
+        text payment_id PK
+        text vendor_id FK
+        text vendor_contract_version_id FK
+        text bank_txn_id FK
+        numeric paid_amount_thb
+    }
+
+    CORE_FACT_RETURN {
+        text return_id PK
+        text original_txn_id FK
+        text line_item_id FK
+        text sku_id FK
+        numeric return_amount_thb
+    }
+
+    CORE_FACT_REFUND_PAID {
+        text refund_id PK
+        text return_id FK
+        text cs_interaction_id FK
+        text bank_txn_id FK
+        numeric refund_amount_thb
+    }
+
+    CORE_FACT_WARRANTY_CLAIM {
+        text claim_id PK
+        text customer_id FK
+        text sku_id FK
+        text original_txn_id FK
+    }
+
+    CORE_T2_DOC_INVENTORY {
+        text doc_id PK
+        text source_table
+        text source_pk
+    }
+
+    RAG_SOURCE_DOCUMENTS {
+        text source_document_id PK
+        text source_path
+        text source_kind
+        boolean is_public_safe
+        text safety_tier
+    }
+
+    RAG_DOCUMENT_CHUNKS {
+        text chunk_id PK
+        text source_document_id FK
+        int chunk_index
+        text chunk_text
+        tsvector search_tsv
+        boolean is_public_safe
+    }
+
+    RAG_CHUNK_EMBEDDINGS {
+        text chunk_id PK,FK
+        text embedding_model
+        vector embedding
+    }
+
+    RAG_ENTITY_LINKS {
+        bigserial entity_link_id PK
+        text source_document_id FK
+        text chunk_id FK
+        text entity_type
+        text entity_id
+        text linked_table
+        text linked_column
+        boolean is_public_safe
+    }
+
+    AUDIT_PROVENANCE_ENTITY_LINKS {
+        bigserial provenance_link_id PK
+        text artifact_id
+        text source_path
+        text linked_table
+        boolean is_public_safe
+    }
+
+    MART_V_SALES_ORDER {
+        text txn_id
+        text customer_id
+        text branch_code
+        text settlement_bank_txn_id
+    }
+
+    MART_V_SALES_LINE {
+        text line_item_id
+        text txn_id
+        text sku_id
+        text vendor_id
+    }
+
+    MART_V_BANK_RECONCILIATION {
+        text bank_txn_id
+        text related_entity_table
+        text related_entity_id
+        text deposit_batch_reconciliation_status
+    }
+
+    MART_V_SALES_DEPOSIT_BATCH_RECONCILIATION {
+        text sales_deposit_batch_id
+        text settlement_bank_txn_id
+        numeric net_total_thb
+        numeric bank_amount_thb
+    }
+
+    CORE_DIM_BRANCH ||--o{ CORE_DIM_BANK_ACCOUNT : associated_branch
+    CORE_DIM_BRANCH ||--o{ CORE_DIM_EMPLOYEE : employee_branch
+    CORE_DIM_BRANCH ||--o{ CORE_FACT_SALES : sales_branch
+    CORE_DIM_CUSTOMER ||--o{ CORE_FACT_SALES : sales_customer
+    CORE_DIM_EMPLOYEE ||--o{ CORE_DIM_CUSTOMER : account_manager
+    CORE_DIM_EMPLOYEE ||--o{ CORE_FACT_SALES : sales_employee
+    CORE_DIM_PROMO_CAMPAIGN ||--o{ CORE_FACT_SALES : promo
+    CORE_DIM_BANK_ACCOUNT ||--o{ CORE_FACT_BANK_TRANSACTION : account
+    CORE_FACT_BANK_TRANSACTION ||--o{ CORE_FACT_SALES : settlement
+
+    CORE_FACT_SALES ||--o{ CORE_FACT_SALES_LINE_ITEM : line_items
+    CORE_DIM_PRODUCT ||--o{ CORE_FACT_SALES_LINE_ITEM : line_product
+    CORE_DIM_VENDOR ||--o{ CORE_DIM_PRODUCT : product_vendor
+    CORE_DIM_VENDOR ||--o{ CORE_DIM_VENDOR_CONTRACT_VERSION : contract_versions
+    CORE_DIM_VENDOR ||--o{ CORE_FACT_VENDOR_PAYMENT : vendor_payment
+    CORE_DIM_VENDOR_CONTRACT_VERSION ||--o{ CORE_FACT_VENDOR_PAYMENT : explicit_contract
+    CORE_FACT_BANK_TRANSACTION ||--o{ CORE_FACT_VENDOR_PAYMENT : payment_bank_txn
+
+    CORE_FACT_SALES ||--o{ CORE_FACT_RETURN : original_sale
+    CORE_FACT_SALES_LINE_ITEM ||--o{ CORE_FACT_RETURN : returned_line
+    CORE_FACT_RETURN ||--o| CORE_FACT_REFUND_PAID : refund
+    CORE_FACT_BANK_TRANSACTION ||--o{ CORE_FACT_REFUND_PAID : refund_bank_txn
+    CORE_FACT_SALES ||--o{ CORE_FACT_WARRANTY_CLAIM : warranty_original_sale
+    CORE_DIM_PRODUCT ||--o{ CORE_FACT_WARRANTY_CLAIM : warranty_product
+
+    CORE_T2_DOC_INVENTORY ||--o{ RAG_SOURCE_DOCUMENTS : doc_source
+    RAG_SOURCE_DOCUMENTS ||--o{ RAG_DOCUMENT_CHUNKS : chunks
+    RAG_DOCUMENT_CHUNKS ||--o| RAG_CHUNK_EMBEDDINGS : embedding
+    RAG_SOURCE_DOCUMENTS ||--o{ RAG_ENTITY_LINKS : source_links
+    RAG_DOCUMENT_CHUNKS ||--o{ RAG_ENTITY_LINKS : chunk_links
+
+    AUDIT_PROVENANCE_ENTITY_LINKS }o..o{ RAG_ENTITY_LINKS : public_safe_split
+
+    CORE_FACT_SALES ||..o{ MART_V_SALES_ORDER : model_view
+    CORE_FACT_SALES_LINE_ITEM ||..o{ MART_V_SALES_LINE : model_view
+    CORE_FACT_BANK_TRANSACTION ||..o{ MART_V_BANK_RECONCILIATION : model_view
+    CORE_FACT_BANK_TRANSACTION ||..o{ MART_V_SALES_DEPOSIT_BATCH_RECONCILIATION : virtual_discriminator

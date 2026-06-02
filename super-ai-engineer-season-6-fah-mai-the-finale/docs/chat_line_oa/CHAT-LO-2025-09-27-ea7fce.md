@@ -1,0 +1,9 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามนัดรับสินค้าซ่อมประกันหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณวันเพ็ญ ประเสริฐ ยินดีดูแลค่ะ รบกวนแจ้งหมายเลขสั่งซื้อหรือชื่อรุ่นสินค้าที่ส่งซ่อมไว้ได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"หมายเลขสั่งซื้อไม่มีติดตัวค่ะ มีแต่ชื่อรุ่น Powercell X3 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ รบกวนรอสักครู่นะคะ ขออัปเดตข้อมูลนัดรับให้ก่อนค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"[[CLAIM:CLAIM.E9.RECALL_INITIATED_BY_VENDOR_ADVISORY:{\"sku\": \"Powercell X3\"}]] ทางฟ้าใหม่เปิดรอบรับคืนสำหรับรุ่นนี้แล้วค่ะ รบกวนคุณวันเพ็ญเตรียมสินค้าที่ส่งซ่อมไว้ พร้อมบัตรประชาชนหรือเอกสารยืนยันตัวตนตอนเข้ารับนะคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ แล้วต้องรอเจ้าหน้าที่โทรนัดอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ใช่ค่ะ ทางทีมจะติดต่อกลับผ่าน LINE OA นี้เพื่อนัดวันและเวลาเข้ารับอีกครั้งค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งได้เลยนะคะ"}
+{"message_id":"M-008","timestamp":"10:46","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-009","timestamp":"10:47","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ หากต้องการสอบถามเพิ่มเติมในภายหลัง ทักมาได้ตลอดนะคะ ขอให้คุณวันเพ็ญมีวันที่ดีค่ะ"}

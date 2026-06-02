@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ สอบถามเวลาเปิด-ปิดของสาขาหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณก้อง วัฒนพงษ์ ดิฉัน May Support จากฟ้าใหม่ค่ะ ยินดีให้บริการนะคะ\nรบกวนแจ้งชื่อสาขาที่ต้องการสอบถามได้ไหมคะ เดี๋ยวทางเราช่วยตรวจสอบเวลาเปิด-ปิดให้ค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สอบถามสาขาเซ็นทรัลเวิลด์ครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ สาขาเซ็นทรัลเวิลด์เปิดทุกวัน 10:00-22:00 น. ค่ะ\nหากคุณก้องต้องการสอบถามเส้นทางหรือบริการเพิ่มเติม แจ้งได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

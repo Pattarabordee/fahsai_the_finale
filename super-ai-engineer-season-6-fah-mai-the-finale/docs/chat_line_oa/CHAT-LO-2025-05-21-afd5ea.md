@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ อยากสอบถามข้อมูลสินค้าหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสุพัตรา สุขสมบูรณ์ ยินดีให้บริการค่ะ ดิฉัน Staff085 Member จากฟ้าใหม่ค่ะ\nไม่ทราบว่าลูกค้าสนใจสอบถามสินค้าเรื่องไหนเป็นพิเศษคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจตัว Powercell X3 ค่ะ อยากทราบว่าใช้กับอุปกรณ์ประเภทไหนได้บ้าง"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"Powercell X3 ใช้ได้กับอุปกรณ์พกพาทั่วไปที่ชาร์จผ่านสาย USB ค่ะ เช่น มือถือ แท็บเล็ต และอุปกรณ์เสริมบางรุ่น\nหากลูกค้าต้องการ ดิฉันช่วยแนะนำวิธีเลือกใช้งานให้เหมาะกับอุปกรณ์ที่มีอยู่ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอทราบเรื่องการรับประกันด้วยค่ะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ สินค้า Powercell X3 มีการรับประกันตามเงื่อนไขของทางบริษัทในคู่มือสินค้าและเอกสารที่มาพร้อมกล่องค่ะ\nหากลูกค้ายังเก็บกล่องหรือใบเสร็จไว้ รบกวนตรวจสอบข้อมูลวันซื้อและเงื่อนไขที่ระบุไว้ได้เลยค่ะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"เข้าใจแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ผ่าน LINE OA นี้ตลอดนะคะ\nขอให้มีวันที่ดีค่ะ"}

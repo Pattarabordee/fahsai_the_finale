@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสถานะพัสดุที่ส่งวันนี้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณธนพล บัวทอง ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งหมายเลขพัสดุ หรือเลขอ้างอิงที่ใช้ในการส่งให้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ หมายเลขพัสดุคือ THA-784512 ครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบให้แล้วนะคะ ตอนนี้พัสดุอยู่ระหว่างการนำส่ง และมีการสแกนรับเข้าระบบเรียบร้อยแล้วค่ะ\nสถานะล่าสุดคาดว่าจะถึงปลายทางภายในวันนี้ หากมีการเปลี่ยนแปลง ระบบจะแจ้งอัปเดตใน LINE OA นี้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติมเกี่ยวกับพัสดุหรือบริการอื่น ๆ ทักมาได้เลยนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

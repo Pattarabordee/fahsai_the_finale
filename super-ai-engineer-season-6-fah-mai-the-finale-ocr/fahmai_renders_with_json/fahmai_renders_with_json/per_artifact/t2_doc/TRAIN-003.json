@@ -1,0 +1,25 @@
+{
+  "artifact_id": "TRAIN-003",
+  "renderer_template_id": "t2_doc_training_material",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/t2_doc/2024-10/TRAIN-003.pdf",
+      "page_kind": "page",
+      "source_fact_table": "T2_DOC_INVENTORY",
+      "source_row_ids": [
+        "TRAIN-003"
+      ],
+      "visible_fields": [
+        "doc_id",
+        "doc_kind",
+        "template_name",
+        "body_source",
+        "issue_date"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "TRAIN-003"
+  ]
+}

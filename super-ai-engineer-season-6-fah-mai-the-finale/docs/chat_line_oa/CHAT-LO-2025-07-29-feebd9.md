@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ สอบถามข้อมูลสินค้าได้ไหมครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ยินดีให้บริการค่ะ ดิฉัน Staff019 Member จากฟ้าใหม่ค่ะ\nไม่ทราบว่าคุณธีรพงษ์สนใจสอบถามข้อมูลสินค้า หรือบริการด้านไหนเป็นพิเศษคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจข้อมูลสินค้า Powercell X3 ครับ อยากทราบรายละเอียดเบื้องต้น"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ Powercell X3 เป็นสินค้าที่ลูกค้าสอบถามเข้ามาค่อนข้างบ่อยค่ะ\nหากคุณธีรพงษ์ต้องการ ทางเราสามารถสรุปจุดเด่น วิธีใช้งาน และการรับประกันให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอรายละเอียดเรื่องการใช้งานกับการรับประกันครับ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ การใช้งาน Powercell X3 แนะนำให้ใช้งานตามคู่มือที่มากับสินค้า และเก็บในที่แห้งอุณหภูมิห้องค่ะ\nส่วนการรับประกัน หากคุณธีรพงษ์ต้องการตรวจสอบเงื่อนไขเพิ่มเติม รบกวนแจ้งช่องทางที่ซื้อสินค้าหรือรูปใบเสร็จได้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ เดี๋ยวผมลองเช็กเอกสารก่อน ขอบคุณครับ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากคุณธีรพงษ์ต้องการสอบถามเพิ่มเติมเกี่ยวกับ Powercell X3 หรือสินค้าอื่น ๆ สามารถทักมาได้เลยนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

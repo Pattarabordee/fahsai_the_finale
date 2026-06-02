@@ -1,0 +1,7 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามสถานะนัดรับสินค้าซ่อมประกันหน่อยค่ะ ส่งเรื่องไว้แล้วแต่ยังไม่ได้รับแจ้งนัดค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณศิริ เจริญสุข May Support จากฟ้าใหม่ค่ะ ยินดีดูแลให้ค่ะ\nรบกวนแจ้งหมายเลขอ้างอิงงานซ่อมหรือชื่อสินค้าเพิ่มเติมหน่อยนะคะ ทางเราจะช่วยตรวจสอบสถานะนัดรับให้ค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นสินค้า Powercell X3 ค่ะ ส่งซ่อมประกันไว้เมื่อวันที่ 8 ธันวาคม 2567 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณศิริ ทางเราตรวจสอบแล้ว งานซ่อมของรุ่น Powercell X3 อยู่ในรายการนัดรับกับทีมช่างค่ะ [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\": \"Powercell X3\", \"status\": \"อยู่ในรายการนัดรับกับทีมช่าง\"}]]\nทางทีมจะติดต่อแจ้งวันและช่วงเวลานัดรับผ่าน LINE OA นี้อีกครั้งนะคะ หากต้องการ เราช่วยติดตามให้อีกครั้งได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ รบกวนติดตามให้ด้วยนะคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ ทางเราจะช่วยติดตามและแจ้งความคืบหน้าให้คุณศิริผ่านแชตนี้นะคะ\nหากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งได้ตลอดค่ะ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากค่ะ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนสอบถามเรื่องนัดรับสินค้าซ่อมประกันหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณศิริ ปิ่นทอง ทาง May Support ยินดีดูแลค่ะ รบกวนแจ้งหมายเลขรับงานหรือข้อมูลอ้างอิงที่มีอยู่ และบอกได้ไหมคะว่าสินค้าเป็นรุ่นไหน"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่องที่ส่งซ่อมประกันไว้ค่ะ ชื่อรุ่น Powercell X3 ค่ะ ตอนนี้อยากทราบว่านัดรับได้วันไหน"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ จากข้อมูลที่แจ้งมา งานซ่อมนี้อยู่ในกลุ่มเคลมประกันที่เกี่ยวข้องกับปัญหาการผลิตของล็อตสินค้า [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\": \"Powercell X3\"}]] รบกวนคุณศิริรอการยืนยันวันนัดจากทีมคลังอีกครั้งนะคะ หากพร้อมรับสินค้าแล้ว ทีมจะส่งแจ้งผ่าน LINE OA นี้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"โอเคค่ะ แล้วถ้าต้องเตรียมเอกสารอะไรเพิ่มไหมคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ตอนเข้ารับสินค้า รบกวนเตรียมบัตรประชาชนตัวจริงและหลักฐานรับงานที่มีค่ะ หากให้ผู้อื่นมารับแทน รบกวนแจ้งชื่อผู้รับแทนล่วงหน้ากับทีมได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ตลอดผ่าน LINE OA นี้นะคะ ขอให้เป็นวันที่ดีค่ะ"}

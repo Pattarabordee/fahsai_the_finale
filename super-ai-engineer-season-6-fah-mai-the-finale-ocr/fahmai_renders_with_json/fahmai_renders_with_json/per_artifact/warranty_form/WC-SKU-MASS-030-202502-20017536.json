@@ -1,0 +1,26 @@
+{
+  "artifact_id": "WC-SKU-MASS-030-202502-20017536",
+  "renderer_template_id": "warranty_form_a4",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/warranty_form/2025-02/WC-SKU-MASS-030-202502-20017536.png",
+      "page_kind": "page",
+      "source_fact_table": "FACT_WARRANTY_CLAIM",
+      "source_row_ids": [
+        "WC-202502-20017536"
+      ],
+      "visible_fields": [
+        "claim_id",
+        "business_event_date",
+        "customer_id",
+        "sku_id",
+        "claim_reason",
+        "claim_amount_thb"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "WC-202502-20017536"
+  ]
+}

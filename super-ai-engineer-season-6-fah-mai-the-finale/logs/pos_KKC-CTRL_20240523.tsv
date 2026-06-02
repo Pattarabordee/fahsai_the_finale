@@ -1,0 +1,2 @@
+timestamp	branch_code	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_amt	payment_method	schema_version
+2024-05-23T12:31:46+07:00	KKC-CTRL	TXN-202405-23011444	1	SKU-MASS-090	1	24900.00	0.00	credit_card	1

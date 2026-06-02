@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็คสถานะพัสดุให้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมพร วิจิตร ดิฉัน May Support จากฟ้าใหม่ ยินดีดูแลนะคะ\nรบกวนแจ้งหมายเลขพัสดุหรือเลขที่อ้างอิงที่ต้องการตรวจสอบได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขอ้างอิงคือ 1234567890 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบให้แล้วนะคะ พัสดุอยู่ระหว่างการนำส่งวันนี้ 29 เมษายน 2568 ค่ะ\nสถานะล่าสุดคือรถขนส่งออกจากศูนย์คัดแยกแล้ว และคาดว่าจะถึงปลายทางภายในวันนี้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ถ้ามีปัญหาจะติดต่อกลับมาใหม่นะคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติม สามารถทักเข้ามาที่ LINE OA นี้ได้ตลอดนะคะ\nขอให้ได้รับพัสดุเรียบร้อยค่ะ"}

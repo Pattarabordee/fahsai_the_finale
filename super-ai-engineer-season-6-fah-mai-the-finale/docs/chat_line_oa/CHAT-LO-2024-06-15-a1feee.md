@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยยืนยันใบแจ้งหนี้และเงื่อนไขการชำระให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ดิฉัน Ben Account จากฟ้าใหม่ค่ะ ขอรับเรื่องตรวจสอบใบแจ้งหนี้และเงื่อนไขการชำระให้นะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"รบกวนแจ้งหมายเลขใบแจ้งหนี้ หรือยืนยันชื่อบริษัทสำหรับค้นหาข้อมูลในระบบได้ไหมคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"หมายเลขใบแจ้งหนี้ยังไม่ได้รับครับ แต่เป็นรอบวันที่ 15 มิถุนายน 2567 ยอด 114,500 บาทครับ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ดิฉันตรวจสอบข้อมูลรอบวันที่ 15 มิถุนายน 2567 ให้แล้วนะคะ ใบแจ้งหนี้ยอด 114,500 บาท กำหนดชำระภายในวันที่ 15 กรกฎาคม 2567 ค่ะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ชำระผ่านการโอนเงินตามเงื่อนไขเดิมได้เลยค่ะ รบกวนส่งหลักฐานการชำระผ่าน LINE OA นี้หลังดำเนินการเรียบร้อยนะคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:46","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นให้ช่วยเพิ่มเติม แจ้งมาได้ตลอดนะคะ"}

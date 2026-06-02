@@ -1,0 +1,7 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ สนใจเช็คสต็อกสินค้าในสาขาใกล้บ้านครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณปิติ วรพันธ์ ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็กสต็อก และถ้าสะดวกขอสาขาหรือย่านใกล้บ้านด้วยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็น Powercell X3 ครับ อยู่แถวบางนา ใกล้สาขาไหนมีของบ้างครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณปิติ\nตอนนี้รบกวนรอสักครู่นะคะ เดี๋ยวทางเราตรวจสอบสต็อกสาขาใกล้บางนาให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ตรวจสอบให้แล้วค่ะ ตอนนี้ Powercell X3 มีที่สาขาบางนา และสาขาศรีนครินทร์ค่ะ\nถ้าคุณปิติต้องการ เราสามารถช่วยแจ้งวิธีสำรองสินค้าให้ต่อได้ค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ ขอบคุณมากครับ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณปิติ หากต้องการสอบถามเพิ่มเติมผ่าน LINE OA นี้ได้ตลอดนะคะ\nขอให้มีวันที่ดีค่ะ"}

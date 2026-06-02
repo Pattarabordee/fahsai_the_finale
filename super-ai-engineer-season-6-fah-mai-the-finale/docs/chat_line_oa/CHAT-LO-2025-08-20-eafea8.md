@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็กสถานะพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ติดต่อฟ้าใหม่กับ May Support นะคะ\nรบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่อ้างอิงที่ต้องการตรวจสอบได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ เลขที่อ้างอิงคือ RF-0820-015900 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบให้แล้วนะคะ ตอนนี้พัสดุอยู่ระหว่างจัดส่ง และมีสถานะเข้าระบบในวันนี้ค่ะ\nหากไม่มีการติดต่อกลับจากขนส่งภายในวันนี้ รบกวนรอเช็กอีกครั้งในรอบถัดไปได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณลูกค้า\nหากต้องการให้ช่วยเช็กเรื่องอื่นเพิ่มเติม แจ้งมาได้ตลอดนะคะ"}

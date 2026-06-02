@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็คสถานะพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณวราภรณ์ ทรัพย์เจริญ ขอบคุณที่ติดต่อเข้ามาทาง LINE OA ของฟ้าใหม่ค่ะ ดิฉัน May Support ยินดีดูแลให้ค่ะ\n\nรบกวนแจ้งหมายเลขสั่งซื้อหรือเลขติดตามพัสดุที่ต้องการตรวจสอบได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เลขติดตามคือ FMK123456789TH ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ดิฉันตรวจสอบให้แล้ว สถานะล่าสุดคือพัสดุอยู่ระหว่างนำส่ง และมีการอัปเดตวันนี้ค่ะ\n\nถ้าลูกค้าต้องการ ดิฉันช่วยแปลสถานะให้เป็นภาษาง่าย ๆ ได้ หรือช่วยตรวจสอบขั้นตอนถัดไปให้ต่อได้นะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"เข้าใจแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นให้ช่วยสอบถามได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

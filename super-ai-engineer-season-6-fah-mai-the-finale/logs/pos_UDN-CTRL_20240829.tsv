@@ -1,0 +1,2 @@
+timestamp	branch_code	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_amt	payment_method	schema_version
+2024-08-29T20:48:42+07:00	UDN-CTRL	TXN-202408-29014840	1	SKU-MASS-058	1	24900.00	0.00	credit_card	1

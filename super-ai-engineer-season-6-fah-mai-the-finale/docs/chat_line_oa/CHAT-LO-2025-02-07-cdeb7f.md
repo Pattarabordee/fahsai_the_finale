@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ตอนนี้มีโปรโมชั่นอะไรที่กำลังจัดอยู่บ้างครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณCustomer020803 Jaidee ขอบคุณที่ทักเข้ามานะคะ ดิฉัน May Support ค่ะ\nตอนนี้ทางฟ้าใหม่มีโปรโมชันพิเศษสำหรับลูกค้าที่สั่งซื้อผ่าน LINE OA นี้ค่ะ สนใจแบบลดราคา หรือแบบแถมของสมนาคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"สนใจแบบลดราคาครับ มีรายละเอียดไหมครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ โปรที่กำลังจัดวันนี้เป็นส่วนลดพิเศษสำหรับสินค้าที่ร่วมรายการค่ะ รบกวนแจ้งชื่อสินค้าที่สนใจมาได้เลยนะคะ เดี๋ยวทางเราช่วยเช็กโปรที่ตรงให้ค่ะ\nถ้าต้องการ ดิฉันช่วยสรุปเงื่อนไขให้แบบสั้น ๆ ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ เดี๋ยวผมเช็กรายการก่อนครับ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากคุณCustomer020803 Jaidee ต้องการดูรายละเอียดเพิ่ม ทักมาได้ตลอดนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

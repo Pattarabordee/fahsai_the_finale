@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสต็อกสินค้าที่สาขาใกล้บ้านหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณธีรพงษ์ บัวทอง ติดต่อ May Support จากฟ้าใหม่ค่ะ\nรบกวนแจ้งชื่อสินค้า และสาขาที่สะดวกให้ตรวจสอบได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นสินค้ารุ่น Powercell X3 ครับ สาขาใกล้บ้านคือสาขาบางนา"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ ตอนนี้สาขาบางนามี Powercell X3 พร้อมจำหน่ายอยู่ค่ะ\nหากต้องการให้ช่วยจองไว้ สามารถแจ้งชื่อผู้รับสินค้าได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ยังไม่ต้องจองครับ แค่นี้พอแล้ว"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการตรวจสอบสต็อกหรือสอบถามเรื่องอื่นเพิ่มเติม ทักมาได้ตลอดเลยนะคะ\nขอให้เป็นวันที่ดีค่ะ"}

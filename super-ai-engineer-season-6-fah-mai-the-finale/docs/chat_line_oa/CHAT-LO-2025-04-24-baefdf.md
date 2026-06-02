@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามเวลาทำการของสาขาหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณอนงค์ อัครเดช ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งชื่อสาขาที่ต้องการสอบถามได้เลยนะคะ เดี๋ยวตรวจสอบเวลาเปิด-ปิดให้ค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ขอสอบถามสาขาหน่อยค่ะ เป็นสาขาในกรุงเทพฯ ค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ ตอนนี้ขอรายละเอียดชื่อสาขาเพิ่มอีกนิดนะคะ\nถ้ายังไม่แน่ใจชื่อสาขา รบกวนบอกย่านหรือจุดสังเกตได้ค่ะ เดี๋ยวเราเช็กข้อมูลให้จากทาง LINE OA นี้"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"อ๋อ เป็นสาขาสยามค่ะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ สาขาสยามเปิดทุกวัน 10:00-20:00 นะคะ\nถ้าคุณอนงค์ต้องการแวะไป รบกวนเผื่อเวลาช่วงก่อนปิดสักเล็กน้อยค่ะ มีเรื่องอื่นให้ช่วยสอบถามอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-008","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีมากค่ะ ขอบคุณที่ติดต่อเข้ามานะคะ\nหากต้องการสอบถามเพิ่มเติม สามารถทักมาได้ทุกเมื่อค่ะ"}

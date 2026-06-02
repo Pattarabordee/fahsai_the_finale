@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอช่วยยืนยันใบแจ้งหนี้ของรอบนี้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีครับ คุณลูกค้า ผม Ben Account จากทีม B2B Account Management ครับ รับเรื่องตรวจสอบใบแจ้งหนี้ให้ครับ\n\nรบกวนแจ้งเลขที่อ้างอิง หรือชื่อบริษัทที่ใช้เปิดบิลมาได้เลยครับ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ใช้บัญชีนี้ค่ะ อยากทราบยอดกับกำหนดชำระค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณครับ คุณลูกค้า รายการใบแจ้งหนี้รอบนี้เป็นยอด 221,100 บาท กำหนดชำระวันที่ 1 สิงหาคม 2567 ครับ\n\nสามารถชำระผ่านช่องทางที่บริษัทแจ้งไว้ตามเอกสาร invoice ได้เลยครับ หากต้องการ ผมสรุปข้อมูลสำหรับส่งต่อให้ทีมบัญชีได้ครับ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ถ้ามีเอกสารสรุปส่งมาในแชตได้จะดีมากค่ะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ได้ครับ เดี๋ยวผมสรุปให้สั้น ๆ นะครับ\n\nยอดชำระ 221,100 บาท\nกำหนดชำระ 1 สิงหาคม 2567\nหากชำระเรียบร้อย รบกวนแจ้งกลับใน LINE OA นี้ได้เลยครับ"}
+{"message_id":"M-007","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ไม่มีเรื่องอื่นแล้ว ขอบคุณมากค่ะ"}
+{"message_id":"M-008","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ยินดีครับ ขอบคุณที่ติดต่อเข้ามานะครับ หากมีเรื่องอื่นเพิ่มเติม สามารถทักมาได้ตลอดครับ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็กสถานะพัสดุที่สั่งไปหน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณพลอย เทียนทอง ดิฉัน May Support จากฟ้าใหม่ ยินดีดูแลค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อ หรือเลขพัสดุที่ต้องการตรวจสอบได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ยังไม่มีเลขพัสดุค่ะ มีแค่ชื่อกับเบอร์ที่ใช้สั่งไว้ จะเช็กให้ได้ไหมคะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนส่งชื่อผู้รับและเบอร์ที่ใช้สั่งไว้มาได้เลยนะคะ เดี๋ยวดิฉันช่วยตรวจสอบสถานะให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ชื่อผู้รับ พลอย เทียนทอง ค่ะ เบอร์ที่ใช้สั่งคือเบอร์เดิมของลูกค้า"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณพลอย\nตอนนี้สถานะพัสดุอยู่ระหว่างจัดส่ง และมีการนำส่งวันนี้ 15 มีนาคม 2568 ค่ะ\nถ้าปลายทางยังไม่ได้รับ รบกวนรอเจ้าหน้าที่จัดส่งติดต่อกลับอีกครั้งได้นะคะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ คุณพลอย หากต้องการสอบถามเพิ่มเติม สามารถทักมาได้ตลอดผ่าน LINE OA นี้นะคะ ขอให้มีวันที่ดีค่ะ"}

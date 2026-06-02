@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยเช็กสถานะพัสดุให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณก้อง พิทักษ์ ทางฟ้าใหม่ May Support ยินดีดูแลค่ะ รบกวนแจ้งหมายเลขพัสดุ หรือเลขที่อ้างอิงที่ต้องการตรวจสอบให้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ เลขที่อ้างอิงคือ FXA82158 ครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณก้อง ทางเราตรวจสอบให้แล้ว พัสดุอยู่ระหว่างนำส่ง และมีการอัปเดตสถานะล่าสุดวันนี้แล้วค่ะ หากต้องการติดตามแบบละเอียด รบกวนตรวจสอบจากเลขที่อ้างอิงนี้อีกครั้งใน LINE OA ได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากคุณก้องต้องการสอบถามเพิ่มเติม แจ้งมาได้ตลอดผ่านช่องทางนี้นะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

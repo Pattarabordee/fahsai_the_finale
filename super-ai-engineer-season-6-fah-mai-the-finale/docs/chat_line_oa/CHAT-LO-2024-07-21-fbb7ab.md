@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็กสถานะพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ยินดีให้บริการค่ะ ดิฉัน May Support จากฟ้าใหม่นะคะ\nรบกวนแจ้งหมายเลขติดตามพัสดุ หรือเลขที่อ้างอิงที่มีอยู่ได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขอ้างอิงคือ 1023456789 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ดิฉันตรวจสอบให้แล้วนะคะ\nพัสดุของคุณอยู่ระหว่างจัดส่ง และมีสถานะอัปเดตล่าสุดวันนี้ค่ะ หากต้องการ ดิฉันช่วยแนะนำวิธีติดตามต่อผ่าน LINE OA นี้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้พอทราบแล้วค่ะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แชตมาได้ตลอดนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

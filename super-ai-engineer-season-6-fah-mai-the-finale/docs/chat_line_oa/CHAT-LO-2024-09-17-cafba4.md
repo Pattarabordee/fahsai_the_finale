@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ อยากเช็คสต็อกสินค้าที่สาขาใกล้บ้านค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณชนิดา เกียรติศักดิ์ ดิฉัน May Support ยินดีช่วยดูให้ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็ค และสาขาที่สะดวกใกล้บ้านได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นรุ่น Powercell X3 ค่ะ สาขาเซ็นทรัลเวสต์เกตมีของไหมคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ รบกวนรอสักครู่นะคะ\nจากที่ตรวจสอบเบื้องต้น สาขาเซ็นทรัลเวสต์เกตมีสินค้า Powercell X3 พร้อมรับได้ค่ะ หากต้องการ ดิฉันช่วยแนะนำสาขาใกล้เคียงเพิ่มเติมได้อีกนะคะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ สาขานี้พอดีเลย ไม่ต้องเพิ่มเติมแล้วค่ะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามข้อมูลสินค้า หรือเช็คสต็อกสาขาอื่นเพิ่มเติม ทักมาได้ตลอดนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

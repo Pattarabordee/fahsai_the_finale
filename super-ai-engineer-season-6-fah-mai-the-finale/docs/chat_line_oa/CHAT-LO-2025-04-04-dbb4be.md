@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามเรื่องใบแจ้งหนี้ของเดือนนี้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า Ben Account จากฟ้าใหม่ค่ะ ยินดีช่วยดูเรื่องใบแจ้งหนี้ให้ค่ะ\nรบกวนแจ้งชื่อบริษัทหรือเลขที่อ้างอิงที่ต้องการตรวจสอบเพิ่มเติมได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เลขที่อ้างอิงไม่มีค่ะ แต่รบกวนยืนยันยอดกับกำหนดชำระให้หน่อยได้ไหมคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ใบแจ้งหนี้ยอด 204,800 บาท กำหนดชำระภายในวันที่ 4 พฤษภาคม 2568 ค่ะ\nหากต้องการให้ส่งรายละเอียดใบแจ้งหนี้เพิ่มเติมผ่าน LINE OA นี้ แจ้งได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ รบกวนส่งรายละเอียดมาได้เลย"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ เดี๋ยวทางเราสรุปรายละเอียดและส่งต่อให้ตรวจสอบเพิ่มเติมให้นะคะ\nมีเรื่องอื่นที่ต้องการสอบถามอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ หากมีเรื่องอื่นสอบถามผ่าน LINE OA นี้ได้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

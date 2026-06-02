@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็กสถานะพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณพงศ์ เลิศวานิช ทาง May Support ยินดีช่วยตรวจสอบให้นะคะ\nรบกวนแจ้งหมายเลขพัสดุหรือหมายเลขสั่งซื้อที่เกี่ยวข้องมาได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ หมายเลขพัสดุลงท้ายด้วย 4821 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ จากสถานะล่าสุด พัสดุอยู่ระหว่างนำจ่ายในวันที่ 28 กันยายน 2568 นะคะ\nหากปลายทางมีผู้รับอยู่ ระบบจะอัปเดตสถานะอีกครั้งหลังนำส่งค่ะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ถ้ายังไม่ได้รับวันนี้ ต้องทำอย่างไรคะ"}
+{"message_id":"M-006","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"หากยังไม่ได้รับวันนี้ รบกวนตรวจสอบชื่อผู้รับและจุดรับพัสดุก่อนนะคะ\nถ้ายังไม่พบพัสดุ แจ้งกลับมาที่แชตนี้ได้เลย ทางเราจะช่วยประสานตรวจสอบให้อีกครั้งค่ะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติม สามารถทักมาได้ทุกเมื่อผ่าน LINE OA นี้นะคะ ขอให้เป็นวันที่ดีค่ะ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอเช็คสถานะพัสดุที่จัดส่งวันนี้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า ดิฉัน May Support ยินดีดูแลค่ะ รบกวนแจ้งหมายเลขติดตามพัสดุ หรือชื่อผู้รับให้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ยังไม่มีเลขติดตามค่ะ มีแค่ชื่อผู้รับกับเบอร์โทรที่ลงไว้"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ รบกวนแจ้งชื่อผู้รับ และเลขอ้างอิงคำสั่งซื้อ หรือข้อความยืนยันที่ได้รับผ่าน LINE OA นี้ให้หน่อยนะคะ เดี๋ยวทางเราจะช่วยตรวจสอบสถานะให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ชื่อผู้รับคือ คุณณัฐพล ค่ะ ข้อความยืนยันบอกว่าจัดส่งวันที่ 28 กรกฎาคม 2568"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ จากข้อมูลที่แจ้ง วันนี้พัสดุอยู่ระหว่างขนส่งค่ะ หากยังไม่ได้รับภายในช่วงเย็น รบกวนแจ้งกลับมาอีกครั้ง ทางเราจะช่วยติดตามต่อให้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:42","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-008","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ตลอดนะคะ ขอให้คุณลูกค้าวันนี้ราบรื่นค่ะ"}

@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ตอนนี้มีโปรอะไรจัดอยู่บ้างครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณภูริ อังกูร ขอบคุณที่ทักเข้ามาทาง LINE OA ของฟ้าใหม่ค่ะ ดิฉัน May Support ยินดีดูแลค่ะ\nตอนนี้มีโปรโมชั่นสำหรับสินค้าบางรายการในช่วงวันนี้ค่ะ ลูกค้าสนใจสินค้าไหนเป็นพิเศษไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจโปรของ Powercell X3 ครับ ช่วยบอกเงื่อนไขหน่อย"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ สำหรับ Powercell X3 ตอนนี้มีโปรซื้อ 2 ชิ้นลดเพิ่ม 10% และรับของแถมตามรอบที่ร่วมรายการค่ะ\nหากลูกค้าต้องการ ดิฉันช่วยเช็กสีที่ร่วมโปรหรือสรุปวิธีสั่งซื้อให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ช่วยสรุปให้หน่อยครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ สรุปคือ Powercell X3 วันนี้ซื้อ 2 ชิ้นจะได้ส่วนลดเพิ่ม 10% และมีของแถมในรายการที่ร่วมโปรค่ะ\nถ้าลูกค้าต้องการสั่งซื้อผ่านแชตนี้ แจ้งจำนวนที่ต้องการได้เลยนะคะ มีเรื่องอื่นสอบถามเพิ่มเติมไหมคะ"}
+{"message_id":"M-007","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ด้วยความยินดีค่ะ ขอบคุณที่สนใจสินค้าและโปรของฟ้าใหม่นะคะ หากต้องการสอบถามเพิ่มเติมในครั้งหน้า ทักมาได้ตลอดค่ะ"}

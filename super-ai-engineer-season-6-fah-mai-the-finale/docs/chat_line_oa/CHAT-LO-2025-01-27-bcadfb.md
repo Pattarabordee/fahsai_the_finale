@@ -1,0 +1,9 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนสอบถามนัดรับสินค้าที่ส่งซ่อมประกันไว้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสุดา มงคล ทาง May Support ยินดีช่วยตรวจสอบให้นะคะ\nรบกวนแจ้งหมายเลขรับซ่อมหรือชื่อรุ่นสินค้า พร้อมวันที่นำส่งครั้งล่าสุดได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ค่ะ ส่งไว้ช่วงต้นเดือนนี้ ไม่แน่ใจเลขรับซ่อมค่ะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ เดี๋ยวทางเราตรวจสอบจากชื่อรุ่นและข้อมูลลูกค้าให้นะคะ\nรายการนี้อยู่ในกลุ่มประกัน และเกี่ยวข้องกับปัญหาการผลิตในบางล็อตค่ะ [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\":\"Powercell X3\"}]]\nรบกวนรอสักครู่นะคะ"}
+{"message_id":"M-005","timestamp":"10:41","speaker":"CS_AGENT","message_type":"text","text":"ตรวจสอบแล้วค่ะ สินค้าพร้อมนัดรับที่สาขาเดิมในวันนี้ช่วงบ่ายได้ค่ะ\nรบกวนลูกค้าเตรียมบัตรประชาชนตัวจริงหรือหลักฐานรับงานซ่อมไปแสดงตอนรับสินค้าได้เลยนะคะ"}
+{"message_id":"M-006","timestamp":"10:43","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ แบบนี้ไปรับช่วงบ่ายได้เลยใช่ไหมคะ"}
+{"message_id":"M-007","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ ลูกค้าไปรับช่วงบ่ายได้ตามที่แจ้งไว้ค่ะ\nหากไปถึงแล้วพบว่าต้องรอคิวเพิ่มเติม สามารถแจ้งเจ้าหน้าที่หน้าสาขาได้เลยนะคะ มีเรื่องอื่นให้ช่วยตรวจสอบอีกไหมคะ"}
+{"message_id":"M-008","timestamp":"10:46","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-009","timestamp":"10:48","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ ขอให้รับสินค้าได้สะดวกนะคะ หากต้องการสอบถามเพิ่มเติมผ่าน LINE OA นี้ได้ตลอดค่ะ"}

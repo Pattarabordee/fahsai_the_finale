@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามความคืบหน้าการนัดรับสินค้าซ่อมประกันหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณอนงค์ สุพรรณ ยินดีดูแลค่ะ รบกวนแจ้งหมายเลขสั่งซ่อมหรือชื่อสินค้าที่ส่งเคลมไว้ได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นเครื่อง Powercell X3 ค่ะ ส่งซ่อมไว้แล้ว อยากทราบว่าวันนี้นัดรับได้ไหม"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ จากข้อมูลที่มี สินค้ารายการนี้อยู่ในเคสประกันที่เกี่ยวกับปัญหาจากล็อตการผลิต [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product\": \"Powercell X3\"}]]\nตอนนี้สถานะพร้อมนัดรับได้ค่ะ รบกวนลูกค้าเตรียมบัตรประชาชนหรือหลักฐานรับสินค้า และเข้ารับที่จุดบริการเดิมในวันนี้ได้เลยค่ะ"}
+{"message_id":"M-005","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-006","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แชตมาได้ตลอดนะคะ ขอให้รับสินค้าราบรื่นค่ะ"}

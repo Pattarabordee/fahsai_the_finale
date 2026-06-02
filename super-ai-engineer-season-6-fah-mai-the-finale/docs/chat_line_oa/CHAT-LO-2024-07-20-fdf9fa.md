@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามข้อมูลสินค้าหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมพร วงศ์สวรรค์ ยินดีให้บริการค่ะ ดิฉัน Staff103 Member จากฟ้าใหม่ค่ะ\nไม่ทราบว่าคุณลูกค้าสนใจสอบถามสินค้าเรื่องไหนคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สนใจดูรายละเอียดสินค้า Powercell X3 ค่ะ อยากทราบว่ารุ่นนี้เหมาะกับการใช้งานแบบไหน"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ Powercell X3 เป็นสินค้าที่เหมาะกับการใช้งานทั่วไปในชีวิตประจำวันค่ะ\nหากคุณลูกค้าต้องการใช้งานต่อเนื่องตลอดวัน รุ่นนี้ตอบโจทย์ได้ดี และใช้งานได้สะดวกกับอุปกรณ์หลายประเภทค่ะ\nถ้าต้องการ ดิฉันช่วยสรุปจุดเด่น หรือเปรียบเทียบกับรุ่นอื่นให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"รบกวนสรุปจุดเด่นให้หน่อยค่ะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ จุดเด่นของ Powercell X3 คือใช้งานง่าย พกพาสะดวก และเหมาะกับการใช้งานในแต่ละวันค่ะ\nหากคุณลูกค้าต้องการข้อมูลเพิ่มเติมเรื่องราคา วิธีสั่งซื้อ หรือการรับประกัน แจ้งได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ ข้อมูลชัดเจนมาก"}
+{"message_id":"M-008","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีมากค่ะ หากมีเรื่องอื่นสอบถามได้ผ่าน LINE OA นี้ตลอดนะคะ\nขอให้คุณสมพร วงศ์สวรรค์ มีวันที่ดีค่ะ"}

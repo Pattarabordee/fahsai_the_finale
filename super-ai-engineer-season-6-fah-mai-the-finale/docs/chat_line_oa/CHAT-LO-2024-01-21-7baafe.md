@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ อยากเช็คว่าสินค้า Powercell X3 ที่สาขาใกล้บ้านยังมีไหมครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณภาคิน วรากร ยินดีให้บริการจากฟ้าใหม่ค่ะ\nรบกวนแจ้งชื่อสาขาที่ต้องการเช็ค หรือบริเวณใกล้บ้านของคุณภาคินได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ขอเช็คสาขาเซ็นทรัลลาดพร้าวครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณภาคิน\nตอนนี้ยังไม่เห็นข้อมูลสต็อกแบบเรียลไทม์ในแชตนี้ค่ะ รบกวนให้คุณภาคินลองติดต่อหน้าร้านสาขาเซ็นทรัลลาดพร้าว หรือแจ้งให้เราช่วยรับเรื่องเพื่อตรวจสอบกับสาขาให้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"งั้นรบกวนรับเรื่องให้หน่อยครับ ขอบคุณครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ เดี๋ยวทางเรารับเรื่องไว้ให้ค่ะ\nหากคุณภาคินสะดวก แจ้งเวลาที่ต้องการให้ติดต่อกลับได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ไม่เป็นไรครับ แค่นี้พอแล้ว ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม สามารถทักมาใน LINE OA นี้ได้ตลอดนะคะ ขอให้เป็นวันที่ดีค่ะ"}

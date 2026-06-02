@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอเช็คสถานะพัสดุหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณภาณุพงศ์ วัฒนพงษ์ ติดต่อ May Support จากฟ้าใหม่ค่ะ\nรบกวนแจ้งหมายเลขสั่งซื้อ หรือเลขที่อ้างอิงพัสดุที่ต้องการตรวจสอบได้เลยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ หมายเลขสั่งซื้อคือ OA-25841 ครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบให้แล้วนะคะ สถานะพัสดุวันนี้อยู่ระหว่างจัดส่ง และคาดว่าจะถึงปลายทางภายในวันนี้ค่ะ\nหากต้องการติดตามแบบละเอียด สามารถเปิดดูสถานะผ่าน LINE OA นี้ได้อีกครั้งนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีมากค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม แจ้งมาได้เลยนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

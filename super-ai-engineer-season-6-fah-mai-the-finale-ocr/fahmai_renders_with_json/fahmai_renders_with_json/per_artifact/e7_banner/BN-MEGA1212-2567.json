@@ -1,0 +1,25 @@
+{
+  "artifact_id": "BN-MEGA1212-2567",
+  "renderer_template_id": "e7_banner_modern_flat",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/e7_banner/2024-12/BN-MEGA1212-2567.png",
+      "page_kind": "page",
+      "source_fact_table": "DIM_PROMO_CAMPAIGN",
+      "source_row_ids": [
+        "MEGA-1212-2567"
+      ],
+      "visible_fields": [
+        "campaign_id",
+        "description_th",
+        "start_timestamp",
+        "end_timestamp",
+        "scope_filter"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "MEGA-1212-2567"
+  ]
+}

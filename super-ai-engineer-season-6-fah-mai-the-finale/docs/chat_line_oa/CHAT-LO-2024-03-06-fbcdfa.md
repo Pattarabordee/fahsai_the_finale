@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอสอบถามเวลาทำการของสาขาหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมศักดิ์ ราชสีห์ ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งชื่อสาขาที่ต้องการสอบถามได้ไหมคะ ทางเราจะเช็กเวลาเปิด-ปิดให้ค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สาขาในห้างครับ พอดีจะเข้าไปรับของช่วงเย็น"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ หากเป็นสาขาในห้าง โดยทั่วไปเปิดตามเวลาห้างค่ะ และมักปิดราว 20:00 น. ค่ะ\nถ้าคุณสมศักดิ์แจ้งชื่อห้างหรือชื่อสาขาเพิ่ม ดิฉันจะช่วยเช็กให้ละเอียดได้อีกครั้งนะคะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ งั้นผมจะลองเช็กชื่อสาขาอีกที"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติม ทักมาได้เลยนะคะ ทางเรายินดีช่วยเหลือเสมอค่ะ"}

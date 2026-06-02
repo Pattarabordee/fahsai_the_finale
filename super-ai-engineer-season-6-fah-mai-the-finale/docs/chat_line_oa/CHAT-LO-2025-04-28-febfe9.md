@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ สอบถามเวลาทำการของสาขาหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณบุญมี ยินดีให้บริการค่ะ ดิฉัน May Support ค่ะ\nรบกวนแจ้งชื่อสาขาที่ต้องการสอบถามหน่อยนะคะ เดี๋ยวตรวจสอบเวลาทำการให้ค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นสาขาเซ็นทรัลครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณบุญมี\nสาขาเซ็นทรัลเปิดทุกวันเวลา 10:00-20:00 น. ค่ะ หากเป็นวันหยุดนักขัตฤกษ์ เวลาทำการอาจมีการปรับเปลี่ยน รบกวนตรวจสอบผ่าน LINE OA ก่อนเข้าใช้บริการนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามได้ตลอดนะคะ ขอให้คุณบุญมีมีวันที่ดีค่ะ"}

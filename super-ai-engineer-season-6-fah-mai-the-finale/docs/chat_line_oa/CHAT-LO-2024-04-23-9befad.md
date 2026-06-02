@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยเช็กนัดรับสินค้าที่ส่งซ่อมประกันให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมพร พิจารณ์ ดิฉัน May Support ค่ะ รบกวนแจ้งหมายเลขใบรับงานหรือชื่อรุ่นสินค้าที่ส่งซ่อมไว้ได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ผมจำเลขใบรับงานไม่ได้ครับ เป็นสินค้าที่ส่งซ่อมประกันไว้เมื่อไม่นานนี้"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนแจ้งวันที่ฝากซ่อมโดยประมาณ หรือสาขาที่นำส่งไว้ได้ไหมคะ เดี๋ยวดิฉันช่วยตรวจสอบนัดรับสินค้าให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"ส่งไว้วันที่ 23 เมษายน 2567 ครับ นำส่งที่สาขาเดิม"}
+{"message_id":"M-006","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้สถานะสินค้าพร้อมนัดรับแล้วนะคะ ลูกค้าสามารถเข้ารับได้ที่สาขาเดิมภายในวันนี้ค่ะ หากสะดวก แนะนำให้นำบัตรประชาชนหรือหลักฐานการรับงานมาด้วยค่ะ"}
+{"message_id":"M-007","timestamp":"10:45","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณมากครับ"}
+{"message_id":"M-008","timestamp":"10:47","speaker":"CS_AGENT","message_type":"text","text":"ยินดีให้บริการค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม สามารถทักมาได้ตลอดนะคะ"}

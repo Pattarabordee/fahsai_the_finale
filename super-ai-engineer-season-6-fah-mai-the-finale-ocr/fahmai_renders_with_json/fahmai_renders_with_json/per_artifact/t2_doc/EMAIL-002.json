@@ -1,0 +1,25 @@
+{
+  "artifact_id": "EMAIL-002",
+  "renderer_template_id": "t2_doc_email_discrete",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/t2_doc/2024-05/EMAIL-002.pdf",
+      "page_kind": "page",
+      "source_fact_table": "T2_DOC_INVENTORY",
+      "source_row_ids": [
+        "EMAIL-002"
+      ],
+      "visible_fields": [
+        "doc_id",
+        "doc_kind",
+        "template_name",
+        "body_source",
+        "issue_date"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "EMAIL-002"
+  ]
+}

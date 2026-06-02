@@ -1,0 +1,27 @@
+{
+  "artifact_id": "VI-V-018-INV-2568-528616",
+  "renderer_template_id": "vendor_invoice_a4",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/vendor_invoice/2025-08/VI-V-018-INV-2568-528616.png",
+      "page_kind": "page",
+      "source_fact_table": "FACT_VENDOR_PAYMENT",
+      "source_row_ids": [
+        "VP-202508-6199049"
+      ],
+      "visible_fields": [
+        "payment_id",
+        "vendor_id",
+        "vendor_invoice_id",
+        "invoice_period_start",
+        "invoice_period_end",
+        "paid_amount_thb",
+        "business_event_date"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "VP-202508-6199049"
+  ]
+}

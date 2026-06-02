@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนช่วยเช็คสถานะการจัดส่งพัสดุให้หน่อยได้ไหมคะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า May Support ยินดีช่วยดูสถานะให้ค่ะ\nรบกวนแจ้งหมายเลขพัสดุ หรือเลขที่อ้างอิงที่ใช้ส่งของมาหน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ เลขที่อ้างอิงคือ OA-45821 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ คุณลูกค้า จากข้อมูลที่แจ้ง พัสดุอยู่ระหว่างการนำส่งวันนี้ค่ะ\nตอนนี้สถานะล่าสุดคือออกจากศูนย์คัดแยกแล้ว และอยู่ระหว่างส่งไปยังปลายทางนะคะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ถ้ายังไม่ได้รับภายในวันนี้ต้องทำอย่างไรบ้างคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"หากปลายวันแล้วยังไม่ได้รับ รบกวนทักมาอีกครั้งพร้อมเลขที่อ้างอิงเดิมได้เลยค่ะ\nทางเรา จะช่วยติดตามให้ต่อและแจ้งข้อมูลอัปเดตให้นะคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณมากค่ะ ไม่มีเรื่องอื่นแล้วค่ะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม สามารถทักมาได้ตลอดนะคะ\nขอให้วันนี้ได้รับพัสดุเรียบร้อยค่ะ"}

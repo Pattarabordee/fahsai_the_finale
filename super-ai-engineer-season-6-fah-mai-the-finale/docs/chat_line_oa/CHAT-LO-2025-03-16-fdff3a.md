@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนสอบถามความคืบหน้าการนัดรับสินค้าซ่อมประกันหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณนันทพร ดวงดี ทาง May Support ยินดีให้บริการค่ะ\nรบกวนแจ้งหมายเลขรับซ่อมหรือวันที่ฝากสินค้าคร่าว ๆ ได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ฝากไว้วันที่ 16 มีนาคม 2568 ค่ะ เป็นเครื่องที่รอเปลี่ยนอะไหล่กับนัดรับกลับ"}
+{"message_id":"M-004","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ จากข้อมูลที่แจ้งมา รายการนี้อยู่ระหว่างงานซ่อมประกัน และเป็นเคสที่เกี่ยวกับล็อตสินค้าที่มีปัญหาการผลิตในบางรุ่นค่ะ [[CLAIM:CLAIM.L4.WARRANTY_CLAIM_LINKED_TO_VENDOR_BATCH_DEFECT:{\"product_batch\":\"สินค้าล็อตดังกล่าว\"}]]\nทีมช่างแจ้งว่าตอนนี้กำลังรอชิ้นส่วนครบ รบกวนคุณนันทพรติดตามผ่าน LINE OA นี้ได้เลยนะคะ หากสถานะเปลี่ยนทางเราจะแจ้งทันทีค่ะ"}
+{"message_id":"M-005","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ อีกประมาณกี่วันจะรับได้คะ"}
+{"message_id":"M-006","timestamp":"10:43","speaker":"CS_AGENT","message_type":"text","text":"ตอนนี้ยังไม่มีกำหนดวันที่แน่นอนค่ะ แต่ทางทีมพยายามเร่งดำเนินการให้เร็วที่สุด\nหากคุณนันทพรสะดวกรอ รบกวนแวะเช็กสถานะอีกครั้งในแชตนี้ได้เลยค่ะ"}
+{"message_id":"M-007","timestamp":"10:45","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:46","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติมได้ตลอดนะคะ ขอให้คุณนันทพรมีวันที่ดีค่ะ"}

@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยเช็คสถานะพัสดุให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณก้อง เจริญสุข ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งหมายเลขพัสดุหรือหมายเลขสั่งซื้อที่ใช้ตรวจสอบให้หน่อยได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ หมายเลขพัสดุคือ 1234567890 ครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบเบื้องต้นแล้ว สถานะล่าสุดของพัสดุอยู่ระหว่างจัดส่ง และมีกำหนดอัปเดตในวันนี้ค่ะ\nแนะนำให้รอข้อความแจ้งสถานะถัดไปจากระบบขนส่งอีกครั้งนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"โอเคครับ ขอบคุณมากครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการให้ช่วยตรวจสอบเรื่องอื่นเพิ่มเติม แจ้งมาได้เลยนะคะ ขอให้เป็นวันที่ดีค่ะ"}

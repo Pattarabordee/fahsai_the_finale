@@ -1,0 +1,4 @@
+timestamp	branch_code	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_amt	payment_method	schema_version
+2024-02-11T11:51:18+07:00	PTY-CTRL	TXN-202402-11012666	1	WK-SW-004	1	5900.00	0.00	credit_card	1
+2024-02-11T10:10:08+07:00	PTY-CTRL	TXN-202402-11017945	1	SKU-MASS-099	1	55900.00	0.00	cash	1
+2024-02-11T21:28:37+07:00	PTY-CTRL	TXN-202402-11026307	1	SKU-MASS-033	1	29900.00	0.00	cash	1

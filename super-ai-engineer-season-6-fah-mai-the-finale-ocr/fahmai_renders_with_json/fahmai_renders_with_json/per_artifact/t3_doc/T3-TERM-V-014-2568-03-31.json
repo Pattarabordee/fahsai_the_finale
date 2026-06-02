@@ -1,0 +1,26 @@
+{
+  "artifact_id": "T3-TERM-V-014-2568-03-31",
+  "renderer_template_id": "t3_doc_termination",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/t3_doc/2025-03/T3-TERM-V-014-2568-03-31.png",
+      "page_kind": "page",
+      "source_fact_table": "DIM_VENDOR",
+      "source_row_ids": [
+        "V-014"
+      ],
+      "visible_fields": [
+        "vendor_id",
+        "name_th",
+        "name_en",
+        "category",
+        "role",
+        "payment_terms"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "V-014"
+  ]
+}

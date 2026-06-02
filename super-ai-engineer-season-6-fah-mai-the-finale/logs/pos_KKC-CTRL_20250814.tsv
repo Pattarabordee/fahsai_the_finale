@@ -1,0 +1,5 @@
+timestamp	branch_code	payment_terminal_id	txn_id	line_seq	sku_id	quantity	unit_price_thb	discount_total_thb	payment_method	loyalty_tier_at_purchase	schema_version
+2025-08-14T21:34:07+07:00	KKC-CTRL	KKC-CTRL-POS-02	TXN-202508-14007221	1	SKU-MASS-058	1	24900.00	0.00	debit_card	none	2
+2025-08-14T16:40:24+07:00	KKC-CTRL	KKC-CTRL-POS-01	TXN-202508-14010452	1	SKU-MASS-033	1	29900.00	0.00	cash	none	2
+2025-08-14T14:38:26+07:00	KKC-CTRL	KKC-CTRL-POS-01	TXN-202508-14023517	1	SKU-MASS-067	1	55900.00	0.00	debit_card	none	2
+2025-08-14T14:38:26+07:00	KKC-CTRL	KKC-CTRL-POS-01	TXN-202508-14023517	2	SKU-MASS-012	1	6900.00	0.00	debit_card	none	2

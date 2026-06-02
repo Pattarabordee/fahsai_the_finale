@@ -1,0 +1,10 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนสอบถามความคืบหน้าการนัดรับสินค้าที่ส่งซ่อมประกันหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณบุญมี เทียนทอง ทาง May Support ยินดีดูแลให้นะคะ\nรบกวนแจ้งหมายเลขสั่งซื้อหรือเลขที่รับซ่อมที่ลูกค้ามีอยู่ได้ไหมคะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีเลขค่ะ มีแค่ชื่อบุญมี เทียนทอง กับส่งไว้เมื่อวันที่ 7 พฤศจิกายน 2568 ค่ะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"รับทราบค่ะ คุณบุญมี\nรบกวนแจ้งรุ่นสินค้า หรือสาขาที่ฝากเครื่องไว้เพิ่มเติมได้ไหมคะ เดี๋ยวทางเราช่วยตรวจสอบนัดรับให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"เป็นรุ่น Powercell X3 ค่ะ ฝากไว้ที่สาขาเดอะมอลล์บางกะปิ"}
+{"message_id":"M-006","timestamp":"10:44","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตรวจสอบเบื้องต้นแล้ว รายการซ่อมของคุณบุญมีอยู่ระหว่างรอคิวรับคืนค่ะ\nแนะนำให้รอการติดต่อกลับผ่าน LINE OA นี้อีกครั้ง หรือถ้าต้องการ เราช่วยรับเรื่องติดตามให้ทีมงานเช็กสถานะเพิ่มได้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:47","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ รบกวนติดตามให้ด้วยนะคะ"}
+{"message_id":"M-008","timestamp":"10:49","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ ทางเรารับเรื่องติดตามให้เรียบร้อยแล้วนะคะ\nหากมีความคืบหน้า เจ้าหน้าที่จะแจ้งกลับผ่าน LINE OA นี้ค่ะ มีเรื่องอื่นให้ช่วยอีกไหมคะ"}
+{"message_id":"M-009","timestamp":"10:51","speaker":"CUSTOMER","message_type":"text","text":"ไม่มีแล้วค่ะ ขอบคุณมากค่ะ"}
+{"message_id":"M-010","timestamp":"10:52","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติม ทักมาได้ตลอดนะคะ ขอให้คุณบุญมีมีวันที่ดีค่ะ"}

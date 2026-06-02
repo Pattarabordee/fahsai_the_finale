@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามเวลาทำการของสาขาหน่อยค่ะ"} 
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณวันเพ็ญ มหาเปียร May Support ยินดีให้บริการค่ะ รบกวนแจ้งชื่อสาขาที่ต้องการสอบถาม เวลาทำการจะได้ตรวจสอบให้ถูกต้องค่ะ"} 
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"สาขาในเมืองค่ะ"} 
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"สาขาในเมืองเปิดวันจันทร์ถึงเสาร์ เวลา 09:00-18:00 น. ค่ะ วันอาทิตย์เปิด 10:00-16:00 น. ถ้าคุณวันเพ็ญต้องการสอบถามเส้นทางหรือบริการเพิ่มเติม แจ้งได้เลยนะคะ"} 
+{"message_id":"M-005","timestamp":"10:37","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ"} 
+{"message_id":"M-006","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักมาได้เสมอนะคะ ขอให้วันนี้เป็นวันที่ดีค่ะ"}

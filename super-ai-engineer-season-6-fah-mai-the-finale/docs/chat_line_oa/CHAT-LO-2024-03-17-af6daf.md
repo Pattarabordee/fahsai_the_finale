@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ รบกวนช่วยยืนยันใบแจ้งหนี้และแจ้งเงื่อนไขการชำระให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณลูกค้า Ben Account จากฟ้าใหม่ยินดีดูแลค่ะ\nรบกวนแจ้งเลขที่ใบแจ้งหนี้ หรือส่งรูปใบแจ้งหนี้มาให้หน่อยนะคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ได้ครับ เป็นยอด 209,900 บาท ช่วยเช็กให้หน่อยครับ"}
+{"message_id":"M-004","timestamp":"10:37","speaker":"CS_AGENT","message_type":"text","text":"ตรวจสอบแล้วค่ะ ใบแจ้งหนี้ยอด 209,900 บาท กำหนดชำระวันที่ 16 พฤษภาคม 2567 ค่ะ\nเงื่อนไขการชำระคือโอนเข้าบัญชีบริษัทตามใบแจ้งหนี้ และรบกวนส่งหลักฐานการโอนกลับมาที่ LINE OA นี้หลังชำระนะคะ"}
+{"message_id":"M-005","timestamp":"10:39","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอบคุณครับ"}
+{"message_id":"M-006","timestamp":"10:40","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการให้ช่วยตรวจสอบเพิ่มเติมหรือมีเรื่องอื่นสอบถาม แจ้งมาได้เลยนะคะ"}

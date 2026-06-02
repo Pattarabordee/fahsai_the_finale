@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ รบกวนเช็คสต็อกสินค้าที่สาขาใกล้บ้านให้หน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณขวัญใจ เลิศวานิช ขอบคุณที่ติดต่อฟ้าใหม่ค่ะ ดิฉัน May Support ยินดีช่วยเช็กสต็อกให้ค่ะ\nรบกวนแจ้งชื่อสินค้าที่ต้องการเช็ก และสาขาที่สะดวกได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"ต้องการเช็ก Powercell X3 ค่ะ สาขาราชพฤกษ์ใกล้บ้านมีของไหมคะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณค่ะ ตอนนี้สาขาราชพฤกษ์มี Powercell X3 พร้อมจำหน่ายค่ะ\nหากคุณขวัญใจต้องการ ดิฉันช่วยแนะนำช่องทางติดต่อสาขา หรือช่วยเช็กสาขาใกล้เคียงเพิ่มเติมได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"มีสาขาใกล้ๆ อีกไหมคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ถ้าคุณขวัญใจสะดวก ดิฉันช่วยเช็กสาขาใกล้เคียงเพิ่มเติมให้ได้อีก 1-2 สาขาค่ะ\nหากต้องการแจ้งชื่อย่านหรือสาขาที่อยู่ใกล้ที่สุดมาได้เลยนะคะ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เท่านี้ก่อนค่ะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติมเกี่ยวกับสินค้า หรือสาขาอื่น ๆ ทักมาได้ตลอดนะคะ\nขอให้มีวันที่ดีค่ะ"}

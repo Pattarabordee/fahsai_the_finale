@@ -1,0 +1,24 @@
+{
+  "artifact_id": "T3-LEASE-BKKSIAM-2566-04-01",
+  "renderer_template_id": "t3_doc_lease",
+  "template_version": "v1",
+  "pages": [
+    {
+      "output_path": "renders/t3_doc/2024-01/T3-LEASE-BKKSIAM-2566-04-01.png",
+      "page_kind": "page",
+      "source_fact_table": "DIM_BRANCH",
+      "source_row_ids": [
+        "BKK-SIAM"
+      ],
+      "visible_fields": [
+        "branch_code",
+        "name_th",
+        "name_en",
+        "branch_type"
+      ]
+    }
+  ],
+  "all_source_row_ids": [
+    "BKK-SIAM"
+  ]
+}

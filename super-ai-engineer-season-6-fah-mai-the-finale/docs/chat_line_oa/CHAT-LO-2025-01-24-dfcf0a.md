@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ สนใจสอบถามข้อมูลสินค้ากับบริการของฟ้าใหม่หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ ดิฉัน Staff055 Member (SUP Staff) ยินดีให้บริการค่ะ\nรบกวนแจ้งชื่อสินค้าหรือบริการที่สนใจ และสิ่งที่อยากทราบเพิ่มเติมได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"ผมอยากทราบรายละเอียดของ Powercell X3 ครับ ว่ามีจุดเด่นอะไรบ้าง"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้เลยค่ะ Powercell X3 เป็นสินค้าที่ทางฟ้าใหม่จัดจำหน่ายสำหรับใช้งานทั่วไปในกลุ่มที่ต้องการความสะดวกและความมั่นใจในการใช้งานค่ะ\nถ้าคุณธีรพงษ์ต้องการ ดิฉันช่วยสรุปรายละเอียดการใช้งาน วิธีเลือกให้เหมาะ หรือขั้นตอนการสั่งซื้อผ่าน LINE OA นี้ได้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอทราบวิธีสั่งซื้อด้วยครับ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ ขั้นตอนสั่งซื้อผ่าน LINE OA นี้ค่อนข้างง่ายค่ะ\nคุณธีรพงษ์ส่งชื่อรุ่นที่ต้องการมาได้เลย จากนั้นทางเราจะช่วยแจ้งรายละเอียดสินค้า วิธีชำระเงิน และขั้นตอนถัดไปให้ค่ะ"}
+{"message_id":"M-007","timestamp":"10:41","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ เข้าใจแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากมีเรื่องอื่นสอบถามเพิ่มเติมได้ตลอดนะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

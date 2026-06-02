@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอสอบถามเวลาทำการของสาขาหน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสิทธิ อภิรักษ์ ยินดีให้บริการจาก May Support ค่ะ\nรบกวนแจ้งชื่อสาขาที่ต้องการสอบถาม หรือหากสะดวกบอกชื่อสินค้า/สาขาที่ไปใช้บริการได้เลยค่ะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"เป็นสาขาหน้าร้านหลักครับ ไม่แน่ใจชื่อเต็ม ขอเวลาปิดวันนี้ด้วยครับ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ วันนี้สาขาหน้าร้านหลักเปิดถึง 18:00 น. ค่ะ\nหากคุณสิทธิอยากสอบถามรอบถัดไปหรือข้อมูลการเดินทาง เพิ่มเติมแจ้งมาได้เลยนะคะ"}
+{"message_id":"M-005","timestamp":"10:37","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ไม่มีเรื่องอื่นแล้วครับ"}
+{"message_id":"M-006","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติม ทักมาได้ตลอดผ่าน LINE OA นี้นะคะ\nขอให้วันนี้เป็นวันที่ดีค่ะ"}

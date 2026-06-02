@@ -1,0 +1,6 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอสอบถามเวลาทำการของสาขาหน่อยค่ะ"}
+{"message_id":"M-002","timestamp":"10:33","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีค่ะ คุณสมหญิง มงคล ขอบคุณที่ติดต่อฟ้าใหม่ผ่าน LINE OA นะคะ ตอนนี้คุณลูกค้าต้องการสอบถามเวลาทำการของสาขาใดคะ"}
+{"message_id":"M-003","timestamp":"10:35","speaker":"CUSTOMER","message_type":"text","text":"อยากทราบสาขาใกล้เซ็นทรัลค่ะ"}
+{"message_id":"M-004","timestamp":"10:36","speaker":"CS_AGENT","message_type":"text","text":"ได้ค่ะ รบกวนแจ้งชื่อสาขาที่ต้องการตรวจสอบเพิ่มอีกนิดนะคะ ถ้าคุณลูกค้าสะดวกพิมพ์ชื่อสาขาตรง ๆ มาได้เลย เดี๋ยวทางเราช่วยเช็กเวลาเปิด-ปิดให้ค่ะ"}
+{"message_id":"M-005","timestamp":"10:38","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณค่ะ เดี๋ยวขอถามสาขาอีกครั้งนะคะ"}
+{"message_id":"M-006","timestamp":"10:39","speaker":"CS_AGENT","message_type":"text","text":"ยินดีค่ะ หากต้องการสอบถามเพิ่มเติมสามารถทักมาได้ตลอดนะคะ ฟ้าใหม่ยินดีช่วยเหลือค่ะ"}

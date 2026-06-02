@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีครับ ขอรบกวนช่วยยืนยันใบแจ้งหนี้ของรอบนี้ให้หน่อยครับ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีครับ คุณลูกค้า ผม Ben Account จากทีม B2B Account Management ครับ\nรบกวนแจ้งหมายเลขสั่งซื้อ หรือเลขที่อ้างอิงที่ต้องการตรวจสอบให้หน่อยครับ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"หมายเลขสั่งซื้อไม่มีครับ ขอเช็กตามรอบเดือนนี้ได้ไหมครับ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ได้ครับ ตอนนี้รายการใบแจ้งหนี้ของคุณลูกค้าเป็นยอด 142,500 บาท และกำหนดชำระภายในวันที่ 28 ตุลาคม 2567 ครับ\nหากสะดวก รบกวนชำระตามใบแจ้งหนี้ฉบับเดิมที่ได้รับผ่านช่องทางเดิมได้เลยครับ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"รับทราบครับ ขอทราบขั้นตอนชำระเพิ่มเติมนิดหนึ่งครับ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ได้ครับ คุณลูกค้าสามารถชำระตามข้อมูลในใบแจ้งหนี้ที่ส่งไปได้เลยครับ\nหากต้องการให้เราช่วยตรวจสอบการรับชำระหลังโอน รบกวนส่งหลักฐานการชำระเข้ามาทาง LINE OA นี้ได้ครับ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ขอบคุณครับ ไม่มีเรื่องอื่นแล้วครับ"}
+{"message_id":"M-008","timestamp":"10:46","speaker":"CS_AGENT","message_type":"text","text":"ยินดีครับ หากมีเรื่องอื่นสอบถามเพิ่มเติม ทักเข้ามาได้ตลอดนะครับ ขอให้เป็นวันที่ดีครับ"}

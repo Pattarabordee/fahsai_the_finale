@@ -1,0 +1,1 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ สอบถามเรื่องการคืนสินค้าและคืนเงินหน่อยค่ะ"}

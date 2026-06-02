@@ -1,0 +1,8 @@
+{"message_id":"M-001","timestamp":"10:32","speaker":"CUSTOMER","message_type":"text","text":"สวัสดีค่ะ ขอรบกวนช่วยยืนยันใบแจ้งหนี้ให้หน่อยค่ะ อยากทราบยอดและเงื่อนไขการชำระด้วยค่ะ"}
+{"message_id":"M-002","timestamp":"10:34","speaker":"CS_AGENT","message_type":"text","text":"สวัสดีครับ คุณลูกค้า ผม Ben Account จากฝ่ายดูแลบัญชี B2B ครับ\nรบกวนแจ้งชื่อบริษัทหรือเลขที่อ้างอิงใบแจ้งหนี้ที่ต้องการตรวจสอบให้หน่อยครับ"}
+{"message_id":"M-003","timestamp":"10:36","speaker":"CUSTOMER","message_type":"text","text":"เป็นใบแจ้งหนี้รอบวันนี้นะคะ ยอด 390,100 บาทค่ะ"}
+{"message_id":"M-004","timestamp":"10:38","speaker":"CS_AGENT","message_type":"text","text":"ขอบคุณครับ คุณลูกค้า\nขอยืนยันรายละเอียดใบแจ้งหนี้ยอด 390,100 บาท โดยมีกำหนดชำระภายในวันที่ 24 ตุลาคม 2568 ครับ\nหากชำระแล้ว รบกวนส่งหลักฐานการโอนผ่าน LINE OA นี้ได้เลยครับ"}
+{"message_id":"M-005","timestamp":"10:40","speaker":"CUSTOMER","message_type":"text","text":"รับทราบค่ะ ขอทราบว่าชำระแบบโอนเงินได้เลยใช่ไหมคะ"}
+{"message_id":"M-006","timestamp":"10:42","speaker":"CS_AGENT","message_type":"text","text":"ได้ครับ ชำระแบบโอนเงินได้ตามปกติครับ\nรบกวนตรวจสอบยอดให้ครบ 390,100 บาท และแนบสลิปหลังโอนเข้ามาในแชตนี้ได้เลยครับ"}
+{"message_id":"M-007","timestamp":"10:44","speaker":"CUSTOMER","message_type":"text","text":"ได้ค่ะ ขอบคุณมากนะคะ"}
+{"message_id":"M-008","timestamp":"10:45","speaker":"CS_AGENT","message_type":"text","text":"ยินดีครับ หากมีเรื่องอื่นให้ช่วยตรวจสอบเพิ่มเติม แจ้งมาได้ตลอดครับ"}
