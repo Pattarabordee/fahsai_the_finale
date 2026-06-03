@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Embed public-safe FahMai chunks into rag.chunk_embeddings.
+"""Embed public-safe FahMai chunks into fah_sai_lpk_rag.chunk_embeddings.
 
 Prerequisites:
   pip install psycopg[binary]
@@ -8,7 +8,7 @@ For local Qwen3-Embedding-8B via Hugging Face Text Embeddings Inference:
   docker run --gpus all -p 8080:80 -v hf_cache:/data --pull always ghcr.io/huggingface/text-embeddings-inference:1.7.2 --model-id Qwen/Qwen3-Embedding-8B --dtype float16
 
 Usage:
-  $env:DATABASE_URL = "postgresql://user:pass@localhost:5432/fahmai"
+  $env:DATABASE_URL = "postgresql://fahmai_app:<password>@0.tcp.ap.ngrok.io:26551/fahmai?sslmode=disable"
   python scripts/embed_chunks_openai.py --provider tei --endpoint http://localhost:8080/embed --batch-size 64
   python scripts/embed_chunks_openai.py --provider tei --batch-size 64 --refresh-materialized
 
@@ -26,6 +26,7 @@ import json
 import os
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Sequence
 from urllib import error, request
 
@@ -38,6 +39,28 @@ except ImportError as exc:  # pragma: no cover - dependency guard
 DEFAULT_MODEL = "Qwen/Qwen3-Embedding-8B"
 DEFAULT_DIMENSION = 4096
 DEFAULT_TEI_ENDPOINT = "http://localhost:8080/embed"
+
+
+def format_duration(seconds: float) -> str:
+    seconds = max(0, int(seconds))
+    hours, remainder = divmod(seconds, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    if hours:
+        return f"{hours}h {minutes}m {seconds}s"
+    if minutes:
+        return f"{minutes}m {seconds}s"
+    return f"{seconds}s"
+
+
+def progress_message(label: str, current: int, total: int, start_time: float) -> str:
+    elapsed = time.monotonic() - start_time
+    percent = (current / total * 100) if total else 100.0
+    rate = current / elapsed if elapsed > 0 else 0.0
+    eta = (total - current) / rate if rate > 0 else 0.0
+    return (
+        f"{label}: {current}/{total} "
+        f"({percent:.1f}%) elapsed={format_duration(elapsed)} eta={format_duration(eta)}"
+    )
 
 
 def vector_literal(values: Sequence[float]) -> str:
@@ -96,10 +119,10 @@ def fetch_missing_chunks(conn, batch_size: int) -> list[tuple[str, str]]:
         cur.execute(
             """
             SELECT c.chunk_id, c.chunk_text
-            FROM rag.document_chunks c
-            JOIN rag.source_documents d
+            FROM fah_sai_lpk_rag.document_chunks c
+            JOIN fah_sai_lpk_rag.source_documents d
               ON d.source_document_id = c.source_document_id
-            LEFT JOIN rag.chunk_embeddings e
+            LEFT JOIN fah_sai_lpk_rag.chunk_embeddings e
               ON e.chunk_id = c.chunk_id
             WHERE c.is_public_safe = true
               AND d.is_public_safe = true
@@ -112,38 +135,101 @@ def fetch_missing_chunks(conn, batch_size: int) -> list[tuple[str, str]]:
         return [(row[0], row[1]) for row in cur.fetchall()]
 
 
+def fetch_missing_chunk_rows(conn, limit: int) -> list[tuple[str, str]]:
+    limit_clause = "LIMIT %s" if limit else ""
+    params = (limit,) if limit else ()
+    with conn.cursor() as cur:
+        cur.execute(
+            f"""
+            SELECT c.chunk_id, c.chunk_text
+            FROM fah_sai_lpk_rag.document_chunks c
+            JOIN fah_sai_lpk_rag.source_documents d
+              ON d.source_document_id = c.source_document_id
+            LEFT JOIN fah_sai_lpk_rag.chunk_embeddings e
+              ON e.chunk_id = c.chunk_id
+            WHERE c.is_public_safe = true
+              AND d.is_public_safe = true
+              AND e.chunk_id IS NULL
+            ORDER BY c.source_document_id, c.chunk_index
+            {limit_clause}
+            """,
+            params,
+        )
+        return [(row[0], row[1]) for row in cur.fetchall()]
+
+
+def count_missing_chunks(conn) -> int:
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT count(*)
+            FROM fah_sai_lpk_rag.document_chunks c
+            JOIN fah_sai_lpk_rag.source_documents d
+              ON d.source_document_id = c.source_document_id
+            LEFT JOIN fah_sai_lpk_rag.chunk_embeddings e
+              ON e.chunk_id = c.chunk_id
+            WHERE c.is_public_safe = true
+              AND d.is_public_safe = true
+              AND e.chunk_id IS NULL
+            """
+        )
+        return cur.fetchone()[0]
+
+
 def upsert_embeddings(conn, rows: list[tuple[str, str]], model: str, embeddings: Sequence[Sequence[float]]) -> int:
     if len(rows) != len(embeddings):
         raise ValueError("Embedding response count does not match chunk count")
 
-    inserted = 0
+    values = []
+    for (chunk_id, _), embedding in zip(rows, embeddings):
+        if len(embedding) != DEFAULT_DIMENSION:
+            raise ValueError(f"{chunk_id} embedding dimension {len(embedding)} != {DEFAULT_DIMENSION}")
+        values.append((chunk_id, model, vector_literal(embedding)))
+
     with conn.cursor() as cur:
-        for (chunk_id, _), embedding in zip(rows, embeddings):
-            if len(embedding) != DEFAULT_DIMENSION:
-                raise ValueError(f"{chunk_id} embedding dimension {len(embedding)} != {DEFAULT_DIMENSION}")
-            cur.execute(
-                """
-                INSERT INTO rag.chunk_embeddings (chunk_id, embedding_model, embedding)
-                VALUES (%s, %s, %s::vector)
-                ON CONFLICT (chunk_id) DO UPDATE SET
-                    embedding_model = EXCLUDED.embedding_model,
-                    embedding = EXCLUDED.embedding,
-                    embedding_created_at = now()
-                """,
-                (chunk_id, model, vector_literal(embedding)),
-            )
-            inserted += 1
-    return inserted
+        cur.executemany(
+            """
+            INSERT INTO fah_sai_lpk_rag.chunk_embeddings (chunk_id, embedding_model, embedding)
+            VALUES (%s, %s, %s::vector)
+            ON CONFLICT (chunk_id) DO UPDATE SET
+                embedding_model = EXCLUDED.embedding_model,
+                embedding = EXCLUDED.embedding,
+                embedding_created_at = now()
+            """,
+            values,
+        )
+    return len(values)
 
 
 def refresh_materialized_views(conn) -> None:
     with conn.cursor() as cur:
-        cur.execute("SELECT to_regprocedure('mart.refresh_all_materialized_views(boolean)')")
+        cur.execute("SELECT to_regprocedure('fah_sai_lpk_mart.refresh_all_materialized_views(boolean)')")
         if cur.fetchone()[0]:
-            cur.execute("SELECT mart.refresh_all_materialized_views(false)")
+            cur.execute("SELECT fah_sai_lpk_mart.refresh_all_materialized_views(false)")
             print("refreshed materialized views: non-concurrent first-load mode")
         else:
             print("skipped materialized refresh; run db/004_materialized_marts.sql first")
+
+
+def embed_texts(args, inputs: list[str]) -> list[list[float]]:
+    if args.provider == "tei":
+        return embed_with_tei(args.endpoint, inputs, args.timeout_seconds, args.max_retries)
+    return embed_with_openai_compatible(
+        args.model,
+        inputs,
+        args.base_url,
+        args.api_key,
+        args.max_retries,
+    )
+
+
+def batched(rows: list[tuple[str, str]], batch_size: int) -> list[list[tuple[str, str]]]:
+    return [rows[index : index + batch_size] for index in range(0, len(rows), batch_size)]
+
+
+def embed_batch(args, rows: list[tuple[str, str]]) -> tuple[list[tuple[str, str]], list[list[float]]]:
+    inputs = [text for _, text in rows]
+    return rows, embed_texts(args, inputs)
 
 
 def main() -> int:
@@ -176,6 +262,7 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true", help="Count missing chunks without calling the embedding backend")
     parser.add_argument("--timeout-seconds", type=int, default=120)
     parser.add_argument("--max-retries", type=int, default=3)
+    parser.add_argument("--workers", type=int, default=1, help="Concurrent embedding request workers")
     parser.add_argument(
         "--refresh-materialized",
         action="store_true",
@@ -191,9 +278,34 @@ def main() -> int:
         raise SystemExit("--timeout-seconds must be >= 1")
     if args.max_retries < 0:
         raise SystemExit("--max-retries must be >= 0")
+    if args.workers < 1:
+        raise SystemExit("--workers must be >= 1")
 
     total = 0
-    with psycopg.connect(args.database_url) as conn:
+    with psycopg.connect(args.database_url, autocommit=True) as conn:
+        missing_before = count_missing_chunks(conn)
+        target_total = min(args.max_chunks, missing_before) if args.max_chunks else missing_before
+        if args.dry_run:
+            print(f"would embed {target_total} chunks; missing_chunks={missing_before}")
+            return 0
+
+        start_time = time.monotonic()
+        print(f"embedding target chunks: {target_total} (missing before run: {missing_before})", flush=True)
+        if args.workers > 1:
+            rows_to_embed = fetch_missing_chunk_rows(conn, target_total)
+            batches = batched(rows_to_embed, args.batch_size)
+            with ThreadPoolExecutor(max_workers=args.workers) as executor:
+                futures = [executor.submit(embed_batch, args, batch_rows) for batch_rows in batches]
+                for future in as_completed(futures):
+                    rows, embeddings = future.result()
+                    with conn.transaction():
+                        inserted = upsert_embeddings(conn, rows, args.model, embeddings)
+                    total += inserted
+                    print(progress_message("embedded chunks", total, target_total, start_time), flush=True)
+            if args.refresh_materialized:
+                refresh_materialized_views(conn)
+            return 0
+
         while True:
             remaining = args.max_chunks - total if args.max_chunks else args.batch_size
             if args.max_chunks and remaining <= 0:
@@ -202,28 +314,13 @@ def main() -> int:
             rows = fetch_missing_chunks(conn, batch_size)
             if not rows:
                 break
-            if args.dry_run:
-                total += len(rows)
-                print(f"would embed {len(rows)} chunks; total seen={total}")
-                if args.max_chunks:
-                    continue
-                break
 
             inputs = [text for _, text in rows]
-            if args.provider == "tei":
-                embeddings = embed_with_tei(args.endpoint, inputs, args.timeout_seconds, args.max_retries)
-            else:
-                embeddings = embed_with_openai_compatible(
-                    args.model,
-                    inputs,
-                    args.base_url,
-                    args.api_key,
-                    args.max_retries,
-                )
+            embeddings = embed_texts(args, inputs)
             with conn.transaction():
                 inserted = upsert_embeddings(conn, rows, args.model, embeddings)
             total += inserted
-            print(f"embedded {inserted} chunks; total={total}")
+            print(progress_message("embedded chunks", total, target_total, start_time), flush=True)
 
         if args.refresh_materialized and not args.dry_run:
             refresh_materialized_views(conn)

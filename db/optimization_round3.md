@@ -33,7 +33,7 @@ Reciprocal Rank Fusion. Callers currently must run two queries and merge manuall
 -- candidate_count: candidates pulled per signal before merging.
 -- rrf_k:           smoothing constant (60 is the standard default).
 
-CREATE OR REPLACE FUNCTION rag.hybrid_search_public_chunks(
+CREATE OR REPLACE FUNCTION fah_sai_lpk_rag.hybrid_search_public_chunks(
     query_embedding vector(1536) DEFAULT NULL,
     query_text      text        DEFAULT NULL,
     match_count     integer     DEFAULT 8,
@@ -69,7 +69,7 @@ vector_ranked AS (
         ROW_NUMBER() OVER (ORDER BY m.embedding <=> query_embedding) AS rank,
         (m.embedding <=> query_embedding)::double precision            AS cosine_distance,
         m.embedding_model
-    FROM rag.mv_public_retrievable_chunks m
+    FROM fah_sai_lpk_rag.mv_public_retrievable_chunks m
     WHERE query_embedding IS NOT NULL
       AND m.embedding IS NOT NULL
     ORDER BY m.embedding <=> query_embedding
@@ -88,7 +88,7 @@ text_ranked AS (
             ts_rank(c.search_tsv, plainto_tsquery('simple', query_text)),
             similarity(c.chunk_text, query_text)::real
         )::real AS text_score
-    FROM rag.mv_public_retrievable_chunks c
+    FROM fah_sai_lpk_rag.mv_public_retrievable_chunks c
     WHERE query_text IS NOT NULL
       AND (
           c.search_tsv @@ plainto_tsquery('simple', query_text)
@@ -130,15 +130,15 @@ SELECT
     c.chunk_metadata,
     c.source_metadata
 FROM merged m
-JOIN rag.mv_public_retrievable_chunks c ON c.chunk_id = m.chunk_id
+JOIN fah_sai_lpk_rag.mv_public_retrievable_chunks c ON c.chunk_id = m.chunk_id
 ORDER BY m.rrf_score DESC, m.chunk_id;
 $$;
 
-COMMENT ON FUNCTION rag.hybrid_search_public_chunks(vector, text, integer, integer, integer) IS
+COMMENT ON FUNCTION fah_sai_lpk_rag.hybrid_search_public_chunks(vector, text, integer, integer, integer) IS
     'Hybrid retrieval: HNSW vector + BM25/trigram merged with RRF. Pass both signals for full hybrid; omit one for single-signal search.';
 
 -- High-quality variant that raises ef_search before searching
-CREATE OR REPLACE FUNCTION rag.hybrid_search_hq(
+CREATE OR REPLACE FUNCTION fah_sai_lpk_rag.hybrid_search_hq(
     query_embedding vector(1536) DEFAULT NULL,
     query_text      text        DEFAULT NULL,
     match_count     integer     DEFAULT 8,
@@ -155,7 +155,7 @@ BEGIN
     RETURN QUERY
     SELECT h.chunk_id, h.source_path, h.source_kind, h.chunk_text,
            h.rrf_score, h.cosine_distance, h.text_score
-    FROM rag.hybrid_search_public_chunks(query_embedding, query_text, match_count) h;
+    FROM fah_sai_lpk_rag.hybrid_search_public_chunks(query_embedding, query_text, match_count) h;
 END;
 $$;
 ```
@@ -189,7 +189,7 @@ ALTER DATABASE fahmai SET hnsw.ef_search                 = 40;
 
 ## Task 3 — Fix `db/sql_templates/fahmai_question_cookbook.sql` query 8
 
-Query 8 (line 148) still points to `rag.v_public_retrievable_chunks` (the old regular view).
+Query 8 (line 148) still points to `fah_sai_lpk_rag.v_public_retrievable_chunks` (the old regular view).
 Replace it with the materialized view so it benefits from the HNSW and GIN indexes.
 
 Find this block:
@@ -203,8 +203,8 @@ SELECT
     el.linked_table,
     el.linked_column,
     el.entity_id
-FROM rag.v_public_retrievable_chunks c
-JOIN rag.entity_links el ON el.chunk_id = c.chunk_id
+FROM fah_sai_lpk_rag.v_public_retrievable_chunks c
+JOIN fah_sai_lpk_rag.entity_links el ON el.chunk_id = c.chunk_id
 WHERE el.is_public_safe = true
   AND el.linked_table = :linked_table
   AND el.entity_id = :entity_id
@@ -212,7 +212,7 @@ ORDER BY c.source_path, c.chunk_index
 LIMIT :limit_rows;
 ```
 
-Replace `rag.v_public_retrievable_chunks` with `rag.mv_public_retrievable_chunks`.
+Replace `fah_sai_lpk_rag.v_public_retrievable_chunks` with `fah_sai_lpk_rag.mv_public_retrievable_chunks`.
 
 Also add two new templates at the end of the file:
 
@@ -221,7 +221,7 @@ Also add two new templates at the end of the file:
 -- Pass :query_embedding as a pre-computed vector literal,
 -- and :query_text as the raw question string.
 SELECT *
-FROM rag.hybrid_search_public_chunks(
+FROM fah_sai_lpk_rag.hybrid_search_public_chunks(
     :query_embedding::vector(1536),
     :query_text,
     :match_count
@@ -233,14 +233,14 @@ SELECT DISTINCT ON (customer_id)
     business_event_date,
     resulting_balance_points,
     resulting_tier
-FROM core.fact_loyalty_ledger
+FROM fah_sai_lpk_core.fact_loyalty_ledger
 WHERE customer_id = :customer_id
 ORDER BY customer_id, business_event_date DESC, ledger_id DESC;
 
 -- 13) Inventory turnover: movement quantity vs snapshot stock for a period.
 WITH moved AS (
     SELECT sku_id, branch_code, SUM(quantity) AS units_moved
-    FROM core.fact_inventory_movement
+    FROM fah_sai_lpk_core.fact_inventory_movement
     WHERE movement_type IN ('sale_out', 'transfer_out')
       AND business_event_date >= :start_date::date
       AND business_event_date <  :end_date_exclusive::date
@@ -248,7 +248,7 @@ WITH moved AS (
 ),
 snap AS (
     SELECT sku_id, branch_code, closing_units
-    FROM core.fact_inventory_monthly_snapshot
+    FROM fah_sai_lpk_core.fact_inventory_monthly_snapshot
     WHERE month_end_date = :snapshot_month_end::date
 )
 SELECT
@@ -292,7 +292,7 @@ def upsert_embeddings(
     with conn.cursor() as cur:
         cur.executemany(
             """
-            INSERT INTO rag.chunk_embeddings (chunk_id, embedding_model, embedding)
+            INSERT INTO fah_sai_lpk_rag.chunk_embeddings (chunk_id, embedding_model, embedding)
             VALUES (%s, %s, %s::vector)
             ON CONFLICT (chunk_id) DO UPDATE SET
                 embedding_model = EXCLUDED.embedding_model,
@@ -317,10 +317,10 @@ def fetch_missing_chunks(
         cur.execute(
             """
             SELECT c.chunk_id, c.chunk_text
-            FROM rag.document_chunks c
-            JOIN rag.source_documents d
+            FROM fah_sai_lpk_rag.document_chunks c
+            JOIN fah_sai_lpk_rag.source_documents d
               ON d.source_document_id = c.source_document_id
-            LEFT JOIN rag.chunk_embeddings e ON e.chunk_id = c.chunk_id
+            LEFT JOIN fah_sai_lpk_rag.chunk_embeddings e ON e.chunk_id = c.chunk_id
             WHERE c.is_public_safe = true
               AND d.is_public_safe = true
               AND e.chunk_id IS NULL
@@ -430,7 +430,7 @@ def load_markdown_documents(conn, chunk_chars: int, overlap_chars: int) -> None:
             return
         cur.executemany(
             """
-            INSERT INTO rag.document_chunks
+            INSERT INTO fah_sai_lpk_rag.document_chunks
                 (chunk_id, source_document_id, chunk_index, chunk_text,
                  token_count, char_start, char_end, language_hint, is_public_safe)
             VALUES (%s, %s, %s, %s, %s, %s, %s, 'th-en', true)
@@ -449,7 +449,7 @@ def load_markdown_documents(conn, chunk_chars: int, overlap_chars: int) -> None:
 
             cur.execute(
                 """
-                INSERT INTO rag.source_documents
+                INSERT INTO fah_sai_lpk_rag.source_documents
                     (source_document_id, source_path, source_kind,
                      is_public_safe, safety_tier, content_sha256)
                 VALUES (%s, %s, %s, true, 'official', %s)
@@ -469,7 +469,7 @@ def load_markdown_documents(conn, chunk_chars: int, overlap_chars: int) -> None:
             if stored_sha == content_sha:
                 # Check whether chunks already exist for this document
                 cur.execute(
-                    "SELECT 1 FROM rag.document_chunks WHERE source_document_id = %s LIMIT 1",
+                    "SELECT 1 FROM fah_sai_lpk_rag.document_chunks WHERE source_document_id = %s LIMIT 1",
                     (actual_id,),
                 )
                 if cur.fetchone():
@@ -477,7 +477,7 @@ def load_markdown_documents(conn, chunk_chars: int, overlap_chars: int) -> None:
                     continue
 
             cur.execute(
-                "DELETE FROM rag.document_chunks WHERE source_document_id = %s",
+                "DELETE FROM fah_sai_lpk_rag.document_chunks WHERE source_document_id = %s",
                 (actual_id,),
             )
             for idx, (start, end, piece) in enumerate(chunk_text(text, chunk_chars, overlap_chars)):
@@ -499,7 +499,7 @@ def load_markdown_documents(conn, chunk_chars: int, overlap_chars: int) -> None:
 
 ### 5.3 Fix `load_entity_links` in-memory dict
 
-Current code (lines 323–324) fetches **all** rows from `rag.source_documents` into a Python dict.
+Current code (lines 323–324) fetches **all** rows from `fah_sai_lpk_rag.source_documents` into a Python dict.
 For large document sets this can hold tens of thousands of rows in memory unnecessarily.
 Do the lookup inside SQL instead:
 
@@ -541,14 +541,14 @@ def load_entity_links(conn) -> None:
         if public_rows:
             cur.executemany(
                 """
-                INSERT INTO rag.entity_links
+                INSERT INTO fah_sai_lpk_rag.entity_links
                     (source_document_id, artifact_id, source_path, source_type,
                      entity_type, entity_id, linked_table, linked_column,
                      link_method, confidence, is_public_safe, notes)
                 SELECT
                     sd.source_document_id, %s, %s, %s,
                     %s, %s, %s, %s, %s, %s, true, %s
-                FROM rag.source_documents sd
+                FROM fah_sai_lpk_rag.source_documents sd
                 WHERE sd.source_path = %s
                 """,
                 [(a, sp, st, et, ei, lt, lc, lm, cf, no, sp)
@@ -557,7 +557,7 @@ def load_entity_links(conn) -> None:
         if unsafe_rows:
             cur.executemany(
                 """
-                INSERT INTO audit.provenance_entity_links
+                INSERT INTO fah_sai_lpk_audit.provenance_entity_links
                     (artifact_id, source_path, source_type, entity_type, entity_id,
                      linked_table, linked_column, link_method, confidence,
                      is_public_safe, notes)
@@ -595,7 +595,7 @@ def load_questions(conn) -> None:
     with conn.cursor() as cur:
         cur.executemany(
             """
-            INSERT INTO eval.questions
+            INSERT INTO fah_sai_lpk_eval.questions
                 (question_id, question_text, difficulty, question_family, question_hash)
             VALUES (%s, %s, %s, %s, %s)
             ON CONFLICT (question_id) DO UPDATE SET
@@ -609,7 +609,7 @@ def load_questions(conn) -> None:
         )
         cur.executemany(
             """
-            INSERT INTO eval.question_tags (question_id, tag, tag_source, confidence)
+            INSERT INTO fah_sai_lpk_eval.question_tags (question_id, tag, tag_source, confidence)
             VALUES (%s, %s, 'rule', 1.0)
             ON CONFLICT (question_id, tag) DO UPDATE SET
                 tag_source = EXCLUDED.tag_source,
@@ -625,7 +625,7 @@ def load_questions(conn) -> None:
 ## Task 6 — Create `scripts/run_question.py` (new file)
 
 This is the missing answer-pipeline script. It ties together: embed query → hybrid search →
-SQL template lookup → write result to `eval.answer_runs`.
+SQL template lookup → write result to `fah_sai_lpk_eval.answer_runs`.
 
 ```python
 #!/usr/bin/env python
@@ -691,7 +691,7 @@ def retrieve_chunks(
             """
             SELECT chunk_id, source_path, source_kind, chunk_text,
                    rrf_score, cosine_distance, text_score
-            FROM rag.hybrid_search_public_chunks(
+            FROM fah_sai_lpk_rag.hybrid_search_public_chunks(
                 %s::vector, %s, %s
             )
             """,
@@ -714,7 +714,7 @@ def save_answer_run(
     with conn.cursor() as cur:
         cur.execute(
             """
-            INSERT INTO eval.answer_runs
+            INSERT INTO fah_sai_lpk_eval.answer_runs
                 (question_id, run_label, status, answer_text,
                  source_paths, runtime_ms, model_name)
             VALUES (%s, %s, 'answered', %s, %s, %s, %s)
@@ -731,7 +731,7 @@ def save_answer_run(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--database-url", default=os.getenv("DATABASE_URL"))
-    parser.add_argument("--question-id",   help="Load question text from eval.questions")
+    parser.add_argument("--question-id",   help="Load question text from fah_sai_lpk_eval.questions")
     parser.add_argument("--question-text", help="Raw question string (skips DB lookup)")
     parser.add_argument("--run-label",  default="manual")
     parser.add_argument("--match-count", type=int, default=DEFAULT_MATCH_COUNT)
@@ -753,12 +753,12 @@ def main() -> int:
         if args.question_id and not question_text:
             with conn.cursor() as cur:
                 cur.execute(
-                    "SELECT question_text FROM eval.questions WHERE question_id = %s",
+                    "SELECT question_text FROM fah_sai_lpk_eval.questions WHERE question_id = %s",
                     (args.question_id,),
                 )
                 row = cur.fetchone()
                 if not row:
-                    raise SystemExit(f"Question {args.question_id!r} not found in eval.questions")
+                    raise SystemExit(f"Question {args.question_id!r} not found in fah_sai_lpk_eval.questions")
                 question_text = row[0]
 
         print(f"Question: {question_text}")

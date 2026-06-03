@@ -10,3 +10,9 @@ super-ai-engineer-season-6-fah-mai-the-finale/docs/chat_line_works_jsonl/
 # Python bytecode.
 __pycache__/
 *.pyc
+
+# Local environment and secrets.
+.env
+.env.*
+*.env
+!.env.example

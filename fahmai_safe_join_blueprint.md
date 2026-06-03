@@ -10,6 +10,8 @@ Source หลัก:
 
 ## Golden Rules
 
+- Canonical fact date axis: for year/month/quarter filters where the question does not name a date column, use `business_event_date`. Use `posting_date` only for explicit posting/accounting/booked timing; `FACT_VENDOR_PAYMENT` can lag because of NET-30.
+
 - เลือก fact หลัก 1 ตัวเป็น base grain ของแต่ละ mart แล้วค่อย join dimension/lookup แบบ many-to-one
 - หลีกเลี่ยงการ flatten fact-to-fact หลายตัวเข้าด้วยกันถ้ายังไม่ได้ aggregate ฝั่งลูกให้เหลือ 1 row ต่อ key
 - ถ้า join fact อื่นเข้ามาเพื่อเอา context เช่น bank transaction ของ sales ให้ใช้เป็น metadata/reconciliation เท่านั้น อย่า sum amount จาก fact ที่ถูก repeat หลัง join
@@ -88,7 +90,7 @@ Implementation rule: join to `FACT_SALES` only when `related_txn_id` is a sales 
 
 ### Document Inventory
 
-`T2_DOC_INVENTORY.source_table` and `source_pk` point to multiple source systems. Treat this as document lineage metadata, not as a normal FK to flatten into every mart.
+`T2_DOC_INVENTORY.source_table` and `source_pk` point to multiple source systems. Treat this as document lineage metadata, not as a normal FK to flatten into every fah_sai_lpk_mart.
 
 ## Do Not Flatten Directly
 

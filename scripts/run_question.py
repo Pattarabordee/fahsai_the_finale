@@ -8,14 +8,14 @@ For local Qwen3-Embedding-8B via Hugging Face Text Embeddings Inference:
   docker run --gpus all -p 8080:80 -v hf_cache:/data --pull always ghcr.io/huggingface/text-embeddings-inference:1.7.2 --model-id Qwen/Qwen3-Embedding-8B --dtype float16
 
 Usage:
-  $env:DATABASE_URL = "postgresql://user:pass@localhost:5432/fahmai"
+  $env:DATABASE_URL = "postgresql://fahmai_app:<password>@0.tcp.ap.ngrok.io:26551/fahmai?sslmode=disable"
   python scripts/run_question.py --question-id FAHMAI-Q-L1-001 --run-label rag-smoke
   python scripts/run_question.py --question-text "Which source mentions refund approval policy?" --run-label ad-hoc
   python scripts/run_question.py --all --limit 100 --run-label eval-v1
 
 This script is intentionally retrieval-first. It does not invent a final answer;
 it stores sources, candidate SQL templates, and retrieval evidence in
-eval.answer_runs for review or downstream answer generation.
+fah_sai_lpk_eval.answer_runs for review or downstream answer generation.
 """
 
 from __future__ import annotations
@@ -50,6 +50,10 @@ DEFAULT_MATCH_COUNT = 8
 DEFAULT_CANDIDATE_COUNT = 80
 DEFAULT_TEMPLATE_LIMIT = 8
 DEFAULT_EXCERPT_CHARS = 900
+QWEN_QUERY_TASK = (
+    "Given a Thai/English FahMai business question, retrieve relevant public-safe "
+    "evidence passages that answer the question or route it to the right governed source."
+)
 
 TAG_TEMPLATE_FAMILIES = {
     "bank": {"bank", "finance", "reconciliation", "retrieval"},
@@ -86,6 +90,12 @@ def normalize_embedding_response(payload: Any) -> list[list[float]]:
     if isinstance(payload, dict) and "data" in payload:
         return [item["embedding"] for item in payload["data"]]
     raise ValueError("Embedding endpoint returned an unsupported response shape")
+
+
+def query_text_for_embedding(question_text: str, model: str) -> tuple[str, bool]:
+    if "Qwen3-Embedding" not in model:
+        return question_text, False
+    return f"Instruct: {QWEN_QUERY_TASK}\nQuery: {question_text}", True
 
 
 def embed_with_tei(endpoint: str, text: str, timeout_seconds: int, max_retries: int) -> list[float]:
@@ -149,21 +159,21 @@ def load_question(conn, question_id: str) -> dict[str, Any]:
         cur.execute(
             """
             SELECT question_id, question_text, difficulty, question_family, metadata
-            FROM eval.questions
+            FROM fah_sai_lpk_eval.questions
             WHERE question_id = %s
             """,
             (question_id,),
         )
         row = cur.fetchone()
     if not row:
-        raise SystemExit(f"Question {question_id!r} not found in eval.questions")
+        raise SystemExit(f"Question {question_id!r} not found in fah_sai_lpk_eval.questions")
     return dict(row)
 
 
 def load_all_questions(conn, limit: int) -> list[dict[str, Any]]:
     sql = """
         SELECT question_id, question_text, difficulty, question_family, metadata
-        FROM eval.questions
+        FROM fah_sai_lpk_eval.questions
         WHERE is_public = true
         ORDER BY question_id
     """
@@ -182,7 +192,7 @@ def upsert_ad_hoc_question(conn, question_text: str) -> dict[str, Any]:
     with conn.cursor(row_factory=dict_row) as cur:
         cur.execute(
             """
-            INSERT INTO eval.questions
+            INSERT INTO fah_sai_lpk_eval.questions
                 (question_id, question_text, difficulty, question_family, source_file, question_hash, metadata)
             VALUES (%s, %s, 'ad_hoc', 'ad_hoc', 'run_question.py', %s, %s)
             ON CONFLICT (question_id) DO UPDATE SET
@@ -206,7 +216,7 @@ def load_question_tags(conn, question_id: str) -> list[str]:
         cur.execute(
             """
             SELECT tag
-            FROM eval.question_tags
+            FROM fah_sai_lpk_eval.question_tags
             WHERE question_id = %s
             ORDER BY confidence DESC, tag
             """,
@@ -229,7 +239,7 @@ def load_candidate_templates(conn, tags: list[str], limit: int) -> list[dict[str
             cur.execute(
                 """
                 SELECT template_name, template_family, description, parameters, source_authority
-                FROM eval.sql_templates
+                FROM fah_sai_lpk_eval.sql_templates
                 WHERE template_family = ANY(%s)
                    OR template_family = 'retrieval'
                 ORDER BY template_family, template_name
@@ -241,7 +251,7 @@ def load_candidate_templates(conn, tags: list[str], limit: int) -> list[dict[str
             cur.execute(
                 """
                 SELECT template_name, template_family, description, parameters, source_authority
-                FROM eval.sql_templates
+                FROM fah_sai_lpk_eval.sql_templates
                 ORDER BY template_family, template_name
                 LIMIT %s
                 """,
@@ -255,7 +265,7 @@ def fetch_vector_results(conn, embedding: Sequence[float], match_count: int, can
         cur.execute(
             """
             SELECT *
-            FROM rag.match_public_chunks(%s::vector, %s, %s)
+            FROM fah_sai_lpk_rag.match_public_chunks(%s::vector, %s, %s)
             """,
             (vector_literal(embedding), match_count, candidate_count),
         )
@@ -270,7 +280,7 @@ def fetch_text_results(conn, question_text: str, match_count: int, excerpt_chars
         cur.execute(
             """
             SELECT *
-            FROM rag.search_public_chunks_text(%s, %s)
+            FROM fah_sai_lpk_rag.search_public_chunks_text(%s, %s)
             """,
             (question_text, match_count),
         )
@@ -355,15 +365,15 @@ def save_answer_run(
     )
     sql_used = "\n".join(
         [
-            "SELECT * FROM rag.match_public_chunks(:query_embedding::vector(4096), :match_count, :candidate_count);",
-            "SELECT * FROM rag.search_public_chunks_text(:query_text, :match_count);",
+            "SELECT * FROM fah_sai_lpk_rag.match_public_chunks(:query_embedding::vector(4096), :match_count, :candidate_count);",
+            "SELECT * FROM fah_sai_lpk_rag.search_public_chunks_text(:query_text, :match_count);",
         ]
     )
 
     with conn.cursor() as cur:
         cur.execute(
             """
-            INSERT INTO eval.answer_runs
+            INSERT INTO fah_sai_lpk_eval.answer_runs
                 (question_id, run_label, status, answer_text, answer_json, sql_used,
                  source_paths, source_tables, template_names, runtime_ms, model_name, metadata)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
@@ -394,13 +404,15 @@ def run_one_question(conn, args: argparse.Namespace, question: dict[str, Any]) -
 
     embedding: list[float] | None = None
     vector_results: list[dict[str, Any]] = []
+    query_instruction_applied = False
     if not args.skip_vector:
+        embedding_input, query_instruction_applied = query_text_for_embedding(question["question_text"], args.model)
         if args.provider == "tei":
-            embedding = embed_with_tei(args.endpoint, question["question_text"], args.timeout_seconds, args.max_retries)
+            embedding = embed_with_tei(args.endpoint, embedding_input, args.timeout_seconds, args.max_retries)
         else:
             embedding = embed_with_openai_compatible(
                 args.model,
-                question["question_text"],
+                embedding_input,
                 args.base_url,
                 args.api_key,
                 args.max_retries,
@@ -424,6 +436,7 @@ def run_one_question(conn, args: argparse.Namespace, question: dict[str, Any]) -
             "provider": None if args.skip_vector else args.provider,
             "model": None if args.skip_vector else args.model,
             "dimension": None if args.skip_vector else DEFAULT_DIMENSION,
+            "query_instruction": "fahmai_public_rag_v1" if query_instruction_applied else None,
         },
         "vector_results": vector_results,
         "text_results": text_results,
@@ -460,16 +473,16 @@ def run_one_question(conn, args: argparse.Namespace, question: dict[str, Any]) -
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     question_group = parser.add_mutually_exclusive_group(required=True)
-    question_group.add_argument("--question-id", help="Load one question from eval.questions")
-    question_group.add_argument("--question-text", help="Run an ad-hoc question and upsert it into eval.questions")
-    question_group.add_argument("--all", action="store_true", help="Run all public eval.questions, optionally capped by --limit")
+    question_group.add_argument("--question-id", help="Load one question from fah_sai_lpk_eval.questions")
+    question_group.add_argument("--question-text", help="Run an ad-hoc question and upsert it into fah_sai_lpk_eval.questions")
+    question_group.add_argument("--all", action="store_true", help="Run all public fah_sai_lpk_eval.questions, optionally capped by --limit")
     parser.add_argument("--database-url", default=os.getenv("DATABASE_URL"), help="Postgres connection URL")
     parser.add_argument("--run-label", default="retrieval-v1")
     parser.add_argument(
         "--status",
         default="needs_review",
         choices=["draft", "answered", "needs_review", "blocked", "rejected"],
-        help="Status to store in eval.answer_runs. Retrieval-only runs should stay needs_review.",
+        help="Status to store in fah_sai_lpk_eval.answer_runs. Retrieval-only runs should stay needs_review.",
     )
     parser.add_argument("--limit", type=int, default=0, help="Limit used with --all. 0 means no limit.")
     parser.add_argument("--match-count", type=int, default=DEFAULT_MATCH_COUNT)
@@ -478,7 +491,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--template-limit", type=int, default=DEFAULT_TEMPLATE_LIMIT)
     parser.add_argument("--excerpt-chars", type=int, default=DEFAULT_EXCERPT_CHARS)
     parser.add_argument("--skip-vector", action="store_true", help="Run text retrieval only, without calling an embedding backend")
-    parser.add_argument("--no-persist", action="store_true", help="Print results without inserting eval.answer_runs")
+    parser.add_argument("--no-persist", action="store_true", help="Print results without inserting fah_sai_lpk_eval.answer_runs")
     parser.add_argument("--json", action="store_true", help="Print machine-readable JSON summary")
     parser.add_argument("--model", default=os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL))
     parser.add_argument(

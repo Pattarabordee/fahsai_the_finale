@@ -19,7 +19,7 @@ The tasks below are the remaining gaps. Do NOT redo anything from the files abov
 
 Add a unified hybrid retrieval function that combines vector similarity and full-text search using Reciprocal Rank Fusion (RRF). This removes the need for callers to run two separate queries and merge results manually.
 
-### 1.1 `rag.hybrid_search_public_chunks`
+### 1.1 `fah_sai_lpk_rag.hybrid_search_public_chunks`
 
 ```sql
 -- Hybrid retrieval: vector + BM25/trigram, merged with Reciprocal Rank Fusion.
@@ -29,7 +29,7 @@ Add a unified hybrid retrieval function that combines vector similarity and full
 -- rrf_k:           RRF smoothing constant (default 60 is standard)
 -- candidate_count: how many candidates to pull from each signal before merging
 
-CREATE OR REPLACE FUNCTION rag.hybrid_search_public_chunks(
+CREATE OR REPLACE FUNCTION fah_sai_lpk_rag.hybrid_search_public_chunks(
     query_embedding vector(1536) DEFAULT NULL,
     query_text text DEFAULT NULL,
     match_count integer DEFAULT 8,
@@ -68,7 +68,7 @@ vector_results AS (
         ROW_NUMBER() OVER (ORDER BY m.embedding <=> query_embedding) AS rank,
         (m.embedding <=> query_embedding)::double precision AS cosine_distance,
         m.embedding_model
-    FROM rag.mv_public_retrievable_chunks m
+    FROM fah_sai_lpk_rag.mv_public_retrievable_chunks m
     WHERE query_embedding IS NOT NULL
       AND m.embedding IS NOT NULL
     ORDER BY m.embedding <=> query_embedding
@@ -89,7 +89,7 @@ text_results AS (
             ts_rank(c.search_tsv, plainto_tsquery('simple', query_text)),
             similarity(c.chunk_text, query_text)::real
         )::real AS text_score
-    FROM rag.mv_public_retrievable_chunks c
+    FROM fah_sai_lpk_rag.mv_public_retrievable_chunks c
     WHERE query_text IS NOT NULL
       AND (
           c.search_tsv @@ plainto_tsquery('simple', query_text)
@@ -138,11 +138,11 @@ SELECT
     c.chunk_metadata,
     c.source_metadata
 FROM merged m
-JOIN rag.mv_public_retrievable_chunks c ON c.chunk_id = m.chunk_id
+JOIN fah_sai_lpk_rag.mv_public_retrievable_chunks c ON c.chunk_id = m.chunk_id
 ORDER BY m.rrf_score DESC, m.chunk_id;
 $$;
 
-COMMENT ON FUNCTION rag.hybrid_search_public_chunks(vector, text, integer, integer, integer) IS
+COMMENT ON FUNCTION fah_sai_lpk_rag.hybrid_search_public_chunks(vector, text, integer, integer, integer) IS
     'Hybrid RAG retrieval combining HNSW vector similarity and BM25/trigram full-text search via Reciprocal Rank Fusion. Pass both query_embedding and query_text for full hybrid; omit one for single-signal search.';
 ```
 
@@ -151,7 +151,7 @@ COMMENT ON FUNCTION rag.hybrid_search_public_chunks(vector, text, integer, integ
 ```sql
 -- Convenience wrapper that sets ef_search before calling hybrid search
 -- Use for queries that need higher recall at cost of slight latency
-CREATE OR REPLACE FUNCTION rag.hybrid_search_public_chunks_hq(
+CREATE OR REPLACE FUNCTION fah_sai_lpk_rag.hybrid_search_public_chunks_hq(
     query_embedding vector(1536) DEFAULT NULL,
     query_text text DEFAULT NULL,
     match_count integer DEFAULT 8,
@@ -177,7 +177,7 @@ BEGIN
     SELECT
         h.chunk_id, h.source_path, h.source_kind, h.chunk_text,
         h.rrf_score, h.cosine_distance, h.text_score
-    FROM rag.hybrid_search_public_chunks(
+    FROM fah_sai_lpk_rag.hybrid_search_public_chunks(
         query_embedding, query_text, match_count, rrf_k, candidate_count
     ) h;
 END;
@@ -186,10 +186,10 @@ $$;
 
 ### 1.3 Fix the `entity_linked_retrieval` SQL template (still points to old view)
 
-Update the existing `entity_linked_retrieval` template in `eval.sql_templates` to use the materialized view:
+Update the existing `entity_linked_retrieval` template in `fah_sai_lpk_eval.sql_templates` to use the materialized view:
 
 ```sql
-UPDATE eval.sql_templates
+UPDATE fah_sai_lpk_eval.sql_templates
 SET sql_template = $template$
 SELECT
     c.chunk_id,
@@ -199,8 +199,8 @@ SELECT
     el.linked_table,
     el.linked_column,
     el.entity_id
-FROM rag.mv_public_retrievable_chunks c
-JOIN rag.entity_links el ON el.chunk_id = c.chunk_id
+FROM fah_sai_lpk_rag.mv_public_retrievable_chunks c
+JOIN fah_sai_lpk_rag.entity_links el ON el.chunk_id = c.chunk_id
 WHERE el.is_public_safe = true
   AND el.linked_table = :linked_table
   AND el.entity_id = :entity_id
@@ -263,7 +263,7 @@ Key changes:
 - Respect OpenAI rate limits by catching `openai.RateLimitError` and sleeping with exponential backoff (start at 10s, max 120s)
 - Write embeddings with a single `executemany` call per batch instead of one `execute` per row
 
-### 3.2 Batch the `INSERT` into `rag.chunk_embeddings` using `executemany`
+### 3.2 Batch the `INSERT` into `fah_sai_lpk_rag.chunk_embeddings` using `executemany`
 
 Current code inserts one row per `cur.execute()` call inside a Python loop.
 
@@ -280,7 +280,7 @@ def upsert_embeddings(conn, rows: list[tuple[str, str]], model: str, embeddings)
     with conn.cursor() as cur:
         cur.executemany(
             """
-            INSERT INTO rag.chunk_embeddings (chunk_id, embedding_model, embedding)
+            INSERT INTO fah_sai_lpk_rag.chunk_embeddings (chunk_id, embedding_model, embedding)
             VALUES (%s, %s, %s::vector)
             ON CONFLICT (chunk_id) DO UPDATE SET
                 embedding_model = EXCLUDED.embedding_model,
@@ -374,7 +374,7 @@ chunk_batch.append((chunk_id, actual_source_document_id, idx, piece,
 if len(chunk_batch) >= CHUNK_BATCH_SIZE:
     cur.executemany(
         """
-        INSERT INTO rag.document_chunks
+        INSERT INTO fah_sai_lpk_rag.document_chunks
             (chunk_id, source_document_id, chunk_index, chunk_text, token_count,
              char_start, char_end, language_hint, is_public_safe)
         VALUES (%s, %s, %s, %s, %s, %s, %s, 'th-en', true)

@@ -1,5 +1,18 @@
 # FahMai Tables: ประเด็นผิดปกติในข้อมูลและคำถามถึงกรรมการ
 
+## Resolved: Fact Date Convention
+
+The judge clarified the canonical rule for fact-table date columns. All `FACT_*`
+tables have `business_event_date`, `posting_date`, `effective_date`, and
+`as_of_date` because the simulator stores bitemporal-style business and
+accounting dates.
+
+- Default period axis: use `business_event_date` when a question asks for a year, month, or quarter without naming a date column.
+- Posting axis: use `posting_date` only when the question explicitly asks for posted/booked/accounting timing.
+- Vendor payments: `FACT_VENDOR_PAYMENT.posting_date` may lag `business_event_date` by about 28 days because of NET-30 terms, so this is the main table where the answer can differ by axis.
+- Fact `effective_date` is not the default period filter. Fact `as_of_date` is bundle/snapshot metadata.
+- BE year example: year 2568 means `business_event_date >= DATE '2025-01-01' AND business_event_date < DATE '2026-01-01'`.
+
 ## สรุปสำหรับตัดสินใจ
 
 ตรวจ folder `super-ai-engineer-season-6-fah-mai-the-finale/tables` แล้วพบว่าโครงสร้างหลักค่อนข้างดี: มี 31 CSVs จริงตาม README และ primary key คอลัมน์แรกของทุกไฟล์ unique ไม่มี null/duplicate key rows
@@ -94,9 +107,9 @@ Fact tables ส่วนใหญ่มี:
 - `as_of_date` เป็น `2026-01-15` ทั้งหมด ตรงกับ README release as-of date
 - dimension/version tables เช่น `DIM_POLICY_VERSION` และ `DIM_VENDOR_CONTRACT_VERSION` มี `effective_date`/`end_date` ที่มีความหมายจริง
 
-ผลกระทบ: ถ้าคำถามถาม "as of event date" หรือเกี่ยวกับ bitemporal logic ยังไม่ชัดว่าต้องใช้ `business_event_date`, `posting_date`, `effective_date`, หรือ `as_of_date` สำหรับ table family ใด
+ผลกระทบที่ resolved แล้ว: ถ้าคำถามถามช่วงเวลาแบบ business/event เช่น "ในปี 2568" / "เดือน X" / "ไตรมาส X" และไม่ได้ระบุ date column ให้ใช้ `business_event_date` เป็น canonical default.
 
-คำถามถึงกรรมการ: **สำหรับ fact rows ควร ignore `effective_date` null หรือไม่? `as_of_date = 2026-01-15` เป็นแค่ bundle release snapshot date ใช่ไหม? Temporal joins ควรใช้ `business_event_date` หรือ `posting_date`?**
+คำตอบจากกรรมการ: ใช้ `business_event_date` เป็น default temporal axis สำหรับ fact rows; ใช้ `posting_date` เฉพาะเมื่อโจทย์ถาม posting/accounting/booked timing ชัดเจน. Fact `effective_date` ไม่ใช่ default period filter และ `as_of_date = 2026-01-15` เป็น snapshot/as-of metadata.
 
 ### 3. ต้องถามว่า policy/contract date boundaries เป็น inclusive หรือ exclusive
 
@@ -124,7 +137,7 @@ Versioned tables มีช่วงวันที่ติดกันโดย
 
 นี่เป็น ambiguity สำคัญ เพราะคำถามเรื่อง contract version อาจต้องหา contract ที่ถูกต้องตาม event time
 
-คำถามถึงกรรมการ: **สำหรับ `FACT_VENDOR_PAYMENT.vendor_contract_version_id` ควรตรวจ validity ด้วย `business_event_date`, `posting_date`, `request_date`, หรือยึด explicit `vendor_contract_version_id` โดยไม่สนวันที่?**
+คำตอบจากกรรมการเรื่อง date axis: สำหรับ period filter ของ `FACT_VENDOR_PAYMENT` ยังใช้ `business_event_date` เป็น default; `posting_date` ใช้เมื่อโจทย์ถาม posting/accounting timing เท่านั้น และอาจช้ากว่าเพราะ NET-30. Relationship หลักยังเป็น explicit `vendor_contract_version_id`.
 
 ### 5. `FACT_RETURN.line_item_id` ต้องอ่านเป็น string-safe integer
 
@@ -233,9 +246,9 @@ README พูดถึง retry markers ใน real-world data-quality artifacts
 คำถามแบบ copy/paste:
 
 1. `FACT_BANK_TRANSACTION.related_entity_table` มี `FACT_SALES_DEPOSIT_BATCH` แต่ไม่มี CSV ชื่อนี้ เป็น virtual derived entity ใช่ไหม และทีมควร reconstruct หรือ resolve อย่างไร?
-2. สำหรับ fact tables, `effective_date` มักว่าง 100% และ `as_of_date` เป็น `2026-01-15` ทั้งหมด Temporal joins ควรใช้ `business_event_date`, `posting_date`, หรือ column อื่น?
+2. [Resolved] สำหรับ fact tables ให้ใช้ `business_event_date` เป็น default สำหรับคำถามช่วงเวลา; ใช้ `posting_date` เฉพาะเมื่อโจทย์ถาม posting/accounting timing ชัดเจน.
 3. Versioned rows ใน `DIM_POLICY_VERSION` และ `DIM_VENDOR_CONTRACT_VERSION` เป็น half-open (`effective_date <= date < end_date`) หรือ inclusive of `end_date`?
-4. สำหรับ `FACT_VENDOR_PAYMENT` ควร resolve contract validity ด้วย `business_event_date`, `posting_date`, `request_date`, หรือ explicit `vendor_contract_version_id`?
+4. [Resolved for date axis] สำหรับ `FACT_VENDOR_PAYMENT` period filter ใช้ `business_event_date` เป็น default; `posting_date` เฉพาะคำถาม posting/accounting และ explicit `vendor_contract_version_id` ยังคือ relationship หลัก.
 5. Duplicate PayWise invoice rows และ phantom promo redemptions เป็น intentional artifacts ที่ควร dedupe เฉพาะเมื่อคำถามระบุใช่ไหม?
 6. `FACT_INVENTORY_MOVEMENT.related_txn_id` เป็น polymorphic โดย `XFER-*` เป็น transfer ids ไม่ใช่ missing `FACT_SALES.txn_id` references ใช่ไหม?
 7. ID-like columns ทั้งหมด รวมถึง large numeric IDs เช่น `line_item_id` ควรถูก treat เป็น opaque strings เพื่อเลี่ยง precision/format issues ใช่ไหม?
@@ -250,7 +263,7 @@ README พูดถึง retry markers ใน real-world data-quality artifacts
 - อ่าน ID-like columns ทั้งหมดเป็น strings หรือ string-safe integer identifiers ไม่ใช่ floats
 - Treat `related_entity_table` เป็น polymorphic; อย่า assume ว่าทุกค่าต้อง map ไป physical CSV
 - ใช้ half-open date ranges สำหรับ versioned rows: `effective_date <= date < end_date`
-- สำหรับ fact rows ใช้ `business_event_date` กับ business/event questions และ `posting_date` กับ accounting/posting questions แต่ต้อง record assumption นี้ไว้ใน answers/tools
+- สำหรับ fact rows ใช้ `business_event_date` กับ business/event period questions เป็น canonical default และใช้ `posting_date` เฉพาะ accounting/posting questions
 - Treat known duplicate/phantom rows เป็น intentional data-quality artifacts; dedupe เฉพาะเมื่อ prompt ถาม dedupe/canonical/net result
 - สร้าง lightweight table profiler ก่อน private questions: row counts, primary keys, FK coverage, date windows, null-heavy columns, และ dynamic reference values
 - แยก table findings ออกจาก OCR/render provenance issues; ไฟล์นี้โฟกัสเฉพาะ `tables`

@@ -30,7 +30,10 @@
 ## 1. What Is This Project?
 
 **FahMai** is a multi-channel electronics retailer in Thailand.
-This repo is a complete **Data Warehouse + RAG system** for the Super AI Engineer Season 6 — Hackathon 4 competition.
+This repo is the product workspace for an enterprise **Decision Intelligence Platform** that combines a governed data warehouse, retrieval, policy reasoning, and auditable answer workflows.
+
+The original challenge bundle is treated as seed data and evaluation coverage.
+The target product standard is company-grade reliability, governance, and repeatability.
 
 The system:
 - Ingests **2 years of operational data** (2024-01-01 → 2025-12-31, released 2026-01-15)
@@ -97,7 +100,7 @@ fahmai/
  │                         PostgreSQL Database                                      │
  │                                                                                  │
  │  ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────────────┐  │
- │  │   raw.*          │    │   core.*          │    │   rag.*                  │  │
+ │  │   fah_sai_lpk_raw.*          │    │   fah_sai_lpk_core.*          │    │   fah_sai_lpk_rag.*                  │  │
  │  │                  │    │                   │    │                          │  │
  │  │  Landing zone    │───►│  Typed official   │    │  source_documents        │  │
  │  │  ALL columns     │    │  31 tables        │    │  document_chunks         │  │
@@ -110,7 +113,7 @@ fahmai/
  │         ▲                         │                           │                  │
  │         │                         ▼                           ▼                  │
  │   31 CSV files           ┌──────────────────┐    ┌──────────────────────────┐  │
- │   COPY FROM STDIN        │   mart.*          │    │   audit.*                │  │
+ │   COPY FROM STDIN        │   fah_sai_lpk_mart.*          │    │   fah_sai_lpk_audit.*                │  │
  │                          │                   │    │                          │  │
  │   50 K+ markdown docs    │  mv_sales_order   │    │  ingestion_runs          │  │
  │   chunk + embed          │  mv_sales_line    │    │  provenance_entity_links │  │
@@ -124,7 +127,7 @@ fahmai/
  │                                     │                                            │
  │                                     ▼                                            │
  │                           ┌──────────────────┐                                  │
- │                           │   eval.*          │                                  │
+ │                           │   fah_sai_lpk_eval.*          │                                  │
  │                           │                   │                                  │
  │                           │  questions        │                                  │
  │                           │  question_tags    │                                  │
@@ -135,7 +138,7 @@ fahmai/
  └─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-**Rule**: Never query `raw.*` for a final answer. Always use `core.*` or `mart.mv_*`.
+**Rule**: Never query `fah_sai_lpk_raw.*` for a final answer. Always use `fah_sai_lpk_core.*` or `fah_sai_lpk_mart.mv_*`.
 
 ---
 
@@ -247,46 +250,46 @@ fahmai/
 
 ## 7. Mart Layer — Materialized Views
 
-All `mart.v_*` names are thin **compatibility aliases** pointing to the underlying `mart.mv_*`.
-**Always query `mart.mv_*` directly** for best index utilisation.
+All `fah_sai_lpk_mart.v_*` names are thin **compatibility aliases** pointing to the underlying `fah_sai_lpk_mart.mv_*`.
+**Always query `fah_sai_lpk_mart.mv_*` directly** for best index utilisation.
 
 ```
- core.fact_sales ─────────────────────────────────────────────────────────┐
+ fah_sai_lpk_core.fact_sales ─────────────────────────────────────────────────────────┐
    + dim_customer                                                          │
    + dim_branch                                          ┌─────────────────▼──────────────────┐
-   + dim_employee                     ──────────────────►│  mart.mv_sales_order               │
+   + dim_employee                     ──────────────────►│  fah_sai_lpk_mart.mv_sales_order               │
    + dim_promo_campaign               pre-joined         │  1 row per txn_id  (117 105 rows)  │
    + fact_bank_transaction            materialized       │  Indexes: date+branch, customer,   │
                                                          │           payment_status, b2b AR   │
                                                          └────────────────────────────────────┘
 
- core.fact_sales_line_item ───────────────────────────────────────────────┐
+ fah_sai_lpk_core.fact_sales_line_item ───────────────────────────────────────────────┐
    + fact_sales                                                            │
    + dim_product                                        ┌─────────────────▼──────────────────┐
-   + dim_vendor                       ──────────────────►│  mart.mv_sales_line                │
+   + dim_vendor                       ──────────────────►│  fah_sai_lpk_mart.mv_sales_line                │
    + dim_department                   pre-joined         │  1 row per line_item_id (309 129)  │
                                       materialized       │  Indexes: sku+date, category+date, │
                                                          │           branch+date              │
                                                          └────────────────────────────────────┘
 
- core.fact_bank_transaction ──────────────────────────────────────────────┐
+ fah_sai_lpk_core.fact_bank_transaction ──────────────────────────────────────────────┐
    + dim_bank_account                                                      │
    + mv_sales_deposit_batch_recon    ──────────────────►┌─────────────────▼──────────────────┐
-   + fact_sales (conditional)        pre-joined         │  mart.mv_bank_reconciliation        │
+   + fact_sales (conditional)        pre-joined         │  fah_sai_lpk_mart.mv_bank_reconciliation        │
    + fact_payroll (conditional)      materialized       │  1 row per bank_txn_id (65 334)     │
    + fact_refund_paid (conditional)                     │  Indexes: date+account,             │
    + fact_loyalty_ledger (conditional)                  │           related_entity routing    │
    + fact_vendor_payment (conditional)                  └────────────────────────────────────┘
 
- core.fact_vendor_payment ────────────────────────────────────────────────┐
+ fah_sai_lpk_core.fact_vendor_payment ────────────────────────────────────────────────┐
    + dim_vendor                                                            │
    + dim_vendor_contract_version     ──────────────────►┌─────────────────▼──────────────────┐
-   + dim_employee (signer)           pre-joined         │  mart.mv_vendor_payment             │
+   + dim_employee (signer)           pre-joined         │  fah_sai_lpk_mart.mv_vendor_payment             │
    + dim_employee (cosigner)         materialized       │  1 row per payment_id (809 rows)    │
    + fact_bank_transaction                              └────────────────────────────────────┘
 
- core.fact_sales (GROUP BY batch) ───────────────────────────────────────►┌────────────────────────────────────────────┐
- + fact_bank_transaction                                                   │  mart.mv_sales_deposit_batch_reconciliation│
+ fah_sai_lpk_core.fact_sales (GROUP BY batch) ───────────────────────────────────────►┌────────────────────────────────────────────┐
+ + fact_bank_transaction                                                   │  fah_sai_lpk_mart.mv_sales_deposit_batch_reconciliation│
    WHERE related_entity_table =                                            │  Virtual QA view only                      │
      'FACT_SALES_DEPOSIT_BATCH'                                            │  ⚠ DO NOT cite as official source          │
                                                                            └────────────────────────────────────────────┘
@@ -305,8 +308,8 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
  │                        python scripts/ingest_fahmai_to_postgres.py              │
  │                           SET CONSTRAINTS ALL DEFERRED                          │
  │                           COPY FROM STDIN (bulk, no row-by-row)                 │
- │                           ──► raw.*  (text landing)                             │
- │                           ──► core.* (typed official)                           │
+ │                           ──► fah_sai_lpk_raw.*  (text landing)                             │
+ │                           ──► fah_sai_lpk_core.* (typed official)                           │
  └──────────────────────────────────────────────────────────────────────────────────┘
                                          │
                                          ▼
@@ -319,39 +322,39 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
  │                           chunk_text(chunk_chars=4500, overlap=500)             │
  │                           executemany batch 500 chunks                          │
  │                           skip if content_sha256 unchanged                      │
- │                           ──► rag.source_documents                              │
- │                           ──► rag.document_chunks  (search_tsv auto-generated) │
- │                           ──► rag.entity_links     (public-safe links)          │
- │                           ──► audit.provenance_entity_links (unsafe)            │
+ │                           ──► fah_sai_lpk_rag.source_documents                              │
+ │                           ──► fah_sai_lpk_rag.document_chunks  (search_tsv auto-generated) │
+ │                           ──► fah_sai_lpk_rag.entity_links     (public-safe links)          │
+ │                           ──► fah_sai_lpk_audit.provenance_entity_links (unsafe)            │
  └──────────────────────────────────────────────────────────────────────────────────┘
                                          │
                                          ▼
  ┌──────────────────────────────────────────────────────────────────────────────────┐
  │  STEP 3 — Generate embeddings                                                    │
  │                                                                                  │
- │   rag.document_chunks                                                            │
+ │   fah_sai_lpk_rag.document_chunks                                                            │
  │   WHERE embedding IS NULL  ────────────────────────────────────────────────►    │
  │                                 python scripts/embed_chunks_openai.py           │
  │                                 keyset pagination (chunk_id > last_seen)        │
  │                                 batch 128, retry on 429 (backoff 10s→120s)      │
  │                                 executemany upsert                              │
- │                                 ──► rag.chunk_embeddings  (vector 4096)         │
+ │                                 ──► fah_sai_lpk_rag.chunk_embeddings  (vector 4096)         │
  └──────────────────────────────────────────────────────────────────────────────────┘
                                          │
                                          ▼
  ┌──────────────────────────────────────────────────────────────────────────────────┐
  │  STEP 4 — Refresh materialized views                                             │
  │                                                                                  │
- │   SELECT mart.refresh_all_materialized_views(false);   ← first load             │
- │   SELECT mart.refresh_all_materialized_views(true);    ← subsequent (concurrent)│
+ │   SELECT fah_sai_lpk_mart.refresh_all_materialized_views(false);   ← first load             │
+ │   SELECT fah_sai_lpk_mart.refresh_all_materialized_views(true);    ← subsequent (concurrent)│
  │                                                                                  │
  │   Refresh order (dependency-safe):                                              │
- │     1. rag.mv_public_retrievable_chunks                                         │
- │     2. mart.mv_sales_deposit_batch_reconciliation                               │
- │     3. mart.mv_sales_order                                                      │
- │     4. mart.mv_sales_line                                                       │
- │     5. mart.mv_bank_reconciliation   (depends on #2)                            │
- │     6. mart.mv_vendor_payment                                                   │
+ │     1. fah_sai_lpk_rag.mv_public_retrievable_chunks                                         │
+ │     2. fah_sai_lpk_mart.mv_sales_deposit_batch_reconciliation                               │
+ │     3. fah_sai_lpk_mart.mv_sales_order                                                      │
+ │     4. fah_sai_lpk_mart.mv_sales_line                                                       │
+ │     5. fah_sai_lpk_mart.mv_bank_reconciliation   (depends on #2)                            │
+ │     6. fah_sai_lpk_mart.mv_vendor_payment                                                   │
  │   Then: ANALYZE on all materialized views                                       │
  └──────────────────────────────────────────────────────────────────────────────────┘
                                          │
@@ -361,11 +364,11 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
  │                                                                                  │
  │   input question text                                                            │
  │        │                                                                         │
- │        ├──► embed query  ──► rag.hybrid_search_public_chunks()  ──► top-K chunks │
+ │        ├──► embed query  ──► fah_sai_lpk_rag.hybrid_search_public_chunks()  ──► top-K chunks │
  │        │                                                                         │
- │        └──► SQL path     ──► mart.mv_*  or  eval.sql_templates  ──► structured  │
+ │        └──► SQL path     ──► fah_sai_lpk_mart.mv_*  or  fah_sai_lpk_eval.sql_templates  ──► structured  │
  │                                                                      answer      │
- │        └──► merge results ──► INSERT eval.answer_runs                           │
+ │        └──► merge results ──► INSERT fah_sai_lpk_eval.answer_runs                           │
  └──────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -377,11 +380,11 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
  Query text  ──►  Qwen/Qwen3-Embedding-8B  ──►  query_vector(4096)
                                                               │
                                ┌──────────────────────────── │ ──────────────────────────────────┐
-                               │  rag.hybrid_search_public_chunks(query_vector, query_text, k)   │
+                               │  fah_sai_lpk_rag.hybrid_search_public_chunks(query_vector, query_text, k)   │
                                │                                                                   │
                                │   Signal 1 — HNSW Vector Search                                 │
                                │   ┌────────────────────────────────────────────────┐            │
-                               │   │  rag.mv_public_retrievable_chunks              │            │
+                               │   │  fah_sai_lpk_rag.mv_public_retrievable_chunks              │            │
                                │   │  ORDER BY embedding <=> query_vector            │            │
                                │   │  LIMIT candidate_count (default 80)            │            │
                                │   │  → ranked list with cosine_distance            │            │
@@ -418,13 +421,13 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
 ### What `mv_public_retrievable_chunks` contains
 
 ```
- rag.document_chunks    ──┐
-   is_public_safe = true   ├──► INNER JOIN ──► rag.mv_public_retrievable_chunks
- rag.source_documents   ──┤              │
+ fah_sai_lpk_rag.document_chunks    ──┐
+   is_public_safe = true   ├──► INNER JOIN ──► fah_sai_lpk_rag.mv_public_retrievable_chunks
+ fah_sai_lpk_rag.source_documents   ──┤              │
    is_public_safe = true   │              │    HNSW index on embedding
- rag.chunk_embeddings   ──┘              │    GIN  index on search_tsv
+ fah_sai_lpk_rag.chunk_embeddings   ──┘              │    GIN  index on search_tsv
    (INNER JOIN = only embedded chunks)   │    Unique index on chunk_id
-                                         └──► rag.v_public_retrievable_chunks  (LEFT JOIN = includes un-embedded)
+                                         └──► fah_sai_lpk_rag.v_public_retrievable_chunks  (LEFT JOIN = includes un-embedded)
                                               Use v_ only to inspect un-embedded chunks
                                               Use mv_ for all retrieval
 ```
@@ -435,12 +438,12 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
  known entity  e.g. sku_id = 'SKU-001'
       │
       ▼
- rag.entity_links
+ fah_sai_lpk_rag.entity_links
    WHERE linked_table = 'DIM_PRODUCT'
      AND entity_id    = 'SKU-001'
      AND is_public_safe = true
       │
-      ├──► chunk_id  ──► rag.mv_public_retrievable_chunks  ──► chunk_text
+      ├──► chunk_id  ──► fah_sai_lpk_rag.mv_public_retrievable_chunks  ──► chunk_text
       │
       └──► source_path (for citation)
 ```
@@ -527,16 +530,16 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
  ┌──────────────────────────────────┬────────────────────────────────────────────────────────┐
  │ Question is about…               │ Use this mart                                          │
  ├──────────────────────────────────┼────────────────────────────────────────────────────────┤
- │ Orders, channels, payment        │ mart.mv_sales_order   (1 row per txn_id)               │
+ │ Orders, channels, payment        │ fah_sai_lpk_mart.mv_sales_order   (1 row per txn_id)               │
  │ methods, customers, branches     │                                                        │
  ├──────────────────────────────────┼────────────────────────────────────────────────────────┤
- │ SKUs, product mix, line          │ mart.mv_sales_line    (1 row per line_item_id)          │
+ │ SKUs, product mix, line          │ fah_sai_lpk_mart.mv_sales_line    (1 row per line_item_id)          │
  │ discounts, Care Plus attach rate │                                                        │
  ├──────────────────────────────────┼────────────────────────────────────────────────────────┤
- │ Bank transactions, settlement,   │ mart.mv_bank_reconciliation   (1 row per bank_txn_id)  │
+ │ Bank transactions, settlement,   │ fah_sai_lpk_mart.mv_bank_reconciliation   (1 row per bank_txn_id)  │
  │ deposit matching, reconciliation │                                                        │
  ├──────────────────────────────────┼────────────────────────────────────────────────────────┤
- │ Vendor invoices, contract        │ mart.mv_vendor_payment   (1 row per payment_id)        │
+ │ Vendor invoices, contract        │ fah_sai_lpk_mart.mv_vendor_payment   (1 row per payment_id)        │
  │ compliance, payment authority    │                                                        │
  └──────────────────────────────────┴────────────────────────────────────────────────────────┘
 ```
@@ -547,7 +550,7 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
 
 ```
  ╔══════════════════════════════════════════════════════════════════╗
- ║  PRIORITY 100  —  Official CSV tables  (core.*)                 ║
+ ║  PRIORITY 100  —  Official CSV tables  (fah_sai_lpk_core.*)                 ║
  ║  Final answer: ✅ YES                                            ║
  ║  Highest authority for all structured / numeric answers         ║
  ╠══════════════════════════════════════════════════════════════════╣
@@ -556,11 +559,11 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
  ║  Use for policy narrative, memos, meeting minutes, chat         ║
  ╠══════════════════════════════════════════════════════════════════╣
  ║  PRIORITY 70  —  OCR-safe text                                  ║
- ║  Final answer: ✅ YES (only if no grader-only provenance used)   ║
+ ║  Final answer: ✅ YES (only if no audit-only provenance used)    ║
  ║  Allowed when NOT using source_row_ids as a shortcut            ║
  ╠══════════════════════════════════════════════════════════════════╣
  ║  PRIORITY 40  —  Derived helpers  (derived/*.csv)               ║
- ║                  mart.mv_sales_deposit_batch_reconciliation      ║
+ ║                  fah_sai_lpk_mart.mv_sales_deposit_batch_reconciliation      ║
  ║  Final answer: ❌ QA / trace / internal only                     ║
  ╠══════════════════════════════════════════════════════════════════╣
  ║  PRIORITY 10  —  Question text itself                            ║
@@ -569,7 +572,7 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
  ╠══════════════════════════════════════════════════════════════════╣
  ║  PRIORITY 0  —  Grader-only provenance                          ║
  ║                 render_provenance.jsonl                          ║
- ║                 audit.provenance_entity_links                    ║
+ ║                 fah_sai_lpk_audit.provenance_entity_links                    ║
  ║  Final answer: ❌ NEVER  (data-leak risk)                        ║
  ╚══════════════════════════════════════════════════════════════════╝
 ```
@@ -586,59 +589,59 @@ All `mart.v_*` names are thin **compatibility aliases** pointing to the underlyi
  │  001_init_fahmai_model_schema.sql          STATUS: ✅ done                   │
  │  ─────────────────────────────────────────────────────────────────────────  │
  │  Creates all 5 schemas                                                       │
- │  Creates raw.* (30 text-column tables)                                       │
- │  Creates core.* (31 typed tables with FK + deferred constraints)             │
- │  Creates rag.* (source_documents, document_chunks, chunk_embeddings,         │
+ │  Creates fah_sai_lpk_raw.* (30 text-column tables)                                       │
+ │  Creates fah_sai_lpk_core.* (31 typed tables with FK + deferred constraints)             │
+ │  Creates fah_sai_lpk_rag.* (source_documents, document_chunks, chunk_embeddings,         │
  │                 entity_links)                                                │
- │  Creates mart.* regular views (later replaced by 004)                        │
- │  Creates audit.* tables                                                      │
+ │  Creates fah_sai_lpk_mart.* regular views (later replaced by 004)                        │
+ │  Creates fah_sai_lpk_audit.* tables                                                      │
  │  Creates first HNSW index (ef_construction=64 — later rebuilt by 005)       │
  │                                              │                               │
  │                                              ▼                               │
  │  002_eval_retrieval_workflow.sql           STATUS: ✅ done                   │
  │  ─────────────────────────────────────────────────────────────────────────  │
- │  Creates eval.* schema (questions, question_tags, answer_runs,               │
+ │  Creates fah_sai_lpk_eval.* schema (questions, question_tags, answer_runs,               │
  │                          sql_templates, source_authority_rules)              │
  │  Inserts default source authority rules                                      │
  │  Inserts 8 reusable SQL templates                                            │
- │  Creates rag.match_public_chunks() RPC (v1 — starting from chunk_embeddings)│
- │  Creates rag.search_public_chunks_text() RPC (BM25 + trigram)               │
+ │  Creates fah_sai_lpk_rag.match_public_chunks() RPC (v1 — starting from chunk_embeddings)│
+ │  Creates fah_sai_lpk_rag.search_public_chunks_text() RPC (BM25 + trigram)               │
  │                                              │                               │
  │                                              ▼                               │
  │  003_performance_indexes.sql               STATUS: ✅ done                   │
  │  ─────────────────────────────────────────────────────────────────────────  │
  │  pg_trgm extension                                                           │
- │  All missing FK indexes on core.dim_* and core.fact_*                        │
+ │  All missing FK indexes on fah_sai_lpk_core.dim_* and fah_sai_lpk_core.fact_*                        │
  │  Composite indexes for analytics queries                                     │
  │  Partial indexes (paid sales, B2B open AR, active employees)                 │
  │  Extra RAG indexes (doc_id, source_table, sha256, trigram on chunk_text)     │
- │  audit.analyze_fahmai_model_tables() function                                │
+ │  fah_sai_lpk_audit.analyze_fahmai_model_tables() function                                │
  │                                              │                               │
  │                                              ▼                               │
  │  004_materialized_marts.sql                STATUS: ✅ done                   │
  │  ─────────────────────────────────────────────────────────────────────────  │
- │  Drops old regular mart.v_* views                                            │
+ │  Drops old regular fah_sai_lpk_mart.v_* views                                            │
  │  Creates 5 materialized views (mv_sales_deposit_batch_reconciliation,        │
  │    mv_sales_order, mv_sales_line, mv_bank_reconciliation, mv_vendor_payment) │
  │  Creates unique + composite indexes on each MV                               │
- │  Creates mart.refresh_all_materialized_views(boolean) function               │
- │  Re-creates mart.v_* as thin compatibility aliases over mv_*                 │
+ │  Creates fah_sai_lpk_mart.refresh_all_materialized_views(boolean) function               │
+ │  Re-creates fah_sai_lpk_mart.v_* as thin compatibility aliases over mv_*                 │
  │                                              │                               │
  │                                              ▼                               │
  │  005_rag_hnsw_and_public_chunks_mv.sql     STATUS: ✅ done                   │
  │  ─────────────────────────────────────────────────────────────────────────  │
  │  Drops old HNSW index (ef_construction=64)                                   │
  │  Rebuilds HNSW with ef_construction=128                                      │
- │  Creates rag.mv_public_retrievable_chunks (INNER JOIN — embedded only)       │
+ │  Creates fah_sai_lpk_rag.mv_public_retrievable_chunks (INNER JOIN — embedded only)       │
  │  Adds HNSW + GIN + unique indexes on mv_public_retrievable_chunks            │
- │  Replaces rag.match_public_chunks() with v2 (uses mv_ directly)             │
- │  Updates mart.refresh_all_materialized_views() to include RAG refresh        │
+ │  Replaces fah_sai_lpk_rag.match_public_chunks() with v2 (uses mv_ directly)             │
+ │  Updates fah_sai_lpk_mart.refresh_all_materialized_views() to include RAG refresh        │
  │                                              │                               │
  │                                              ▼                               │
  │  006_hybrid_retrieval.sql              STATUS: ⚠️ TODO                       │
  │  ─────────────────────────────────────────────────────────────────────────  │
- │  Creates rag.hybrid_search_public_chunks() — RRF vector + BM25 combined     │
- │  Creates rag.hybrid_search_hq() — convenience wrapper with ef_search setter │
+ │  Creates fah_sai_lpk_rag.hybrid_search_public_chunks() — RRF vector + BM25 combined     │
+ │  Creates fah_sai_lpk_rag.hybrid_search_hq() — convenience wrapper with ef_search setter │
  │  Fixes entity_linked_retrieval template to use mv_ not v_                   │
  │                                              │                               │
  │                                              ▼                               │
@@ -676,22 +679,22 @@ done
            questions.csv
 
  What it does:
-   1. TRUNCATE raw.* + core.* + rag.* (if --truncate)
-   2. COPY 31 CSVs  ──►  raw.*  (all-text landing)
-   3. COPY 31 CSVs  ──►  core.* (typed, deferred FK check)
-   4. chunk markdown docs  ──►  rag.source_documents + rag.document_chunks
+   1. TRUNCATE fah_sai_lpk_raw.* + fah_sai_lpk_core.* + fah_sai_lpk_rag.* (if --truncate)
+   2. COPY 31 CSVs  ──►  fah_sai_lpk_raw.*  (all-text landing)
+   3. COPY 31 CSVs  ──►  fah_sai_lpk_core.* (typed, deferred FK check)
+   4. chunk markdown docs  ──►  fah_sai_lpk_rag.source_documents + fah_sai_lpk_rag.document_chunks
       skip files whose content_sha256 has not changed
       batch insert 500 chunks per executemany call
-   5. entity links  ──►  rag.entity_links / audit.provenance_entity_links
-   6. questions.csv  ──►  eval.questions + eval.question_tags
+   5. entity links  ──►  fah_sai_lpk_rag.entity_links / fah_sai_lpk_audit.provenance_entity_links
+   6. questions.csv  ──►  fah_sai_lpk_eval.questions + fah_sai_lpk_eval.question_tags
    7. ANALYZE all tables
    8. refresh materialized views (if --refresh-materialized)
 
  Key flags:
    --truncate              wipe and reload from scratch
-   --skip-raw              skip raw.* (saves time on re-runs if raw is not needed)
+   --skip-raw              skip fah_sai_lpk_raw.* (saves time on re-runs if raw is not needed)
    --skip-rag              skip document chunking
-   --refresh-materialized  run mart.refresh_all_materialized_views(false) at end
+   --refresh-materialized  run fah_sai_lpk_mart.refresh_all_materialized_views(false) at end
    --chunk-chars 4500      characters per chunk (default 4500 ≈ 1125 tokens)
    --chunk-overlap-chars 500
 ```
@@ -699,13 +702,13 @@ done
 ### `scripts/embed_chunks_openai.py`
 
 ```
- Inputs:   rag.document_chunks WHERE embedding IS NULL (keyset paginated by chunk_id)
+ Inputs:   fah_sai_lpk_rag.document_chunks WHERE embedding IS NULL (keyset paginated by chunk_id)
 
  What it does:
    1. fetch batch of unembedded chunks (ORDER BY chunk_id, LIMIT batch_size)
    2. call TEI /embed or an OpenAI-compatible embeddings API
       retry on RateLimitError / APITimeoutError (backoff: 10s → 20s → 40s → max 120s)
-   3. executemany upsert  ──►  rag.chunk_embeddings
+   3. executemany upsert  ──►  fah_sai_lpk_rag.chunk_embeddings
    4. advance keyset cursor (last_chunk_id = rows[-1][0])
    5. repeat until no more missing chunks
    6. refresh materialized views (if --refresh-materialized)
@@ -713,7 +716,7 @@ done
  Key flags:
    --batch-size 128        chunks per embedding request (default 128)
    --max-retries 5         retry attempts on rate-limit
-   --refresh-materialized  run mart.refresh_all_materialized_views(false) at end
+   --refresh-materialized  run fah_sai_lpk_mart.refresh_all_materialized_views(false) at end
    --dry-run               count missing chunks without calling the embedding backend
 ```
 
@@ -721,12 +724,12 @@ done
 
 ```
  What it will do:
-   1. load question_text from eval.questions (or accept --question-text directly)
+   1. load question_text from fah_sai_lpk_eval.questions (or accept --question-text directly)
    2. embed query via Qwen embedding backend
-   3. call rag.hybrid_search_public_chunks(vector, text, k)
-   4. optionally run SQL templates from eval.sql_templates
+   3. call fah_sai_lpk_rag.hybrid_search_public_chunks(vector, text, k)
+   4. optionally run SQL templates from fah_sai_lpk_eval.sql_templates
    5. assemble context + answer
-   6. INSERT result into eval.answer_runs
+   6. INSERT result into fah_sai_lpk_eval.answer_runs
 
  Key flags (planned):
    --question-id FAHMAI-Q-L1-001
@@ -761,7 +764,7 @@ done
 ### Pending (assign to Codex via `db/optimization_round3.md`)
 
 ```
- ❌  db/006_hybrid_retrieval.sql              rag.hybrid_search_public_chunks() RRF function
+ ❌  db/006_hybrid_retrieval.sql              fah_sai_lpk_rag.hybrid_search_public_chunks() RRF function
  ❌  db/007_session_tuning.sql                pg_stat_statements + work_mem + parallel workers
  ❌  embed_chunks_openai.py                   executemany upsert + keyset pagination + retry
  ❌  ingest_fahmai_to_postgres.py             executemany chunks/questions/links,
@@ -820,10 +823,10 @@ These are **intentional real-world artifacts** in the data — not bugs.
 
 ```
  ┌─────────────────────────────────────────────────────────────────────────────────┐
- │  1. NEVER query raw.* for a final answer.                                       │
- │     raw.* is a text landing zone only.  Use core.* or mart.mv_*.               │
+ │  1. NEVER query fah_sai_lpk_raw.* for a final answer.                                       │
+ │     fah_sai_lpk_raw.* is a text landing zone only.  Use fah_sai_lpk_core.* or fah_sai_lpk_mart.mv_*.               │
  ├─────────────────────────────────────────────────────────────────────────────────┤
- │  2. NEVER cite mart.mv_sales_deposit_batch_reconciliation as an official source.│
+ │  2. NEVER cite fah_sai_lpk_mart.mv_sales_deposit_batch_reconciliation as an official source.│
  │     It is a virtual QA view.  Cite FACT_BANK_TRANSACTION + FACT_SALES instead. │
  ├─────────────────────────────────────────────────────────────────────────────────┤
  │  3. ALWAYS check related_entity_table before joining FACT_BANK_TRANSACTION      │
@@ -840,7 +843,7 @@ These are **intentional real-world artifacts** in the data — not bugs.
  │       AND (end_date IS NULL OR end_date ≥ event_date)                           │
  │     Never assume the latest version applies to historical rows.                 │
  ├─────────────────────────────────────────────────────────────────────────────────┤
- │  7. Use mart.mv_* for analytics, rag.hybrid_search_public_chunks() for          │
+ │  7. Use fah_sai_lpk_mart.mv_* for analytics, fah_sai_lpk_rag.hybrid_search_public_chunks() for          │
  │     document retrieval.  Never mix grains between the two paths.               │
  ├─────────────────────────────────────────────────────────────────────────────────┤
  │  8. Prefer business_event_date over posting_date unless the question            │
@@ -894,7 +897,7 @@ python scripts/ingest_fahmai_to_postgres.py \
   --refresh-materialized
 
 # Refresh materialized views after any data change
-psql "$DATABASE_URL" -c "SELECT mart.refresh_all_materialized_views(true);"
+psql "$DATABASE_URL" -c "SELECT fah_sai_lpk_mart.refresh_all_materialized_views(true);"
 
 # Run a retrieval-only eval question and persist evidence
 python scripts/run_question.py \

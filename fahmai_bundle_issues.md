@@ -1,5 +1,15 @@
 # FahMai Main Bundle: จุดผิดปกติและคำถามถึงกรรมการ
 
+## Resolved: Fact Date Convention
+
+The judge clarified the canonical rule for fact date columns. All `FACT_*`
+tables have `business_event_date`, `posting_date`, `effective_date`, and
+`as_of_date`; when a question asks for a year/month/quarter without naming a
+date column, use `business_event_date`. Use `posting_date` only for explicit
+posted/booked/accounting timing. The main public exception is
+`FACT_VENDOR_PAYMENT`, where posting may lag the business event by about 28 days
+because of NET-30 terms.
+
 ## สรุปสำหรับตัดสินใจ
 
 ตรวจ folder `super-ai-engineer-season-6-fah-mai-the-finale` ทั้ง bundle หลักแล้ว พบว่าโครงสร้างใหญ่ตรงกับ README ส่วนมาก: มี 67,555 files, ขนาดรวมประมาณ 4.60 GB uncompressed, ครอบคลุม `tables`, `docs`, `logs`, `renders`, และ `reports`
@@ -228,7 +238,7 @@ Monthly OPS reports ถูก parse เพื่อเทียบ total revenue
 9. ถ้า rendered artifacts และ tables disagree source ไหนชนะ?
 10. ถ้า reports และ tables disagree ควร prefer raw tables หรือ report snapshots?
 11. `FACT_SALES_DEPOSIT_BATCH` เป็น virtual entity ไหม และควร reconstruct อย่างไร?
-12. Date column ใดควร drive temporal resolution สำหรับ facts: `business_event_date`, `posting_date`, `effective_date`, หรือ `as_of_date`?
+12. [Resolved] Date column สำหรับ fact period questions ใช้ `business_event_date` เป็น default; ใช้ `posting_date` เฉพาะเมื่อโจทย์ถาม posting/accounting timing ชัดเจน.
 13. `end_date` values ใน policy/contract version tables เป็น inclusive หรือ exclusive?
 14. ID-like fields ทั้งหมดควร parse เป็น strings เพื่อเลี่ยง precision/formatting issues ใช่ไหม?
 15. Known data-quality artifacts เช่น duplicate invoices และ phantom redemptions ควร dedupe เฉพาะเมื่อคำถามระบุใช่ไหม?
