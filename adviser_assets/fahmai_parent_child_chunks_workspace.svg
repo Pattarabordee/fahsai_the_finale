@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">FahMai Workspace Parent Child Chunk Pipeline</title>
+  <desc id="desc">A slide-ready diagram generated from workspace schema and scripts, explaining how FahMai uses document_chunks as parent chunks, child_chunks as search chunks, BGE-M3 embeddings, and model-facing document_evidence.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfcfe; }
+      .title { font: 800 34px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #142033; }
+      .subtitle { font: 400 18px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #526174; }
+      .zone-title { font: 800 21px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #172033; }
+      .head { font: 750 16.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #1f2d42; }
+      .label { font: 650 14px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #26364f; }
+      .text { font: 400 13px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #43536a; }
+      .small { font: 400 11.8px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .mono { font: 650 11.8px "Cascadia Mono", Consolas, monospace; fill: #334155; }
+      .source-panel { fill: #effaf3; stroke: #3ea66b; stroke-width: 2.1; }
+      .parent-panel { fill: #eef5ff; stroke: #4d7fd0; stroke-width: 2.1; }
+      .child-panel { fill: #effbf8; stroke: #22a08c; stroke-width: 2.1; }
+      .embed-panel { fill: #fff7ea; stroke: #d98b20; stroke-width: 2.1; }
+      .model-panel { fill: #fff1e8; stroke: #e17432; stroke-width: 2.1; }
+      .note-panel { fill: #f5f7fa; stroke: #94a3b8; stroke-width: 2; }
+      .card { fill: #ffffff; stroke: #d4deea; stroke-width: 1.45; }
+      .green { stroke: #74c69d; }
+      .blue { stroke: #88adeb; }
+      .teal { stroke: #61c6ba; }
+      .orange { stroke: #e6a44c; }
+      .red { stroke: #e18a78; }
+      .gray { stroke: #aab6c6; }
+      .highlight { fill: #fff4d8; stroke: #d98b20; stroke-width: 2; }
+      .arrow { stroke: #536174; stroke-width: 3.4; fill: none; marker-end: url(#arrowhead); }
+      .soft-arrow { stroke: #7b8ba1; stroke-width: 2.3; stroke-dasharray: 8 8; fill: none; marker-end: url(#softhead); }
+      .thin { stroke: #a9b6c8; stroke-width: 1.6; fill: none; }
+      .icon-line { stroke: #25344a; stroke-width: 2.3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-fill { fill: #ffffff; stroke: #25344a; stroke-width: 2.1; }
+    </style>
+    <marker id="arrowhead" markerWidth="15" markerHeight="15" refX="12" refY="7.5" orient="auto">
+      <path d="M2,2 L13,7.5 L2,13 Z" fill="#536174"/>
+    </marker>
+    <marker id="softhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7b8ba1"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <text x="60" y="58" class="title">Parent / Child Chunks จาก Workspace จริง</text>
+  <text x="60" y="88" class="subtitle">อิงจาก db/010, db/011, scripts/build_bge_parent_child_chunks.py และ scripts/embed_chunks_openai.py</text>
+
+  <rect x="60" y="118" width="1480" height="70" rx="18" class="note-panel"/>
+  <text x="86" y="149" class="zone-title">Core idea ใน repo นี้</text>
+  <text x="298" y="149" class="label">ใช้ `document_chunks` เป็น Parent เดิม, สร้าง `child_chunks` สำหรับค้น, แล้วเก็บ BGE-M3 embedding เฉพาะ Child</text>
+  <text x="298" y="171" class="small">Space-aware design: parent text stays in document_chunks; child embeddings are vector(1024) in child_chunk_embeddings.</text>
+
+  <rect x="60" y="234" width="230" height="440" rx="20" class="source-panel"/>
+  <text x="88" y="270" class="zone-title">1. Source Docs</text>
+  <text x="88" y="294" class="small">เอกสารที่โหลดเข้า RAG</text>
+  <g transform="translate(105 330)">
+    <rect x="0" y="0" width="125" height="150" rx="12" class="icon-fill"/>
+    <path d="M25 36 H100 M25 64 H94 M25 92 H104 M25 120 H80" class="icon-line"/>
+  </g>
+  <rect x="88" y="526" width="174" height="48" rx="12" class="card green"/>
+  <text x="108" y="550" class="mono">source_documents</text>
+  <text x="108" y="568" class="small">source_path, source_kind</text>
+  <rect x="88" y="592" width="174" height="48" rx="12" class="card gray"/>
+  <text x="108" y="616" class="label">public-safe only</text>
+  <text x="108" y="634" class="small">is_public_safe = true</text>
+
+  <rect x="340" y="234" width="270" height="440" rx="20" class="parent-panel"/>
+  <text x="368" y="270" class="zone-title">2. Parent Chunk</text>
+  <text x="368" y="294" class="small">บริบทใหญ่ที่มีข้อความรอบ ๆ</text>
+  <rect x="374" y="332" width="202" height="88" rx="14" class="card blue"/>
+  <text x="396" y="360" class="head">Parent row</text>
+  <text x="396" y="384" class="mono">fah_sai_lpk_rag</text>
+  <text x="396" y="404" class="mono">.document_chunks</text>
+  <rect x="374" y="450" width="202" height="72" rx="14" class="card blue"/>
+  <text x="396" y="478" class="label">เก็บ parent text</text>
+  <text x="396" y="500" class="mono">chunk_id, chunk_text</text>
+  <rect x="374" y="552" width="202" height="72" rx="14" class="card gray"/>
+  <text x="396" y="580" class="label">ใช้ hydrate context</text>
+  <text x="396" y="602" class="small">ตอนตอบดึง parent_text กลับมา</text>
+
+  <rect x="660" y="234" width="292" height="440" rx="20" class="child-panel"/>
+  <text x="688" y="270" class="zone-title">3. Build Child Chunks</text>
+  <text x="688" y="294" class="small">สร้างชิ้นเล็กจาก Parent</text>
+  <rect x="692" y="328" width="226" height="58" rx="13" class="card teal"/>
+  <text x="714" y="352" class="mono">build_bge_parent_child_chunks.py</text>
+  <text x="714" y="372" class="small">splitter_version = parent-child-bge-m3-v1</text>
+  <rect x="692" y="410" width="226" height="58" rx="13" class="card teal"/>
+  <text x="714" y="434" class="label">Default split config</text>
+  <text x="714" y="454" class="mono">child_chars=1600, overlap=40</text>
+  <rect x="692" y="492" width="226" height="72" rx="13" class="highlight"/>
+  <text x="714" y="518" class="head">Child rows</text>
+  <text x="714" y="542" class="mono">fah_sai_lpk_rag.child_chunks</text>
+  <text x="714" y="560" class="small">retrieval_profile = bge_m3_v1</text>
+  <rect x="692" y="588" width="226" height="48" rx="13" class="card gray"/>
+  <text x="714" y="612" class="mono">parent_chunk_id → chunk_id</text>
+  <text x="714" y="630" class="small">ความสัมพันธ์ Child กลับไป Parent</text>
+
+  <rect x="1002" y="234" width="248" height="440" rx="20" class="embed-panel"/>
+  <text x="1030" y="270" class="zone-title">4. Embed + Index</text>
+  <text x="1030" y="294" class="small">ทำ vector สำหรับค้นความหมาย</text>
+  <rect x="1032" y="328" width="188" height="58" rx="13" class="card orange"/>
+  <text x="1054" y="352" class="mono">embed_chunks_openai.py</text>
+  <text x="1054" y="372" class="small">provider=tei, endpoint=/embed</text>
+  <rect x="1032" y="410" width="188" height="58" rx="13" class="card orange"/>
+  <text x="1054" y="434" class="label">BGE-M3</text>
+  <text x="1054" y="454" class="mono">BAAI/bge-m3, dim=1024</text>
+  <rect x="1032" y="492" width="188" height="72" rx="13" class="highlight"/>
+  <text x="1054" y="518" class="head">Embeddings</text>
+  <text x="1054" y="542" class="mono">child_chunk_embeddings</text>
+  <text x="1054" y="560" class="mono">embedding vector(1024)</text>
+  <rect x="1032" y="588" width="188" height="48" rx="13" class="card orange"/>
+  <text x="1054" y="612" class="label">HNSW cosine index</text>
+  <text x="1054" y="630" class="small">db/011 vector_cosine_ops</text>
+
+  <rect x="1300" y="234" width="240" height="440" rx="20" class="model-panel"/>
+  <text x="1328" y="270" class="zone-title">5. Retrieve + Answer</text>
+  <text x="1328" y="294" class="small">คืน child match + parent context</text>
+  <rect x="1328" y="328" width="184" height="58" rx="13" class="card red"/>
+  <text x="1350" y="352" class="mono">match_public_chunks_bge_m3</text>
+  <text x="1350" y="372" class="small">query_embedding vector(1024)</text>
+  <rect x="1328" y="410" width="184" height="58" rx="13" class="card red"/>
+  <text x="1350" y="434" class="mono">v_public_retrievable</text>
+  <text x="1350" y="454" class="mono">_child_chunks_bge_m3</text>
+  <rect x="1328" y="492" width="184" height="72" rx="13" class="highlight"/>
+  <text x="1350" y="518" class="head">Returned fields</text>
+  <text x="1350" y="542" class="mono">child_text = matched text</text>
+  <text x="1350" y="560" class="mono">parent_text = context</text>
+  <rect x="1328" y="588" width="184" height="48" rx="13" class="card red"/>
+  <text x="1350" y="612" class="mono">model.document_evidence</text>
+  <text x="1350" y="630" class="small">surface ให้ AI ใช้ cite</text>
+
+  <path class="arrow" d="M290 454 C315 454 315 454 340 454"/>
+  <path class="arrow" d="M610 454 C635 454 635 454 660 454"/>
+  <path class="arrow" d="M952 454 C977 454 977 454 1002 454"/>
+  <path class="arrow" d="M1250 454 C1275 454 1275 454 1300 454"/>
+  <path class="soft-arrow" d="M805 588 C780 690 448 690 454 624"/>
+  <text x="472" y="704" class="small">Child เก็บแค่ชิ้นเล็กและ parent_chunk_id; Parent ยังเป็นแหล่ง context หลัก</text>
+
+  <rect x="60" y="735" width="468" height="98" rx="18" class="parent-panel"/>
+  <text x="88" y="768" class="zone-title">Parent in Workspace</text>
+  <text x="88" y="794" class="label">`document_chunks` = parent context ที่มี `chunk_text` ยาวกว่า</text>
+  <text x="88" y="816" class="small">ใช้เพื่อ hydrate context หลัง search เจอ child ที่เกี่ยวข้อง</text>
+
+  <rect x="566" y="735" width="468" height="98" rx="18" class="child-panel"/>
+  <text x="594" y="768" class="zone-title">Child in Workspace</text>
+  <text x="594" y="794" class="label">`child_chunks` = embedding-grain chunks สำหรับ BGE-M3 retrieval</text>
+  <text x="594" y="816" class="small">มี `parent_chunk_id`, `child_start_in_parent`, `child_end_in_parent`</text>
+
+  <rect x="1072" y="735" width="468" height="98" rx="18" class="note-panel"/>
+  <text x="1100" y="768" class="zone-title">Workspace Summary</text>
+  <text x="1100" y="794" class="label">search child → join parent → return `child_text` + `parent_text`</text>
+  <text x="1100" y="816" class="small">นี่คือเหตุผลที่ระบบค้นได้แม่นและยังตอบแบบมีบริบทครบ</text>
+</svg>

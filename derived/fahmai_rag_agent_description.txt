@@ -1,0 +1,77 @@
+FahMai RAG Agent Description
+
+Purpose
+Use this artifact as the short operational description for the FahMai RAG/Text-to-SQL agent. It explains which schema prompt to load, which retrieval function to call, and how to cite evidence safely.
+
+Production Interfaces
+- LLM schema prompt: use only the current text M-Schema artifact for fahmai_model_mschema.
+- SQL surface for Text-to-SQL: use only the 8 views in fah_sai_lpk_model.
+- Retrieval surface: use BGE-M3 parent-child retrieval through fah_sai_lpk_rag.match_public_chunks_bge_m3.
+- Source-of-truth data: fah_sai_lpk_core remains behind the service boundary for execution, validation, and citation. Do not expose core/raw/rag/mart/eval schemas in the LLM prompt unless explicitly running an internal database inspection task.
+
+How To Load The Main M-Schema
+SELECT content
+FROM fah_sai_lpk_meta.v_current_mschema_artifacts
+WHERE artifact_format = 'text';
+
+Expected LLM-Facing Relations
+- fah_sai_lpk_model.sales_order_360
+- fah_sai_lpk_model.sales_line_360
+- fah_sai_lpk_model.finance_event
+- fah_sai_lpk_model.customer_ops_event
+- fah_sai_lpk_model.inventory_event
+- fah_sai_lpk_model.product_catalog
+- fah_sai_lpk_model.policy_catalog
+- fah_sai_lpk_model.document_evidence
+
+Retrieval Contract
+- Retrieval profile: bge_m3_v1
+- Request embedding model: baai/bge-m3
+- Stored embedding label: BAAI/bge-m3
+- Embedding dimension: 1024
+- Vector function:
+  SELECT *
+  FROM fah_sai_lpk_rag.match_public_chunks_bge_m3(:query_embedding::vector(1024), 8, 80);
+- Returned evidence should include child_chunk_id, parent_chunk_id, parent_text, chunk_text, source_path, source_table, and source_pk when available.
+- Use parent_text for hydrated context. Use child_chunk_id for embedding-grain traceability.
+
+Question Routing Guide
+- Sales order totals, branch totals, channels, customers, payment status: sales_order_360.
+- SKU/product/category/vendor units and line revenue: sales_line_360.
+- Refund payouts, bank transactions, payroll, vendor payments: finance_event.
+- Returns, warranty, CS interactions, shipping, loyalty, promo redemption: customer_ops_event.
+- Inventory movement and monthly inventory risk: inventory_event.
+- Product attributes, vendors, recalls, care-plus tier: product_catalog.
+- Policy versions, signing authority, promo mechanics, vendor contract versions: policy_catalog.
+- Public-safe document/OCR evidence and citations: document_evidence plus BGE retrieval.
+
+Grain And Aggregation Rules
+- sales_order_360 is order-grain. Use it for order counts and order-level totals.
+- sales_line_360 is line-grain. Use line_total_thb for SKU/product revenue.
+- Do not sum sales_line_360.order_net_total_thb because it is repeated across line rows.
+- For fact period filters, use business_event_date by default unless the question explicitly asks for posting/accounting timing.
+- Convert BE years before filtering. Example: BE 2568 maps to 2025-01-01 through 2026-01-01 exclusive.
+
+Citation Rules
+- Prefer source_table and source_pk from model-facing rows or retrieved evidence.
+- Cite official source rows/tables, not helper views or internal provenance tables.
+- Use document_evidence and BGE retrieval for policy/report/OCR support.
+- Treat audit/provenance-only artifacts as internal trace data, not final-answer evidence.
+
+Prompt Hygiene Rules
+- The main LLM prompt must not list fah_sai_lpk_core, fah_sai_lpk_rag, fah_sai_lpk_mart, fah_sai_lpk_eval, raw schemas, or all 31 official CSV tables.
+- The 31-table core M-Schema may be loaded only for internal schema inspection, migration validation, or trusted DB tooling.
+- If the prompt has more than 8 # Table headers for the production agent, it is the wrong prompt.
+
+Useful Remote Artifact Queries
+- Main M-Schema text:
+  SELECT content FROM fah_sai_lpk_meta.v_current_mschema_artifacts WHERE artifact_format = 'text';
+- Main M-Schema JSON:
+  SELECT content FROM fah_sai_lpk_meta.v_current_mschema_artifacts WHERE artifact_format = 'json';
+- This agent description:
+  SELECT content
+  FROM fah_sai_lpk_meta.mschema_artifacts
+  WHERE artifact_name = 'fahmai_rag_agent_description'
+    AND schema_mode = 'rag_agent'
+    AND artifact_format = 'text';
+

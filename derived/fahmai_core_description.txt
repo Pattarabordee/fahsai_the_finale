@@ -1,0 +1,107 @@
+FahMai Core Database Description
+
+Purpose
+Use this artifact as a trusted internal reference for the 31 official core tables in fah_sai_lpk_core. It helps RAG agents, validators, and DB tools understand the source-of-truth data model, citation paths, grains, and safe join patterns.
+
+Important Boundary
+- This is a core_reference artifact, not the production LLM schema prompt.
+- Production RAG/Text-to-SQL agents should load fahmai_model_mschema and the RAG agent description first.
+- Do not inject all 31 core tables into the main LLM prompt unless the task is explicitly internal schema inspection, SQL validation, or citation audit.
+- The production LLM-facing SQL surface remains the 8 views in fah_sai_lpk_model.
+
+Related Artifacts
+- Production model M-Schema: fahmai_model_mschema, schema_mode=model.
+- Production RAG description: fahmai_rag_agent_description, schema_mode=rag_agent.
+- Core M-Schema: fahmai_core_mschema.txt/json in derived artifacts.
+
+Core Schema Summary
+- Schema: fah_sai_lpk_core.
+- Relation count: 31 official typed tables.
+- Foreign keys in Core M-Schema: 64.
+- Table mix: 16 dimension/lookup tables, 14 fact tables, 1 document inventory table.
+- IDs are text unless a table-specific numeric surrogate exists.
+- Amounts use numeric types. Dates use date. Timestamps use timestamptz.
+- Polymorphic columns such as source_table, source_pk, related_entity_table, and related_entity_id are citation/routing fields and are not normal foreign keys.
+
+Dimension And Lookup Tables
+- dim_bank_account: bank account master, account role, currency, branch association.
+- dim_branch: branch/HQ/service-center master and branch traffic/headcount allocation hints.
+- dim_care_plus_sku_tier: care-plus coverage and price by SKU and policy version.
+- dim_customer: customer master, B2B/B2C attributes, loyalty, account manager, contact fields.
+- dim_date: date dimension with Buddhist Era calendar, fiscal year/quarter, holiday flags.
+- dim_department: organization department lookup.
+- dim_employee: employee master with department, branch, position level, and role.
+- dim_policy_version: policy document/version master and effective-period policy metadata.
+- dim_position_level: role/position hierarchy and approval level.
+- dim_product: SKU/product master, category, vendor, department, price/cost attributes.
+- dim_product_recall_history: recall status/effective dates by SKU.
+- dim_promo_campaign: promotion campaign master.
+- dim_promo_mechanic: promotion mechanics/rules under campaigns and policy versions.
+- dim_signing_authority_ladder: approval authority thresholds by policy, department, role, and amount.
+- dim_vendor: vendor master and account manager context.
+- dim_vendor_contract_version: vendor contract terms and effective-period contract metadata.
+
+Fact Tables And Grain
+- fact_bank_transaction: one row per bank_txn_id. Use for bank movement, reconciliation, refund/vendor/payroll/deposit payment traces.
+- fact_cs_interaction: one row per CS interaction. Use for customer contact, complaint themes, follow-up and service context.
+- fact_inventory_monthly_snapshot: one row per branch/SKU/month snapshot. Use for stock-on-hand, slow-moving, reorder and inventory-risk questions.
+- fact_inventory_movement: one row per inventory movement. Use for transfers, adjustments, receipts, and stock movements.
+- fact_loyalty_ledger: one row per loyalty points ledger entry. Use for points earn/burn/expiry questions.
+- fact_payroll: one row per payroll event. Use for payroll payments, employee compensation, and bank payout traces.
+- fact_promo_redemption: one row per promotion redemption. Use for campaign usage and customer/order promo linkage.
+- fact_refund_paid: one row per refund payout. Use for refund amounts, approval, method, and bank transaction linkage.
+- fact_return: one row per return event. Use for return reasons, refund linkage, and post-sale issue analysis.
+- fact_sales: one row per sales transaction/order. Use for order counts, branch/channel/customer/payment status, order-level totals.
+- fact_sales_line_item: one row per sales line item. Use for SKU/product/category/vendor units and line-level revenue.
+- fact_shipping: one row per shipping event. Use for delivery status, carrier, SLA, and delivery issues.
+- fact_vendor_payment: one row per vendor payment/invoice event. Use for AP, vendor payment status, contract, bank transaction, and posting lag.
+- fact_warranty_claim: one row per warranty claim. Use for warranty issue types, service status, SKU/customer/branch context.
+
+Document Inventory Table
+- t2_doc_inventory: official document inventory and document metadata. Use for mapping policies, reports, memos, and OCR/document references back to official files.
+
+Default Date Rule
+- For fact tables, use business_event_date as the default period filter when the question mentions a month, quarter, or year without specifying a date axis.
+- Use posting_date only when the question explicitly asks for accounting, posted, booked, or bank-posting timing.
+- Treat effective_date and as_of_date as metadata/snapshot dates unless a table-specific policy requires them.
+- Convert Buddhist Era years before filtering. BE 2568 means 2025-01-01 inclusive through 2026-01-01 exclusive.
+
+Safe Join Guide
+- Sales order to line items: fact_sales.txn_id = fact_sales_line_item.txn_id.
+- Sales to branch: fact_sales.branch_code = dim_branch.branch_code.
+- Sales to customer: fact_sales.customer_id = dim_customer.customer_id.
+- Sales line to product: fact_sales_line_item.sku_id = dim_product.sku_id.
+- Product to vendor: dim_product.vendor_id = dim_vendor.vendor_id.
+- Product to department: dim_product.dept_code = dim_department.dept_code.
+- Refund to return: fact_refund_paid.return_id = fact_return.return_id when present.
+- Refund to bank: fact_refund_paid.bank_txn_id = fact_bank_transaction.bank_txn_id when present.
+- Vendor payment to bank: fact_vendor_payment.bank_txn_id = fact_bank_transaction.bank_txn_id when present.
+- Payroll to employee: fact_payroll.employee_id = dim_employee.employee_id.
+- Payroll to bank: fact_payroll.bank_txn_id = fact_bank_transaction.bank_txn_id when present.
+- Inventory events/snapshots join branch_code to dim_branch and sku_id to dim_product.
+- Policy/version joins use policy_version_id against dim_policy_version.
+
+Aggregation And Grain Rules
+- fact_sales is order-grain. Sum order-level totals here.
+- fact_sales_line_item is line-grain. Sum line_total_thb or line-level fields here.
+- Do not sum repeated order-level values after joining fact_sales to fact_sales_line_item unless the query groups back to txn_id first.
+- For product/category/vendor revenue, use fact_sales_line_item line amounts.
+- For order/channel/branch/customer revenue, prefer fact_sales order-level totals.
+- For inventory risk, distinguish movement events from monthly snapshots.
+
+Citation Rules
+- Core tables are official source-of-truth tables for citation and validation.
+- Prefer source_table/source_pk from model-facing views or retrieved evidence, then map back to the matching core table and primary key.
+- Cite official core rows/tables, official document paths, or document evidence. Do not cite helper marts, internal audit tables, or prompt artifacts as business evidence.
+- Use t2_doc_inventory and document_evidence for policy/report/OCR citations.
+
+Production Agent Rule
+If the task is normal RAG/Text-to-SQL answering, do not load this 31-table core description into the main prompt. Use it only as a secondary trusted reference for tool-side validation, debugging, citation audit, or explicit schema-inspection requests.
+
+Remote Access Query
+SELECT content
+FROM fah_sai_lpk_meta.mschema_artifacts
+WHERE artifact_name = 'fahmai_core_description'
+  AND schema_mode = 'core_reference'
+  AND artifact_format = 'text';
+

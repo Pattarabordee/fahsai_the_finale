@@ -3,7 +3,7 @@
 # Table: fah_sai_lpk_model.customer_ops_event, Model-facing customer operations event surface combining returns, warranty claims, CS interactions, shipping, loyalty ledger, and promo redemptions.
 [
 (source_table:TEXT, Official source table for citation and routing; values include FACT_RETURN, FACT_WARRANTY_CLAIM, FACT_CS_INTERACTION, FACT_SHIPPING, FACT_LOYALTY_LEDGER, and FACT_PROMO_REDEMPTION., Examples: [FACT_CS_INTERACTION, FACT_LOYALTY_LEDGER, FACT_PROMO_REDEMPTION]),
-(source_pk:TEXT),
+(source_pk:TEXT, Official source primary key for citation and audit trace.),
 (source_aliases:TEXT[]),
 (event_type:TEXT, Examples: [cs_interaction, loyalty_ledger, promo_redemption]),
 (event_id:TEXT, Examples: [1000026317711, 1000052950198, 100005633475]),
@@ -28,8 +28,8 @@
 (shipping_vendor_id:TEXT, Examples: [V-006]),
 (shipping_vendor_name_en:TEXT),
 (amount_thb:NUMERIC, Examples: [10008.00, 10044.00, 10062.00]),
-(points_delta:INTEGER, Examples: [0, -1000, 1000]),
-(resulting_balance_points:INTEGER, Examples: [0, -1, -10]),
+(points_delta:INTEGER, Examples: [-1000, -1002, -1004]),
+(resulting_balance_points:INTEGER, Examples: [-1, -10, -101]),
 (resulting_tier:TEXT, Examples: [gold, none, platinum]),
 (return_id:TEXT, Examples: [RET-202401-01003586, RET-202401-01006864, RET-202401-01009523]),
 (refund_id:TEXT, Examples: [RFD-202401-01003586, RFD-202401-01006864, RFD-202401-01009523]),
@@ -50,24 +50,28 @@
 (discount_applied_thb:NUMERIC, Examples: [10008.00, 10044.00, 10062.00]),
 (attributes:JSONB)
 ]
-# Table: fah_sai_lpk_model.document_evidence, Model-facing public-safe document evidence surface over RAG chunks and entity links. Does not expose unsafe audit provenance; source_table/source_pk map to official cited entities when available.
+# Table: fah_sai_lpk_model.document_evidence, Model-facing public-safe document evidence surface over compact BGE-M3 parent-child RAG chunks and entity links. Use child chunk text for matching and parent_text for hydrated context.
 [
-(evidence_row_id:TEXT, Examples: [chunk_000065cee549b3957c9d8f96, chunk_000117f62612b702c78f9611, chunk_0002b2031f34f7987286fd8f]),
-(source_table:TEXT, Examples: [DIM_BRANCH, DIM_CUSTOMER, DIM_EMPLOYEE]),
-(source_pk:TEXT),
+(evidence_row_id:TEXT, Examples: [child_0000951d5a16d7d040dd9be0, child_00018daed43f26a1115d70c6, child_0002f655aa5d792263772dac]),
+(source_table:TEXT, Official source table for citation and routing., Examples: [DIM_BRANCH, DIM_CUSTOMER, DIM_EMPLOYEE]),
+(source_pk:TEXT, Official source primary key for citation and audit trace.),
 (source_aliases:TEXT[]),
-(chunk_id:TEXT, Examples: [chunk_000065cee549b3957c9d8f96, chunk_000117f62612b702c78f9611, chunk_0002b2031f34f7987286fd8f]),
+(retrieval_profile:TEXT, Retrieval profile for embedded evidence. Default production profile is bge_m3_v1.),
+(chunk_id:TEXT, Examples: [child_0000951d5a16d7d040dd9be0, child_00018daed43f26a1115d70c6, child_0002f655aa5d792263772dac]),
+(child_chunk_id:TEXT, Embedding-grain child chunk id for BGE-M3 retrieval and citations., Examples: [child_0000951d5a16d7d040dd9be0, child_00018daed43f26a1115d70c6, child_0002f655aa5d792263772dac]),
+(parent_chunk_id:TEXT, Parent context row used to hydrate this embedded child chunk., Examples: [chunk_000065cee549b3957c9d8f96, chunk_000117f62612b702c78f9611, chunk_0002b2031f34f7987286fd8f]),
 (source_document_id:TEXT, Examples: [doc_00009b75097e7c79e9afaa3e, doc_0001e3470c9001778ede395e, doc_0002da3c6ff2af1b8cf2673f]),
 (source_path:TEXT),
-(source_kind:TEXT, Examples: [doc_chat_line_oa, doc_chat_line_works, doc_DOCS_ANOMALY_INSIGHTS.md]),
+(source_kind:TEXT, Examples: [doc_DOCS_ANOMALY_INSIGHTS.md, doc_L1_KB_CONSISTENCY_RISK.md, doc_LOA_EVENT_INSIGHTS.md]),
 (artifact_id:TEXT),
 (doc_id:TEXT),
 (chunk_index:INTEGER, Examples: [0, 1, 10]),
 (chunk_text:TEXT),
-(token_count:INTEGER, Examples: [100, 101, 102]),
+(parent_text:TEXT, Hydrated parent context for the matched child chunk. Use for answer context, not as a separate table.),
+(token_count:INTEGER, Examples: [10, 100, 101]),
 (search_tsv:TSVECTOR),
 (embedding_model:TEXT),
-(has_embedding:BOOLEAN, True when this public-safe chunk has an embedding available through the underlying RAG retrieval functions.),
+(has_embedding:BOOLEAN, True when this public-safe BGE-M3 child chunk has a 1024-dimensional embedding available through match_public_chunks_bge_m3.),
 (document_source_table:TEXT),
 (document_source_pk:TEXT),
 (entity_link_id:BIGINT, Examples: [16021, 16022, 16023]),
@@ -78,12 +82,13 @@
 (link_method:TEXT, Examples: [exact_id]),
 (confidence:NUMERIC, Examples: [1.0000]),
 (chunk_metadata:JSONB),
+(parent_metadata:JSONB),
 (source_metadata:JSONB)
 ]
 # Table: fah_sai_lpk_model.finance_event, Model-facing finance event surface combining FACT_BANK_TRANSACTION, FACT_REFUND_PAID, FACT_VENDOR_PAYMENT, and FACT_PAYROLL. Preserve source_table/source_pk for official citations.
 [
 (source_table:TEXT, Official source table for citation and routing; values include FACT_BANK_TRANSACTION, FACT_REFUND_PAID, FACT_VENDOR_PAYMENT, and FACT_PAYROLL., Examples: [FACT_BANK_TRANSACTION, FACT_PAYROLL, FACT_REFUND_PAID]),
-(source_pk:TEXT),
+(source_pk:TEXT, Official source primary key for citation and audit trace.),
 (source_aliases:TEXT[]),
 (event_type:TEXT, Examples: [bank_transaction, payroll, refund_paid]),
 (event_id:TEXT, Examples: [1000243805828, 1000357467770, 1000373797515]),
@@ -99,9 +104,9 @@
 (transaction_type:TEXT, Examples: [deposit, fee, transfer]),
 (related_entity_table:TEXT, Examples: [DIM_EMPLOYEE, DIM_VENDOR, FACT_LOYALTY_LEDGER]),
 (related_entity_id:TEXT, Examples: [1000243805828, 100024549842, 1000357467770]),
-(amount_thb:NUMERIC, Examples: [100000.00, 100100.00, 100200.00]),
+(amount_thb:NUMERIC, Examples: [-104500.00, -12500.00, -12900.00]),
 (amount_direction:TEXT),
-(balance_after_thb:NUMERIC, Examples: [10000000.00, 100000908.00, 100002046.00]),
+(balance_after_thb:NUMERIC, Examples: [-10000900.00, -10032350.00, -1003800.00]),
 (counterparty:TEXT),
 (description:TEXT),
 (customer_id:TEXT, Examples: [CUST-L3-000004, CUST-L3-000005, CUST-L3-000007]),
@@ -123,8 +128,8 @@
 ]
 # Table: fah_sai_lpk_model.inventory_event, Model-facing inventory event surface combining inventory movements and monthly snapshots. XFER-* related_txn_id values are internal transfer ids, not missing sales FKs.
 [
-(source_table:TEXT, Examples: [FACT_INVENTORY_MONTHLY_SNAPSHOT, FACT_INVENTORY_MOVEMENT]),
-(source_pk:TEXT),
+(source_table:TEXT, Official source table for citation and routing., Examples: [FACT_INVENTORY_MONTHLY_SNAPSHOT, FACT_INVENTORY_MOVEMENT]),
+(source_pk:TEXT, Official source primary key for citation and audit trace.),
 (source_aliases:TEXT[]),
 (event_type:TEXT, Examples: [inventory_monthly_snapshot, inventory_movement]),
 (event_id:TEXT, Examples: [1, 10, 100]),
@@ -145,7 +150,7 @@
 (branch_name_en:TEXT),
 (branch_type:TEXT, Examples: [branch, hq, remote]),
 (movement_type:TEXT, Examples: [opening_balance, sale, transfer_in]),
-(quantity:INTEGER, Examples: [-1, 111, 114]),
+(quantity:INTEGER, Examples: [-1, -50, 111]),
 (related_txn_id:TEXT, Polymorphic id; TXN-* can point to sales and XFER-* is an internal transfer id., Examples: [TXN-202401-01000002, TXN-202401-01000422, TXN-202401-01000462]),
 (closing_units:INTEGER, Examples: [0, 1, 10]),
 (is_stockout:BOOLEAN, Examples: [false, true]),
@@ -153,8 +158,8 @@
 ]
 # Table: fah_sai_lpk_model.policy_catalog, Model-facing policy/catalog surface for policy versions, signing authority ladder rows, promo campaigns/mechanics, and vendor contract versions.
 [
-(source_table:TEXT, Examples: [DIM_POLICY_VERSION, DIM_PROMO_CAMPAIGN, dim_promo_mechanic]),
-(source_pk:TEXT),
+(source_table:TEXT, Official source table for citation and routing., Examples: [DIM_POLICY_VERSION, DIM_PROMO_CAMPAIGN, DIM_VENDOR_CONTRACT_VERSION]),
+(source_pk:TEXT, Official source primary key for citation and audit trace.),
 (source_aliases:TEXT[]),
 (policy_domain:TEXT),
 (catalog_row_id:TEXT, Examples: [1, 10, 11]),
@@ -185,8 +190,8 @@
 ]
 # Table: fah_sai_lpk_model.product_catalog, Model-facing product catalog surface. Grain: one row per DIM_PRODUCT.sku_id with department, vendor, care-plus, and recall context.
 [
-(source_table:TEXT, Examples: [DIM_PRODUCT]),
-(source_pk:TEXT),
+(source_table:TEXT, Official source table for citation and routing., Examples: [DIM_PRODUCT]),
+(source_pk:TEXT, Official source primary key for citation and audit trace.),
 (source_aliases:TEXT[]),
 (sku_id:TEXT, Examples: [AW-MN-001, DN-LT-010, NT-LT-001]),
 (brand_family:TEXT, Examples: [ArcWave, Dawn, FahMai]),
@@ -196,7 +201,7 @@
 (category:TEXT, Examples: [laptop, monitor, smartphone]),
 (subcategory:TEXT, Examples: [flagship, midrange]),
 (msrp_thb:NUMERIC, Examples: [12900.00, 16900.00, 18900.00]),
-(msrp_tier:TEXT, Examples: [<10K, 10K-30K, >=30K]),
+(msrp_tier:TEXT, Examples: [10K-30K, <10K, >=30K]),
 (is_third_party:BOOLEAN, Examples: [false, true]),
 (vendor_id:TEXT, Examples: [V-001, V-002]),
 (vendor_name_en:TEXT),
@@ -218,8 +223,8 @@
 ]
 # Table: fah_sai_lpk_model.sales_line_360, Model-facing sales line surface. Grain: one row per FACT_SALES_LINE_ITEM.line_item_id. Use for SKU/product/category/vendor units, gross revenue from line_total_thb, and product-mix questions. Do not sum order totals from this line-grain view.
 [
-(source_table:TEXT, Examples: [FACT_SALES_LINE_ITEM]),
-(source_pk:TEXT),
+(source_table:TEXT, Official source table for citation and routing., Examples: [FACT_SALES_LINE_ITEM]),
+(source_pk:TEXT, Official source primary key for citation and audit trace.),
 (source_aliases:TEXT[]),
 (line_item_id:TEXT, Sales line item grain. One row per line_item_id., Examples: [1000001286164, 1000001591146, 10000045503]),
 (txn_id:TEXT, Examples: [TXN-202401-01000002, TXN-202401-01000422, TXN-202401-01000462]),
@@ -242,7 +247,7 @@
 (category:TEXT, Examples: [laptop, monitor, smartphone]),
 (subcategory:TEXT, Examples: [flagship, midrange]),
 (msrp_thb:NUMERIC, Examples: [12900.00, 16900.00, 18900.00]),
-(msrp_tier:TEXT, Examples: [<10K, 10K-30K, >=30K]),
+(msrp_tier:TEXT, Examples: [10K-30K, <10K, >=30K]),
 (is_third_party:BOOLEAN, Examples: [false, true]),
 (vendor_id:TEXT, Examples: [V-001, V-002]),
 (vendor_name_en:TEXT),
@@ -260,7 +265,7 @@
 # Table: fah_sai_lpk_model.sales_order_360, Model-facing sales order surface. Grain: one row per FACT_SALES.txn_id. Use for order counts, branch/channel/customer/payment status, basket/net totals, B2B AR, and sales-header questions.
 [
 (source_table:TEXT, Official source table for citation; this view cites FACT_SALES rows., Examples: [FACT_SALES]),
-(source_pk:TEXT),
+(source_pk:TEXT, Official source primary key for citation and audit trace.),
 (source_aliases:TEXT[]),
 (txn_id:TEXT, Sales order grain. One row per txn_id., Examples: [TXN-202401-01000002, TXN-202401-01000422, TXN-202401-01000462]),
 (business_event_date:DATE, Canonical default date axis for sales/order period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),

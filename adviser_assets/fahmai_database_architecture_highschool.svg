@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">FahMai Database Architecture for High School Students</title>
+  <desc id="desc">A simple Thai and English teaching diagram that explains the FahMai database architecture using a library and notebook analogy.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfcfe; }
+      .title { font: 800 34px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #142033; }
+      .subtitle { font: 400 18px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #526174; }
+      .big { font: 800 22px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #172033; }
+      .head { font: 750 18px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #1b2a3f; }
+      .label { font: 650 14.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #243247; }
+      .text { font: 400 13.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #43536a; }
+      .small { font: 400 12.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .mono { font: 650 12px "Cascadia Mono", Consolas, monospace; fill: #334155; }
+      .source { fill: #eefaf2; stroke: #3da66b; stroke-width: 2; }
+      .sort { fill: #eef5ff; stroke: #4d7fd0; stroke-width: 2; }
+      .search { fill: #effbf8; stroke: #22a08c; stroke-width: 2; }
+      .menu { fill: #fff7ea; stroke: #d98b20; stroke-width: 2; }
+      .answer { fill: #fff1e8; stroke: #e17432; stroke-width: 2; }
+      .check { fill: #f5f7fa; stroke: #94a3b8; stroke-width: 2; }
+      .card { fill: #ffffff; stroke: #d2dbe8; stroke-width: 1.5; }
+      .green { stroke: #74c69d; }
+      .blue { stroke: #8bb0ee; }
+      .teal { stroke: #67c7bc; }
+      .orange { stroke: #e9a957; }
+      .gray { stroke: #aab6c6; }
+      .arrow { stroke: #506175; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .trace { stroke: #8b98a8; stroke-width: 2.3; stroke-dasharray: 8 8; fill: none; marker-end: url(#tracehead); }
+      .icon { stroke: #243247; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-fill { fill: #ffffff; stroke: #243247; stroke-width: 2.2; }
+    </style>
+    <marker id="arrowhead" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#506175"/>
+    </marker>
+    <marker id="tracehead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#8b98a8"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <text x="60" y="58" class="title">FahMai Database แบบเข้าใจง่าย</text>
+  <text x="60" y="88" class="subtitle">เปรียบเหมือนห้องสมุด + สมุดบัญชี + ผู้ช่วยตอบคำถาม</text>
+
+  <rect x="60" y="123" width="1480" height="76" rx="18" class="check"/>
+  <text x="86" y="158" class="big">โจทย์คืออะไร?</text>
+  <text x="250" y="158" class="label">ให้ AI ตอบคำถาม 100 ข้อจากข้อมูลบริษัท โดยต้องตอบถูกและบอกได้ว่าเอาคำตอบมาจากไหน</text>
+  <text x="250" y="181" class="small">Goal: accurate answer + evidence + trace back to source</text>
+
+  <rect x="60" y="248" width="250" height="470" rx="18" class="source"/>
+  <text x="88" y="284" class="head">1. ของที่ได้มา</text>
+  <text x="88" y="308" class="small">Raw materials / แหล่งข้อมูล</text>
+  <g transform="translate(112 340)">
+    <rect x="0" y="0" width="52" height="66" rx="6" class="icon-fill"/>
+    <path d="M13 18 H39 M13 32 H39 M13 46 H30" class="icon"/>
+    <rect x="72" y="8" width="52" height="50" rx="6" class="icon-fill"/>
+    <path d="M82 22 H114 M82 36 H114 M82 50 H103" class="icon"/>
+  </g>
+  <rect x="84" y="436" width="202" height="58" rx="12" class="card green"/>
+  <text x="106" y="459" class="label">ตารางเหมือน Excel</text>
+  <text x="106" y="480" class="small">sales, bank, product</text>
+  <rect x="84" y="512" width="202" height="58" rx="12" class="card green"/>
+  <text x="106" y="535" class="label">เอกสารหลายชนิด</text>
+  <text x="106" y="556" class="small">policy, report, OCR</text>
+  <rect x="84" y="602" width="202" height="78" rx="12" class="card gray"/>
+  <text x="106" y="626" class="label">กฎสำคัญ</text>
+  <text x="106" y="648" class="text">ใช้เฉพาะข้อมูลที่ปลอดภัย</text>
+  <text x="106" y="668" class="small">public-safe evidence only</text>
+
+  <rect x="370" y="248" width="270" height="470" rx="18" class="sort"/>
+  <text x="398" y="284" class="head">2. จัดเข้าชั้น</text>
+  <text x="398" y="308" class="small">PostgreSQL = ห้องเก็บข้อมูลใหญ่</text>
+  <g transform="translate(453 337)">
+    <ellipse cx="52" cy="24" rx="72" ry="22" fill="#dbeafe" stroke="#4d7fd0" stroke-width="2"/>
+    <path d="M-20 24 V80 C-20 92 12 102 52 102 C92 102 124 92 124 80 V24" fill="#dbeafe" stroke="#4d7fd0" stroke-width="2"/>
+    <ellipse cx="52" cy="80" rx="72" ry="22" fill="none" stroke="#8aa1bd" stroke-width="1.5"/>
+  </g>
+  <rect x="394" y="478" width="222" height="56" rx="12" class="card blue"/>
+  <text x="416" y="501" class="label">raw = กล่องของดิบ</text>
+  <text x="416" y="522" class="small">เก็บตามไฟล์ต้นฉบับ</text>
+  <rect x="394" y="548" width="222" height="56" rx="12" class="card blue"/>
+  <text x="416" y="571" class="label">core = สมุดบัญชีจริง</text>
+  <text x="416" y="592" class="small">ข้อมูลจัดรูปแล้ว คำนวณได้</text>
+  <rect x="394" y="618" width="222" height="56" rx="12" class="card gray"/>
+  <text x="416" y="641" class="label">audit/eval = สมุดตรวจงาน</text>
+  <text x="416" y="662" class="small">เก็บร่องรอยว่าทำอะไรไป</text>
+
+  <rect x="700" y="248" width="260" height="470" rx="18" class="search"/>
+  <text x="728" y="284" class="head">3. ทำให้ค้นเก่ง</text>
+  <text x="728" y="308" class="small">RAG + Vector Search</text>
+  <g transform="translate(762 340)">
+    <circle cx="42" cy="42" r="34" fill="#ffffff" stroke="#243247" stroke-width="2.3"/>
+    <path d="M67 67 L104 104" class="icon"/>
+    <path d="M25 42 H59 M42 25 V59" class="icon"/>
+  </g>
+  <rect x="724" y="472" width="212" height="58" rx="12" class="card teal"/>
+  <text x="746" y="496" class="label">ตัดเอกสารเป็นชิ้น ๆ</text>
+  <text x="746" y="517" class="small">chunks = ย่อหน้า/ส่วนเล็ก</text>
+  <rect x="724" y="548" width="212" height="58" rx="12" class="card teal"/>
+  <text x="746" y="572" class="label">แปลงเป็นตัวเลข</text>
+  <text x="746" y="593" class="small">embedding = เลขแทนความหมาย</text>
+  <rect x="724" y="624" width="212" height="58" rx="12" class="card teal"/>
+  <text x="746" y="648" class="label">ค้นจากความหมาย</text>
+  <text x="746" y="669" class="small">ไม่ต้องใช้คำตรงกันเป๊ะ</text>
+
+  <rect x="1020" y="248" width="250" height="470" rx="18" class="menu"/>
+  <text x="1048" y="284" class="head">4. ทำเมนูให้ AI</text>
+  <text x="1048" y="308" class="small">Model Interface</text>
+  <g transform="translate(1085 340)">
+    <rect x="0" y="0" width="120" height="96" rx="12" fill="#ffffff" stroke="#243247" stroke-width="2.2"/>
+    <path d="M24 28 H96 M24 48 H96 M24 68 H74" class="icon"/>
+  </g>
+  <rect x="1044" y="472" width="202" height="58" rx="12" class="card orange"/>
+  <text x="1066" y="496" class="label">8 views = เมนู 8 หน้า</text>
+  <text x="1066" y="517" class="small">ไม่ให้ AI เห็นตารางเยอะเกิน</text>
+  <rect x="1044" y="548" width="202" height="58" rx="12" class="card orange"/>
+  <text x="1066" y="572" class="label">M-Schema = สารบัญ</text>
+  <text x="1066" y="593" class="small">บอก AI ว่ามีอะไรให้ใช้</text>
+  <rect x="1044" y="624" width="202" height="58" rx="12" class="card orange"/>
+  <text x="1066" y="648" class="label">กัน AI รวมเลขผิด</text>
+  <text x="1066" y="669" class="small">รู้ว่า 1 แถวหมายถึงอะไร</text>
+
+  <rect x="1330" y="248" width="210" height="470" rx="18" class="answer"/>
+  <text x="1358" y="284" class="head">5. ได้คำตอบ</text>
+  <text x="1358" y="308" class="small">AI Answer + Evidence</text>
+  <g transform="translate(1376 342)">
+    <path d="M0 20 C0 9 9 0 20 0 H98 C109 0 118 9 118 20 V70 C118 81 109 90 98 90 H54 L28 112 V90 H20 C9 90 0 81 0 70 Z" fill="#ffffff" stroke="#243247" stroke-width="2.3"/>
+    <path d="M28 30 H92 M28 50 H82" class="icon"/>
+  </g>
+  <rect x="1354" y="472" width="162" height="58" rx="12" class="card orange"/>
+  <text x="1374" y="496" class="label">ตอบคำถาม 100 ข้อ</text>
+  <text x="1374" y="517" class="small">จาก SQL + เอกสาร</text>
+  <rect x="1354" y="548" width="162" height="58" rx="12" class="card orange"/>
+  <text x="1374" y="572" class="label">บอกหลักฐาน</text>
+  <text x="1374" y="593" class="small">source_table / source_pk</text>
+  <rect x="1354" y="624" width="162" height="58" rx="12" class="card gray"/>
+  <text x="1374" y="648" class="label">ย้อนกลับมาตรวจได้</text>
+  <text x="1374" y="669" class="small">เหมือนโชว์วิธีทำ</text>
+
+  <path class="arrow" d="M310 483 C340 483 340 483 370 483"/>
+  <path class="arrow" d="M640 483 C670 483 670 483 700 483"/>
+  <path class="arrow" d="M960 483 C990 483 990 483 1020 483"/>
+  <path class="arrow" d="M1270 483 C1300 483 1300 483 1330 483"/>
+
+  <path class="trace" d="M1435 718 C1435 790 184 790 184 690"/>
+  <text x="548" y="776" class="small">ตรวจย้อนหลัง: ถ้าครูถามว่า “รู้ได้ยังไง?” ระบบต้องชี้กลับไปหา source ได้</text>
+
+  <rect x="60" y="815" width="1480" height="48" rx="16" class="check"/>
+  <text x="88" y="845" class="label">จำง่าย ๆ: Database เก็บและคำนวณข้อมูล, RAG ช่วยค้นเอกสาร, M-Schema เป็นคู่มือให้ AI, Trace ช่วยพิสูจน์คำตอบ</text>
+</svg>

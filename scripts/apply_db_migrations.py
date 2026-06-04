@@ -27,10 +27,30 @@ MIGRATIONS: dict[str, Path] = {
     "006": ROOT / "db" / "006_switch_to_qwen3_embedding_8b.sql",
     "007": ROOT / "db" / "007_fact_date_convention.sql",
     "008": ROOT / "db" / "008_model_facing_schema.sql",
+    "009": ROOT / "db" / "009_ocr_artifact_schema.sql",
+    "010": ROOT / "db" / "010_rag_bge_m3_parent_child.sql",
+    "011": ROOT / "db" / "011_rag_bge_m3_hnsw.sql",
+    "012": ROOT / "db" / "012_rag_bge_m3_compact_child_spans.sql",
+    "013": ROOT / "db" / "013_model_schema_prompt_hygiene.sql",
+    "014": ROOT / "db" / "014_mschema_artifacts.sql",
 }
 
-DEFAULT_SCHEMA_MIGRATIONS = ["001", "002", "007", "008"]
-DEFAULT_FULL_MIGRATIONS = ["001", "002", "007", "003", "004", "005", "008"]
+DEFAULT_SCHEMA_MIGRATIONS = ["001", "002", "007", "008", "009", "010", "012", "013", "014"]
+DEFAULT_FULL_MIGRATIONS = [
+    "001",
+    "002",
+    "007",
+    "003",
+    "004",
+    "005",
+    "008",
+    "009",
+    "010",
+    "012",
+    "013",
+    "014",
+    "011",
+]
 
 
 def import_psycopg():
@@ -106,6 +126,15 @@ def verify_database(conn) -> dict[str, Any]:
         "rag_public_mv": "SELECT to_regclass('fah_sai_lpk_rag.mv_public_retrievable_chunks')::text AS value",
         "model_sales_order": "SELECT to_regclass('fah_sai_lpk_model.sales_order_360')::text AS value",
         "model_document_evidence": "SELECT to_regclass('fah_sai_lpk_model.document_evidence')::text AS value",
+        "ocr_artifact_predictions": "SELECT to_regclass('fah_sai_lpk_ocr.artifact_predictions')::text AS value",
+        "ocr_summary_view": "SELECT to_regclass('fah_sai_lpk_ocr.v_ocr_artifact_summary')::text AS value",
+        "bge_child_chunks": "SELECT to_regclass('fah_sai_lpk_rag.child_chunks')::text AS value",
+        "bge_child_embeddings": "SELECT to_regclass('fah_sai_lpk_rag.child_chunk_embeddings')::text AS value",
+        "bge_public_view": "SELECT to_regclass('fah_sai_lpk_rag.v_public_retrievable_child_chunks_bge_m3')::text AS value",
+        "bge_match_function": "SELECT to_regprocedure('fah_sai_lpk_rag.match_public_chunks_bge_m3(vector,integer,integer)')::text AS value",
+        "bge_hnsw_index": "SELECT to_regclass('fah_sai_lpk_rag.child_chunk_embeddings_bge_m3_embedding_hnsw_idx')::text AS value",
+        "mschema_artifacts": "SELECT to_regclass('fah_sai_lpk_meta.mschema_artifacts')::text AS value",
+        "mschema_current_view": "SELECT to_regclass('fah_sai_lpk_meta.v_current_mschema_artifacts')::text AS value",
         "model_surface_count": (
             "SELECT count(*)::text AS value "
             "FROM information_schema.views "

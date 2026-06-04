@@ -1,0 +1,940 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Parent-Child Chunks: How AI Searches Smartly</title>
+  <desc id="desc">A bright educational infographic for Thai high school students explaining parent-child chunks, BGE-M3 embeddings, vector search, and parent hydration.</desc>
+  <foreignObject width="1920" height="1080">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="canvas">
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        .canvas {
+          width: 1920px;
+          height: 1080px;
+          margin: 0;
+          padding: 28px 36px 24px;
+          overflow: hidden;
+          color: #1f2d42;
+          background:
+            linear-gradient(90deg, rgba(227, 242, 253, 0.44) 0 1px, transparent 1px 100%),
+            linear-gradient(0deg, rgba(227, 242, 253, 0.44) 0 1px, transparent 1px 100%),
+            #fcfeff;
+          background-size: 32px 32px;
+          font-family: "Noto Sans Thai", "Leelawadee UI", "Sarabun", "Segoe UI", Arial, sans-serif;
+          letter-spacing: 0;
+        }
+
+        .header {
+          height: 76px;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 24px;
+        }
+
+        h1,
+        h2,
+        h3,
+        p,
+        pre,
+        table {
+          margin: 0;
+        }
+
+        h1 {
+          font-size: 43px;
+          line-height: 1.04;
+          font-weight: 850;
+          color: #102033;
+        }
+
+        .subtitle {
+          margin-top: 6px;
+          color: #536174;
+          font-size: 18px;
+          line-height: 1.3;
+        }
+
+        .audience-chip {
+          flex: 0 0 auto;
+          margin-top: 5px;
+          padding: 10px 16px;
+          border: 2px solid #c7d2fe;
+          border-radius: 999px;
+          background: #f3e5f5;
+          color: #394150;
+          font-weight: 750;
+          font-size: 16px;
+          white-space: nowrap;
+        }
+
+        .main {
+          height: 748px;
+          display: grid;
+          grid-template-columns: 390px 860px 562px;
+          gap: 18px;
+          margin-top: 14px;
+        }
+
+        .panel {
+          position: relative;
+          overflow: hidden;
+          border-radius: 24px;
+          border: 2.4px solid #d5e4f2;
+          padding: 20px;
+          box-shadow: 0 14px 30px rgba(38, 51, 77, 0.08);
+        }
+
+        .panel::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0));
+        }
+
+        .panel > * {
+          position: relative;
+          z-index: 1;
+        }
+
+        .problem-panel {
+          background: #f3e5f5;
+          border-color: #c99ad6;
+        }
+
+        .solution-panel {
+          background: #f7fff9;
+          border-color: #9ad6aa;
+        }
+
+        .search-panel {
+          background: #e3f2fd;
+          border-color: #8ac2ea;
+        }
+
+        .section-kicker {
+          color: #667085;
+          font-size: 13px;
+          line-height: 1;
+          font-weight: 850;
+          letter-spacing: 0.7px;
+          text-transform: uppercase;
+        }
+
+        h2 {
+          margin-top: 6px;
+          font-size: 25px;
+          line-height: 1.12;
+          font-weight: 850;
+          color: #142033;
+        }
+
+        h3 {
+          font-size: 17px;
+          line-height: 1.15;
+          font-weight: 850;
+          color: #172033;
+        }
+
+        .tiny {
+          color: #64748b;
+          font-size: 12.2px;
+          line-height: 1.26;
+          font-weight: 500;
+        }
+
+        .caption {
+          color: #344054;
+          font-size: 16px;
+          line-height: 1.35;
+          font-weight: 760;
+        }
+
+        .caption strong {
+          color: #bc3f4b;
+        }
+
+        .callout {
+          margin-top: 12px;
+          padding: 12px 14px;
+          border: 2px solid #d5bbf2;
+          border-radius: 16px;
+          background: #fff;
+          color: #4b3b63;
+          font-size: 15px;
+          line-height: 1.32;
+          font-weight: 760;
+        }
+
+        .robot-scene {
+          width: 100%;
+          height: 408px;
+          margin: 18px 0 14px;
+          display: block;
+          border-radius: 18px;
+          background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.66) 100%);
+          border: 1.8px solid rgba(142, 116, 173, 0.38);
+        }
+
+        .tier-stack {
+          height: 681px;
+          margin-top: 12px;
+          display: grid;
+          grid-template-rows: 89px 34px 212px 60px 244px;
+          gap: 8px;
+        }
+
+        .tier-box {
+          border-radius: 18px;
+          border: 2px solid #ccddec;
+          background: #fff;
+          padding: 13px 16px;
+          box-shadow: 0 8px 18px rgba(28, 44, 70, 0.06);
+        }
+
+        .tier-source {
+          display: grid;
+          grid-template-columns: 48px 1fr auto;
+          align-items: center;
+          gap: 12px;
+          background: #e3f2fd;
+          border-color: #90caf9;
+        }
+
+        .tier-parent {
+          display: grid;
+          grid-template-columns: 1fr 222px;
+          gap: 14px;
+          background: #e8f5e9;
+          border-color: #8fd19e;
+        }
+
+        .icon-tile {
+          width: 44px;
+          height: 44px;
+          display: grid;
+          place-items: center;
+          border-radius: 12px;
+          border: 2px solid rgba(31, 45, 66, 0.12);
+          background: rgba(255, 255, 255, 0.78);
+          font-size: 23px;
+        }
+
+        .tier-label {
+          font-size: 18px;
+          line-height: 1.15;
+          font-weight: 850;
+          color: #172033;
+        }
+
+        .tier-name {
+          margin-bottom: 2px;
+          color: #64748b;
+          font-size: 10.8px;
+          line-height: 1;
+          font-weight: 900;
+          letter-spacing: 0.45px;
+          text-transform: uppercase;
+        }
+
+        .tier-sub {
+          margin-top: 4px;
+          color: #4e6278;
+          font-size: 13.5px;
+          line-height: 1.25;
+          font-weight: 650;
+        }
+
+        .arrow-label,
+        .split-label {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          color: #526174;
+          font-size: 12.8px;
+          font-weight: 800;
+        }
+
+        .arrow-label::before,
+        .split-label::before {
+          content: "";
+          width: 2px;
+          height: 26px;
+          background: #8aa0b8;
+          border-radius: 4px;
+          box-shadow: 0 18px 0 #8aa0b8;
+        }
+
+        .arrow-chip {
+          padding: 5px 11px;
+          border-radius: 999px;
+          border: 1.6px solid #b9c7d8;
+          background: #fff;
+          color: #344054;
+          font-family: "Cascadia Mono", Consolas, monospace;
+          font-size: 12.3px;
+        }
+
+        .parent-head {
+          display: flex;
+          align-items: center;
+          gap: 9px;
+          margin-bottom: 8px;
+        }
+
+        pre,
+        code {
+          font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+        }
+
+        pre {
+          white-space: pre-wrap;
+          color: #344054;
+          font-size: 11.4px;
+          line-height: 1.27;
+          font-weight: 650;
+        }
+
+        .code-card {
+          border: 1.7px solid rgba(54, 78, 110, 0.18);
+          border-radius: 13px;
+          background: rgba(255, 255, 255, 0.86);
+          padding: 10px 12px;
+        }
+
+        .no-embedding {
+          align-self: start;
+          margin-top: 43px;
+          padding: 12px;
+          border-radius: 15px;
+          background: #fff;
+          border: 2px dashed #ef9a9a;
+          color: #aa2f38;
+          font-size: 14px;
+          line-height: 1.32;
+          font-weight: 850;
+        }
+
+        .parent-caption {
+          grid-column: 1 / -1;
+          margin-top: -1px;
+          color: #34513d;
+          font-size: 13.8px;
+          line-height: 1.25;
+          font-weight: 760;
+        }
+
+        .split-label {
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .split-label::before {
+          height: 12px;
+          box-shadow: 0 11px 0 #8aa0b8, 0 22px 0 #8aa0b8;
+        }
+
+        .split-code {
+          padding: 7px 14px;
+          border-radius: 14px;
+          border: 1.7px solid #c4d1e0;
+          background: #fff;
+          color: #344054;
+          font-family: "Cascadia Mono", Consolas, monospace;
+          font-size: 12.1px;
+          line-height: 1.32;
+          font-weight: 760;
+          text-align: center;
+        }
+
+        .child-area {
+          position: relative;
+        }
+
+        .child-tier-badge {
+          position: absolute;
+          top: -14px;
+          left: 13px;
+          padding: 4px 9px;
+          border-radius: 999px;
+          border: 1.5px solid #f0ad62;
+          background: #fffaf2;
+          color: #7a4e11;
+          font-size: 10.8px;
+          line-height: 1;
+          font-weight: 900;
+          letter-spacing: 0.45px;
+          text-transform: uppercase;
+          z-index: 4;
+        }
+
+        .child-row {
+          height: 221px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 11px;
+        }
+
+        .child-box {
+          position: relative;
+          display: grid;
+          grid-template-rows: 1fr auto;
+          gap: 8px;
+          min-width: 0;
+          padding: 12px 12px 10px;
+          border-radius: 17px;
+          border: 2px solid #f0ad62;
+          background: #fff3e0;
+          box-shadow: 0 8px 16px rgba(135, 87, 31, 0.08);
+        }
+
+        .child-box.match {
+          border-color: #f9a825;
+          background: #fff8d8;
+          box-shadow: 0 0 0 4px rgba(255, 224, 130, 0.78), 0 0 26px rgba(251, 192, 45, 0.48);
+        }
+
+        .child-box pre {
+          font-size: 10.6px;
+          line-height: 1.23;
+        }
+
+        .embed-tag {
+          padding: 7px 9px;
+          border-radius: 12px;
+          background: #ffffff;
+          border: 1.6px solid #f2bf79;
+          color: #7a4e11;
+          font-size: 12.2px;
+          line-height: 1.18;
+          font-weight: 850;
+        }
+
+        .star {
+          position: absolute;
+          right: 9px;
+          top: -13px;
+          padding: 6px 10px;
+          border-radius: 999px;
+          background: #fff;
+          border: 2px solid #f9a825;
+          color: #936710;
+          font-size: 14px;
+          font-weight: 900;
+          transform: rotate(5deg);
+        }
+
+        .overlap-note {
+          position: absolute;
+          left: 189px;
+          bottom: 0;
+          width: 260px;
+          padding: 7px 10px;
+          border-radius: 12px;
+          border: 2px solid #f3a3c7;
+          background: #fff2f8;
+          color: #91496b;
+          font-size: 12.3px;
+          line-height: 1.18;
+          font-weight: 850;
+          text-align: center;
+        }
+
+        .overlap-note::before,
+        .overlap-note::after {
+          content: "";
+          position: absolute;
+          top: -20px;
+          width: 56px;
+          height: 17px;
+          border-top: 3px solid #f3a3c7;
+        }
+
+        .overlap-note::before {
+          left: 28px;
+          border-left: 3px solid #f3a3c7;
+        }
+
+        .overlap-note::after {
+          right: 28px;
+          border-right: 3px solid #f3a3c7;
+        }
+
+        .steps {
+          margin-top: 12px;
+          height: 681px;
+          display: grid;
+          grid-template-rows: 92px 109px 124px 1fr;
+          gap: 10px;
+        }
+
+        .step {
+          display: grid;
+          grid-template-columns: 34px 1fr;
+          gap: 10px;
+          padding: 12px;
+          border-radius: 17px;
+          border: 1.8px solid rgba(69, 113, 145, 0.26);
+          background: rgba(255, 255, 255, 0.82);
+        }
+
+        .num {
+          width: 31px;
+          height: 31px;
+          display: grid;
+          place-items: center;
+          border-radius: 999px;
+          background: #2563eb;
+          color: #fff;
+          font-size: 15px;
+          font-weight: 900;
+        }
+
+        .step-title {
+          color: #142033;
+          font-size: 15px;
+          line-height: 1.18;
+          font-weight: 850;
+        }
+
+        .bubble {
+          margin-top: 7px;
+          padding: 8px 10px;
+          border-radius: 14px;
+          background: #fff;
+          border: 1.5px solid #b7d6ec;
+          color: #34516a;
+          font-size: 13.1px;
+          line-height: 1.25;
+          font-weight: 760;
+        }
+
+        .vector-card {
+          margin-top: 6px;
+          padding: 8px 10px;
+          border-radius: 12px;
+          border: 1.5px solid #b7d6ec;
+          background: #f8fcff;
+        }
+
+        .vector-card pre {
+          font-size: 11.2px;
+          line-height: 1.25;
+        }
+
+        .profile-pill {
+          display: inline-block;
+          margin-top: 6px;
+          padding: 4px 8px;
+          border-radius: 999px;
+          background: #fff;
+          border: 1.4px solid #b7d6ec;
+          color: #526174;
+          font-family: "Cascadia Mono", Consolas, monospace;
+          font-size: 10.7px;
+          font-weight: 760;
+        }
+
+        .result-layers {
+          margin-top: 8px;
+          overflow: hidden;
+          border: 1.8px solid #8ab8dc;
+          border-radius: 15px;
+          background: #fff;
+        }
+
+        .layer {
+          padding: 9px 11px;
+        }
+
+        .layer.orange {
+          background: #fff3e0;
+          border-bottom: 1.5px solid #edc78b;
+        }
+
+        .layer.green {
+          background: #e8f5e9;
+        }
+
+        .layer-title {
+          margin-bottom: 3px;
+          color: #172033;
+          font-size: 12.4px;
+          line-height: 1.15;
+          font-weight: 900;
+        }
+
+        .layer pre {
+          font-size: 10.4px;
+          line-height: 1.22;
+        }
+
+        .answer-bubble {
+          margin-top: 7px;
+          padding: 8px 10px;
+          border-radius: 14px;
+          border: 1.7px solid #9fcfa9;
+          background: #ffffff;
+          color: #31543a;
+          font-size: 12.8px;
+          line-height: 1.26;
+          font-weight: 850;
+        }
+
+        .summary-strip {
+          height: 172px;
+          margin-top: 14px;
+          display: grid;
+          grid-template-columns: 200px 1fr 290px;
+          gap: 16px;
+          align-items: stretch;
+          padding: 14px 16px;
+          border-radius: 24px;
+          border: 2.4px solid #d0d7e2;
+          background: #ffffff;
+          box-shadow: 0 12px 24px rgba(38, 51, 77, 0.08);
+        }
+
+        .summary-title {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 8px;
+          color: #172033;
+        }
+
+        .summary-title h2 {
+          margin: 0;
+          font-size: 24px;
+          line-height: 1.12;
+        }
+
+        .summary-title p {
+          color: #667085;
+          font-size: 13.8px;
+          line-height: 1.28;
+          font-weight: 650;
+        }
+
+        table {
+          width: 100%;
+          height: 100%;
+          border-collapse: separate;
+          border-spacing: 0;
+          overflow: hidden;
+          border: 1.8px solid #d7e0ea;
+          border-radius: 14px;
+          color: #1f2d42;
+          font-size: 13.2px;
+          line-height: 1.16;
+        }
+
+        th,
+        td {
+          padding: 6px 11px;
+          border-right: 1.4px solid #d7e0ea;
+          border-bottom: 1.4px solid #d7e0ea;
+          vertical-align: middle;
+        }
+
+        th:last-child,
+        td:last-child {
+          border-right: 0;
+        }
+
+        tr:last-child td {
+          border-bottom: 0;
+        }
+
+        th {
+          background: #f3e5f5;
+          color: #172033;
+          font-weight: 900;
+          text-align: left;
+        }
+
+        td:first-child {
+          width: 21%;
+          color: #536174;
+          font-weight: 800;
+          background: #fbfcff;
+        }
+
+        .parent-col {
+          background: #e8f5e9;
+          font-weight: 730;
+        }
+
+        .child-col {
+          background: #fff3e0;
+          font-weight: 730;
+        }
+
+        .golden-rule {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 12px 14px;
+          border-radius: 18px;
+          border: 2px solid #f5c464;
+          background: #fff8d8;
+          color: #6d5200;
+          font-size: 18px;
+          line-height: 1.32;
+          font-weight: 900;
+          text-align: center;
+        }
+      </style>
+
+      <header class="header">
+        <div>
+          <h1>Parent-Child Chunks: How AI Searches Smartly</h1>
+          <p class="subtitle">ค้นหาให้แม่นด้วย Child Chunk แล้วดึง Parent Chunk กลับมาเป็นบริบทเต็มตอนตอบคำถาม</p>
+        </div>
+        <div class="audience-chip">สำหรับนักเรียนไทย ม.ปลาย อายุ 16-18</div>
+      </header>
+
+      <main class="main">
+        <section class="panel problem-panel">
+          <p class="section-kicker">Section 1</p>
+          <h2>The Problem</h2>
+          <svg class="robot-scene" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 408" role="presentation" aria-hidden="true">
+            <rect x="0" y="0" width="350" height="408" rx="18" fill="#ffffff"/>
+            <ellipse cx="96" cy="346" rx="65" ry="12" fill="#e9d5f4"/>
+            <g transform="translate(45 68)">
+              <rect x="36" y="58" width="96" height="76" rx="18" fill="#d9f3ff" stroke="#4c6f89" stroke-width="4"/>
+              <rect x="51" y="23" width="66" height="50" rx="18" fill="#eefbff" stroke="#4c6f89" stroke-width="4"/>
+              <line x1="84" y1="23" x2="84" y2="2" stroke="#4c6f89" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="84" cy="-1" r="7" fill="#ffcc80" stroke="#4c6f89" stroke-width="3"/>
+              <line x1="65" y1="47" x2="77" y2="42" stroke="#4c6f89" stroke-width="4" stroke-linecap="round"/>
+              <line x1="103" y1="42" x2="115" y2="47" stroke="#4c6f89" stroke-width="4" stroke-linecap="round"/>
+              <path d="M70 62 C82 55 94 55 106 62" fill="none" stroke="#bc3f4b" stroke-width="4" stroke-linecap="round"/>
+              <path d="M36 88 C5 95 3 127 31 143" fill="none" stroke="#4c6f89" stroke-width="8" stroke-linecap="round"/>
+              <path d="M132 88 C168 104 164 139 137 148" fill="none" stroke="#4c6f89" stroke-width="8" stroke-linecap="round"/>
+              <rect x="53" y="137" width="62" height="78" rx="16" fill="#e7f8ee" stroke="#4c6f89" stroke-width="4"/>
+              <line x1="65" y1="215" x2="56" y2="255" stroke="#4c6f89" stroke-width="8" stroke-linecap="round"/>
+              <line x1="103" y1="215" x2="112" y2="255" stroke="#4c6f89" stroke-width="8" stroke-linecap="round"/>
+              <path d="M61 113 H108" stroke="#4c6f89" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(142 54)">
+              <path d="M29 11 H179 C198 11 211 24 211 43 V292 C211 310 198 323 179 323 H29 C46 300 46 37 29 11 Z" fill="#fff8e7" stroke="#9a6a2f" stroke-width="4"/>
+              <circle cx="28" cy="28" r="21" fill="#ffe4b0" stroke="#9a6a2f" stroke-width="4"/>
+              <circle cx="28" cy="306" r="21" fill="#ffe4b0" stroke="#9a6a2f" stroke-width="4"/>
+              <text x="54" y="48" font-family="Cascadia Mono, Consolas, monospace" font-size="12" font-weight="700" fill="#3f4b5f">inventory.md — 4,200</text>
+              <text x="54" y="66" font-family="Cascadia Mono, Consolas, monospace" font-size="12" font-weight="700" fill="#3f4b5f">characters</text>
+              <text x="54" y="92" font-family="Cascadia Mono, Consolas, monospace" font-size="12" fill="#3f4b5f"># Inventory</text>
+              <text x="54" y="115" font-family="Cascadia Mono, Consolas, monospace" font-size="11" fill="#5e6b7c">Paragraph with</text>
+              <text x="54" y="132" font-family="Cascadia Mono, Consolas, monospace" font-size="11" fill="#5e6b7c">context... (×90 lines)</text>
+              <text x="54" y="164" font-family="Cascadia Mono, Consolas, monospace" font-size="11" fill="#3f4b5f">| SKU-001 | 1 |</text>
+              <text x="54" y="185" font-family="Cascadia Mono, Consolas, monospace" font-size="11" fill="#3f4b5f">| SKU-002 | 2 |</text>
+              <text x="54" y="207" font-family="Cascadia Mono, Consolas, monospace" font-size="11" fill="#3f4b5f">...</text>
+              <text x="54" y="230" font-family="Cascadia Mono, Consolas, monospace" font-size="11" fill="#3f4b5f">| SKU-080 | 80 |</text>
+              <path d="M54 252 H184" stroke="#dab16f" stroke-width="2" stroke-dasharray="5 5"/>
+              <text x="54" y="279" font-family="Noto Sans Thai, Leelawadee UI, sans-serif" font-size="12" font-weight="800" fill="#bc3f4b">ใหญ่เกินไป!</text>
+            </g>
+            <path d="M85 45 C70 30 58 27 45 30" fill="none" stroke="#bc3f4b" stroke-width="4" stroke-linecap="round"/>
+            <path d="M119 38 C129 21 143 14 158 14" fill="none" stroke="#bc3f4b" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <p class="caption">ถ้า AI ต้องค้นหาในก้อนใหญ่ทั้งก้อน <strong>→ ผลลัพธ์เพี้ยน ไม่แม่นยำ</strong></p>
+          <div class="callout">เหมือนหาคำในหนังสือโดยไม่มีสารบัญ</div>
+        </section>
+
+        <section class="panel solution-panel">
+          <p class="section-kicker">Section 2</p>
+          <h2>The Solution: Parent-Child split</h2>
+
+          <div class="tier-stack">
+            <div class="tier-box tier-source">
+              <div class="icon-tile">📄</div>
+              <div>
+                <div class="tier-name">TIER A — Source Document</div>
+                <div class="tier-label">source_documents <span class="tiny">🗄️</span></div>
+                <div class="tier-sub">docs/inventory.md <code>(source_kind: report_md)</code></div>
+              </div>
+              <div class="arrow-chip">ingest ↓</div>
+            </div>
+
+            <div class="arrow-label">
+              <span class="arrow-chip">ingest</span>
+            </div>
+
+            <div class="tier-box tier-parent">
+              <div>
+                <div class="parent-head">
+                  <div class="icon-tile">📦</div>
+                  <div>
+                    <div class="tier-name">TIER B — Parent Chunk</div>
+                    <div class="tier-label">document_chunks (Parent) <span class="tiny">🗄️</span></div>
+                    <div class="tier-sub">เก็บบริบทเต็มไว้ตอบคำถาม</div>
+                  </div>
+                </div>
+                <div class="code-card">
+                  <pre>chunk_id: chunk-parent-2
+chunk_index: 0
+# Inventory
+Paragraph with context. Paragraph with context.
+Paragraph with context... [~2,400 chars total]
+| SKU-001 | 1 |  | SKU-002 | 2 | ...| SKU-080 | 80 |</pre>
+                </div>
+              </div>
+              <div class="no-embedding">❌ ไม่มี Embedding<br/>ประหยัด storage</div>
+              <div class="parent-caption">เก็บบริบทเต็ม — ใช้ตอนตอบคำถาม</div>
+            </div>
+
+            <div class="split-label">
+              <div class="split-code">split_parent_chunk()<br/>child_chars = 1,600  |  overlap = 40 chars</div>
+            </div>
+
+            <div class="child-area">
+              <div class="child-tier-badge">TIER C — Child Chunks</div>
+              <div class="child-row">
+                <div class="child-box">
+                  <pre>child_chunk_id: child-A
+child_index_in_parent: 0
+chars 0 → 1,600
+[# Inventory
+ Paragraph with context...
+ Paragraph with context...]</pre>
+                  <div class="embed-tag">✅ BGE-M3 Embedding<br/>vector(1024)</div>
+                </div>
+
+                <div class="child-box match">
+                  <div class="star">🎯 พบ!</div>
+                  <pre>child_chunk_id: child-B ← MATCH!
+child_index_in_parent: 1
+chars 1,560 → 3,160
+← overlap 40 chars
+[...Paragraph...
+ | SKU-001 | 1 |
+ | SKU-002 | 2 |...]</pre>
+                  <div class="embed-tag">✅ BGE-M3 Embedding<br/>vector(1024)</div>
+                </div>
+
+                <div class="child-box">
+                  <pre>child_chunk_id: child-C
+child_index_in_parent: 2
+chars 3,120 → 3,160+
+[...| SKU-079 | 79 |
+ | SKU-080 | 80 |]</pre>
+                  <div class="embed-tag">✅ BGE-M3 Embedding<br/>vector(1024)</div>
+                </div>
+              </div>
+              <div class="overlap-note">overlap = 40 chars (ไม่ให้ตัดกลางประโยค)</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel search-panel">
+          <p class="section-kicker">Section 3</p>
+          <h2>How Search Works</h2>
+
+          <div class="steps">
+            <div class="step">
+              <div class="num">1</div>
+              <div>
+                <div class="step-title">User question</div>
+                <div class="bubble">นักเรียนถามว่า: “สินค้า SKU-002 ราคาเท่าไร?”</div>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="num">2</div>
+              <div>
+                <div class="step-title">Query becomes vector</div>
+                <div class="vector-card">
+                  <pre>BGE-M3 encode query
+→ [0.12, -0.87, 0.34, ..., 0.91]
+   ← 1,024 numbers →</pre>
+                </div>
+                <span class="profile-pill">retrieval_profile: bge_m3_v1</span>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="num">3</div>
+              <div>
+                <div class="step-title">Vector search finds closest Child</div>
+                <div class="vector-card">
+                  <pre>child_chunk_embeddings
+ANN search (cosine distance)
+candidate_count = 80 → match_count = 8
+🏆 child-B cosine_dist = 0.12
+similarity = 0.88</pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="num">4</div>
+              <div>
+                <div class="step-title">Return Child + hydrate with Parent</div>
+                <div class="result-layers">
+                  <div class="layer orange">
+                    <div class="layer-title">chunk_text (ส่งให้ AI อ่าน — แม่นยำ)</div>
+                    <pre>| SKU-001 | 1 |
+| SKU-002 | 2 |</pre>
+                  </div>
+                  <div class="layer green">
+                    <div class="layer-title">parent_text (บริบทเต็ม — ครบถ้วน)</div>
+                    <pre># Inventory
+Paragraph with context... (ทั้งหมด 90 บรรทัด)
+| SKU-001..SKU-080 |</pre>
+                  </div>
+                </div>
+                <div class="answer-bubble">🤖 ตอบ: SKU-002 = 2 บาท<br/>อิงจากตาราง Inventory หน้า 1</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section class="summary-strip">
+        <div class="summary-title">
+          <h2>Summary</h2>
+          <p>จำง่าย: Parent คือบริบทเต็ม ส่วน Child คือหน่วยค้นหา</p>
+        </div>
+
+        <table aria-label="Parent Chunk and Child Chunk comparison">
+          <thead>
+            <tr>
+              <th>หัวข้อ</th>
+              <th>Parent Chunk</th>
+              <th>Child Chunk</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ตาราง (Table)</td>
+              <td class="parent-col">🗄️ document_chunks</td>
+              <td class="child-col">🗄️ child_chunks</td>
+            </tr>
+            <tr>
+              <td>ขนาด (Size)</td>
+              <td class="parent-col">ใหญ่ (เต็มหัวข้อ)</td>
+              <td class="child-col">เล็ก ≤ 1,600 chars</td>
+            </tr>
+            <tr>
+              <td>Vector Embedding</td>
+              <td class="parent-col">❌ ไม่มี</td>
+              <td class="child-col">✅ BGE-M3 1024 มิติ</td>
+            </tr>
+            <tr>
+              <td>หน้าที่ (Role)</td>
+              <td class="parent-col">ให้บริบทตอนตอบ</td>
+              <td class="child-col">หน่วยค้นหา (search unit)</td>
+            </tr>
+            <tr>
+              <td>เชื่อมกันด้วย</td>
+              <td class="parent-col">—</td>
+              <td class="child-col">parent_chunk_id (foreign key)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="golden-rule">กฎทอง:<br/>ค้นหาด้วย Child 🔍<br/>→ ตอบด้วย Parent 📖</div>
+      </section>
+    </div>
+  </foreignObject>
+</svg>

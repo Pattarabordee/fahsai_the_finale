@@ -1,0 +1,642 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">FahMai 8 Model Views Explainer</title>
+  <desc id="desc">Slide-ready Thai infographic explaining the eight fah_sai_lpk_model views for LLM and Text-to-SQL routing.</desc>
+  <foreignObject width="1920" height="1080">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="canvas">
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        .canvas {
+          width: 1920px;
+          height: 1080px;
+          margin: 0;
+          padding: 30px 38px 28px;
+          overflow: hidden;
+          color: #172033;
+          background:
+            linear-gradient(90deg, rgba(203, 213, 225, 0.34) 0 1px, transparent 1px 100%),
+            linear-gradient(0deg, rgba(203, 213, 225, 0.30) 0 1px, transparent 1px 100%),
+            #fbfdff;
+          background-size: 32px 32px;
+          font-family: "Noto Sans Thai", "Leelawadee UI", "Sarabun", "Segoe UI", Arial, sans-serif;
+          letter-spacing: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+          margin: 0;
+        }
+
+        .header {
+          height: 96px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 24px;
+        }
+
+        h1 {
+          font-size: 45px;
+          line-height: 1.05;
+          font-weight: 850;
+          color: #0f172a;
+        }
+
+        .subtitle {
+          margin-top: 7px;
+          color: #536174;
+          font-size: 19px;
+          line-height: 1.35;
+        }
+
+        .schema-chip {
+          flex: 0 0 auto;
+          margin-top: 5px;
+          padding: 12px 18px;
+          border: 2px solid #c7d2fe;
+          border-radius: 999px;
+          background: #eef2ff;
+          color: #26364f;
+          font-family: "Cascadia Mono", Consolas, monospace;
+          font-size: 16px;
+          font-weight: 750;
+          white-space: nowrap;
+        }
+
+        .layout {
+          height: 792px;
+          display: grid;
+          grid-template-columns: 300px 1022px 470px;
+          gap: 26px;
+          align-items: stretch;
+        }
+
+        .panel {
+          position: relative;
+          border: 2px solid #cbd5e1;
+          border-radius: 18px;
+          background: rgba(255, 255, 255, 0.92);
+          box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
+        }
+
+        .panel.source {
+          border-color: #8ec5a4;
+          background: #f3fbf6;
+          padding: 22px;
+        }
+
+        .panel.model {
+          border-color: #f0b76b;
+          background: #fffbf3;
+          padding: 22px;
+        }
+
+        .panel.routing {
+          border-color: #94a3b8;
+          background: #f8fafc;
+          padding: 22px;
+        }
+
+        .panel-title {
+          font-size: 24px;
+          line-height: 1.1;
+          font-weight: 850;
+          color: #172033;
+        }
+
+        .panel-subtitle {
+          margin-top: 7px;
+          font-size: 15px;
+          line-height: 1.35;
+          color: #64748b;
+        }
+
+        .source-stack {
+          margin-top: 24px;
+          display: grid;
+          gap: 16px;
+        }
+
+        .source-card {
+          min-height: 128px;
+          border-radius: 15px;
+          border: 2px solid #7cc69a;
+          background: #ffffff;
+          padding: 17px 17px 16px;
+        }
+
+        .source-card.rag {
+          border-color: #67c7ba;
+          background: #f0fdfa;
+        }
+
+        .source-card h3 {
+          font-family: "Cascadia Mono", Consolas, monospace;
+          font-size: 18px;
+          line-height: 1.2;
+          font-weight: 800;
+          color: #14532d;
+        }
+
+        .source-card.rag h3 {
+          color: #115e59;
+        }
+
+        .source-card p {
+          margin-top: 10px;
+          color: #3f4e63;
+          font-size: 15px;
+          line-height: 1.45;
+        }
+
+        .arrow {
+          height: 62px;
+          display: grid;
+          place-items: center;
+          color: #526174;
+          font-weight: 800;
+          font-size: 21px;
+        }
+
+        .principle {
+          position: absolute;
+          left: 22px;
+          right: 22px;
+          bottom: 22px;
+          border: 2px dashed #94a3b8;
+          border-radius: 14px;
+          background: #ffffff;
+          padding: 14px 16px;
+        }
+
+        .principle .label {
+          font-weight: 850;
+          font-size: 15px;
+          color: #334155;
+        }
+
+        .principle p {
+          margin-top: 6px;
+          font-size: 14px;
+          line-height: 1.42;
+          color: #526174;
+        }
+
+        .model-top {
+          height: 78px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 18px;
+        }
+
+        .model-badge {
+          flex: 0 0 auto;
+          min-width: 170px;
+          text-align: center;
+          border-radius: 15px;
+          border: 2px solid #e7a64f;
+          background: #fff7ed;
+          padding: 11px 14px;
+          color: #9a3412;
+          font-weight: 850;
+          font-size: 17px;
+        }
+
+        .view-grid {
+          margin-top: 16px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 14px;
+        }
+
+        .view-card {
+          position: relative;
+          min-height: 306px;
+          overflow: hidden;
+          border-radius: 16px;
+          border: 2px solid var(--edge);
+          background: #ffffff;
+          padding: 18px 17px 16px;
+        }
+
+        .view-card::before {
+          content: "";
+          position: absolute;
+          inset: 0 0 auto;
+          height: 8px;
+          background: var(--edge);
+        }
+
+        .view-head {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-top: 2px;
+        }
+
+        .num {
+          width: 38px;
+          height: 38px;
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          background: var(--soft);
+          color: var(--deep);
+          font-size: 19px;
+          font-weight: 900;
+        }
+
+        .view-name {
+          min-width: 0;
+          font-family: "Cascadia Mono", Consolas, monospace;
+          font-size: 14px;
+          line-height: 1.18;
+          font-weight: 850;
+          color: #172033;
+          white-space: nowrap;
+        }
+
+        .grain {
+          display: inline-block;
+          margin-top: 15px;
+          padding: 7px 10px;
+          border-radius: 999px;
+          background: var(--soft);
+          color: var(--deep);
+          font-size: 13.5px;
+          line-height: 1.15;
+          font-weight: 800;
+        }
+
+        .view-card p {
+          margin-top: 13px;
+          color: #3f4e63;
+          font-size: 15px;
+          line-height: 1.45;
+        }
+
+        .use-for {
+          margin-top: 15px;
+          padding-top: 13px;
+          border-top: 1.5px solid #e2e8f0;
+          color: #64748b;
+          font-size: 13.5px;
+          line-height: 1.35;
+        }
+
+        .blue {
+          --edge: #4d7fd0;
+          --soft: #dbeafe;
+          --deep: #1e40af;
+        }
+
+        .cyan {
+          --edge: #22a6b3;
+          --soft: #cffafe;
+          --deep: #0e7490;
+        }
+
+        .green {
+          --edge: #34a853;
+          --soft: #dcfce7;
+          --deep: #166534;
+        }
+
+        .rose {
+          --edge: #e36a86;
+          --soft: #ffe4e6;
+          --deep: #9f1239;
+        }
+
+        .teal {
+          --edge: #14b8a6;
+          --soft: #ccfbf1;
+          --deep: #0f766e;
+        }
+
+        .violet {
+          --edge: #8b5cf6;
+          --soft: #ede9fe;
+          --deep: #5b21b6;
+        }
+
+        .amber {
+          --edge: #f59e0b;
+          --soft: #fef3c7;
+          --deep: #92400e;
+        }
+
+        .slate {
+          --edge: #64748b;
+          --soft: #e2e8f0;
+          --deep: #334155;
+        }
+
+        .routing-list {
+          margin-top: 20px;
+          display: grid;
+          gap: 12px;
+        }
+
+        .route-card {
+          border-radius: 15px;
+          border: 2px solid #d5dde8;
+          background: #ffffff;
+          padding: 14px 15px;
+          display: grid;
+          grid-template-columns: 36px 1fr;
+          gap: 11px;
+          align-items: start;
+        }
+
+        .route-icon {
+          width: 36px;
+          height: 36px;
+          display: grid;
+          place-items: center;
+          border-radius: 11px;
+          background: #e0f2fe;
+          color: #075985;
+          font-weight: 900;
+          font-size: 16px;
+        }
+
+        .route-card:nth-child(2) .route-icon {
+          background: #dcfce7;
+          color: #166534;
+        }
+
+        .route-card:nth-child(3) .route-icon {
+          background: #ffe4e6;
+          color: #9f1239;
+        }
+
+        .route-card:nth-child(4) .route-icon {
+          background: #ccfbf1;
+          color: #0f766e;
+        }
+
+        .route-card:nth-child(5) .route-icon {
+          background: #fef3c7;
+          color: #92400e;
+        }
+
+        .route-card h3 {
+          color: #172033;
+          font-size: 16px;
+          line-height: 1.22;
+          font-weight: 850;
+        }
+
+        .route-card p {
+          margin-top: 5px;
+          color: #526174;
+          font-size: 14px;
+          line-height: 1.34;
+        }
+
+        .route-card code {
+          font-family: "Cascadia Mono", Consolas, monospace;
+          color: #26364f;
+          font-weight: 700;
+          background: #f1f5f9;
+          padding: 1px 4px;
+          border-radius: 5px;
+        }
+
+        .bottom-note {
+          height: 126px;
+          margin-top: 24px;
+          border: 2px solid #cbd5e1;
+          border-radius: 18px;
+          background: #ffffff;
+          box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+          padding: 20px 24px;
+          display: grid;
+          grid-template-columns: 1.25fr 1fr 1fr;
+          gap: 22px;
+          align-items: center;
+        }
+
+        .rule {
+          min-height: 82px;
+          border-left: 7px solid var(--rule);
+          padding-left: 16px;
+        }
+
+        .rule h3 {
+          font-size: 18px;
+          font-weight: 850;
+          color: #172033;
+          line-height: 1.2;
+        }
+
+        .rule p {
+          margin-top: 6px;
+          color: #526174;
+          font-size: 14.5px;
+          line-height: 1.38;
+        }
+
+        .rule code {
+          font-family: "Cascadia Mono", Consolas, monospace;
+          color: #26364f;
+          font-weight: 750;
+        }
+      </style>
+
+      <header class="header">
+        <div>
+          <h1>8 Model Views: ผิวข้อมูลที่ LLM ควรเห็นก่อน</h1>
+          <p class="subtitle">ย่อข้อมูลธุรกิจและเอกสารของ FahMai ให้เหลือ schema ที่เล็กลง grain ชัดขึ้น และลดโอกาส join ผิด</p>
+        </div>
+        <div class="schema-chip">fah_sai_lpk_model</div>
+      </header>
+
+      <main class="layout">
+        <section class="panel source">
+          <h2 class="panel-title">Source of Truth</h2>
+          <p class="panel-subtitle">ข้อมูลจริงยังอยู่ใน core และ evidence ยังมาจาก RAG ที่ผ่าน public-safe filter</p>
+
+          <div class="source-stack">
+            <div class="source-card">
+              <h3>fah_sai_lpk_core</h3>
+              <p>FACT/DIM ที่ typed แล้ว ใช้เป็นแหล่งข้อเท็จจริงหลักของ sales, finance, customer ops, inventory, vendor และ policy</p>
+            </div>
+
+            <div class="arrow">ลงรูปให้ Agent เห็นง่ายขึ้น</div>
+
+            <div class="source-card rag">
+              <h3>fah_sai_lpk_rag</h3>
+              <p>documents, chunks, embeddings และ entity links เฉพาะชุดที่ปลอดภัยสำหรับ retrieval และอ้างอิงคำตอบ</p>
+            </div>
+          </div>
+
+          <div class="principle">
+            <div class="label">แนวคิดหลัก</div>
+            <p>ไม่ให้ LLM เห็นทุกตารางดิบพร้อมกัน แต่เปิด surface ที่เลือกมาแล้ว 8 views เพื่อให้เลือก query ได้แม่นกว่า</p>
+          </div>
+        </section>
+
+        <section class="panel model">
+          <div class="model-top">
+            <div>
+              <h2 class="panel-title">Compact Model Surface</h2>
+              <p class="panel-subtitle">แต่ละ view มี grain และ use case ชัดเจน: order, line, event, lookup หรือ evidence</p>
+            </div>
+            <div class="model-badge">8 views เท่านั้น</div>
+          </div>
+
+          <div class="view-grid">
+            <article class="view-card blue">
+              <div class="view-head">
+                <div class="num">1</div>
+                <h3 class="view-name">sales_order_360</h3>
+              </div>
+              <div class="grain">1 row ต่อ order / txn</div>
+              <p>รวมภาพระดับบิล: ลูกค้า สาขา ช่องทางขาย โปรโมชัน การชำระเงิน และ B2B sales</p>
+              <div class="use-for">ใช้เมื่อถามยอดขายระดับ order, customer, branch, payment, AR</div>
+            </article>
+
+            <article class="view-card cyan">
+              <div class="view-head">
+                <div class="num">2</div>
+                <h3 class="view-name">sales_line_360</h3>
+              </div>
+              <div class="grain">1 row ต่อ line item / SKU</div>
+              <p>ลงรายละเอียดสินค้าในบิล: SKU, brand, vendor, quantity, discount และยอดต่อรายการ</p>
+              <div class="use-for">ใช้เมื่อถาม product mix, SKU, quantity, margin, discount</div>
+            </article>
+
+            <article class="view-card green">
+              <div class="view-head">
+                <div class="num">3</div>
+                <h3 class="view-name">finance_event</h3>
+              </div>
+              <div class="grain">1 row ต่อ finance event</div>
+              <p>รวมเหตุการณ์เงิน: bank transaction, refund paid, vendor payment, payroll และ loyalty ledger</p>
+              <div class="use-for">ใช้เมื่อถาม cashflow, settlement, refund, payroll, vendor pay</div>
+            </article>
+
+            <article class="view-card rose">
+              <div class="view-head">
+                <div class="num">4</div>
+                <h3 class="view-name">customer_ops_event</h3>
+              </div>
+              <div class="grain">1 row ต่อ ops event</div>
+              <p>ภาพรวมหลังขาย: CS interaction, return, refund, warranty claim และ loyalty activity</p>
+              <div class="use-for">ใช้เมื่อถามเคสลูกค้า, คืนสินค้า, เคลม, SLA, after-sales</div>
+            </article>
+
+            <article class="view-card teal">
+              <div class="view-head">
+                <div class="num">5</div>
+                <h3 class="view-name">inventory_event</h3>
+              </div>
+              <div class="grain">movement / snapshot / shipping</div>
+              <p>รวมมุม stock และ fulfillment: inventory movement, monthly snapshot และ shipping event</p>
+              <div class="use-for">ใช้เมื่อถาม stock, transfer, shipment, branch/SKU inventory</div>
+            </article>
+
+            <article class="view-card violet">
+              <div class="view-head">
+                <div class="num">6</div>
+                <h3 class="view-name">product_catalog</h3>
+              </div>
+              <div class="grain">lookup ต่อสินค้า</div>
+              <p>metadata ของสินค้า: SKU, department, vendor, recall history และ care-plus tier</p>
+              <div class="use-for">ใช้เมื่อถาม catalog, vendor, brand/category, recall, SKU lookup</div>
+            </article>
+
+            <article class="view-card amber">
+              <div class="view-head">
+                <div class="num">7</div>
+                <h3 class="view-name">policy_catalog</h3>
+              </div>
+              <div class="grain">lookup ตาม effective date</div>
+              <p>รวม policy version, signing authority และ vendor contract version ตามช่วงเวลาที่มีผล</p>
+              <div class="use-for">ใช้เมื่อถามนโยบาย อำนาจอนุมัติ contract และ rule ที่เปลี่ยนตามเวลา</div>
+            </article>
+
+            <article class="view-card slate">
+              <div class="view-head">
+                <div class="num">8</div>
+                <h3 class="view-name">document_evidence</h3>
+              </div>
+              <div class="grain">public-safe evidence chunk</div>
+              <p>ข้อความเอกสาร แชต รายงาน และ policy ที่ retrieve ได้ พร้อม metadata สำหรับอ้างอิง</p>
+              <div class="use-for">ใช้เมื่อต้อง cite เอกสารหรือเติมเหตุผลจาก RAG</div>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel routing">
+          <h2 class="panel-title">Agent ควร route ยังไง</h2>
+          <p class="panel-subtitle">เริ่มจาก intent และ grain ของคำถาม แล้วเลือก view ที่เล็กที่สุดพอ</p>
+
+          <div class="routing-list">
+            <div class="route-card">
+              <div class="route-icon">S</div>
+              <div>
+                <h3>ถามยอดขายหรือบิล</h3>
+                <p>order-level ใช้ <code>sales_order_360</code>, ถ้าถาม SKU/จำนวน/ส่วนลด ใช้ <code>sales_line_360</code></p>
+              </div>
+            </div>
+
+            <div class="route-card">
+              <div class="route-icon">F</div>
+              <div>
+                <h3>ถามเงินเข้าออก</h3>
+                <p>settlement, refund, vendor payment, payroll หรือ bank movement ไปที่ <code>finance_event</code></p>
+              </div>
+            </div>
+
+            <div class="route-card">
+              <div class="route-icon">C</div>
+              <div>
+                <h3>ถามลูกค้าหลังขาย</h3>
+                <p>CS, return, warranty และ loyalty operations ไปที่ <code>customer_ops_event</code></p>
+              </div>
+            </div>
+
+            <div class="route-card">
+              <div class="route-icon">I</div>
+              <div>
+                <h3>ถาม stock หรือ shipping</h3>
+                <p>movement, snapshot, branch/SKU inventory และ shipment ไปที่ <code>inventory_event</code></p>
+              </div>
+            </div>
+
+            <div class="route-card">
+              <div class="route-icon">E</div>
+              <div>
+                <h3>ถามเหตุผลหรือหลักฐาน</h3>
+                <p>policy/contract ใช้ <code>policy_catalog</code>; quote เอกสารใช้ <code>document_evidence</code></p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="bottom-note">
+        <div class="rule" style="--rule:#f59e0b">
+          <h3>Default rule</h3>
+          <p>ให้ Text-to-SQL agent เริ่มที่ <code>fah_sai_lpk_model</code> ก่อน แล้วลง <code>core</code>/<code>rag</code> เฉพาะตอน debug หรือ column ไม่พอ</p>
+        </div>
+        <div class="rule" style="--rule:#4d7fd0">
+          <h3>กัน join ผิด grain</h3>
+          <p>แยก order-level กับ line-level ชัดเจน เพื่อไม่ให้ aggregate ยอดขายซ้ำจากการ join fact-to-fact</p>
+        </div>
+        <div class="rule" style="--rule:#14b8a6">
+          <h3>เวลาที่ควรใช้</h3>
+          <p>ถ้าโจทย์ถามช่วงเวลาแต่ไม่ระบุ date column ให้เริ่มจาก <code>business_event_date</code></p>
+        </div>
+      </footer>
+    </div>
+  </foreignObject>
+</svg>

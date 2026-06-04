@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">FahMai Source Data Map</title>
+  <desc id="desc">A slide-ready diagram explaining FahMai source data categories, safety filtering, and where each source flows in the database and RAG system.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfcfe; }
+      .title { font: 800 34px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #142033; }
+      .subtitle { font: 400 18px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #526174; }
+      .zone-title { font: 800 21px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #172033; }
+      .head { font: 750 17px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #1f2d42; }
+      .label { font: 650 14.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #26364f; }
+      .text { font: 400 13.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #43536a; }
+      .small { font: 400 12.3px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .mono { font: 650 12px "Cascadia Mono", Consolas, monospace; fill: #334155; }
+      .source-panel { fill: #effaf3; stroke: #3ea66b; stroke-width: 2; }
+      .gate-panel { fill: #fff9eb; stroke: #d79024; stroke-width: 2; }
+      .dest-panel { fill: #eef5ff; stroke: #4d7fd0; stroke-width: 2; }
+      .evidence-panel { fill: #f5f7fa; stroke: #94a3b8; stroke-width: 2; }
+      .card { fill: #ffffff; stroke: #d4deea; stroke-width: 1.5; }
+      .green { stroke: #74c69d; }
+      .teal { stroke: #61c6ba; }
+      .orange { stroke: #e6a44c; }
+      .blue { stroke: #88adeb; }
+      .gray { stroke: #aab6c6; }
+      .red { stroke: #e18a78; }
+      .arrow { stroke: #526174; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .soft-arrow { stroke: #7b8ba1; stroke-width: 2.4; stroke-dasharray: 7 7; fill: none; marker-end: url(#softhead); }
+      .icon-line { stroke: #25344a; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-fill { fill: #ffffff; stroke: #25344a; stroke-width: 2.2; }
+      .note { font: 650 15px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #25344a; }
+    </style>
+    <marker id="arrowhead" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#526174"/>
+    </marker>
+    <marker id="softhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7b8ba1"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <text x="60" y="58" class="title">FahMai Source Data Map</text>
+  <text x="60" y="88" class="subtitle">Source Data = วัตถุดิบก่อนเข้า Database และ RAG</text>
+
+  <rect x="60" y="124" width="1480" height="72" rx="18" class="evidence-panel"/>
+  <text x="86" y="157" class="zone-title">ภาพนี้ตอบคำถามว่า “ข้อมูลตั้งต้นมาจากไหน และใช้เป็นหลักฐานได้แค่ไหน?”</text>
+  <text x="86" y="180" class="small">Main idea: collect sources → filter safety → load to the right database layer → cite only trusted evidence</text>
+
+  <rect x="60" y="240" width="620" height="455" rx="20" class="source-panel"/>
+  <text x="88" y="277" class="zone-title">1. Source Data Types</text>
+  <text x="88" y="301" class="small">ชนิดของข้อมูลที่โจทย์ให้มา</text>
+
+  <rect x="90" y="330" width="265" height="112" rx="14" class="card green"/>
+  <g transform="translate(112 357)">
+    <rect x="0" y="0" width="48" height="58" rx="6" class="icon-fill"/>
+    <path d="M12 16 H36 M12 29 H36 M12 42 H30" class="icon-line"/>
+  </g>
+  <text x="178" y="359" class="head">Official CSV Tables</text>
+  <text x="178" y="382" class="text">ตารางธุรกิจหลัก 31 ไฟล์</text>
+  <text x="178" y="405" class="small">sales, bank, product, vendor</text>
+  <text x="178" y="426" class="mono">FACT_* / DIM_* / T2_DOC</text>
+
+  <rect x="385" y="330" width="265" height="112" rx="14" class="card teal"/>
+  <g transform="translate(407 357)">
+    <rect x="0" y="0" width="46" height="58" rx="6" class="icon-fill"/>
+    <path d="M12 18 H34 M12 31 H34 M12 44 H26" class="icon-line"/>
+    <path d="M55 8 H93 V49 H55 Z M63 21 H85 M63 34 H82" class="icon-line"/>
+  </g>
+  <text x="504" y="359" class="head">Documents / Reports</text>
+  <text x="504" y="382" class="text">เอกสารอ่านประกอบ</text>
+  <text x="504" y="405" class="small">policy, reports, contracts</text>
+  <text x="504" y="426" class="mono">docs / reports / logs</text>
+
+  <rect x="90" y="474" width="265" height="112" rx="14" class="card teal"/>
+  <g transform="translate(112 502)">
+    <rect x="0" y="0" width="58" height="46" rx="7" class="icon-fill"/>
+    <circle cx="18" cy="17" r="5" fill="#25344a"/>
+    <path d="M8 38 L24 27 L35 36 L44 29 L52 38" class="icon-line"/>
+  </g>
+  <text x="178" y="503" class="head">OCR / Render Artifacts</text>
+  <text x="178" y="526" class="text">ภาพและไฟล์ที่ถอดข้อความ</text>
+  <text x="178" y="549" class="small">6,047 PNG + 3,750 JSON</text>
+  <text x="178" y="570" class="mono">81 PDF</text>
+
+  <rect x="385" y="474" width="265" height="112" rx="14" class="card gray"/>
+  <g transform="translate(407 502)">
+    <path d="M6 10 H82 V54 H6 Z" class="icon-fill"/>
+    <path d="M17 24 H70 M17 38 H62" class="icon-line"/>
+    <circle cx="91" cy="48" r="18" class="icon-fill"/>
+    <path d="M84 48 L89 53 L99 42" class="icon-line"/>
+  </g>
+  <text x="504" y="503" class="head">Derived Helpers</text>
+  <text x="504" y="526" class="text">ไฟล์ช่วยตรวจ/จับคู่ข้อมูล</text>
+  <text x="504" y="549" class="small">ใช้ QA หรือ reconciliation</text>
+  <text x="504" y="570" class="mono">not official evidence</text>
+
+  <rect x="90" y="616" width="560" height="48" rx="14" class="card blue"/>
+  <text x="116" y="645" class="label">questions.csv = ชุดคำถาม 100 ข้อสำหรับวัดผล ไม่ใช่หลักฐานคำตอบโดยตรง</text>
+
+  <rect x="740" y="240" width="300" height="455" rx="20" class="gate-panel"/>
+  <text x="768" y="277" class="zone-title">2. Safety Gate</text>
+  <text x="768" y="301" class="small">ด่านคัดกรองก่อนให้ AI ใช้</text>
+
+  <rect x="770" y="336" width="240" height="58" rx="13" class="card orange"/>
+  <text x="794" y="360" class="label">เป็น official source ไหม?</text>
+  <text x="794" y="381" class="small">Is it from the released bundle?</text>
+
+  <rect x="770" y="414" width="240" height="58" rx="13" class="card orange"/>
+  <text x="794" y="438" class="label">public-safe หรือไม่?</text>
+  <text x="794" y="459" class="small">No hidden grader/provenance leak</text>
+
+  <rect x="770" y="492" width="240" height="58" rx="13" class="card orange"/>
+  <text x="794" y="516" class="label">อ้างอิงกลับได้ไหม?</text>
+  <text x="794" y="537" class="small">Can cite file/table/row/source?</text>
+
+  <rect x="770" y="570" width="240" height="58" rx="13" class="card red"/>
+  <text x="794" y="594" class="label">ถ้าเป็น helper/provenance</text>
+  <text x="794" y="615" class="small">ใช้ตรวจเท่านั้น ไม่ใช้ตอบ final</text>
+
+  <rect x="1100" y="240" width="440" height="455" rx="20" class="dest-panel"/>
+  <text x="1128" y="277" class="zone-title">3. Where It Goes</text>
+  <text x="1128" y="301" class="small">ปลายทางในระบบ Database/RAG</text>
+
+  <rect x="1130" y="330" width="180" height="82" rx="14" class="card blue"/>
+  <text x="1152" y="358" class="head">raw</text>
+  <text x="1152" y="382" class="text">เก็บไฟล์ดิบ</text>
+  <text x="1152" y="401" class="small">landing layer</text>
+
+  <rect x="1330" y="330" width="180" height="82" rx="14" class="card blue"/>
+  <text x="1352" y="358" class="head">core</text>
+  <text x="1352" y="382" class="text">ตารางจริงที่จัดรูปแล้ว</text>
+  <text x="1352" y="401" class="small">typed official tables</text>
+
+  <rect x="1130" y="438" width="180" height="82" rx="14" class="card teal"/>
+  <text x="1152" y="466" class="head">rag</text>
+  <text x="1152" y="490" class="text">เอกสาร + chunks</text>
+  <text x="1152" y="509" class="small">search by meaning</text>
+
+  <rect x="1330" y="438" width="180" height="82" rx="14" class="card gray"/>
+  <text x="1352" y="466" class="head">audit</text>
+  <text x="1352" y="490" class="text">เก็บร่องรอย/ความเสี่ยง</text>
+  <text x="1352" y="509" class="small">trace only</text>
+
+  <rect x="1130" y="546" width="180" height="82" rx="14" class="card gray"/>
+  <text x="1152" y="574" class="head">eval</text>
+  <text x="1152" y="598" class="text">คำถามและ answer runs</text>
+  <text x="1152" y="617" class="small">100 questions</text>
+
+  <rect x="1330" y="546" width="180" height="82" rx="14" class="card orange"/>
+  <text x="1352" y="574" class="head">model views</text>
+  <text x="1352" y="598" class="text">หน้าสรุปให้ AI ใช้</text>
+  <text x="1352" y="617" class="small">8 safe views</text>
+
+  <path class="arrow" d="M680 468 C710 468 710 468 740 468"/>
+  <path class="arrow" d="M1040 468 C1070 468 1070 468 1100 468"/>
+  <path class="soft-arrow" d="M223 442 C500 725 1185 728 1400 628"/>
+  <path class="soft-arrow" d="M517 586 C730 754 1110 746 1420 520"/>
+
+  <rect x="60" y="744" width="710" height="86" rx="18" class="source-panel"/>
+  <text x="88" y="778" class="zone-title">Use as Evidence</text>
+  <text x="88" y="804" class="label">ใช้ตอบได้เมื่อเป็น official/public-safe และ cite กลับ source ได้</text>
+  <text x="88" y="824" class="small">ตัวอย่าง: official CSV tables, public-safe documents, public-safe OCR text</text>
+
+  <rect x="830" y="744" width="710" height="86" rx="18" class="evidence-panel"/>
+  <text x="858" y="778" class="zone-title">Use for QA / Audit Only</text>
+  <text x="858" y="804" class="label">ใช้ตรวจสอบได้ แต่ไม่ควรเป็นหลักฐาน final answer</text>
+  <text x="858" y="824" class="small">ตัวอย่าง: derived helpers, grader-only provenance, reconstruction/reconciliation cache</text>
+</svg>

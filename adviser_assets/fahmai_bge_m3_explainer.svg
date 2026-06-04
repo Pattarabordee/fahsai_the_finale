@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">BGE-M3 Explainer for FahMai RAG</title>
+  <desc id="desc">A slide-ready diagram explaining how BGE-M3 turns text into 1024-dimensional embeddings for FahMai RAG retrieval with PostgreSQL pgvector and HNSW.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfcfe; }
+      .title { font: 800 36px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #142033; }
+      .subtitle { font: 400 19px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #526174; }
+      .zone-title { font: 800 22px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #172033; }
+      .head { font: 750 17px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #1f2d42; }
+      .label { font: 650 14.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #26364f; }
+      .text { font: 400 13.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #43536a; }
+      .small { font: 400 12.3px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .mono { font: 650 12px "Cascadia Mono", Consolas, monospace; fill: #334155; }
+      .input-panel { fill: #effaf3; stroke: #3ea66b; stroke-width: 2.2; }
+      .model-panel { fill: #eef5ff; stroke: #4d7fd0; stroke-width: 2.2; }
+      .vector-panel { fill: #effbf8; stroke: #22a08c; stroke-width: 2.2; }
+      .db-panel { fill: #fff7ea; stroke: #d98b20; stroke-width: 2.2; }
+      .answer-panel { fill: #fff1e8; stroke: #e17432; stroke-width: 2.2; }
+      .note-panel { fill: #f5f7fa; stroke: #94a3b8; stroke-width: 2; }
+      .card { fill: #ffffff; stroke: #d4deea; stroke-width: 1.5; }
+      .green { stroke: #74c69d; }
+      .blue { stroke: #88adeb; }
+      .teal { stroke: #61c6ba; }
+      .orange { stroke: #e6a44c; }
+      .red { stroke: #e18a78; }
+      .gray { stroke: #aab6c6; }
+      .arrow { stroke: #536174; stroke-width: 3.6; fill: none; marker-end: url(#arrowhead); }
+      .soft-arrow { stroke: #7b8ba1; stroke-width: 2.4; stroke-dasharray: 8 8; fill: none; marker-end: url(#softhead); }
+      .icon-line { stroke: #25344a; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-fill { fill: #ffffff; stroke: #25344a; stroke-width: 2.2; }
+      .chip { fill: #ffffff; stroke: #d4deea; stroke-width: 1.4; }
+      .highlight { fill: #fff4d8; stroke: #d98b20; stroke-width: 2; }
+      .dot { fill: #22a08c; }
+      .dot2 { fill: #4d7fd0; }
+      .dot3 { fill: #d98b20; }
+      .badge { fill: #25344a; }
+      .badge-text { font: 800 13px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #ffffff; }
+    </style>
+    <marker id="arrowhead" markerWidth="15" markerHeight="15" refX="12" refY="7.5" orient="auto">
+      <path d="M2,2 L13,7.5 L2,13 Z" fill="#536174"/>
+    </marker>
+    <marker id="softhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7b8ba1"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <text x="60" y="62" class="title">BGE-M3 ในระบบ FahMai</text>
+  <text x="60" y="94" class="subtitle">BGE-M3 = โมเดลแปลงข้อความเป็นตัวเลข เพื่อค้นเอกสารจาก “ความหมาย”</text>
+
+  <rect x="60" y="132" width="1480" height="66" rx="18" class="note-panel"/>
+  <text x="86" y="162" class="zone-title">จำให้ถูกก่อน</text>
+  <text x="230" y="162" class="label">BGE-M3 ไม่ใช่ตัวตอบคำถาม แต่เป็นตัวสร้าง embedding vector สำหรับ search/RAG</text>
+  <text x="230" y="184" class="small">It turns text into a 1024-dimensional meaning vector, then pgvector finds nearby meanings.</text>
+
+  <rect x="60" y="250" width="230" height="400" rx="20" class="input-panel"/>
+  <text x="88" y="286" class="zone-title">1. Text</text>
+  <text x="88" y="310" class="small">ข้อความที่ต้องค้นหรือเก็บ</text>
+  <g transform="translate(103 350)">
+    <rect x="0" y="0" width="128" height="130" rx="12" class="icon-fill"/>
+    <path d="M24 32 H104 M24 58 H96 M24 84 H108" class="icon-line"/>
+  </g>
+  <rect x="88" y="526" width="174" height="54" rx="12" class="card green"/>
+  <text x="108" y="550" class="label">Child chunk</text>
+  <text x="108" y="570" class="small">ข้อความเอกสารชิ้นเล็ก</text>
+  <rect x="88" y="596" width="174" height="32" rx="10" class="card green"/>
+  <text x="108" y="617" class="small">หรือ query จากผู้ใช้</text>
+
+  <rect x="350" y="250" width="280" height="400" rx="20" class="model-panel"/>
+  <text x="378" y="286" class="zone-title">2. BGE-M3</text>
+  <text x="378" y="310" class="small">Embedding model</text>
+  <g transform="translate(424 345)">
+    <rect x="0" y="0" width="132" height="104" rx="18" fill="#ffffff" stroke="#25344a" stroke-width="2.4"/>
+    <circle cx="34" cy="34" r="10" fill="#4d7fd0"/>
+    <circle cx="66" cy="34" r="10" fill="#22a08c"/>
+    <circle cx="98" cy="34" r="10" fill="#d98b20"/>
+    <path d="M34 44 V72 M66 44 V72 M98 44 V72 M28 72 H104" class="icon-line"/>
+  </g>
+  <rect x="382" y="494" width="216" height="46" rx="12" class="card blue"/>
+  <text x="404" y="522" class="mono">BAAI/bge-m3</text>
+  <rect x="382" y="558" width="216" height="46" rx="12" class="card blue"/>
+  <text x="404" y="586" class="small">รันผ่าน TEI บน GPU/B200 ได้</text>
+
+  <rect x="690" y="250" width="300" height="400" rx="20" class="vector-panel"/>
+  <text x="718" y="286" class="zone-title">3. Embedding Vector</text>
+  <text x="718" y="310" class="small">เลขแทนความหมายของข้อความ</text>
+  <rect x="728" y="352" width="224" height="92" rx="14" class="card teal"/>
+  <text x="750" y="382" class="mono">[0.12, -0.03, 0.44, ...]</text>
+  <text x="750" y="410" class="label">1024 dimensions</text>
+  <text x="750" y="431" class="small">เบากว่า vector ใหญ่มาก ๆ</text>
+  <g transform="translate(742 476)">
+    <circle cx="24" cy="44" r="8" class="dot"/>
+    <circle cx="84" cy="22" r="8" class="dot2"/>
+    <circle cx="138" cy="64" r="8" class="dot3"/>
+    <circle cx="190" cy="36" r="8" class="dot"/>
+    <path d="M24 44 C58 15 75 16 84 22 C109 39 124 62 138 64 C160 67 174 44 190 36" class="icon-line"/>
+  </g>
+  <rect x="728" y="578" width="224" height="36" rx="10" class="card gray"/>
+  <text x="750" y="601" class="mono">vector(1024)</text>
+
+  <rect x="1050" y="250" width="260" height="400" rx="20" class="db-panel"/>
+  <text x="1078" y="286" class="zone-title">4. pgvector Search</text>
+  <text x="1078" y="310" class="small">เก็บและค้น vector ใน PostgreSQL</text>
+  <g transform="translate(1114 348)">
+    <ellipse cx="66" cy="24" rx="82" ry="24" fill="#fff4d8" stroke="#d98b20" stroke-width="2"/>
+    <path d="M-16 24 V82 C-16 96 21 108 66 108 C111 108 148 96 148 82 V24" fill="#fff4d8" stroke="#d98b20" stroke-width="2"/>
+    <ellipse cx="66" cy="82" rx="82" ry="24" fill="none" stroke="#c4a16b" stroke-width="1.5"/>
+  </g>
+  <rect x="1082" y="496" width="196" height="46" rx="12" class="card orange"/>
+  <text x="1104" y="524" class="mono">child_chunk_embeddings</text>
+  <rect x="1082" y="558" width="196" height="46" rx="12" class="card orange"/>
+  <text x="1104" y="586" class="label">HNSW cosine index</text>
+
+  <rect x="1370" y="250" width="170" height="400" rx="20" class="answer-panel"/>
+  <text x="1398" y="286" class="zone-title">5. Results</text>
+  <text x="1398" y="310" class="small">ได้ evidence ที่ใกล้ที่สุด</text>
+  <g transform="translate(1398 356)">
+    <circle cx="54" cy="54" r="42" fill="#ffffff" stroke="#25344a" stroke-width="2.4"/>
+    <path d="M84 84 L122 122" class="icon-line"/>
+    <path d="M30 54 H78 M54 30 V78" class="icon-line"/>
+  </g>
+  <rect x="1392" y="502" width="124" height="48" rx="12" class="card red"/>
+  <text x="1410" y="530" class="label">nearest child</text>
+  <rect x="1392" y="570" width="124" height="48" rx="12" class="card red"/>
+  <text x="1410" y="598" class="label">parent context</text>
+
+  <path class="arrow" d="M290 450 C320 450 320 450 350 450"/>
+  <path class="arrow" d="M630 450 C660 450 660 450 690 450"/>
+  <path class="arrow" d="M990 450 C1020 450 1020 450 1050 450"/>
+  <path class="arrow" d="M1310 450 C1340 450 1340 450 1370 450"/>
+
+  <path class="soft-arrow" d="M1454 250 C1454 212 176 212 176 250"/>
+  <text x="595" y="230" class="small">ตอนมีคำถามใหม่: embed query ด้วย BGE-M3 แบบเดียวกัน แล้วเทียบกับ vector ที่เก็บไว้</text>
+
+  <rect x="60" y="714" width="350" height="118" rx="18" class="input-panel"/>
+  <text x="88" y="748" class="zone-title">Why 1: Multilingual</text>
+  <text x="88" y="775" class="label">เหมาะกับไทย + อังกฤษ</text>
+  <text x="88" y="798" class="small">FahMai มี field names, docs, OCR, reports หลายภาษา</text>
+  <text x="88" y="818" class="mono">Thai / English retrieval</text>
+
+  <rect x="436" y="714" width="350" height="118" rx="18" class="vector-panel"/>
+  <text x="464" y="748" class="zone-title">Why 2: Retrieval Fit</text>
+  <text x="464" y="775" class="label">ออกแบบมาเพื่อ search/RAG</text>
+  <text x="464" y="798" class="small">จับความหมายใกล้กัน แม้ใช้คำไม่ตรงกันเป๊ะ</text>
+  <text x="464" y="818" class="mono">semantic search</text>
+
+  <rect x="812" y="714" width="350" height="118" rx="18" class="db-panel"/>
+  <text x="840" y="748" class="zone-title">Why 3: Efficient</text>
+  <text x="840" y="775" class="label">1024 dimensions ไม่หนักเกินไป</text>
+  <text x="840" y="798" class="small">เหมาะกับ pgvector + HNSW และพื้นที่ฐานข้อมูล</text>
+  <text x="840" y="818" class="mono">vector(1024)</text>
+
+  <rect x="1188" y="714" width="352" height="118" rx="18" class="note-panel"/>
+  <text x="1216" y="748" class="zone-title">Why 4: Local Pipeline</text>
+  <text x="1216" y="775" class="label">รัน embedding service เองได้</text>
+  <text x="1216" y="798" class="small">ลด dependency ภายนอก และ rebuild บน B200 ได้</text>
+  <text x="1216" y="818" class="mono">TEI endpoint: /embed</text>
+</svg>

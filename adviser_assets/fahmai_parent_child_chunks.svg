@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Parent and Child Chunks in FahMai RAG</title>
+  <desc id="desc">A slide-ready diagram explaining the difference and relationship between parent chunks and child chunks in the FahMai RAG pipeline.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfcfe; }
+      .title { font: 800 36px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #142033; }
+      .subtitle { font: 400 19px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #526174; }
+      .zone-title { font: 800 22px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #172033; }
+      .head { font: 750 17px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #1f2d42; }
+      .label { font: 650 14.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #26364f; }
+      .text { font: 400 13.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #43536a; }
+      .small { font: 400 12.3px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .mono { font: 650 12px "Cascadia Mono", Consolas, monospace; fill: #334155; }
+      .source-panel { fill: #effaf3; stroke: #3ea66b; stroke-width: 2.2; }
+      .parent-panel { fill: #eef5ff; stroke: #4d7fd0; stroke-width: 2.2; }
+      .child-panel { fill: #effbf8; stroke: #22a08c; stroke-width: 2.2; }
+      .search-panel { fill: #fff7ea; stroke: #d98b20; stroke-width: 2.2; }
+      .answer-panel { fill: #fff1e8; stroke: #e17432; stroke-width: 2.2; }
+      .note-panel { fill: #f5f7fa; stroke: #94a3b8; stroke-width: 2; }
+      .card { fill: #ffffff; stroke: #d4deea; stroke-width: 1.5; }
+      .green { stroke: #74c69d; }
+      .blue { stroke: #88adeb; }
+      .teal { stroke: #61c6ba; }
+      .orange { stroke: #e6a44c; }
+      .red { stroke: #e18a78; }
+      .gray { stroke: #aab6c6; }
+      .arrow { stroke: #536174; stroke-width: 3.6; fill: none; marker-end: url(#arrowhead); }
+      .soft-arrow { stroke: #7b8ba1; stroke-width: 2.4; stroke-dasharray: 8 8; fill: none; marker-end: url(#softhead); }
+      .thin { stroke: #a9b6c8; stroke-width: 1.6; fill: none; }
+      .icon-line { stroke: #25344a; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-fill { fill: #ffffff; stroke: #25344a; stroke-width: 2.2; }
+      .match { fill: #fff4d8; stroke: #d98b20; stroke-width: 2.2; }
+      .badge { fill: #25344a; }
+      .badge-text { font: 800 13px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #ffffff; }
+    </style>
+    <marker id="arrowhead" markerWidth="15" markerHeight="15" refX="12" refY="7.5" orient="auto">
+      <path d="M2,2 L13,7.5 L2,13 Z" fill="#536174"/>
+    </marker>
+    <marker id="softhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7b8ba1"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <text x="60" y="62" class="title">Parent Chunk vs Child Chunk</text>
+  <text x="60" y="94" class="subtitle">ค้นจาก Child Chunk ให้แม่น แล้วดึง Parent Chunk กลับมาเป็นบริบทตอนตอบ</text>
+
+  <rect x="60" y="132" width="1480" height="66" rx="18" class="note-panel"/>
+  <text x="86" y="162" class="zone-title">จำง่าย ๆ</text>
+  <text x="214" y="162" class="label">Parent = หน้าหรือ section ใหญ่ที่มีบริบทครบ, Child = ย่อหน้าเล็กที่ใช้ค้นหาให้ตรงคำถาม</text>
+  <text x="214" y="184" class="small">Parent keeps context. Child improves retrieval precision.</text>
+
+  <rect x="60" y="250" width="220" height="410" rx="20" class="source-panel"/>
+  <text x="88" y="286" class="zone-title">1. Document</text>
+  <text x="88" y="310" class="small">เอกสารต้นฉบับ</text>
+  <g transform="translate(105 352)">
+    <rect x="0" y="0" width="130" height="170" rx="12" class="icon-fill"/>
+    <path d="M28 38 H102 M28 66 H102 M28 94 H92 M28 122 H104" class="icon-line"/>
+    <path d="M28 145 H76" class="icon-line"/>
+  </g>
+  <rect x="88" y="566" width="164" height="54" rx="12" class="card green"/>
+  <text x="108" y="590" class="label">policy / report</text>
+  <text x="108" y="610" class="small">OCR-safe text</text>
+
+  <rect x="340" y="250" width="300" height="410" rx="20" class="parent-panel"/>
+  <text x="368" y="286" class="zone-title">2. Parent Chunks</text>
+  <text x="368" y="310" class="small">ก้อนใหญ่ เก็บบริบทรอบ ๆ</text>
+  <rect x="374" y="352" width="232" height="72" rx="14" class="card blue"/>
+  <text x="398" y="379" class="head">Parent A</text>
+  <text x="398" y="402" class="text">section/page context</text>
+  <rect x="374" y="452" width="232" height="72" rx="14" class="card blue"/>
+  <text x="398" y="479" class="head">Parent B</text>
+  <text x="398" y="502" class="text">เนื้อหายาวกว่า child</text>
+  <rect x="374" y="552" width="232" height="72" rx="14" class="card blue"/>
+  <text x="398" y="579" class="head">Parent C</text>
+  <text x="398" y="602" class="mono">document_chunks</text>
+
+  <rect x="700" y="250" width="320" height="410" rx="20" class="child-panel"/>
+  <text x="728" y="286" class="zone-title">3. Child Chunks</text>
+  <text x="728" y="310" class="small">ก้อนเล็ก ใช้ค้นหาให้แม่น</text>
+  <rect x="732" y="350" width="118" height="58" rx="12" class="card teal"/>
+  <text x="754" y="374" class="label">Child B1</text>
+  <text x="754" y="395" class="small">ย่อหน้า 1</text>
+  <rect x="870" y="350" width="118" height="58" rx="12" class="card teal"/>
+  <text x="892" y="374" class="label">Child B2</text>
+  <text x="892" y="395" class="small">ย่อหน้า 2</text>
+  <rect x="732" y="430" width="118" height="58" rx="12" class="match"/>
+  <text x="754" y="454" class="label">Child B3</text>
+  <text x="754" y="475" class="small">matched</text>
+  <rect x="870" y="430" width="118" height="58" rx="12" class="card teal"/>
+  <text x="892" y="454" class="label">Child B4</text>
+  <text x="892" y="475" class="small">ย่อหน้า 4</text>
+  <rect x="732" y="510" width="118" height="58" rx="12" class="card teal"/>
+  <text x="754" y="534" class="label">Child B5</text>
+  <text x="754" y="555" class="small">ย่อหน้า 5</text>
+  <rect x="870" y="510" width="118" height="58" rx="12" class="card teal"/>
+  <text x="892" y="534" class="label">Child B6</text>
+  <text x="892" y="555" class="small">ย่อหน้า 6</text>
+  <rect x="732" y="594" width="256" height="36" rx="10" class="card gray"/>
+  <text x="754" y="617" class="mono">child_chunks.parent_chunk_id = Parent B</text>
+
+  <rect x="1080" y="250" width="220" height="410" rx="20" class="search-panel"/>
+  <text x="1108" y="286" class="zone-title">4. Search</text>
+  <text x="1108" y="310" class="small">ค้นจาก vector ของ Child</text>
+  <g transform="translate(1124 350)">
+    <circle cx="54" cy="54" r="42" fill="#ffffff" stroke="#25344a" stroke-width="2.4"/>
+    <path d="M84 84 L126 126" class="icon-line"/>
+    <path d="M32 54 H76 M54 32 V76" class="icon-line"/>
+  </g>
+  <rect x="1108" y="500" width="164" height="54" rx="12" class="card orange"/>
+  <text x="1128" y="524" class="label">BGE-M3</text>
+  <text x="1128" y="544" class="small">embedding vector</text>
+  <rect x="1108" y="576" width="164" height="54" rx="12" class="card orange"/>
+  <text x="1128" y="600" class="label">pgvector / HNSW</text>
+  <text x="1128" y="620" class="small">nearest child chunk</text>
+
+  <rect x="1360" y="250" width="180" height="410" rx="20" class="answer-panel"/>
+  <text x="1388" y="286" class="zone-title">5. Answer</text>
+  <text x="1388" y="310" class="small">ตอบด้วยบริบท Parent</text>
+  <g transform="translate(1390 352)">
+    <path d="M0 18 C0 8 8 0 18 0 H102 C112 0 120 8 120 18 V70 C120 80 112 88 102 88 H58 L30 112 V88 H18 C8 88 0 80 0 70 Z" fill="#ffffff" stroke="#25344a" stroke-width="2.4"/>
+    <path d="M28 30 H92 M28 52 H80" class="icon-line"/>
+  </g>
+  <rect x="1384" y="500" width="132" height="54" rx="12" class="card red"/>
+  <text x="1402" y="524" class="label">Matched child</text>
+  <text x="1402" y="544" class="small">จุดที่ค้นเจอ</text>
+  <rect x="1384" y="576" width="132" height="54" rx="12" class="card red"/>
+  <text x="1402" y="600" class="label">Parent context</text>
+  <text x="1402" y="620" class="small">บริบทรอบ ๆ</text>
+
+  <path class="arrow" d="M280 455 C310 455 310 455 340 455"/>
+  <path class="arrow" d="M640 455 C670 455 670 455 700 455"/>
+  <path class="arrow" d="M1020 455 C1050 455 1050 455 1080 455"/>
+  <path class="arrow" d="M1300 455 C1330 455 1330 455 1360 455"/>
+
+  <path class="soft-arrow" d="M790 430 C756 386 658 394 606 488"/>
+
+  <rect x="60" y="720" width="462" height="112" rx="18" class="parent-panel"/>
+  <text x="88" y="754" class="zone-title">Parent Chunk</text>
+  <text x="88" y="781" class="label">หน้าที่: เก็บบริบทกว้าง ๆ</text>
+  <text x="88" y="804" class="small">ข้อดี: AI เห็นข้อมูลก่อนหน้า/หลังจากนั้น ไม่ตอบหลุดบริบท</text>
+  <text x="88" y="824" class="mono">stored in: document_chunks</text>
+
+  <rect x="568" y="720" width="462" height="112" rx="18" class="child-panel"/>
+  <text x="596" y="754" class="zone-title">Child Chunk</text>
+  <text x="596" y="781" class="label">หน้าที่: ใช้ค้นหาให้ตรงคำถาม</text>
+  <text x="596" y="804" class="small">ข้อดี: ข้อความสั้นกว่า ทำ embedding/search ได้แม่นกว่า</text>
+  <text x="596" y="824" class="mono">stored in: child_chunks + child_chunk_embeddings</text>
+
+  <rect x="1076" y="720" width="464" height="112" rx="18" class="note-panel"/>
+  <text x="1104" y="754" class="zone-title">Pipeline Summary</text>
+  <text x="1104" y="781" class="label">ค้นจาก Child, ตอบด้วย Parent</text>
+  <text x="1104" y="804" class="small">Child ช่วยหา “จุดที่เกี่ยวข้องที่สุด” ส่วน Parent ช่วยให้คำตอบมีบริบทครบ</text>
+  <text x="1104" y="824" class="mono">search child → hydrate parent → answer</text>
+</svg>

@@ -1,0 +1,479 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Simplified M-Schema Representation</title>
+  <desc id="desc">A simplified slide diagram comparing raw DDL schema, compact schema, and M-Schema for LLM text-to-SQL use.</desc>
+  <foreignObject width="1920" height="1080">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="canvas">
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        .canvas {
+          width: 1920px;
+          height: 1080px;
+          margin: 0;
+          padding: 56px 64px 58px;
+          overflow: hidden;
+          background:
+            linear-gradient(90deg, rgba(148, 163, 184, 0.20) 0 1px, transparent 1px 100%),
+            linear-gradient(0deg, rgba(148, 163, 184, 0.16) 0 1px, transparent 1px 100%),
+            #f8fafc;
+          background-size: 40px 40px;
+          color: #111827;
+          font-family: "Noto Sans Thai", "Leelawadee UI", "Sarabun", "Segoe UI", Arial, sans-serif;
+          letter-spacing: 0;
+        }
+
+        h1,
+        h2,
+        p {
+          margin: 0;
+        }
+
+        .header {
+          height: 142px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 48px;
+        }
+
+        h1 {
+          color: #0f172a;
+          font-size: 58px;
+          line-height: 1.02;
+          font-weight: 900;
+        }
+
+        .subtitle {
+          margin-top: 16px;
+          color: #526174;
+          font-size: 25px;
+          line-height: 1.28;
+          font-weight: 550;
+        }
+
+        .badge {
+          flex: 0 0 auto;
+          margin-top: 8px;
+          padding: 18px 28px;
+          border: 3px solid #bfdbfe;
+          border-radius: 999px;
+          background: #eff6ff;
+          color: #1e3a8a;
+          font-size: 23px;
+          line-height: 1;
+          font-weight: 850;
+          white-space: nowrap;
+        }
+
+        .flow {
+          height: 744px;
+          display: grid;
+          grid-template-columns: 1fr 72px 1fr 72px 1.12fr;
+          gap: 24px;
+          align-items: stretch;
+        }
+
+        .card {
+          position: relative;
+          min-width: 0;
+          padding: 34px;
+          border: 3px solid #cbd5e1;
+          border-radius: 30px;
+          background: rgba(255, 255, 255, 0.96);
+          box-shadow: 0 22px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .ddl {
+          border-color: #93c5fd;
+          background: #f0f7ff;
+        }
+
+        .compact {
+          border-color: #99d7ba;
+          background: #f2fbf6;
+        }
+
+        .mschema {
+          border-color: #f2b460;
+          background: #fff8ed;
+          box-shadow: 0 28px 64px rgba(180, 96, 20, 0.16);
+        }
+
+        .step {
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          color: #334155;
+          font-size: 24px;
+          line-height: 1;
+          font-weight: 900;
+        }
+
+        .dot {
+          width: 42px;
+          height: 42px;
+          display: inline-grid;
+          place-items: center;
+          border-radius: 50%;
+          color: #ffffff;
+          font-size: 22px;
+          font-weight: 950;
+        }
+
+        .ddl .dot {
+          background: #2563eb;
+        }
+
+        .compact .dot {
+          background: #16a34a;
+        }
+
+        .mschema .dot {
+          background: #d97706;
+        }
+
+        h2 {
+          margin-top: 28px;
+          color: #0f172a;
+          font-size: 42px;
+          line-height: 1.05;
+          font-weight: 950;
+        }
+
+        .hint {
+          margin-top: 12px;
+          color: #64748b;
+          font-size: 21px;
+          line-height: 1.24;
+          font-weight: 650;
+        }
+
+        .code {
+          margin-top: 32px;
+          padding: 28px;
+          border: 2px solid rgba(37, 99, 235, 0.22);
+          border-radius: 22px;
+          background: #ffffff;
+          color: #1f2937;
+          font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+          font-size: 25px;
+          line-height: 1.65;
+          font-weight: 720;
+          white-space: nowrap;
+        }
+
+        .code .muted {
+          color: #64748b;
+        }
+
+        .tables {
+          margin-top: 32px;
+          display: grid;
+          gap: 24px;
+        }
+
+        .table-box {
+          padding: 24px 26px;
+          border: 2px solid rgba(22, 163, 74, 0.28);
+          border-radius: 22px;
+          background: #ffffff;
+        }
+
+        .mschema .table-box {
+          border-color: rgba(217, 119, 6, 0.34);
+        }
+
+        .table-name {
+          color: #0f172a;
+          font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+          font-size: 25px;
+          line-height: 1;
+          font-weight: 900;
+        }
+
+        .field-list {
+          margin-top: 18px;
+          display: grid;
+          gap: 13px;
+          color: #334155;
+          font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+          font-size: 22px;
+          line-height: 1.22;
+          font-weight: 700;
+        }
+
+        .field {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 14px;
+          min-height: 38px;
+        }
+
+        .tag-row {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+        }
+
+        .tag {
+          display: inline-flex;
+          align-items: center;
+          min-height: 31px;
+          padding: 5px 11px;
+          border-radius: 999px;
+          background: #f1f5f9;
+          color: #475569;
+          font-family: "Noto Sans Thai", "Leelawadee UI", "Segoe UI", Arial, sans-serif;
+          font-size: 16px;
+          line-height: 1;
+          font-weight: 850;
+          white-space: nowrap;
+        }
+
+        .tag.key {
+          background: #fef3c7;
+          color: #92400e;
+        }
+
+        .tag.rel {
+          background: #dbeafe;
+          color: #1e40af;
+        }
+
+        .tag.ex {
+          background: #dcfce7;
+          color: #166534;
+        }
+
+        .signal {
+          position: absolute;
+          left: 34px;
+          right: 34px;
+          bottom: 34px;
+          min-height: 78px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 16px 22px;
+          border-radius: 20px;
+          color: #172033;
+          font-size: 25px;
+          line-height: 1.18;
+          font-weight: 900;
+          text-align: center;
+        }
+
+        .ddl .signal {
+          background: #dbeafe;
+          color: #1e3a8a;
+        }
+
+        .compact .signal {
+          background: #dcfce7;
+          color: #166534;
+        }
+
+        .mschema .signal {
+          background: #ffedd5;
+          color: #9a3412;
+        }
+
+        .arrow {
+          display: grid;
+          place-items: center;
+          align-self: center;
+          height: 178px;
+          border-radius: 999px;
+          background: #ffffff;
+          border: 3px solid #e2e8f0;
+          box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+          color: #475569;
+          font-size: 22px;
+          line-height: 1.1;
+          font-weight: 900;
+          text-align: center;
+        }
+
+        .arrow .mark {
+          display: block;
+          margin-top: 10px;
+          color: #0f172a;
+          font-size: 42px;
+          line-height: 1;
+          font-weight: 950;
+        }
+
+        .footer {
+          height: 96px;
+          margin-top: 32px;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          gap: 24px;
+          align-items: center;
+          padding: 18px 24px;
+          border: 3px solid #e2e8f0;
+          border-radius: 28px;
+          background: rgba(255, 255, 255, 0.92);
+          box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+        }
+
+        .formula {
+          color: #0f172a;
+          font-size: 30px;
+          line-height: 1;
+          font-weight: 950;
+          white-space: nowrap;
+        }
+
+        .chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          justify-content: flex-end;
+        }
+
+        .chip {
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          padding: 9px 17px;
+          border: 2px solid #cbd5e1;
+          border-radius: 999px;
+          background: #f8fafc;
+          color: #334155;
+          font-size: 20px;
+          line-height: 1;
+          font-weight: 850;
+          white-space: nowrap;
+        }
+
+        .chip.strong {
+          border-color: #fdba74;
+          background: #fff7ed;
+          color: #9a3412;
+        }
+      </style>
+
+      <header class="header">
+        <div>
+          <h1>M-Schema = Schema ที่มีบริบทพอให้ LLM ตัดสินใจ</h1>
+          <p class="subtitle">ลด SQL syntax ที่รก แล้วเก็บเฉพาะสิ่งที่ช่วยเลือก table, column และ join ให้ถูก</p>
+        </div>
+        <div class="badge">Text-to-SQL Ready</div>
+      </header>
+
+      <main class="flow">
+        <section class="card ddl">
+          <div class="step"><span class="dot">1</span>DDL Schema</div>
+          <h2>SQL ดิบ</h2>
+          <p class="hint">มีครบ แต่ verbose</p>
+
+          <div class="code">
+            <div>CREATE TABLE hero_power</div>
+            <div>hero_id INTEGER</div>
+            <div>power_id INTEGER</div>
+            <div class="muted">FK power_id -&gt; superpower.id</div>
+          </div>
+
+          <div class="signal">โครงสร้างถูกซ่อนอยู่ใน syntax</div>
+        </section>
+
+        <div class="arrow">ตัด syntax<span class="mark">→</span></div>
+
+        <section class="card compact">
+          <div class="step"><span class="dot">2</span>Compact Schema</div>
+          <h2>สรุปตาราง</h2>
+          <p class="hint">อ่านง่ายขึ้น</p>
+
+          <div class="tables">
+            <div class="table-box">
+              <div class="table-name">hero_power</div>
+              <div class="field-list">
+                <div>hero_id</div>
+                <div>power_id</div>
+              </div>
+            </div>
+
+            <div class="table-box">
+              <div class="table-name">superpower</div>
+              <div class="field-list">
+                <div>id</div>
+                <div>power_name</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="signal">รู้ชื่อ แต่ยังเดาความหมายเอง</div>
+        </section>
+
+        <div class="arrow">เติมบริบท<span class="mark">→</span></div>
+
+        <section class="card mschema">
+          <div class="step"><span class="dot">3</span>M-Schema</div>
+          <h2>Schema สำหรับ LLM</h2>
+          <p class="hint">สั้น แต่มี key, type, relation, example</p>
+
+          <div class="tables">
+            <div class="table-box">
+              <div class="table-name">hero_power</div>
+              <div class="field-list">
+                <div class="field">
+                  <span>hero_id</span>
+                  <span class="tag-row">
+                    <span class="tag">INT</span>
+                    <span class="tag rel">-&gt; hero.id</span>
+                  </span>
+                </div>
+                <div class="field">
+                  <span>power_id</span>
+                  <span class="tag-row">
+                    <span class="tag">INT</span>
+                    <span class="tag rel">-&gt; superpower.id</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-box">
+              <div class="table-name">superpower</div>
+              <div class="field-list">
+                <div class="field">
+                  <span>id</span>
+                  <span class="tag-row">
+                    <span class="tag">INT</span>
+                    <span class="tag key">PK</span>
+                  </span>
+                </div>
+                <div class="field">
+                  <span>power_name</span>
+                  <span class="tag-row">
+                    <span class="tag">TEXT</span>
+                    <span class="tag ex">Agility</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="signal">เห็นความหมาย จึง join และเลือก column ได้แม่นขึ้น</div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="formula">M-Schema ควรมี</div>
+        <div class="chips">
+          <span class="chip strong">Tables</span>
+          <span class="chip strong">Columns</span>
+          <span class="chip">Types</span>
+          <span class="chip">Keys</span>
+          <span class="chip">Relations</span>
+          <span class="chip">Examples</span>
+        </div>
+      </footer>
+    </div>
+  </foreignObject>
+</svg>

@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">FahMai PostgreSQL Source of Truth</title>
+  <desc id="desc">A slide-ready diagram explaining PostgreSQL as the source of truth for FahMai, including raw, core, rag, mart, model, audit, eval, and meta layers.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfcfe; }
+      .title { font: 800 34px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #142033; }
+      .subtitle { font: 400 18px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #526174; }
+      .zone-title { font: 800 21px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #172033; }
+      .head { font: 750 17px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #1f2d42; }
+      .label { font: 650 14.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #26364f; }
+      .text { font: 400 13.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #43536a; }
+      .small { font: 400 12.3px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .mono { font: 650 12px "Cascadia Mono", Consolas, monospace; fill: #334155; }
+      .main-panel { fill: #eef5ff; stroke: #4d7fd0; stroke-width: 2; }
+      .input-panel { fill: #effaf3; stroke: #3ea66b; stroke-width: 2; }
+      .output-panel { fill: #fff4e8; stroke: #df7d2e; stroke-width: 2; }
+      .note-panel { fill: #f5f7fa; stroke: #94a3b8; stroke-width: 2; }
+      .card { fill: #ffffff; stroke: #d4deea; stroke-width: 1.5; }
+      .green { stroke: #74c69d; }
+      .blue { stroke: #88adeb; }
+      .teal { stroke: #61c6ba; }
+      .orange { stroke: #e6a44c; }
+      .gray { stroke: #aab6c6; }
+      .purple { stroke: #ad9be6; }
+      .red { stroke: #e18a78; }
+      .arrow { stroke: #526174; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .soft-arrow { stroke: #7b8ba1; stroke-width: 2.3; stroke-dasharray: 8 8; fill: none; marker-end: url(#softhead); }
+      .thin { stroke: #a9b6c8; stroke-width: 1.7; fill: none; }
+      .db-fill { fill: #dbeafe; stroke: #4d7fd0; stroke-width: 2; }
+      .icon-line { stroke: #25344a; stroke-width: 2.3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-fill { fill: #ffffff; stroke: #25344a; stroke-width: 2.2; }
+      .note { font: 650 15px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #25344a; }
+    </style>
+    <marker id="arrowhead" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#526174"/>
+    </marker>
+    <marker id="softhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7b8ba1"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <text x="60" y="58" class="title">PostgreSQL Source of Truth</text>
+  <text x="60" y="88" class="subtitle">ฐานกลางที่เก็บข้อมูลจริง, เอกสารค้นหา, views ให้ AI, และร่องรอยตรวจสอบ</text>
+
+  <rect x="60" y="122" width="1480" height="70" rx="18" class="note-panel"/>
+  <text x="86" y="153" class="zone-title">ทำไมเรียกว่า Source of Truth?</text>
+  <text x="86" y="176" class="small">เพราะคำตอบสุดท้ายต้องย้อนกลับมาที่ข้อมูลใน Postgres ได้: table/view ไหน, row ไหน, source ไหน, และใช้ rule อะไร</text>
+
+  <rect x="60" y="245" width="250" height="430" rx="20" class="input-panel"/>
+  <text x="88" y="282" class="zone-title">Input</text>
+  <text x="88" y="306" class="small">ข้อมูลก่อนเข้า Postgres</text>
+  <rect x="88" y="342" width="194" height="62" rx="13" class="card green"/>
+  <text x="110" y="367" class="label">CSV 31 tables</text>
+  <text x="110" y="389" class="small">official business facts</text>
+  <rect x="88" y="426" width="194" height="62" rx="13" class="card green"/>
+  <text x="110" y="451" class="label">Docs / Reports</text>
+  <text x="110" y="473" class="small">policy, contracts, logs</text>
+  <rect x="88" y="510" width="194" height="62" rx="13" class="card green"/>
+  <text x="110" y="535" class="label">OCR text</text>
+  <text x="110" y="557" class="small">public-safe artifacts</text>
+  <rect x="88" y="608" width="194" height="36" rx="10" class="card gray"/>
+  <text x="110" y="631" class="small">Loaded by migrations + ingest scripts</text>
+
+  <rect x="370" y="245" width="820" height="430" rx="22" class="main-panel"/>
+  <text x="398" y="282" class="zone-title">Inside PostgreSQL</text>
+  <text x="398" y="306" class="small">แยกเป็น schemas/layers เพื่อไม่ให้ข้อมูลจริง, helper, และ prompt surface ปนกัน</text>
+
+  <g transform="translate(700 320)">
+    <ellipse cx="80" cy="28" rx="110" ry="30" class="db-fill"/>
+    <path d="M-30 28 V92 C-30 109 19 122 80 122 C141 122 190 109 190 92 V28" class="db-fill"/>
+    <ellipse cx="80" cy="92" rx="110" ry="30" class="thin"/>
+  </g>
+  <text x="690" y="472" class="head">Postgres DB</text>
+  <text x="652" y="495" class="small">SQL joins + vector search + audit trace ในที่เดียว</text>
+
+  <rect x="404" y="340" width="174" height="76" rx="14" class="card green"/>
+  <text x="426" y="368" class="head">raw</text>
+  <text x="426" y="391" class="text">เก็บไฟล์ดิบ</text>
+  <text x="426" y="410" class="small">ทุก column เป็น text</text>
+
+  <rect x="404" y="452" width="174" height="76" rx="14" class="card blue"/>
+  <text x="426" y="480" class="head">core</text>
+  <text x="426" y="503" class="text">ตาราง official ที่จัดรูปแล้ว</text>
+  <text x="426" y="522" class="small">facts + dimensions</text>
+
+  <rect x="404" y="564" width="174" height="76" rx="14" class="card teal"/>
+  <text x="426" y="592" class="head">rag</text>
+  <text x="426" y="615" class="text">เอกสาร + chunks</text>
+  <text x="426" y="634" class="small">embeddings + entity links</text>
+
+  <rect x="630" y="564" width="174" height="76" rx="14" class="card blue"/>
+  <text x="652" y="592" class="head">mart</text>
+  <text x="652" y="615" class="text">views สำหรับ query</text>
+  <text x="652" y="634" class="small">กัน join/grain ผิด</text>
+
+  <rect x="856" y="340" width="174" height="76" rx="14" class="card orange"/>
+  <text x="878" y="368" class="head">model</text>
+  <text x="878" y="391" class="text">8 views ให้ AI ใช้</text>
+  <text x="878" y="410" class="small">prompt-safe surface</text>
+
+  <rect x="856" y="452" width="174" height="76" rx="14" class="card gray"/>
+  <text x="878" y="480" class="head">audit</text>
+  <text x="878" y="503" class="text">ร่องรอยการโหลด/ค้น</text>
+  <text x="878" y="522" class="small">safety flags + trace</text>
+
+  <rect x="856" y="564" width="174" height="76" rx="14" class="card purple"/>
+  <text x="878" y="592" class="head">eval</text>
+  <text x="878" y="615" class="text">คำถามและ answer runs</text>
+  <text x="878" y="634" class="small">100-question workflow</text>
+
+  <rect x="1050" y="452" width="104" height="76" rx="14" class="card orange"/>
+  <text x="1072" y="480" class="head">meta</text>
+  <text x="1072" y="503" class="text">M-Schema</text>
+  <text x="1072" y="522" class="small">handoff</text>
+
+  <path class="arrow" d="M578 378 C625 378 640 378 670 378"/>
+  <path class="arrow" d="M578 490 C626 502 658 514 697 548"/>
+  <path class="arrow" d="M578 602 C610 602 613 602 630 602"/>
+  <path class="arrow" d="M804 602 C828 602 832 602 856 602"/>
+  <path class="arrow" d="M804 548 C830 520 836 490 856 490"/>
+  <path class="arrow" d="M804 378 C828 378 832 378 856 378"/>
+  <path class="arrow" d="M1030 490 C1038 490 1042 490 1050 490"/>
+
+  <rect x="1250" y="245" width="290" height="430" rx="20" class="output-panel"/>
+  <text x="1278" y="282" class="zone-title">Output</text>
+  <text x="1278" y="306" class="small">สิ่งที่ AI และทีมใช้ต่อ</text>
+  <rect x="1278" y="342" width="234" height="62" rx="13" class="card orange"/>
+  <text x="1300" y="367" class="label">Text-to-SQL / BI queries</text>
+  <text x="1300" y="389" class="small">คำนวณจาก core/mart/model</text>
+  <rect x="1278" y="426" width="234" height="62" rx="13" class="card orange"/>
+  <text x="1300" y="451" class="label">RAG evidence</text>
+  <text x="1300" y="473" class="small">ค้นเอกสารจาก rag</text>
+  <rect x="1278" y="510" width="234" height="62" rx="13" class="card orange"/>
+  <text x="1300" y="535" class="label">M-Schema prompt</text>
+  <text x="1300" y="557" class="small">schema guide สำหรับ model</text>
+  <rect x="1278" y="608" width="234" height="36" rx="10" class="card gray"/>
+  <text x="1300" y="631" class="small">Final answer cites source_table/source_pk</text>
+
+  <path class="arrow" d="M310 460 C340 460 340 460 370 460"/>
+  <path class="arrow" d="M1190 460 C1220 460 1220 460 1250 460"/>
+  <path class="soft-arrow" d="M1395 675 C1395 755 505 755 505 675"/>
+  <text x="672" y="742" class="small">trace loop: ถ้าคำตอบน่าสงสัย ต้องย้อนกลับมาตรวจ table/view/source ใน Postgres ได้</text>
+
+  <rect x="60" y="742" width="456" height="88" rx="18" class="note-panel"/>
+  <text x="88" y="776" class="zone-title">Rule 1: แยกชั้นข้อมูล</text>
+  <text x="88" y="802" class="label">raw/core/rag/mart/audit/eval/model ไม่ปนกัน</text>
+  <text x="88" y="822" class="small">ช่วย debug ง่าย และลดโอกาสที่ AI ใช้ข้อมูลผิดที่</text>
+
+  <rect x="572" y="742" width="456" height="88" rx="18" class="note-panel"/>
+  <text x="600" y="776" class="zone-title">Rule 2: ใช้ official evidence</text>
+  <text x="600" y="802" class="label">final answer ต้อง cite source ที่เชื่อถือได้</text>
+  <text x="600" y="822" class="small">helper/provenance ใช้ตรวจ แต่ไม่ควรเป็นหลักฐานสุดท้าย</text>
+
+  <rect x="1084" y="742" width="456" height="88" rx="18" class="note-panel"/>
+  <text x="1112" y="776" class="zone-title">Rule 3: Rebuild ได้</text>
+  <text x="1112" y="802" class="label">migrations + ingest scripts สร้างระบบใหม่ได้</text>
+  <text x="1112" y="822" class="small">ไม่ผูกกับเครื่องเดียวหรือ notebook เดียว</text>
+</svg>

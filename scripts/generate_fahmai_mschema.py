@@ -4,8 +4,9 @@
 The live PostgreSQL database is the preferred source of truth. When no database
 URL is supplied, this script falls back to a metadata-only representation parsed
 from the migration files plus the stable model-facing view contracts. By
-default, it emits only the compact fah_sai_lpk_model schema; use
---schema-mode legacy to emit the older broad core/mart/rag/eval surface.
+default, it emits only the compact fah_sai_lpk_model schema. Legacy mode is
+available for inspection, but it cannot overwrite the default LLM prompt
+artifacts.
 """
 
 from __future__ import annotations
@@ -23,9 +24,12 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_TEXT_OUTPUT = ROOT / "derived" / "fahmai_model_mschema.txt"
 DEFAULT_JSON_OUTPUT = ROOT / "derived" / "fahmai_model_mschema.json"
+DEFAULT_CORE_TEXT_OUTPUT = ROOT / "derived" / "fahmai_core_mschema.txt"
+DEFAULT_CORE_JSON_OUTPUT = ROOT / "derived" / "fahmai_core_mschema.json"
 DEFAULT_DDL_FILES = sorted((ROOT / "db").glob("*.sql"))
 
 MODEL_SCHEMA = "fah_sai_lpk_model"
+CORE_SCHEMA = "fah_sai_lpk_core"
 MODEL_SURFACE_VIEWS = {
     "sales_order_360",
     "sales_line_360",
@@ -35,6 +39,12 @@ MODEL_SURFACE_VIEWS = {
     "product_catalog",
     "policy_catalog",
     "document_evidence",
+}
+CORE_TABLE_COUNT_RANGE = range(31, 33)
+MODEL_CITATION_COLUMNS = {"source_table", "source_pk"}
+MODEL_CITATION_COLUMN_HINTS = {
+    "source_table": "Official source table for citation and routing.",
+    "source_pk": "Official source primary key for citation and audit trace.",
 }
 MODEL_MART_VIEWS = {
     "v_sales_order",
@@ -83,6 +93,7 @@ ALTER_FK_RE = re.compile(
     r"([a-zA-Z_][\w]*)\.([a-zA-Z_][\w]*)\s*\(([^)]+)\)",
     re.IGNORECASE | re.DOTALL,
 )
+MSCHEMA_TABLE_HEADER_RE = re.compile(r"^# Table:\s+([^,\s]+)", re.MULTILINE)
 
 SENSITIVE_COLUMN_RE = re.compile(
     r"(email|phone|first_name|last_name|name_th|name_en|customer_name|"
@@ -127,7 +138,7 @@ TABLE_HINTS = {
         "Model-facing policy/catalog surface for policy versions, signing authority ladder rows, promo campaigns/mechanics, and vendor contract versions."
     ),
     "fah_sai_lpk_model.document_evidence": (
-        "Model-facing public-safe document evidence surface over RAG chunks and entity links."
+        "Model-facing public-safe document evidence surface over compact BGE-M3 parent-child RAG chunks and entity links."
     ),
     "fah_sai_lpk_core.fact_sales": "Official sales order/header fact; one row per txn_id.",
     "fah_sai_lpk_core.fact_sales_line_item": "Official sales line fact; one row per line_item_id.",
@@ -165,7 +176,19 @@ COLUMN_HINTS = {
         "and (end_date IS NULL OR target date < end_date) unless the question states an inclusive end-date rule."
     ),
     "fah_sai_lpk_model.document_evidence.has_embedding": (
-        "True when this public-safe chunk has an embedding available through the underlying RAG retrieval functions."
+        "True when this public-safe BGE-M3 child chunk has a 1024-dimensional embedding available through match_public_chunks_bge_m3."
+    ),
+    "fah_sai_lpk_model.document_evidence.retrieval_profile": (
+        "Retrieval profile for embedded evidence. Default production profile is bge_m3_v1."
+    ),
+    "fah_sai_lpk_model.document_evidence.child_chunk_id": (
+        "Embedding-grain child chunk id for BGE-M3 retrieval and citations."
+    ),
+    "fah_sai_lpk_model.document_evidence.parent_chunk_id": (
+        "Parent context row used to hydrate this embedded child chunk."
+    ),
+    "fah_sai_lpk_model.document_evidence.parent_text": (
+        "Hydrated parent context for the matched child chunk. Use for answer context, not as a separate table."
     ),
     "fah_sai_lpk_core.fact_bank_transaction.related_entity_table": (
         "Polymorphic discriminator; FACT_SALES_DEPOSIT_BATCH is virtual."
@@ -258,6 +281,119 @@ def qualified(schema: str, name: str) -> str:
     return f"{schema}.{name}"
 
 
+def expected_model_surface_relations() -> set[str]:
+    return {qualified(MODEL_SCHEMA, view_name) for view_name in MODEL_SURFACE_VIEWS}
+
+
+def path_matches(path: Path, expected: Path) -> bool:
+    try:
+        return path.resolve() == expected.resolve()
+    except OSError:
+        return path == expected
+
+
+def ensure_legacy_outputs_are_explicit(schema_mode: str, output_text: Path, output_json: Path) -> None:
+    if schema_mode == "model":
+        return
+    if path_matches(output_text, DEFAULT_TEXT_OUTPUT) or path_matches(output_json, DEFAULT_JSON_OUTPUT):
+        raise SystemExit(
+            "Refusing to write legacy schema to the default LLM prompt artifacts. "
+            "Use --schema-mode model for derived/fahmai_model_mschema.* or pass "
+            "custom --output-text/--output-json paths for legacy inspection output."
+        )
+
+
+def resolve_output_paths(args: argparse.Namespace) -> None:
+    if args.schema_mode != "core":
+        return
+    if path_matches(args.output_text, DEFAULT_TEXT_OUTPUT):
+        args.output_text = DEFAULT_CORE_TEXT_OUTPUT
+    if path_matches(args.output_json, DEFAULT_JSON_OUTPUT):
+        args.output_json = DEFAULT_CORE_JSON_OUTPUT
+
+
+def validate_model_prompt_surface(model: MSchemaModel) -> None:
+    expected = expected_model_surface_relations()
+    actual = set(model.tables)
+    missing = sorted(expected - actual)
+    extra = sorted(actual - expected)
+    non_views = sorted(name for name, table in model.tables.items() if table.type != "view")
+    missing_citation_columns = {
+        name: sorted(MODEL_CITATION_COLUMNS - set(table.fields))
+        for name, table in model.tables.items()
+        if MODEL_CITATION_COLUMNS - set(table.fields)
+    }
+
+    errors = []
+    if missing:
+        errors.append(f"missing model views: {', '.join(missing)}")
+    if extra:
+        errors.append(f"unexpected prompt relations: {', '.join(extra)}")
+    if non_views:
+        errors.append(f"non-view prompt relations: {', '.join(non_views)}")
+    if missing_citation_columns:
+        details = ", ".join(
+            f"{name} lacks {', '.join(columns)}"
+            for name, columns in sorted(missing_citation_columns.items())
+        )
+        errors.append(f"missing citation columns: {details}")
+
+    if errors:
+        raise ValueError("Invalid FahMai model prompt surface: " + "; ".join(errors))
+
+
+def model_relation_names_from_prompt(rendered_mschema: str) -> list[str]:
+    return MSCHEMA_TABLE_HEADER_RE.findall(rendered_mschema)
+
+
+def validate_rendered_model_prompt(rendered_mschema: str) -> None:
+    expected = expected_model_surface_relations()
+    actual = set(model_relation_names_from_prompt(rendered_mschema))
+    missing = sorted(expected - actual)
+    extra = sorted(actual - expected)
+    count = len(model_relation_names_from_prompt(rendered_mschema))
+
+    errors = []
+    if count != len(expected):
+        errors.append(f"expected {len(expected)} table headers, found {count}")
+    if missing:
+        errors.append(f"missing table headers: {', '.join(missing)}")
+    if extra:
+        errors.append(f"unexpected table headers: {', '.join(extra)}")
+
+    if errors:
+        raise ValueError("Invalid rendered FahMai model prompt: " + "; ".join(errors))
+
+
+def validate_core_schema_surface(model: MSchemaModel) -> None:
+    table_count = len(model.tables)
+    errors = []
+    if table_count not in CORE_TABLE_COUNT_RANGE:
+        errors.append(f"expected 31-32 core tables, found {table_count}")
+    non_core = sorted(name for name in model.tables if not name.startswith(f"{CORE_SCHEMA}."))
+    if non_core:
+        errors.append(f"unexpected non-core relations: {', '.join(non_core)}")
+    non_tables = sorted(name for name, table in model.tables.items() if table.type != "table")
+    if non_tables:
+        errors.append(f"non-table core relations: {', '.join(non_tables)}")
+
+    if errors:
+        raise ValueError("Invalid FahMai core M-Schema surface: " + "; ".join(errors))
+
+
+def validate_rendered_core_prompt(rendered_mschema: str) -> None:
+    table_headers = model_relation_names_from_prompt(rendered_mschema)
+    errors = []
+    if len(table_headers) not in CORE_TABLE_COUNT_RANGE:
+        errors.append(f"expected 31-32 table headers, found {len(table_headers)}")
+    non_core = sorted(name for name in table_headers if not name.startswith(f"{CORE_SCHEMA}."))
+    if non_core:
+        errors.append(f"unexpected non-core table headers: {', '.join(non_core)}")
+
+    if errors:
+        raise ValueError("Invalid rendered FahMai core M-Schema: " + "; ".join(errors))
+
+
 def object_type_from_relkind(relkind: str) -> str:
     return {
         "r": "table",
@@ -270,8 +406,10 @@ def object_type_from_relkind(relkind: str) -> str:
 def should_include_object(schema: str, name: str, object_type: str, schema_mode: str) -> bool:
     if schema_mode == "model":
         return schema == MODEL_SCHEMA and object_type == "view" and name in MODEL_SURFACE_VIEWS
+    if schema_mode == "core":
+        return schema == CORE_SCHEMA and object_type == "table"
 
-    if schema == "fah_sai_lpk_core" and object_type == "table":
+    if schema == CORE_SCHEMA and object_type == "table":
         return True
     if schema == "fah_sai_lpk_mart" and object_type == "view":
         return name in MODEL_MART_VIEWS
@@ -860,7 +998,10 @@ def add_fallback_model_views(model: MSchemaModel) -> None:
                 "source_table",
                 "source_pk",
                 ("source_aliases", "text[]"),
+                "retrieval_profile",
                 "chunk_id",
+                "child_chunk_id",
+                "parent_chunk_id",
                 "source_document_id",
                 "source_path",
                 "source_kind",
@@ -868,6 +1009,7 @@ def add_fallback_model_views(model: MSchemaModel) -> None:
                 "doc_id",
                 ("chunk_index", "integer"),
                 "chunk_text",
+                "parent_text",
                 ("token_count", "integer"),
                 ("search_tsv", "tsvector"),
                 "embedding_model",
@@ -882,6 +1024,7 @@ def add_fallback_model_views(model: MSchemaModel) -> None:
                 "link_method",
                 ("confidence", "numeric(5,4)"),
                 ("chunk_metadata", "jsonb"),
+                ("parent_metadata", "jsonb"),
                 ("source_metadata", "jsonb"),
             ]
         ),
@@ -1036,12 +1179,22 @@ def apply_model_hints(model: MSchemaModel) -> None:
         if field_info is not None and not field_info.comment:
             field_info.comment = comment
 
+    for table_name, table_info in model.tables.items():
+        if not table_name.startswith(f"{MODEL_SCHEMA}."):
+            continue
+        for column_name, comment in MODEL_CITATION_COLUMN_HINTS.items():
+            field_info = table_info.fields.get(column_name)
+            if field_info is not None and not field_info.comment:
+                field_info.comment = comment
+
 
 def build_fallback_model(db_id: str, ddl_files: list[Path], schema_mode: str) -> MSchemaModel:
     model = MSchemaModel(db_id=db_id)
     sql_text = "\n".join(path.read_text(encoding="utf-8") for path in ddl_files if path.exists())
     if schema_mode == "model":
         add_fallback_model_views(model)
+    elif schema_mode == "core":
+        parse_fallback_tables(model, sql_text, schema_mode)
     else:
         parse_fallback_tables(model, sql_text, schema_mode)
         add_fallback_legacy_views(model)
@@ -1089,6 +1242,8 @@ def fetch_examples(
 def schemas_for_mode(schema_mode: str) -> list[str]:
     if schema_mode == "model":
         return [MODEL_SCHEMA]
+    if schema_mode == "core":
+        return [CORE_SCHEMA]
     return ["fah_sai_lpk_core", "fah_sai_lpk_mart", "fah_sai_lpk_rag", "fah_sai_lpk_eval"]
 
 
@@ -1259,6 +1414,10 @@ def dump_model(model: MSchemaModel) -> dict[str, Any]:
 
 def render_mschema(model: MSchemaModel, *, example_limit: int, show_type_detail: bool) -> str:
     output = [f"〖DB_ID〗 {model.db_id}", "〖Schema〗"]
+    fk_by_source_column = {
+        (table_name, field_name): (ref_table_name, ref_field_name)
+        for table_name, field_name, _ref_schema, ref_table_name, ref_field_name in model.foreign_keys
+    }
 
     for table_name, table_info in model.tables.items():
         if table_info.comment:
@@ -1274,6 +1433,10 @@ def render_mschema(model: MSchemaModel, *, example_limit: int, show_type_detail:
                 field_line += f", {field_info.comment.strip()}"
             if field_info.primary_key:
                 field_line += ", Primary Key"
+            fk_target = fk_by_source_column.get((table_name, field_name))
+            if fk_target:
+                ref_table_name, ref_field_name = fk_target
+                field_line += f", Maps to {ref_table_name}({ref_field_name})"
             examples = examples_to_str(field_info.examples)[:example_limit]
             if examples:
                 field_line += f", Examples: [{', '.join(examples)}]"
@@ -1311,9 +1474,13 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--schema-mode",
-        choices=["model", "legacy"],
+        choices=["model", "core", "legacy"],
         default="model",
-        help="model exposes only fah_sai_lpk_model's 8 LLM-facing views; legacy exposes the older broad core/mart/rag/eval surface.",
+        help=(
+            "model exposes only fah_sai_lpk_model's 8 LLM-facing views; "
+            "core exposes official fah_sai_lpk_core tables only; "
+            "legacy exposes the older broad core/mart/rag/eval surface."
+        ),
     )
     parser.add_argument("--output-text", type=Path, default=DEFAULT_TEXT_OUTPUT)
     parser.add_argument("--output-json", type=Path, default=DEFAULT_JSON_OUTPUT)
@@ -1328,6 +1495,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    resolve_output_paths(args)
+    ensure_legacy_outputs_are_explicit(args.schema_mode, args.output_text, args.output_json)
     source = "fallback"
 
     if args.database_url and not args.fallback_only:
@@ -1342,12 +1511,24 @@ def main() -> int:
     else:
         model = build_fallback_model(args.db_id, DEFAULT_DDL_FILES, args.schema_mode)
 
+    if args.schema_mode == "model":
+        validate_model_prompt_surface(model)
+    elif args.schema_mode == "core":
+        validate_core_schema_surface(model)
+
+    rendered_mschema = render_mschema(
+        model,
+        example_limit=args.example_limit,
+        show_type_detail=args.show_type_detail,
+    )
+    if args.schema_mode == "model":
+        validate_rendered_model_prompt(rendered_mschema)
+    elif args.schema_mode == "core":
+        validate_rendered_core_prompt(rendered_mschema)
+
     args.output_text.parent.mkdir(parents=True, exist_ok=True)
     args.output_json.parent.mkdir(parents=True, exist_ok=True)
-    args.output_text.write_text(
-        render_mschema(model, example_limit=args.example_limit, show_type_detail=args.show_type_detail),
-        encoding="utf-8",
-    )
+    args.output_text.write_text(rendered_mschema, encoding="utf-8")
     args.output_json.write_text(
         json.dumps(dump_model(model), ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",

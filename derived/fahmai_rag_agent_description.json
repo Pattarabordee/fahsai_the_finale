@@ -1,0 +1,72 @@
+{
+  "artifact_name": "fahmai_rag_agent_description",
+  "schema_mode": "rag_agent",
+  "version": "bge_m3_v1",
+  "purpose": "Short operational description for the FahMai RAG/Text-to-SQL agent.",
+  "main_mschema_query": {
+    "text": "SELECT content FROM fah_sai_lpk_meta.v_current_mschema_artifacts WHERE artifact_format = 'text';",
+    "json": "SELECT content FROM fah_sai_lpk_meta.v_current_mschema_artifacts WHERE artifact_format = 'json';"
+  },
+  "production_interfaces": {
+    "llm_schema_prompt": "fahmai_model_mschema text artifact only",
+    "sql_surface": "fah_sai_lpk_model 8 views only",
+    "retrieval_function": "fah_sai_lpk_rag.match_public_chunks_bge_m3",
+    "retrieval_profile": "bge_m3_v1",
+    "source_of_truth_boundary": "fah_sai_lpk_core is for backend execution, validation, and citation; do not expose it in the main LLM schema prompt."
+  },
+  "embedding_contract": {
+    "request_model": "baai/bge-m3",
+    "stored_model_label": "BAAI/bge-m3",
+    "dimension": 1024,
+    "provider_default": "OpenRouter OpenAI-compatible API",
+    "query_sql": "SELECT * FROM fah_sai_lpk_rag.match_public_chunks_bge_m3(:query_embedding::vector(1024), 8, 80);"
+  },
+  "llm_facing_relations": [
+    "fah_sai_lpk_model.sales_order_360",
+    "fah_sai_lpk_model.sales_line_360",
+    "fah_sai_lpk_model.finance_event",
+    "fah_sai_lpk_model.customer_ops_event",
+    "fah_sai_lpk_model.inventory_event",
+    "fah_sai_lpk_model.product_catalog",
+    "fah_sai_lpk_model.policy_catalog",
+    "fah_sai_lpk_model.document_evidence"
+  ],
+  "routing_guide": {
+    "sales_order_360": "Order counts, branch/channel/customer/payment status, order-level net totals.",
+    "sales_line_360": "SKU/product/category/vendor units and line_total_thb revenue. Do not sum repeated order_net_total_thb.",
+    "finance_event": "Refund payouts, bank transactions, payroll, vendor payments.",
+    "customer_ops_event": "Returns, warranty claims, CS interactions, shipping, loyalty, promo redemptions.",
+    "inventory_event": "Inventory movements and monthly inventory risk.",
+    "product_catalog": "Product attributes, vendor, recall, care-plus tier context.",
+    "policy_catalog": "Policy versions, signing authority, promo mechanics, vendor contract versions.",
+    "document_evidence": "Public-safe document/OCR evidence, parent-child RAG metadata, citations."
+  },
+  "retrieval_result_requirements": [
+    "child_chunk_id",
+    "parent_chunk_id",
+    "parent_text",
+    "chunk_text",
+    "source_path",
+    "source_table",
+    "source_pk"
+  ],
+  "aggregation_rules": [
+    "Use sales_order_360 for order-level totals and order counts.",
+    "Use sales_line_360.line_total_thb for SKU/product revenue.",
+    "Do not sum sales_line_360.order_net_total_thb because it repeats order-level values across line rows.",
+    "Use business_event_date as the default fact period axis unless the question explicitly asks for posting or accounting timing.",
+    "Convert BE years before filtering, for example BE 2568 is 2025-01-01 inclusive to 2026-01-01 exclusive."
+  ],
+  "citation_rules": [
+    "Prefer source_table and source_pk from model-facing rows or retrieved evidence.",
+    "Cite official source rows/tables, not helper views or internal provenance tables.",
+    "Use document_evidence and BGE retrieval for policy, report, and OCR support.",
+    "Treat audit/provenance-only artifacts as internal trace data, not final-answer evidence."
+  ],
+  "prompt_hygiene_rules": [
+    "The main LLM prompt must not list fah_sai_lpk_core, fah_sai_lpk_rag, fah_sai_lpk_mart, fah_sai_lpk_eval, raw schemas, or all 31 official CSV tables.",
+    "The 31-table core M-Schema may be loaded only for internal schema inspection, migration validation, or trusted DB tooling.",
+    "If the production prompt has more than 8 # Table headers, it is the wrong prompt."
+  ],
+  "remote_artifact_query": "SELECT content FROM fah_sai_lpk_meta.mschema_artifacts WHERE artifact_name = 'fahmai_rag_agent_description' AND schema_mode = 'rag_agent' AND artifact_format = 'text';"
+}

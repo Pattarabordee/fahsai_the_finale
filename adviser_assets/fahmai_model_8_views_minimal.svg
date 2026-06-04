@@ -1,0 +1,509 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">FahMai 8 Model Views Minimal</title>
+  <desc id="desc">Minimal slide diagram showing eight fah_sai_lpk_model views with short routing cues.</desc>
+  <foreignObject width="1920" height="1080">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="canvas">
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        .canvas {
+          width: 1920px;
+          height: 1080px;
+          margin: 0;
+          padding: 48px 58px;
+          overflow: hidden;
+          color: #111827;
+          background:
+            linear-gradient(90deg, rgba(203, 213, 225, 0.32) 0 1px, transparent 1px 100%),
+            linear-gradient(0deg, rgba(203, 213, 225, 0.28) 0 1px, transparent 1px 100%),
+            #fbfdff;
+          background-size: 36px 36px;
+          font-family: "Noto Sans Thai", "Leelawadee UI", "Sarabun", "Segoe UI", Arial, sans-serif;
+          letter-spacing: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+          margin: 0;
+        }
+
+        .header {
+          height: 116px;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 32px;
+        }
+
+        h1 {
+          font-size: 58px;
+          line-height: 1.02;
+          font-weight: 900;
+          color: #0f172a;
+        }
+
+        .subtitle {
+          margin-top: 12px;
+          color: #536174;
+          font-size: 24px;
+          line-height: 1.24;
+          font-weight: 500;
+        }
+
+        .schema {
+          flex: 0 0 auto;
+          margin-top: 6px;
+          padding: 16px 24px;
+          border: 3px solid #c7d2fe;
+          border-radius: 999px;
+          background: #eef2ff;
+          color: #26364f;
+          font-family: "Cascadia Mono", Consolas, monospace;
+          font-size: 20px;
+          font-weight: 850;
+          white-space: nowrap;
+        }
+
+        .main {
+          height: 780px;
+          display: grid;
+          grid-template-columns: 270px 1fr 350px;
+          gap: 34px;
+          align-items: center;
+        }
+
+        .source,
+        .route {
+          height: 650px;
+          border-radius: 28px;
+          background: rgba(255, 255, 255, 0.95);
+          border: 3px solid #cbd5e1;
+          box-shadow: 0 22px 46px rgba(15, 23, 42, 0.08);
+          padding: 28px;
+        }
+
+        .source {
+          border-color: #86c99e;
+          background: #f3fbf6;
+        }
+
+        .route {
+          border-color: #9aa7b7;
+          background: #f8fafc;
+        }
+
+        .side-title {
+          font-size: 28px;
+          line-height: 1.1;
+          font-weight: 900;
+          color: #172033;
+        }
+
+        .stack {
+          margin-top: 34px;
+          display: grid;
+          gap: 24px;
+        }
+
+        .source-chip {
+          height: 132px;
+          display: grid;
+          align-content: center;
+          gap: 10px;
+          border-radius: 22px;
+          border: 3px solid #6fc78f;
+          background: #ffffff;
+          padding: 22px;
+        }
+
+        .source-chip.rag {
+          border-color: #5fc9bf;
+          background: #ecfdf5;
+        }
+
+        .source-chip h3 {
+          font-family: "Cascadia Mono", Consolas, monospace;
+          font-size: 24px;
+          line-height: 1.05;
+          font-weight: 900;
+          color: #14532d;
+        }
+
+        .source-chip.rag h3 {
+          color: #115e59;
+        }
+
+        .source-chip p {
+          color: #526174;
+          font-size: 18px;
+          line-height: 1.25;
+          font-weight: 650;
+        }
+
+        .arrow-pill {
+          height: 72px;
+          display: grid;
+          place-items: center;
+          border-radius: 999px;
+          border: 2px dashed #94a3b8;
+          color: #334155;
+          background: #ffffff;
+          font-size: 20px;
+          font-weight: 850;
+        }
+
+        .model {
+          position: relative;
+          height: 650px;
+          border-radius: 30px;
+          border: 4px solid #edae54;
+          background: #fffaf1;
+          box-shadow: 0 24px 52px rgba(15, 23, 42, 0.10);
+          padding: 34px;
+        }
+
+        .model-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 22px;
+        }
+
+        .model-title {
+          font-size: 32px;
+          font-weight: 900;
+          color: #172033;
+        }
+
+        .model-note {
+          color: #7c2d12;
+          background: #fff7ed;
+          border: 3px solid #edae54;
+          border-radius: 999px;
+          padding: 12px 22px;
+          font-size: 21px;
+          font-weight: 900;
+          white-space: nowrap;
+        }
+
+        .views {
+          margin-top: 30px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+        }
+
+        .view {
+          height: 218px;
+          border-radius: 24px;
+          border: 4px solid var(--edge);
+          background: #ffffff;
+          padding: 22px 20px;
+          display: grid;
+          grid-template-rows: auto 1fr auto;
+          gap: 14px;
+          box-shadow: 0 12px 26px rgba(15, 23, 42, 0.06);
+        }
+
+        .topline {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+
+        .num {
+          width: 44px;
+          height: 44px;
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          background: var(--soft);
+          color: var(--deep);
+          font-size: 22px;
+          font-weight: 950;
+        }
+
+        .name {
+          min-width: 0;
+          color: #172033;
+          font-family: "Cascadia Mono", Consolas, monospace;
+          font-size: 17px;
+          line-height: 1.08;
+          font-weight: 900;
+          white-space: nowrap;
+        }
+
+        .tag {
+          align-self: center;
+          width: fit-content;
+          max-width: 100%;
+          border-radius: 999px;
+          background: var(--soft);
+          color: var(--deep);
+          padding: 9px 14px;
+          font-size: 25px;
+          line-height: 1;
+          font-weight: 950;
+        }
+
+        .hint {
+          color: #64748b;
+          font-size: 17px;
+          line-height: 1.15;
+          font-weight: 700;
+        }
+
+        .blue {
+          --edge: #4d7fd0;
+          --soft: #dbeafe;
+          --deep: #1e40af;
+        }
+
+        .cyan {
+          --edge: #22a6b3;
+          --soft: #cffafe;
+          --deep: #0e7490;
+        }
+
+        .green {
+          --edge: #34a853;
+          --soft: #dcfce7;
+          --deep: #166534;
+        }
+
+        .rose {
+          --edge: #e36a86;
+          --soft: #ffe4e6;
+          --deep: #9f1239;
+        }
+
+        .teal {
+          --edge: #14b8a6;
+          --soft: #ccfbf1;
+          --deep: #0f766e;
+        }
+
+        .violet {
+          --edge: #8b5cf6;
+          --soft: #ede9fe;
+          --deep: #5b21b6;
+        }
+
+        .amber {
+          --edge: #f59e0b;
+          --soft: #fef3c7;
+          --deep: #92400e;
+        }
+
+        .slate {
+          --edge: #64748b;
+          --soft: #e2e8f0;
+          --deep: #334155;
+        }
+
+        .route-list {
+          margin-top: 34px;
+          display: grid;
+          gap: 18px;
+        }
+
+        .route-row {
+          min-height: 72px;
+          display: grid;
+          grid-template-columns: 64px 1fr;
+          align-items: center;
+          gap: 16px;
+          border-radius: 20px;
+          border: 2px solid #d5dde8;
+          background: #ffffff;
+          padding: 14px 16px;
+        }
+
+        .route-key {
+          width: 52px;
+          height: 52px;
+          display: grid;
+          place-items: center;
+          border-radius: 16px;
+          background: var(--soft);
+          color: var(--deep);
+          font-size: 23px;
+          font-weight: 950;
+        }
+
+        .route-text {
+          color: #172033;
+          font-size: 21px;
+          line-height: 1.18;
+          font-weight: 850;
+        }
+
+        .footer {
+          height: 112px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 24px;
+          border: 3px solid #cbd5e1;
+          border-radius: 28px;
+          background: #ffffff;
+          box-shadow: 0 16px 32px rgba(15, 23, 42, 0.06);
+          color: #172033;
+          font-size: 28px;
+          line-height: 1.2;
+          font-weight: 850;
+          text-align: center;
+        }
+
+        .footer code {
+          font-family: "Cascadia Mono", Consolas, monospace;
+          background: #f1f5f9;
+          padding: 4px 10px;
+          border-radius: 10px;
+          color: #26364f;
+          font-size: 25px;
+        }
+      </style>
+
+      <header class="header">
+        <div>
+          <h1>8 Model Views สำหรับ Agent</h1>
+          <p class="subtitle">เลือก view ตาม grain: order, line, event, lookup, evidence</p>
+        </div>
+        <div class="schema">fah_sai_lpk_model</div>
+      </header>
+
+      <main class="main">
+        <section class="source">
+          <h2 class="side-title">แหล่งข้อมูล</h2>
+          <div class="stack">
+            <div class="source-chip">
+              <h3>CORE</h3>
+              <p>FACT / DIM จริง</p>
+            </div>
+            <div class="arrow-pill">ย่อให้ถามง่าย</div>
+            <div class="source-chip rag">
+              <h3>RAG</h3>
+              <p>public-safe evidence</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="model">
+          <div class="model-head">
+            <h2 class="model-title">Compact Surface</h2>
+            <div class="model-note">8 views เท่านั้น</div>
+          </div>
+
+          <div class="views">
+            <article class="view blue">
+              <div class="topline">
+                <div class="num">1</div>
+                <h3 class="name">sales_order_360</h3>
+              </div>
+              <div class="tag">Order</div>
+              <p class="hint">ยอดขายระดับบิล</p>
+            </article>
+
+            <article class="view cyan">
+              <div class="topline">
+                <div class="num">2</div>
+                <h3 class="name">sales_line_360</h3>
+              </div>
+              <div class="tag">SKU Line</div>
+              <p class="hint">สินค้า / จำนวน / ส่วนลด</p>
+            </article>
+
+            <article class="view green">
+              <div class="topline">
+                <div class="num">3</div>
+                <h3 class="name">finance_event</h3>
+              </div>
+              <div class="tag">Money</div>
+              <p class="hint">เงินเข้าออก</p>
+            </article>
+
+            <article class="view rose">
+              <div class="topline">
+                <div class="num">4</div>
+                <h3 class="name">customer_ops_event</h3>
+              </div>
+              <div class="tag">After Sales</div>
+              <p class="hint">คืน / เคลม / CS</p>
+            </article>
+
+            <article class="view teal">
+              <div class="topline">
+                <div class="num">5</div>
+                <h3 class="name">inventory_event</h3>
+              </div>
+              <div class="tag">Stock</div>
+              <p class="hint">คลัง / movement / shipping</p>
+            </article>
+
+            <article class="view violet">
+              <div class="topline">
+                <div class="num">6</div>
+                <h3 class="name">product_catalog</h3>
+              </div>
+              <div class="tag">Product</div>
+              <p class="hint">SKU / vendor / recall</p>
+            </article>
+
+            <article class="view amber">
+              <div class="topline">
+                <div class="num">7</div>
+                <h3 class="name">policy_catalog</h3>
+              </div>
+              <div class="tag">Policy</div>
+              <p class="hint">rule / contract / authority</p>
+            </article>
+
+            <article class="view slate">
+              <div class="topline">
+                <div class="num">8</div>
+                <h3 class="name">document_evidence</h3>
+              </div>
+              <div class="tag">Evidence</div>
+              <p class="hint">เอกสารที่ cite ได้</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="route">
+          <h2 class="side-title">Route เร็ว ๆ</h2>
+          <div class="route-list">
+            <div class="route-row blue">
+              <div class="route-key">S</div>
+              <div class="route-text">Sales -> Order / Line</div>
+            </div>
+            <div class="route-row green">
+              <div class="route-key">F</div>
+              <div class="route-text">Cash -> Finance</div>
+            </div>
+            <div class="route-row rose">
+              <div class="route-key">C</div>
+              <div class="route-text">Customer -> Ops</div>
+            </div>
+            <div class="route-row teal">
+              <div class="route-key">I</div>
+              <div class="route-text">Stock -> Inventory</div>
+            </div>
+            <div class="route-row amber">
+              <div class="route-key">E</div>
+              <div class="route-text">Why -> Evidence</div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        Default: เริ่มจาก <code>fah_sai_lpk_model</code> ก่อน แล้วค่อยลง <code>core</code> / <code>rag</code> เมื่อจำเป็น
+      </footer>
+    </div>
+  </foreignObject>
+</svg>

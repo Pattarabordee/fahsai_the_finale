@@ -1,0 +1,161 @@
+{
+  "artifact_name": "fahmai_core_description",
+  "schema_mode": "core_reference",
+  "purpose": "Trusted internal reference for the 31 official core tables in fah_sai_lpk_core.",
+  "important_boundary": {
+    "is_production_prompt": false,
+    "production_prompt_artifact": "fahmai_model_mschema",
+    "production_sql_surface": "fah_sai_lpk_model 8 views",
+    "usage_rule": "Use this core reference only for internal schema inspection, SQL validation, citation audit, or trusted DB tooling. Do not inject all 31 core tables into the normal production RAG prompt."
+  },
+  "related_artifacts": {
+    "production_model_mschema": {
+      "artifact_name": "fahmai_model_mschema",
+      "schema_mode": "model"
+    },
+    "rag_agent_description": {
+      "artifact_name": "fahmai_rag_agent_description",
+      "schema_mode": "rag_agent"
+    },
+    "core_mschema_files": [
+      "derived/fahmai_core_mschema.txt",
+      "derived/fahmai_core_mschema.json"
+    ]
+  },
+  "core_schema": {
+    "schema_name": "fah_sai_lpk_core",
+    "relation_count": 31,
+    "foreign_key_count": 64,
+    "table_mix": {
+      "dimensions_and_lookups": 16,
+      "facts": 14,
+      "document_inventory": 1
+    },
+    "type_rules": [
+      "ID-like fields are text unless a table-specific numeric surrogate exists.",
+      "Amounts use numeric types.",
+      "Dates use date.",
+      "Timestamps use timestamptz.",
+      "Polymorphic columns such as source_table, source_pk, related_entity_table, and related_entity_id are citation/routing fields, not normal foreign keys."
+    ]
+  },
+  "dimension_tables": {
+    "dim_bank_account": "Bank account master, account role, currency, branch association.",
+    "dim_branch": "Branch/HQ/service-center master and branch traffic/headcount allocation hints.",
+    "dim_care_plus_sku_tier": "Care-plus coverage and price by SKU and policy version.",
+    "dim_customer": "Customer master, B2B/B2C attributes, loyalty, account manager, contact fields.",
+    "dim_date": "Date dimension with Buddhist Era calendar, fiscal year/quarter, holiday flags.",
+    "dim_department": "Organization department lookup.",
+    "dim_employee": "Employee master with department, branch, position level, and role.",
+    "dim_policy_version": "Policy document/version master and effective-period policy metadata.",
+    "dim_position_level": "Role/position hierarchy and approval level.",
+    "dim_product": "SKU/product master, category, vendor, department, price/cost attributes.",
+    "dim_product_recall_history": "Recall status/effective dates by SKU.",
+    "dim_promo_campaign": "Promotion campaign master.",
+    "dim_promo_mechanic": "Promotion mechanics/rules under campaigns and policy versions.",
+    "dim_signing_authority_ladder": "Approval authority thresholds by policy, department, role, and amount.",
+    "dim_vendor": "Vendor master and account manager context.",
+    "dim_vendor_contract_version": "Vendor contract terms and effective-period contract metadata."
+  },
+  "fact_tables": {
+    "fact_bank_transaction": {
+      "grain": "one row per bank_txn_id",
+      "use_for": "Bank movement, reconciliation, refund/vendor/payroll/deposit payment traces."
+    },
+    "fact_cs_interaction": {
+      "grain": "one row per CS interaction",
+      "use_for": "Customer contact, complaint themes, follow-up and service context."
+    },
+    "fact_inventory_monthly_snapshot": {
+      "grain": "one row per branch/SKU/month snapshot",
+      "use_for": "Stock-on-hand, slow-moving, reorder and inventory-risk questions."
+    },
+    "fact_inventory_movement": {
+      "grain": "one row per inventory movement",
+      "use_for": "Transfers, adjustments, receipts, and stock movements."
+    },
+    "fact_loyalty_ledger": {
+      "grain": "one row per loyalty points ledger entry",
+      "use_for": "Points earn, burn, expiry, and adjustment questions."
+    },
+    "fact_payroll": {
+      "grain": "one row per payroll event",
+      "use_for": "Payroll payments, employee compensation, and bank payout traces."
+    },
+    "fact_promo_redemption": {
+      "grain": "one row per promotion redemption",
+      "use_for": "Campaign usage and customer/order promo linkage."
+    },
+    "fact_refund_paid": {
+      "grain": "one row per refund payout",
+      "use_for": "Refund amounts, approval, method, and bank transaction linkage."
+    },
+    "fact_return": {
+      "grain": "one row per return event",
+      "use_for": "Return reasons, refund linkage, and post-sale issue analysis."
+    },
+    "fact_sales": {
+      "grain": "one row per sales transaction/order",
+      "use_for": "Order counts, branch/channel/customer/payment status, order-level totals."
+    },
+    "fact_sales_line_item": {
+      "grain": "one row per sales line item",
+      "use_for": "SKU/product/category/vendor units and line-level revenue."
+    },
+    "fact_shipping": {
+      "grain": "one row per shipping event",
+      "use_for": "Delivery status, carrier, SLA, and delivery issues."
+    },
+    "fact_vendor_payment": {
+      "grain": "one row per vendor payment/invoice event",
+      "use_for": "AP, vendor payment status, contract, bank transaction, and posting lag."
+    },
+    "fact_warranty_claim": {
+      "grain": "one row per warranty claim",
+      "use_for": "Warranty issue types, service status, SKU/customer/branch context."
+    }
+  },
+  "document_inventory_table": {
+    "t2_doc_inventory": "Official document inventory and document metadata for mapping policies, reports, memos, and OCR/document references back to official files."
+  },
+  "default_date_rule": [
+    "For fact tables, use business_event_date as the default period filter when the question mentions a month, quarter, or year without specifying a date axis.",
+    "Use posting_date only when the question explicitly asks for accounting, posted, booked, or bank-posting timing.",
+    "Treat effective_date and as_of_date as metadata/snapshot dates unless a table-specific policy requires them.",
+    "Convert Buddhist Era years before filtering. BE 2568 means 2025-01-01 inclusive through 2026-01-01 exclusive."
+  ],
+  "safe_join_guide": [
+    "fact_sales.txn_id = fact_sales_line_item.txn_id",
+    "fact_sales.branch_code = dim_branch.branch_code",
+    "fact_sales.customer_id = dim_customer.customer_id",
+    "fact_sales_line_item.sku_id = dim_product.sku_id",
+    "dim_product.vendor_id = dim_vendor.vendor_id",
+    "dim_product.dept_code = dim_department.dept_code",
+    "fact_refund_paid.return_id = fact_return.return_id when present",
+    "fact_refund_paid.bank_txn_id = fact_bank_transaction.bank_txn_id when present",
+    "fact_vendor_payment.bank_txn_id = fact_bank_transaction.bank_txn_id when present",
+    "fact_payroll.employee_id = dim_employee.employee_id",
+    "fact_payroll.bank_txn_id = fact_bank_transaction.bank_txn_id when present",
+    "Inventory events/snapshots join branch_code to dim_branch and sku_id to dim_product.",
+    "Policy/version joins use policy_version_id against dim_policy_version."
+  ],
+  "aggregation_rules": [
+    "fact_sales is order-grain. Sum order-level totals here.",
+    "fact_sales_line_item is line-grain. Sum line_total_thb or line-level fields here.",
+    "Do not sum repeated order-level values after joining fact_sales to fact_sales_line_item unless the query groups back to txn_id first.",
+    "For product/category/vendor revenue, use fact_sales_line_item line amounts.",
+    "For order/channel/branch/customer revenue, prefer fact_sales order-level totals.",
+    "For inventory risk, distinguish movement events from monthly snapshots."
+  ],
+  "citation_rules": [
+    "Core tables are official source-of-truth tables for citation and validation.",
+    "Prefer source_table/source_pk from model-facing views or retrieved evidence, then map back to the matching core table and primary key.",
+    "Cite official core rows/tables, official document paths, or document evidence.",
+    "Do not cite helper marts, internal audit tables, or prompt artifacts as business evidence.",
+    "Use t2_doc_inventory and document_evidence for policy/report/OCR citations."
+  ],
+  "remote_artifact_query": {
+    "text": "SELECT content FROM fah_sai_lpk_meta.mschema_artifacts WHERE artifact_name = 'fahmai_core_description' AND schema_mode = 'core_reference' AND artifact_format = 'text';",
+    "json": "SELECT content FROM fah_sai_lpk_meta.mschema_artifacts WHERE artifact_name = 'fahmai_core_description' AND schema_mode = 'core_reference' AND artifact_format = 'json';"
+  }
+}

@@ -1,0 +1,493 @@
+〖DB_ID〗 fahmai
+〖Schema〗
+# Table: fah_sai_lpk_core.dim_bank_account
+[
+(account_id:TEXT, Primary Key, Examples: [BBL-OPER, KBANK-OPER, OPER-BKK-CTW]),
+(bank:TEXT),
+(account_number:TEXT),
+(account_role:TEXT, Examples: [operating]),
+(associated_branch_code:TEXT, Maps to fah_sai_lpk_core.dim_branch(branch_code), Examples: [BKK-CTW, BKK-EMSP, BKK-PKT]),
+(currency:TEXT, Examples: [THB]),
+(opening_balance_thb:NUMERIC, Examples: [1000000.00, 10000000.00, 3000000.00]),
+(statement_cadence:TEXT)
+]
+# Table: fah_sai_lpk_core.dim_branch
+[
+(branch_code:TEXT, Primary Key, Examples: [BKK-CTW, BKK-EMSP, BKK-PKT]),
+(name_th:TEXT),
+(name_en:TEXT),
+(branch_type:TEXT, Examples: [branch, hq, remote]),
+(is_service_center:BOOLEAN, Examples: [false, true]),
+(retail_floor_coefficient:NUMERIC, Examples: [0.000000, 0.200000, 0.900000]),
+(traffic_share_pct:NUMERIC, Examples: [0.050000, 0.060000, 0.070000]),
+(employee_headcount_share_pct:NUMERIC, Examples: [0.040000, 0.050000, 0.060000])
+]
+# Table: fah_sai_lpk_core.dim_care_plus_sku_tier
+[
+(tier_row_id:TEXT, Primary Key, Examples: [1, 2]),
+(policy_version_id:TEXT, Maps to fah_sai_lpk_core.dim_policy_version(policy_version_id), Examples: [7]),
+(sku_id:TEXT, Maps to fah_sai_lpk_core.dim_product(sku_id), Examples: [NT-LT-001, SF-Galaxy-Pro-2568]),
+(sku_category:TEXT),
+(care_plus_price_thb:NUMERIC, Examples: [3490.00, 3990.00]),
+(coverage_months:INTEGER, Examples: [24, 36]),
+(description_th:TEXT)
+]
+# Table: fah_sai_lpk_core.dim_customer
+[
+(customer_id:TEXT, Primary Key, Examples: [CUST-L3-000001, CUST-L3-000002, CUST-L3-000003]),
+(first_name_th:TEXT),
+(last_name_th:TEXT),
+(first_name_en:TEXT),
+(last_name_en:TEXT),
+(email:TEXT),
+(phone:TEXT),
+(province:TEXT, Examples: [Bangkok]),
+(region:TEXT, Examples: [BKK]),
+(age:INTEGER, Examples: [25, 26, 27]),
+(gender:TEXT),
+(signup_date:DATE, Examples: [2024-01-05, 2024-02-01]),
+(customer_type:TEXT, Examples: [B2B, B2C]),
+(b2b_subtype:TEXT),
+(account_manager_id:TEXT, Maps to fah_sai_lpk_core.dim_employee(employee_id), Examples: [EMP-L3-00002]),
+(payment_terms:TEXT),
+(loyalty_tier:TEXT, Examples: [gold, none, platinum]),
+(channel_pref:TEXT),
+(uses_line_oa:BOOLEAN, Examples: [false, true])
+]
+# Table: fah_sai_lpk_core.dim_date
+[
+(date_iso:DATE, Primary Key, Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(date_be_string:TEXT),
+(day_of_week:INTEGER, Examples: [1, 2, 3]),
+(is_thai_public_holiday:BOOLEAN, Examples: [false]),
+(holiday_name:TEXT),
+(fiscal_year:INTEGER, Examples: [2567, 2568]),
+(fiscal_quarter:INTEGER, Examples: [1, 2, 3])
+]
+# Table: fah_sai_lpk_core.dim_department
+[
+(dept_code:TEXT, Primary Key, Examples: [B2B, CEO, FIN]),
+(dept_name_th:TEXT),
+(dept_name_en:TEXT),
+(dept_type:TEXT, Examples: [corporate, product_division])
+]
+# Table: fah_sai_lpk_core.dim_employee
+[
+(employee_id:TEXT, Primary Key, Examples: [EMP-L3-00001, EMP-L3-00002, EMP-L3-00003]),
+(first_name_th:TEXT),
+(last_name_th:TEXT),
+(first_name_en:TEXT),
+(last_name_en:TEXT),
+(email:TEXT),
+(phone:TEXT),
+(branch_code:TEXT, Maps to fah_sai_lpk_core.dim_branch(branch_code), Examples: [BKK-R9]),
+(dept_code:TEXT, Maps to fah_sai_lpk_core.dim_department(dept_code), Examples: [B2B, CEO, FIN]),
+(section:TEXT),
+(unit:TEXT),
+(position_title:TEXT),
+(position_level:TEXT, Maps to fah_sai_lpk_core.dim_position_level(position_level_code)),
+(reports_to_employee_id:TEXT, Maps to fah_sai_lpk_core.dim_employee(employee_id), Examples: [EMP-L3-00001, EMP-L3-00002, EMP-L3-00003]),
+(hire_date:DATE, Examples: [2023-01-01]),
+(termination_date:DATE),
+(termination_reason:TEXT),
+(status:TEXT),
+(employment_type:TEXT, Examples: [FT]),
+(is_canon_leader:BOOLEAN, Examples: [false, true]),
+(canon_role_label:TEXT)
+]
+# Table: fah_sai_lpk_core.dim_policy_version
+[
+(policy_version_id:TEXT, Primary Key, Examples: [1, 10, 11]),
+(policy_class:TEXT),
+(policy_variable:TEXT),
+(scope_filter:TEXT),
+(value_numeric:NUMERIC, Examples: [0.0100, 0.0125, 14.0000]),
+(value_text:TEXT),
+(policy_value_table_ref:TEXT),
+(effective_date:DATE, Examples: [2024-01-01, 2025-02-15, 2025-03-01]),
+(end_date:DATE, Examples: [2025-02-15, 2025-03-01, 2025-03-15]),
+(policy_doc_filename:TEXT)
+]
+# Table: fah_sai_lpk_core.dim_position_level
+[
+(position_level_code:TEXT, Primary Key, Examples: [C-level, Director, IC]),
+(rank:INTEGER, Examples: [1, 2, 3]),
+(default_signing_authority_thb:NUMERIC, Examples: [0.00, 100000.00, 1000000.00])
+]
+# Table: fah_sai_lpk_core.dim_product
+[
+(sku_id:TEXT, Primary Key, Examples: [AW-MN-001, DN-LT-010, NT-LT-001]),
+(brand_family:TEXT, Examples: [ArcWave, Dawn, FahMai]),
+(dept_code:TEXT, Maps to fah_sai_lpk_core.dim_department(dept_code), Examples: [SF]),
+(category:TEXT, Examples: [laptop, monitor, smartphone]),
+(subcategory:TEXT, Examples: [flagship, midrange]),
+(msrp_thb:NUMERIC, Examples: [12900.00, 16900.00, 18900.00]),
+(msrp_tier:TEXT, Examples: [10K-30K, <10K, >=30K]),
+(is_third_party:BOOLEAN, Examples: [false, true]),
+(vendor_id:TEXT, Maps to fah_sai_lpk_core.dim_vendor(vendor_id), Examples: [V-001, V-002]),
+(launch_date:DATE, Examples: [2023-01-01, 2024-01-01, 2025-07-15]),
+(end_of_life_date:DATE),
+(warranty_months:INTEGER, Examples: [12, 24, 36]),
+(care_plus_eligible:BOOLEAN, Examples: [false, true])
+]
+# Table: fah_sai_lpk_core.dim_product_recall_history
+[
+(history_id:TEXT, Primary Key, Examples: [1, 2, 3]),
+(sku_id:TEXT, Maps to fah_sai_lpk_core.dim_product(sku_id), Examples: [NT-LT-001]),
+(status:TEXT),
+(transition_date:DATE, Examples: [2024-01-01, 2025-09-10, 2025-10-15])
+]
+# Table: fah_sai_lpk_core.dim_promo_campaign
+[
+(campaign_id:TEXT, Primary Key, Examples: [CLEAR-EOY-2567, CLEAR-EOY-2568, MEGA-1111-2567]),
+(start_timestamp:TIMESTAMP WITH TIME ZONE, Examples: [2024-11-10 17:00:00+00, 2024-12-11 17:00:00+00, 2024-12-19 17:00:00+00]),
+(end_timestamp:TIMESTAMP WITH TIME ZONE, Examples: [2024-11-12 16:59:59+00, 2024-12-13 16:59:59+00, 2024-12-31 16:59:59+00]),
+(scope_filter:TEXT),
+(description_th:TEXT),
+(description_en:TEXT)
+]
+# Table: fah_sai_lpk_core.dim_promo_mechanic
+[
+(promo_mechanic_id:TEXT, Primary Key, Examples: [1, 2, 3]),
+(campaign_id:TEXT, Maps to fah_sai_lpk_core.dim_promo_campaign(campaign_id), Examples: [CLEAR-EOY-2567, CLEAR-EOY-2568, MEGA-1111-2567]),
+(discount_type:TEXT, Examples: [pct_off, point_multiplier]),
+(discount_value:NUMERIC, Examples: [0.0500, 0.1200, 0.1500]),
+(point_multiplier:NUMERIC, Examples: [2.0000]),
+(min_basket_thb:NUMERIC),
+(description_th:TEXT)
+]
+# Table: fah_sai_lpk_core.dim_signing_authority_ladder
+[
+(ladder_row_id:TEXT, Primary Key, Examples: [1, 2, 3]),
+(policy_version_id:TEXT, Maps to fah_sai_lpk_core.dim_policy_version(policy_version_id), Examples: [5, 6]),
+(position_level_code:TEXT, Maps to fah_sai_lpk_core.dim_position_level(position_level_code), Examples: [C-level, Director, IC]),
+(dept_code:TEXT, Maps to fah_sai_lpk_core.dim_department(dept_code), Examples: [SUP]),
+(amount_ceiling_thb:NUMERIC, Examples: [0.00, 100000.00, 5000.00]),
+(min_co_signers:INTEGER, Examples: [0, 1]),
+(co_signer_min_position_level_code:TEXT, Maps to fah_sai_lpk_core.dim_position_level(position_level_code), Examples: [Manager]),
+(description_th:TEXT)
+]
+# Table: fah_sai_lpk_core.dim_vendor
+[
+(vendor_id:TEXT, Primary Key, Examples: [V-001, V-002, V-006]),
+(name_th:TEXT),
+(name_en:TEXT),
+(category:TEXT, Examples: [consumer_brand, logistics, payments]),
+(role:TEXT),
+(payment_terms:TEXT),
+(invoice_cadence:TEXT),
+(is_partner_brand:BOOLEAN, Examples: [false, true]),
+(is_component_supplier:BOOLEAN, Examples: [false]),
+(start_date:DATE, Examples: [2023-01-01, 2025-04-01]),
+(end_date:DATE, Examples: [2025-03-31])
+]
+# Table: fah_sai_lpk_core.dim_vendor_contract_version
+[
+(contract_version_id:TEXT, Primary Key, Examples: [1, 10, 11]),
+(vendor_id:TEXT, Maps to fah_sai_lpk_core.dim_vendor(vendor_id), Examples: [V-001, V-002, V-006]),
+(version_number:INTEGER, Examples: [1, 2, 3]),
+(effective_date:DATE, Examples: [2024-01-01, 2024-07-01, 2024-09-01]),
+(end_date:DATE, Examples: [2024-07-01, 2024-09-01, 2025-02-01]),
+(contract_pdf_filename:TEXT),
+(amendment_summary:TEXT)
+]
+# Table: fah_sai_lpk_core.fact_bank_transaction, Official bank transaction fact and reconciliation spine.
+[
+(bank_txn_id:TEXT, Primary Key, Examples: [BT-202401-1001612189611, BT-202401-1001773818030, BT-202401-100288086373]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(account_id:TEXT, Maps to fah_sai_lpk_core.dim_bank_account(account_id), Examples: [BBL-OPER, KBANK-OPER, OPER-BKK-CTW]),
+(transaction_type:TEXT, Examples: [deposit, fee, transfer]),
+(counterparty:TEXT),
+(related_entity_id:TEXT, Examples: [1000243805828, 100024549842, 1000357467770]),
+(related_entity_table:TEXT, Polymorphic source discriminator. FACT_SALES_DEPOSIT_BATCH is intentionally virtual, not an official core table., Examples: [FACT_LOYALTY_LEDGER, FACT_PAYROLL, FACT_REFUND_PAID]),
+(amount_thb:NUMERIC, Examples: [-104500.00, -12500.00, -12900.00]),
+(balance_after_thb:NUMERIC, Examples: [-10000900.00, -10032350.00, -1003800.00]),
+(description:TEXT)
+]
+# Table: fah_sai_lpk_core.fact_cs_interaction
+[
+(cs_interaction_id:TEXT, Primary Key, Examples: [CSI-202401-017967, CSI-202401-023434, CSI-202401-047933]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(customer_id:TEXT, Maps to fah_sai_lpk_core.dim_customer(customer_id), Examples: [CUST-L3-000005, CUST-L3-000009, CUST-L3-000014]),
+(employee_id:TEXT, Maps to fah_sai_lpk_core.dim_employee(employee_id), Examples: [EMP-L3-00010, EMP-L3-00019, EMP-L3-00025]),
+(branch_code:TEXT, Maps to fah_sai_lpk_core.dim_branch(branch_code), Examples: [BKK-R9]),
+(channel:TEXT),
+(interaction_type:TEXT, Examples: [chat_general, refund_request, warranty_claim]),
+(resolution_type:TEXT, Examples: [open, resolved]),
+(related_refund_id:TEXT, Maps to fah_sai_lpk_core.fact_refund_paid(refund_id), Examples: [RFD-202401-01003586, RFD-202401-01006864, RFD-202401-01009523]),
+(related_warranty_claim_id:TEXT, Maps to fah_sai_lpk_core.fact_warranty_claim(claim_id), Examples: [WC-202401-01009861, WC-202401-01029212, WC-202401-02002376]),
+(chat_session_id:TEXT, Examples: [CHAT-LO-2024-01-01-18e2b7, CHAT-LO-2024-01-01-6a4b13, CHAT-LO-2024-01-01-78d15f])
+]
+# Table: fah_sai_lpk_core.fact_inventory_monthly_snapshot
+[
+(snapshot_id:TEXT, Primary Key, Examples: [1000019148215, 1000037729696, 1000064739095]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-31, 2024-02-29, 2024-03-31]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-31, 2024-02-29, 2024-03-31]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(month_end_date:DATE, Examples: [2024-01-31, 2024-02-29, 2024-03-31]),
+(sku_id:TEXT, Maps to fah_sai_lpk_core.dim_product(sku_id), Examples: [AW-MN-001, DN-LT-010, NT-LT-001]),
+(branch_code:TEXT, Maps to fah_sai_lpk_core.dim_branch(branch_code), Examples: [BKK-CTW, BKK-EMSP, BKK-PKT]),
+(closing_units:INTEGER, Examples: [0, 1, 10])
+]
+# Table: fah_sai_lpk_core.fact_inventory_movement
+[
+(movement_id:TEXT, Primary Key, Examples: [1, 10, 100]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(sku_id:TEXT, Maps to fah_sai_lpk_core.dim_product(sku_id), Examples: [AW-MN-001, DN-LT-010, NT-LT-001]),
+(branch_code:TEXT, Maps to fah_sai_lpk_core.dim_branch(branch_code), Examples: [BKK-CTW, BKK-EMSP, BKK-PKT]),
+(movement_type:TEXT, Examples: [opening_balance, sale, transfer_in]),
+(quantity:INTEGER, Examples: [-1, -50, 111]),
+(related_txn_id:TEXT, Polymorphic id: TXN-* can point to sales; XFER-* is an internal transfer id., Examples: [TXN-202401-01000002, TXN-202401-01000422, TXN-202401-01000462])
+]
+# Table: fah_sai_lpk_core.fact_loyalty_ledger
+[
+(ledger_id:TEXT, Primary Key, Examples: [1000052950198, 100005633475, 1000056583830]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(customer_id:TEXT, Maps to fah_sai_lpk_core.dim_customer(customer_id), Examples: [CUST-L3-000001, CUST-L3-000002, CUST-L3-000004]),
+(txn_id:TEXT, Maps to fah_sai_lpk_core.fact_sales(txn_id), Examples: [TXN-202401-01000002, TXN-202401-01000422, TXN-202401-01000462]),
+(event_type:TEXT, Examples: [earned, expired, redeemed]),
+(points_delta:INTEGER, Examples: [-1000, -1002, -1004]),
+(resulting_balance_points:INTEGER, Examples: [-1, -10, -101]),
+(resulting_tier:TEXT, Examples: [gold, none, platinum])
+]
+# Table: fah_sai_lpk_core.fact_payroll
+[
+(payroll_id:TEXT, Primary Key, Examples: [1000243805828, 1000357467770, 1000373797515]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-31, 2024-02-29, 2024-03-31]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-31, 2024-02-29, 2024-03-31]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(employee_id:TEXT, Maps to fah_sai_lpk_core.dim_employee(employee_id), Examples: [EMP-L3-00001, EMP-L3-00002, EMP-L3-00003]),
+(pay_period_start:DATE, Examples: [2024-01-01, 2024-02-01, 2024-03-01]),
+(pay_period_end:DATE, Examples: [2024-01-31, 2024-02-29, 2024-03-31]),
+(gross_pay_thb:NUMERIC, Examples: [42000.00]),
+(tax_deduction_thb:NUMERIC, Examples: [2100.00]),
+(social_security_thb:NUMERIC, Examples: [750.00]),
+(net_pay_thb:NUMERIC, Examples: [39150.00]),
+(bank_txn_id:TEXT, Maps to fah_sai_lpk_core.fact_bank_transaction(bank_txn_id), Examples: [BT-202401-1004557954099, BT-202401-100698293415, BT-202401-1007001833745]),
+(employment_status_at_period_end:TEXT)
+]
+# Table: fah_sai_lpk_core.fact_promo_redemption
+[
+(redemption_id:TEXT, Primary Key, Examples: [1000185852976, 1001097688358, 1001837047883]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-11-11, 2024-11-12, 2024-12-12]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-11-11, 2024-11-12, 2024-12-12]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(txn_id:TEXT, Maps to fah_sai_lpk_core.fact_sales(txn_id), Examples: [TXN-202411-11000142, TXN-202411-11000842, TXN-202411-11001718]),
+(customer_id:TEXT, Maps to fah_sai_lpk_core.dim_customer(customer_id), Examples: [CUST-L3-000023, CUST-L3-000052, CUST-L3-000053]),
+(campaign_id:TEXT, Maps to fah_sai_lpk_core.dim_promo_campaign(campaign_id), Examples: [CLEAR-EOY-2567, CLEAR-EOY-2568, MEGA-1111-2567]),
+(discount_applied_thb:NUMERIC, Examples: [10008.00, 10044.00, 10062.00]),
+(channel:TEXT)
+]
+# Table: fah_sai_lpk_core.fact_refund_paid, Official refund payout fact with approval and bank context.
+[
+(refund_id:TEXT, Primary Key, Examples: [RFD-202401-01003586, RFD-202401-01006864, RFD-202401-01009523]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(return_id:TEXT, Maps to fah_sai_lpk_core.fact_return(return_id), Examples: [RET-202401-01003586, RET-202401-01006864, RET-202401-01009523]),
+(cs_interaction_id:TEXT, Maps to fah_sai_lpk_core.fact_cs_interaction(cs_interaction_id)),
+(customer_id:TEXT, Maps to fah_sai_lpk_core.dim_customer(customer_id), Examples: [CUST-L3-000004, CUST-L3-000005, CUST-L3-000007]),
+(refund_amount_thb:NUMERIC, Examples: [12900.00, 16900.00, 18900.00]),
+(request_date:DATE, Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(approver_employee_id:TEXT, Maps to fah_sai_lpk_core.dim_employee(employee_id), Examples: [EMP-L3-00005, EMP-L3-00008, EMP-L3-00010]),
+(cosig_employee_id:TEXT, Maps to fah_sai_lpk_core.dim_employee(employee_id)),
+(bank_txn_id:TEXT, Maps to fah_sai_lpk_core.fact_bank_transaction(bank_txn_id), Examples: [BT-202401-1001612189611, BT-202401-1012348503367, BT-202401-1016353168864])
+]
+# Table: fah_sai_lpk_core.fact_return, Official return fact for product/customer return events.
+[
+(return_id:TEXT, Primary Key, Examples: [RET-202401-01003586, RET-202401-01006864, RET-202401-01009523]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(original_txn_id:TEXT, Maps to fah_sai_lpk_core.fact_sales(txn_id), Examples: [TXN-202401-01003586, TXN-202401-01006388, TXN-202401-01006864]),
+(line_item_id:TEXT, Maps to fah_sai_lpk_core.fact_sales_line_item(line_item_id), Examples: [1000194399998, 1000450075738, 1000483167559]),
+(sku_id:TEXT, Maps to fah_sai_lpk_core.dim_product(sku_id), Examples: [AW-MN-001, DN-LT-010, NT-LT-001]),
+(branch_code:TEXT, Maps to fah_sai_lpk_core.dim_branch(branch_code), Examples: [BKK-CTW, BKK-EMSP, BKK-PKT]),
+(customer_id:TEXT, Maps to fah_sai_lpk_core.dim_customer(customer_id), Examples: [CUST-L3-000002, CUST-L3-000004, CUST-L3-000005]),
+(return_reason:TEXT),
+(approved_by_employee_id:TEXT, Maps to fah_sai_lpk_core.dim_employee(employee_id), Examples: [EMP-L3-00005, EMP-L3-00010]),
+(days_since_purchase:INTEGER, Examples: [0, 10, 180]),
+(return_amount_thb:NUMERIC, Examples: [12900.00, 16900.00, 18900.00])
+]
+# Table: fah_sai_lpk_core.fact_sales, Official sales order/header fact; one row per txn_id.
+[
+(txn_id:TEXT, Primary Key, Examples: [TXN-202401-01000002, TXN-202401-01000422, TXN-202401-01000462]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(branch_code:TEXT, Maps to fah_sai_lpk_core.dim_branch(branch_code), Examples: [BKK-CTW, BKK-EMSP, BKK-PKT]),
+(customer_id:TEXT, Maps to fah_sai_lpk_core.dim_customer(customer_id), Examples: [CUST-L3-000001, CUST-L3-000002, CUST-L3-000003]),
+(employee_id:TEXT, Maps to fah_sai_lpk_core.dim_employee(employee_id), Examples: [EMP-L3-00002, EMP-L3-00011]),
+(channel:TEXT),
+(basket_total_thb:NUMERIC, Examples: [100000.00, 100100.00, 100200.00]),
+(discount_total_thb:NUMERIC, Examples: [0.00, 10008.00, 10044.00]),
+(net_total_thb:NUMERIC, Examples: [100000.00, 100100.00, 100200.00]),
+(shipping_charge_thb:NUMERIC, Examples: [0.00]),
+(shipping_method:TEXT, Examples: [enterprise_fleet, express, standard]),
+(promo_campaign_id:TEXT, Maps to fah_sai_lpk_core.dim_promo_campaign(campaign_id), Examples: [CLEAR-EOY-2567, CLEAR-EOY-2568, MEGA-1111-2567]),
+(payment_method:TEXT, Examples: [bank_transfer, cash, credit_card]),
+(payment_status:TEXT, Examples: [paid, pending]),
+(payment_due_date:DATE, Examples: [2024-01-31, 2024-02-01, 2024-02-02]),
+(payment_received_date:DATE, Examples: [2024-01-31, 2024-02-01, 2024-02-02]),
+(settlement_bank_txn_id:TEXT, Maps to fah_sai_lpk_core.fact_bank_transaction(bank_txn_id), Examples: [BT-202401-1040227460347, BT-202401-157159523436, BT-202401-248898262592]),
+(web_log_line_id:TEXT, Examples: [web_20240101.jsonl:line12, web_20240101.jsonl:line18, web_20240101.jsonl:line24]),
+(schema_version:TEXT),
+(is_b2b:BOOLEAN, Examples: [false, true]),
+(retry_idempotency_marker:TEXT)
+]
+# Table: fah_sai_lpk_core.fact_sales_line_item, Official sales line fact; one row per line_item_id.
+[
+(line_item_id:TEXT, Primary Key, Examples: [1000001286164, 1000001591146, 10000045503]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(txn_id:TEXT, Maps to fah_sai_lpk_core.fact_sales(txn_id), Examples: [TXN-202401-01000002, TXN-202401-01000422, TXN-202401-01000462]),
+(sku_id:TEXT, Maps to fah_sai_lpk_core.dim_product(sku_id), Examples: [AW-MN-001, DN-LT-010, NT-LT-001]),
+(quantity:INTEGER, Examples: [1]),
+(unit_price_thb:NUMERIC, Examples: [12900.00, 16900.00, 18900.00]),
+(line_discount_thb:NUMERIC, Examples: [0.00]),
+(line_total_thb:NUMERIC, Examples: [12900.00, 16900.00, 18900.00]),
+(is_care_plus:BOOLEAN, Examples: [false]),
+(pos_log_line_id:TEXT, Examples: [pos_BKK-CTW_20240101.tsv:line10, pos_BKK-CTW_20240101.tsv:line11, pos_BKK-CTW_20240101.tsv:line12])
+]
+# Table: fah_sai_lpk_core.fact_shipping
+[
+(shipping_id:TEXT, Primary Key, Examples: [1000026317711, 1000129175080, 100013075994]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(txn_id:TEXT, Maps to fah_sai_lpk_core.fact_sales(txn_id), Examples: [TXN-202401-01001700, TXN-202401-01002901, TXN-202401-01004439]),
+(vendor_id:TEXT, Maps to fah_sai_lpk_core.dim_vendor(vendor_id), Examples: [V-006]),
+(tracking_number:TEXT),
+(origin_branch_code:TEXT, Maps to fah_sai_lpk_core.dim_branch(branch_code), Examples: [BKK-CTW, BKK-EMSP, BKK-PKT]),
+(destination_province:TEXT, Examples: [Bangkok, Chiang Mai, Chonburi]),
+(confirmation_status:TEXT, Examples: [shipped])
+]
+# Table: fah_sai_lpk_core.fact_vendor_payment, Official vendor payment fact with invoice and contract context.
+[
+(payment_id:TEXT, Primary Key, Examples: [VP-202401-10174133, VP-202401-11214155, VP-202401-11818583]),
+(business_event_date:DATE, Canonical default date axis for vendor-payment business/event period filters. Posting date may lag this date by about 28 days because of NET-30 terms., Examples: [2024-01-01, 2024-01-31, 2024-02-29]),
+(posting_date:DATE, Accounting posting date for vendor payments. Use only when the question explicitly asks for posted/booked/accounting timing; this may lag business_event_date by about 28 days because of NET-30 terms., Examples: [2024-01-01, 2024-01-04, 2024-01-08]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(vendor_id:TEXT, Maps to fah_sai_lpk_core.dim_vendor(vendor_id), Examples: [V-001, V-002, V-006]),
+(vendor_invoice_id:TEXT, Examples: [L2-MC-2024-10-15, L2-MC-2024-12-03, L2-MC-2025-01-22]),
+(invoice_period_start:DATE, Examples: [2023-12-01, 2024-01-01, 2024-02-01]),
+(invoice_period_end:DATE, Examples: [2023-12-31, 2024-01-31, 2024-02-29]),
+(paid_amount_thb:NUMERIC, Examples: [104500.00, 12500.00, 150000.00]),
+(vendor_contract_version_id:TEXT, Maps to fah_sai_lpk_core.dim_vendor_contract_version(contract_version_id), Examples: [1, 10, 11]),
+(request_date:DATE, Examples: [2024-01-01, 2024-01-04, 2024-01-08]),
+(signing_employee_id:TEXT, Maps to fah_sai_lpk_core.dim_employee(employee_id), Examples: [EMP-L3-00005, EMP-L3-00008]),
+(cosig_employee_id:TEXT, Maps to fah_sai_lpk_core.dim_employee(employee_id), Examples: [EMP-L3-00001]),
+(bank_txn_id:TEXT, Maps to fah_sai_lpk_core.fact_bank_transaction(bank_txn_id), Examples: [BT-202401-1066061805927, BT-202401-1096940919472, BT-202401-114016678594])
+]
+# Table: fah_sai_lpk_core.fact_warranty_claim
+[
+(claim_id:TEXT, Primary Key, Examples: [WC-202401-01009861, WC-202401-01029212, WC-202401-02002376]),
+(business_event_date:DATE, Canonical default date axis for business/event period filters. If a question says year/month/quarter without naming a date column, filter on business_event_date., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(posting_date:DATE, Accounting posting date. Use only when the question explicitly asks for posted/booked/accounting timing., Examples: [2024-01-01, 2024-01-02, 2024-01-03]),
+(effective_date:DATE, Fact-row effective metadata; not the default period filter for business questions.),
+(as_of_date:DATE, Bundle/snapshot as-of metadata; not the event period filter., Examples: [2026-01-15]),
+(customer_id:TEXT, Maps to fah_sai_lpk_core.dim_customer(customer_id), Examples: [CUST-L3-000011, CUST-L3-000013, CUST-L3-000014]),
+(sku_id:TEXT, Maps to fah_sai_lpk_core.dim_product(sku_id), Examples: [AW-MN-001, DN-LT-010, NT-LT-001]),
+(original_txn_id:TEXT, Maps to fah_sai_lpk_core.fact_sales(txn_id), Examples: [TXN-202401-01009861, TXN-202401-01029212, TXN-202401-02002376]),
+(claim_reason:TEXT),
+(claim_amount_thb:NUMERIC, Examples: [16900.00]),
+(routing_destination:TEXT),
+(resolution_type:TEXT, Examples: [approved, pending])
+]
+# Table: fah_sai_lpk_core.t2_doc_inventory, Official document inventory. source_table/source_pk are lineage hints, not normal flattening FKs.
+[
+(doc_id:TEXT, Primary Key, Examples: [AUD-001, AUD-002, EMAIL-001]),
+(doc_kind:TEXT, Examples: [audit_report, email_discrete, memo_announcement]),
+(template_name:TEXT),
+(body_source:TEXT),
+(issue_date:DATE, Examples: [2024-01-01, 2024-01-08, 2024-01-15]),
+(source_table:TEXT, Examples: [DIM_POLICY_VERSION, DIM_VENDOR_CONTRACT_VERSION, T2_DOC_INVENTORY]),
+(source_pk:TEXT)
+]
+〖Foreign keys〗
+fah_sai_lpk_core.dim_bank_account.associated_branch_code=fah_sai_lpk_core.dim_branch.branch_code
+fah_sai_lpk_core.dim_care_plus_sku_tier.policy_version_id=fah_sai_lpk_core.dim_policy_version.policy_version_id
+fah_sai_lpk_core.dim_care_plus_sku_tier.sku_id=fah_sai_lpk_core.dim_product.sku_id
+fah_sai_lpk_core.dim_customer.account_manager_id=fah_sai_lpk_core.dim_employee.employee_id
+fah_sai_lpk_core.dim_employee.branch_code=fah_sai_lpk_core.dim_branch.branch_code
+fah_sai_lpk_core.dim_employee.dept_code=fah_sai_lpk_core.dim_department.dept_code
+fah_sai_lpk_core.dim_employee.position_level=fah_sai_lpk_core.dim_position_level.position_level_code
+fah_sai_lpk_core.dim_employee.reports_to_employee_id=fah_sai_lpk_core.dim_employee.employee_id
+fah_sai_lpk_core.dim_product.dept_code=fah_sai_lpk_core.dim_department.dept_code
+fah_sai_lpk_core.dim_product.vendor_id=fah_sai_lpk_core.dim_vendor.vendor_id
+fah_sai_lpk_core.dim_product_recall_history.sku_id=fah_sai_lpk_core.dim_product.sku_id
+fah_sai_lpk_core.dim_promo_mechanic.campaign_id=fah_sai_lpk_core.dim_promo_campaign.campaign_id
+fah_sai_lpk_core.dim_signing_authority_ladder.co_signer_min_position_level_code=fah_sai_lpk_core.dim_position_level.position_level_code
+fah_sai_lpk_core.dim_signing_authority_ladder.dept_code=fah_sai_lpk_core.dim_department.dept_code
+fah_sai_lpk_core.dim_signing_authority_ladder.policy_version_id=fah_sai_lpk_core.dim_policy_version.policy_version_id
+fah_sai_lpk_core.dim_signing_authority_ladder.position_level_code=fah_sai_lpk_core.dim_position_level.position_level_code
+fah_sai_lpk_core.dim_vendor_contract_version.vendor_id=fah_sai_lpk_core.dim_vendor.vendor_id
+fah_sai_lpk_core.fact_bank_transaction.account_id=fah_sai_lpk_core.dim_bank_account.account_id
+fah_sai_lpk_core.fact_cs_interaction.branch_code=fah_sai_lpk_core.dim_branch.branch_code
+fah_sai_lpk_core.fact_cs_interaction.customer_id=fah_sai_lpk_core.dim_customer.customer_id
+fah_sai_lpk_core.fact_cs_interaction.employee_id=fah_sai_lpk_core.dim_employee.employee_id
+fah_sai_lpk_core.fact_cs_interaction.related_refund_id=fah_sai_lpk_core.fact_refund_paid.refund_id
+fah_sai_lpk_core.fact_cs_interaction.related_warranty_claim_id=fah_sai_lpk_core.fact_warranty_claim.claim_id
+fah_sai_lpk_core.fact_inventory_monthly_snapshot.branch_code=fah_sai_lpk_core.dim_branch.branch_code
+fah_sai_lpk_core.fact_inventory_monthly_snapshot.sku_id=fah_sai_lpk_core.dim_product.sku_id
+fah_sai_lpk_core.fact_inventory_movement.branch_code=fah_sai_lpk_core.dim_branch.branch_code
+fah_sai_lpk_core.fact_inventory_movement.sku_id=fah_sai_lpk_core.dim_product.sku_id
+fah_sai_lpk_core.fact_loyalty_ledger.customer_id=fah_sai_lpk_core.dim_customer.customer_id
+fah_sai_lpk_core.fact_loyalty_ledger.txn_id=fah_sai_lpk_core.fact_sales.txn_id
+fah_sai_lpk_core.fact_payroll.bank_txn_id=fah_sai_lpk_core.fact_bank_transaction.bank_txn_id
+fah_sai_lpk_core.fact_payroll.employee_id=fah_sai_lpk_core.dim_employee.employee_id
+fah_sai_lpk_core.fact_promo_redemption.campaign_id=fah_sai_lpk_core.dim_promo_campaign.campaign_id
+fah_sai_lpk_core.fact_promo_redemption.customer_id=fah_sai_lpk_core.dim_customer.customer_id
+fah_sai_lpk_core.fact_promo_redemption.txn_id=fah_sai_lpk_core.fact_sales.txn_id
+fah_sai_lpk_core.fact_refund_paid.approver_employee_id=fah_sai_lpk_core.dim_employee.employee_id
+fah_sai_lpk_core.fact_refund_paid.bank_txn_id=fah_sai_lpk_core.fact_bank_transaction.bank_txn_id
+fah_sai_lpk_core.fact_refund_paid.cosig_employee_id=fah_sai_lpk_core.dim_employee.employee_id
+fah_sai_lpk_core.fact_refund_paid.cs_interaction_id=fah_sai_lpk_core.fact_cs_interaction.cs_interaction_id
+fah_sai_lpk_core.fact_refund_paid.customer_id=fah_sai_lpk_core.dim_customer.customer_id
+fah_sai_lpk_core.fact_refund_paid.return_id=fah_sai_lpk_core.fact_return.return_id
+fah_sai_lpk_core.fact_return.approved_by_employee_id=fah_sai_lpk_core.dim_employee.employee_id
+fah_sai_lpk_core.fact_return.branch_code=fah_sai_lpk_core.dim_branch.branch_code
+fah_sai_lpk_core.fact_return.customer_id=fah_sai_lpk_core.dim_customer.customer_id
+fah_sai_lpk_core.fact_return.line_item_id=fah_sai_lpk_core.fact_sales_line_item.line_item_id
+fah_sai_lpk_core.fact_return.original_txn_id=fah_sai_lpk_core.fact_sales.txn_id
+fah_sai_lpk_core.fact_return.sku_id=fah_sai_lpk_core.dim_product.sku_id
+fah_sai_lpk_core.fact_sales.branch_code=fah_sai_lpk_core.dim_branch.branch_code
+fah_sai_lpk_core.fact_sales.customer_id=fah_sai_lpk_core.dim_customer.customer_id
+fah_sai_lpk_core.fact_sales.employee_id=fah_sai_lpk_core.dim_employee.employee_id
+fah_sai_lpk_core.fact_sales.promo_campaign_id=fah_sai_lpk_core.dim_promo_campaign.campaign_id
+fah_sai_lpk_core.fact_sales.settlement_bank_txn_id=fah_sai_lpk_core.fact_bank_transaction.bank_txn_id
+fah_sai_lpk_core.fact_sales_line_item.sku_id=fah_sai_lpk_core.dim_product.sku_id
+fah_sai_lpk_core.fact_sales_line_item.txn_id=fah_sai_lpk_core.fact_sales.txn_id
+fah_sai_lpk_core.fact_shipping.origin_branch_code=fah_sai_lpk_core.dim_branch.branch_code
+fah_sai_lpk_core.fact_shipping.txn_id=fah_sai_lpk_core.fact_sales.txn_id
+fah_sai_lpk_core.fact_shipping.vendor_id=fah_sai_lpk_core.dim_vendor.vendor_id
+fah_sai_lpk_core.fact_vendor_payment.bank_txn_id=fah_sai_lpk_core.fact_bank_transaction.bank_txn_id
+fah_sai_lpk_core.fact_vendor_payment.cosig_employee_id=fah_sai_lpk_core.dim_employee.employee_id
+fah_sai_lpk_core.fact_vendor_payment.signing_employee_id=fah_sai_lpk_core.dim_employee.employee_id
+fah_sai_lpk_core.fact_vendor_payment.vendor_contract_version_id=fah_sai_lpk_core.dim_vendor_contract_version.contract_version_id
+fah_sai_lpk_core.fact_vendor_payment.vendor_id=fah_sai_lpk_core.dim_vendor.vendor_id
+fah_sai_lpk_core.fact_warranty_claim.customer_id=fah_sai_lpk_core.dim_customer.customer_id
+fah_sai_lpk_core.fact_warranty_claim.original_txn_id=fah_sai_lpk_core.fact_sales.txn_id
+fah_sai_lpk_core.fact_warranty_claim.sku_id=fah_sai_lpk_core.dim_product.sku_id

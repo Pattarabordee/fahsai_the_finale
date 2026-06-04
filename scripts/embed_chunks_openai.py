@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Embed public-safe FahMai chunks into fah_sai_lpk_rag.chunk_embeddings.
+"""Embed public-safe FahMai chunks.
 
 Prerequisites:
   pip install psycopg[binary]
@@ -17,6 +17,14 @@ OpenAI-compatible gateways are also supported:
   $env:EMBEDDING_BASE_URL = "https://..."
   $env:EMBEDDING_API_KEY = "..."
   python scripts/embed_chunks_openai.py --provider openai-compatible --batch-size 64
+
+For OpenRouter with the same stored FahMai embedding label:
+  $env:OPENROUTER_API_KEY = "..."
+  python scripts/embed_chunks_openai.py --provider openai-compatible --model qwen/qwen3-embedding-8b --stored-model-label Qwen/Qwen3-Embedding-8B --batch-size 64
+
+For compact BGE-M3 parent-child RAG v2:
+  python scripts/embed_chunks_openai.py --retrieval-profile bge_m3_v1 --max-chunks 8
+  python scripts/embed_chunks_openai.py --retrieval-profile bge_m3_v1 --batch-size 64
 """
 
 from __future__ import annotations
@@ -36,9 +44,15 @@ except ImportError as exc:  # pragma: no cover - dependency guard
     raise SystemExit("Missing dependency: pip install psycopg[binary]") from exc
 
 
+LEGACY_PROFILE = "legacy_qwen3"
+BGE_PROFILE = "bge_m3_v1"
 DEFAULT_MODEL = "Qwen/Qwen3-Embedding-8B"
 DEFAULT_DIMENSION = 4096
+DEFAULT_BGE_REQUEST_MODEL = "baai/bge-m3"
+DEFAULT_BGE_STORED_MODEL = "BAAI/bge-m3"
+DEFAULT_BGE_DIMENSION = 1024
 DEFAULT_TEI_ENDPOINT = "http://localhost:8080/embed"
+DEFAULT_OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 
 def format_duration(seconds: float) -> str:
@@ -110,11 +124,40 @@ def embed_with_openai_compatible(
         raise SystemExit("Missing dependency for --provider openai-compatible: pip install openai") from exc
 
     client = OpenAI(api_key=api_key, base_url=base_url, max_retries=max_retries)
-    response = client.embeddings.create(model=model, input=inputs)
-    return [item.embedding for item in response.data]
+    for attempt in range(max_retries + 1):
+        try:
+            response = client.embeddings.create(model=model, input=inputs)
+            return [item.embedding for item in response.data]
+        except ValueError as exc:
+            if "No embedding data received" not in str(exc) or attempt >= max_retries:
+                raise
+            time.sleep(min(2**attempt, 8))
+
+    raise RuntimeError("OpenAI-compatible embedding request failed")
 
 
-def fetch_missing_chunks(conn, batch_size: int) -> list[tuple[str, str]]:
+def is_bge_profile(profile: str) -> bool:
+    return profile == BGE_PROFILE
+
+
+def fetch_missing_chunks(conn, batch_size: int, profile: str) -> list[tuple[str, str]]:
+    if is_bge_profile(profile):
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT cc.child_chunk_id, cc.child_text
+                FROM fah_sai_lpk_rag.v_public_retrievable_child_chunks_bge_m3 cc
+                LEFT JOIN fah_sai_lpk_rag.child_chunk_embeddings e
+                  ON e.child_chunk_id = cc.child_chunk_id
+                WHERE cc.retrieval_profile = %s
+                  AND e.child_chunk_id IS NULL
+                ORDER BY cc.source_document_id, cc.child_index
+                LIMIT %s
+                """,
+                (profile, batch_size),
+            )
+            return [(row[0], row[1]) for row in cur.fetchall()]
+
     with conn.cursor() as cur:
         cur.execute(
             """
@@ -135,9 +178,26 @@ def fetch_missing_chunks(conn, batch_size: int) -> list[tuple[str, str]]:
         return [(row[0], row[1]) for row in cur.fetchall()]
 
 
-def fetch_missing_chunk_rows(conn, limit: int) -> list[tuple[str, str]]:
+def fetch_missing_chunk_rows(conn, limit: int, profile: str) -> list[tuple[str, str]]:
     limit_clause = "LIMIT %s" if limit else ""
     params = (limit,) if limit else ()
+    if is_bge_profile(profile):
+        with conn.cursor() as cur:
+            cur.execute(
+                f"""
+                SELECT cc.child_chunk_id, cc.child_text
+                FROM fah_sai_lpk_rag.v_public_retrievable_child_chunks_bge_m3 cc
+                LEFT JOIN fah_sai_lpk_rag.child_chunk_embeddings e
+                  ON e.child_chunk_id = cc.child_chunk_id
+                WHERE cc.retrieval_profile = %s
+                  AND e.child_chunk_id IS NULL
+                ORDER BY cc.source_document_id, cc.child_index
+                {limit_clause}
+                """,
+                (profile, *params),
+            )
+            return [(row[0], row[1]) for row in cur.fetchall()]
+
     with conn.cursor() as cur:
         cur.execute(
             f"""
@@ -158,7 +218,22 @@ def fetch_missing_chunk_rows(conn, limit: int) -> list[tuple[str, str]]:
         return [(row[0], row[1]) for row in cur.fetchall()]
 
 
-def count_missing_chunks(conn) -> int:
+def count_missing_chunks(conn, profile: str) -> int:
+    if is_bge_profile(profile):
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT count(*)
+                FROM fah_sai_lpk_rag.v_public_retrievable_child_chunks_bge_m3 cc
+                LEFT JOIN fah_sai_lpk_rag.child_chunk_embeddings e
+                  ON e.child_chunk_id = cc.child_chunk_id
+                WHERE cc.retrieval_profile = %s
+                  AND e.child_chunk_id IS NULL
+                """,
+                (profile,),
+            )
+            return cur.fetchone()[0]
+
     with conn.cursor() as cur:
         cur.execute(
             """
@@ -176,17 +251,43 @@ def count_missing_chunks(conn) -> int:
         return cur.fetchone()[0]
 
 
-def upsert_embeddings(conn, rows: list[tuple[str, str]], model: str, embeddings: Sequence[Sequence[float]]) -> int:
+def upsert_embeddings(
+    conn,
+    rows: list[tuple[str, str]],
+    model: str,
+    embeddings: Sequence[Sequence[float]],
+    *,
+    dimension: int,
+    profile: str,
+) -> int:
     if len(rows) != len(embeddings):
         raise ValueError("Embedding response count does not match chunk count")
 
     values = []
     for (chunk_id, _), embedding in zip(rows, embeddings):
-        if len(embedding) != DEFAULT_DIMENSION:
-            raise ValueError(f"{chunk_id} embedding dimension {len(embedding)} != {DEFAULT_DIMENSION}")
-        values.append((chunk_id, model, vector_literal(embedding)))
+        if len(embedding) != dimension:
+            raise ValueError(f"{chunk_id} embedding dimension {len(embedding)} != {dimension}")
+        if is_bge_profile(profile):
+            values.append((chunk_id, profile, model, vector_literal(embedding)))
+        else:
+            values.append((chunk_id, model, vector_literal(embedding)))
 
     with conn.cursor() as cur:
+        if is_bge_profile(profile):
+            cur.executemany(
+                """
+                INSERT INTO fah_sai_lpk_rag.child_chunk_embeddings
+                    (child_chunk_id, retrieval_profile, embedding_model, embedding)
+                VALUES (%s, %s, %s, %s::vector)
+                ON CONFLICT (child_chunk_id) DO UPDATE SET
+                    retrieval_profile = EXCLUDED.retrieval_profile,
+                    embedding_model = EXCLUDED.embedding_model,
+                    embedding = EXCLUDED.embedding,
+                    embedding_created_at = now()
+                """,
+                values,
+            )
+            return len(values)
         cur.executemany(
             """
             INSERT INTO fah_sai_lpk_rag.chunk_embeddings (chunk_id, embedding_model, embedding)
@@ -201,8 +302,16 @@ def upsert_embeddings(conn, rows: list[tuple[str, str]], model: str, embeddings:
     return len(values)
 
 
-def refresh_materialized_views(conn) -> None:
+def refresh_materialized_views(conn, profile: str) -> None:
     with conn.cursor() as cur:
+        if is_bge_profile(profile):
+            cur.execute("SELECT to_regprocedure('fah_sai_lpk_rag.refresh_public_retrievable_child_chunks_bge_m3(boolean)')")
+            if cur.fetchone()[0]:
+                cur.execute("SELECT fah_sai_lpk_rag.refresh_public_retrievable_child_chunks_bge_m3(false)")
+                print("analyzed BGE-M3 child retrieval tables")
+            else:
+                print("skipped BGE-M3 retrieval analyze; run migration 010 first")
+            return
         cur.execute("SELECT to_regprocedure('fah_sai_lpk_mart.refresh_all_materialized_views(boolean)')")
         if cur.fetchone()[0]:
             cur.execute("SELECT fah_sai_lpk_mart.refresh_all_materialized_views(false)")
@@ -235,27 +344,48 @@ def embed_batch(args, rows: list[tuple[str, str]]) -> tuple[list[tuple[str, str]
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--database-url", default=os.getenv("DATABASE_URL"), help="Postgres connection URL")
-    parser.add_argument("--model", default=os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL))
+    parser.add_argument(
+        "--retrieval-profile",
+        default=os.getenv("RETRIEVAL_PROFILE", LEGACY_PROFILE),
+        choices=[LEGACY_PROFILE, BGE_PROFILE],
+        help="Target retrieval profile. bge_m3_v1 embeds child_chunks with BGE-M3 1024.",
+    )
+    parser.add_argument(
+        "--model",
+        default=None,
+        help="Embedding model name sent to the provider.",
+    )
+    parser.add_argument(
+        "--stored-model-label",
+        default=None,
+        help="Embedding model label stored in fah_sai_lpk_rag.chunk_embeddings. Defaults to --model.",
+    )
     parser.add_argument(
         "--provider",
         choices=["tei", "openai-compatible"],
-        default=os.getenv("EMBEDDING_PROVIDER", "tei"),
+        default=None,
         help="Embedding backend. Use tei for local Hugging Face Text Embeddings Inference.",
     )
     parser.add_argument(
         "--endpoint",
-        default=os.getenv("EMBEDDING_ENDPOINT", DEFAULT_TEI_ENDPOINT),
+        default=None,
         help="TEI /embed endpoint used when --provider tei.",
     )
     parser.add_argument(
         "--base-url",
-        default=os.getenv("EMBEDDING_BASE_URL"),
+        default=None,
         help="OpenAI-compatible base URL used when --provider openai-compatible.",
     )
     parser.add_argument(
         "--api-key",
-        default=os.getenv("EMBEDDING_API_KEY") or os.getenv("OPENAI_API_KEY"),
+        default=None,
         help="API key used when --provider openai-compatible.",
+    )
+    parser.add_argument(
+        "--dimension",
+        type=int,
+        default=None,
+        help="Expected embedding dimension. Defaults to 4096 for legacy Qwen and 1024 for bge_m3_v1.",
     )
     parser.add_argument("--batch-size", type=int, default=64)
     parser.add_argument("--max-chunks", type=int, default=0, help="0 means embed all missing chunks")
@@ -272,38 +402,79 @@ def main() -> int:
 
     if not args.database_url:
         raise SystemExit("Set DATABASE_URL or pass --database-url")
+    if is_bge_profile(args.retrieval_profile):
+        args.model = args.model or os.getenv("BGE_EMBEDDING_REQUEST_MODEL") or DEFAULT_BGE_REQUEST_MODEL
+        args.stored_model_label = (
+            args.stored_model_label
+            or os.getenv("BGE_EMBEDDING_STORED_MODEL")
+            or DEFAULT_BGE_STORED_MODEL
+        )
+        args.dimension = args.dimension or int(os.getenv("BGE_EMBEDDING_DIMENSION", DEFAULT_BGE_DIMENSION))
+        args.provider = args.provider or os.getenv("BGE_EMBEDDING_PROVIDER")
+        if not args.provider:
+            args.provider = "openai-compatible" if os.getenv("OPENROUTER_API_KEY") else "tei"
+    else:
+        args.model = args.model or os.getenv("EMBEDDING_REQUEST_MODEL") or os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL)
+        args.stored_model_label = args.stored_model_label or os.getenv("EMBEDDING_STORED_MODEL") or os.getenv("EMBEDDING_MODEL")
+        args.dimension = args.dimension or int(os.getenv("EMBEDDING_DIMENSION", DEFAULT_DIMENSION))
+        args.provider = args.provider or os.getenv("EMBEDDING_PROVIDER", "tei")
+    args.endpoint = args.endpoint or os.getenv("EMBEDDING_ENDPOINT", DEFAULT_TEI_ENDPOINT)
+    args.base_url = (
+        args.base_url
+        or os.getenv("EMBEDDING_BASE_URL")
+        or (DEFAULT_OPENROUTER_BASE_URL if os.getenv("OPENROUTER_API_KEY") else None)
+    )
+    args.api_key = args.api_key or os.getenv("EMBEDDING_API_KEY") or os.getenv("OPENROUTER_API_KEY") or os.getenv("OPENAI_API_KEY")
+
     if args.batch_size < 1:
         raise SystemExit("--batch-size must be >= 1")
+    if args.dimension < 1:
+        raise SystemExit("--dimension must be >= 1")
     if args.timeout_seconds < 1:
         raise SystemExit("--timeout-seconds must be >= 1")
     if args.max_retries < 0:
         raise SystemExit("--max-retries must be >= 0")
     if args.workers < 1:
         raise SystemExit("--workers must be >= 1")
+    stored_model_label = args.stored_model_label or args.model
 
     total = 0
     with psycopg.connect(args.database_url, autocommit=True) as conn:
-        missing_before = count_missing_chunks(conn)
+        missing_before = count_missing_chunks(conn, args.retrieval_profile)
         target_total = min(args.max_chunks, missing_before) if args.max_chunks else missing_before
         if args.dry_run:
-            print(f"would embed {target_total} chunks; missing_chunks={missing_before}")
+            print(
+                f"would embed {target_total} chunks; missing_chunks={missing_before} "
+                f"profile={args.retrieval_profile} dimension={args.dimension}"
+            )
             return 0
 
         start_time = time.monotonic()
-        print(f"embedding target chunks: {target_total} (missing before run: {missing_before})", flush=True)
+        print(
+            f"embedding target chunks: {target_total} (missing before run: {missing_before}) "
+            f"profile={args.retrieval_profile} dimension={args.dimension}",
+            flush=True,
+        )
         if args.workers > 1:
-            rows_to_embed = fetch_missing_chunk_rows(conn, target_total)
+            rows_to_embed = fetch_missing_chunk_rows(conn, target_total, args.retrieval_profile)
             batches = batched(rows_to_embed, args.batch_size)
             with ThreadPoolExecutor(max_workers=args.workers) as executor:
                 futures = [executor.submit(embed_batch, args, batch_rows) for batch_rows in batches]
                 for future in as_completed(futures):
                     rows, embeddings = future.result()
                     with conn.transaction():
-                        inserted = upsert_embeddings(conn, rows, args.model, embeddings)
+                        inserted = upsert_embeddings(
+                            conn,
+                            rows,
+                            stored_model_label,
+                            embeddings,
+                            dimension=args.dimension,
+                            profile=args.retrieval_profile,
+                        )
                     total += inserted
                     print(progress_message("embedded chunks", total, target_total, start_time), flush=True)
             if args.refresh_materialized:
-                refresh_materialized_views(conn)
+                refresh_materialized_views(conn, args.retrieval_profile)
             return 0
 
         while True:
@@ -311,19 +482,26 @@ def main() -> int:
             if args.max_chunks and remaining <= 0:
                 break
             batch_size = min(args.batch_size, remaining) if args.max_chunks else args.batch_size
-            rows = fetch_missing_chunks(conn, batch_size)
+            rows = fetch_missing_chunks(conn, batch_size, args.retrieval_profile)
             if not rows:
                 break
 
             inputs = [text for _, text in rows]
             embeddings = embed_texts(args, inputs)
             with conn.transaction():
-                inserted = upsert_embeddings(conn, rows, args.model, embeddings)
+                inserted = upsert_embeddings(
+                    conn,
+                    rows,
+                    stored_model_label,
+                    embeddings,
+                    dimension=args.dimension,
+                    profile=args.retrieval_profile,
+                )
             total += inserted
             print(progress_message("embedded chunks", total, target_total, start_time), flush=True)
 
         if args.refresh_materialized and not args.dry_run:
-            refresh_materialized_views(conn)
+            refresh_materialized_views(conn, args.retrieval_profile)
 
     return 0
 

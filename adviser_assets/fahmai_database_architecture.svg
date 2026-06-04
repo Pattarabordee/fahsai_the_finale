@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">FahMai Database Architecture</title>
+  <desc id="desc">Slide-ready architecture diagram showing FahMai data sources, PostgreSQL database layers, RAG vector search, model interface, and traceable AI answers.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 800 34px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #172033; }
+      .subtitle { font: 400 18px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #536275; }
+      .zone-title { font: 800 20px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #172033; }
+      .zone-subtitle { font: 500 13.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #5c6b7f; }
+      .label { font: 650 14px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #223047; }
+      .text { font: 400 13.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #39485f; }
+      .small { font: 400 12px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .mono { font: 600 12.5px "Cascadia Mono", Consolas, monospace; fill: #26364f; }
+      .note { font: 650 15px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #26364f; }
+      .source-card { fill: #eefaf2; stroke: #43a36d; stroke-width: 2; }
+      .db-card { fill: #eef5ff; stroke: #4d7fd0; stroke-width: 2; }
+      .rag-card { fill: #f0fbf8; stroke: #28a38f; stroke-width: 2; }
+      .model-card { fill: #fff6e8; stroke: #d98b20; stroke-width: 2; }
+      .answer-card { fill: #fff2ea; stroke: #e27331; stroke-width: 2; }
+      .audit-card { fill: #f4f6f8; stroke: #8b98a8; stroke-width: 2; }
+      .chip { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.3; }
+      .chip-green { fill: #ffffff; stroke: #7cc69a; stroke-width: 1.3; }
+      .chip-blue { fill: #ffffff; stroke: #84a8e6; stroke-width: 1.3; }
+      .chip-teal { fill: #ffffff; stroke: #66c6ba; stroke-width: 1.3; }
+      .chip-orange { fill: #ffffff; stroke: #e7a64f; stroke-width: 1.3; }
+      .chip-gray { fill: #ffffff; stroke: #aab4c2; stroke-width: 1.3; }
+      .arrow { stroke: #526174; stroke-width: 3.2; fill: none; marker-end: url(#arrowhead); }
+      .trace { stroke: #8b98a8; stroke-width: 2.5; stroke-dasharray: 8 8; fill: none; marker-end: url(#tracehead); }
+      .thin { stroke: #9aa7b7; stroke-width: 1.5; fill: none; }
+      .db-fill { fill: #dbeafe; stroke: #4d7fd0; stroke-width: 2; }
+      .icon-line { stroke: #334155; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrowhead" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <path d="M2,2 L12,7 L2,12 Z" fill="#526174"/>
+    </marker>
+    <marker id="tracehead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#8b98a8"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <text x="60" y="58" class="title">FahMai Database Architecture</text>
+  <text x="60" y="88" class="subtitle">from raw files to traceable AI answers</text>
+
+  <rect x="60" y="122" width="230" height="610" rx="18" class="source-card"/>
+  <text x="84" y="158" class="zone-title">1. Source Data</text>
+  <text x="84" y="182" class="zone-subtitle">แหล่งข้อมูลตั้งต้น</text>
+
+  <rect x="84" y="215" width="182" height="66" rx="12" class="chip-green"/>
+  <text x="104" y="241" class="label">CSV 31 tables</text>
+  <text x="104" y="263" class="small">FACT / DIM / T2 inventory</text>
+
+  <rect x="84" y="302" width="182" height="66" rx="12" class="chip-green"/>
+  <text x="104" y="328" class="label">Documents</text>
+  <text x="104" y="350" class="small">policy, reports, contracts</text>
+
+  <rect x="84" y="389" width="182" height="66" rx="12" class="chip-green"/>
+  <text x="104" y="415" class="label">OCR Artifacts</text>
+  <text x="104" y="437" class="small">PDF / image / JSON text</text>
+
+  <rect x="84" y="476" width="182" height="66" rx="12" class="chip-green"/>
+  <text x="104" y="502" class="label">Logs + Reports</text>
+  <text x="104" y="524" class="small">chat, ops, finance close</text>
+
+  <rect x="84" y="581" width="182" height="91" rx="12" class="chip-gray"/>
+  <text x="104" y="607" class="label">Safety filter</text>
+  <text x="104" y="630" class="text">ใช้เฉพาะ public-safe</text>
+  <text x="104" y="652" class="small">กัน prompt injection / leak</text>
+
+  <rect x="348" y="122" width="350" height="610" rx="18" class="db-card"/>
+  <text x="374" y="158" class="zone-title">2. PostgreSQL Source of Truth</text>
+  <text x="374" y="182" class="zone-subtitle">ฐานข้อมูลหลักที่ตรวจย้อนกลับได้</text>
+
+  <g aria-label="database icon">
+    <ellipse cx="523" cy="220" rx="88" ry="26" class="db-fill"/>
+    <path d="M435 220 V282 C435 296 474 308 523 308 C572 308 611 296 611 282 V220" class="db-fill"/>
+    <ellipse cx="523" cy="282" rx="88" ry="26" class="thin"/>
+  </g>
+
+  <rect x="382" y="340" width="132" height="58" rx="10" class="chip-blue"/>
+  <text x="402" y="364" class="mono">raw</text>
+  <text x="402" y="385" class="small">เก็บไฟล์ดิบ</text>
+
+  <rect x="532" y="340" width="132" height="58" rx="10" class="chip-blue"/>
+  <text x="552" y="364" class="mono">core</text>
+  <text x="552" y="385" class="small">ตารางจริง typed</text>
+
+  <rect x="382" y="420" width="132" height="58" rx="10" class="chip-blue"/>
+  <text x="402" y="444" class="mono">rag</text>
+  <text x="402" y="465" class="small">เอกสาร + chunks</text>
+
+  <rect x="532" y="420" width="132" height="58" rx="10" class="chip-blue"/>
+  <text x="552" y="444" class="mono">mart</text>
+  <text x="552" y="465" class="small">view ที่ query ง่าย</text>
+
+  <rect x="382" y="500" width="132" height="58" rx="10" class="chip-gray"/>
+  <text x="402" y="524" class="mono">audit</text>
+  <text x="402" y="545" class="small">trace / safety</text>
+
+  <rect x="532" y="500" width="132" height="58" rx="10" class="chip-gray"/>
+  <text x="552" y="524" class="mono">eval</text>
+  <text x="552" y="545" class="small">100 questions</text>
+
+  <rect x="382" y="604" width="282" height="78" rx="12" class="chip-blue"/>
+  <text x="404" y="631" class="label">ตัวอย่าง official tables</text>
+  <text x="404" y="654" class="mono">FACT_SALES, FACT_BANK_TRANSACTION</text>
+  <text x="404" y="674" class="mono">DIM_PRODUCT, T2_DOC_INVENTORY</text>
+
+  <rect x="756" y="122" width="282" height="610" rx="18" class="rag-card"/>
+  <text x="782" y="158" class="zone-title">3. RAG + Vector Search</text>
+  <text x="782" y="182" class="zone-subtitle">ค้นเอกสารจากความหมาย</text>
+
+  <rect x="786" y="220" width="222" height="74" rx="12" class="chip-teal"/>
+  <text x="808" y="247" class="label">Parent chunks</text>
+  <text x="808" y="270" class="text">เก็บบริบทเอกสารยาว ๆ</text>
+
+  <rect x="786" y="324" width="222" height="74" rx="12" class="chip-teal"/>
+  <text x="808" y="351" class="label">Child chunks</text>
+  <text x="808" y="374" class="text">ชิ้นเล็กสำหรับค้นแม่น</text>
+
+  <rect x="786" y="428" width="222" height="74" rx="12" class="chip-teal"/>
+  <text x="808" y="455" class="label">BGE-M3 embeddings</text>
+  <text x="808" y="478" class="small">vector(1024), ไทย + อังกฤษ</text>
+
+  <rect x="786" y="532" width="222" height="74" rx="12" class="chip-teal"/>
+  <text x="808" y="559" class="label">pgvector + HNSW</text>
+  <text x="808" y="582" class="text">ค้นใกล้เคียงเร็วขึ้น</text>
+
+  <rect x="786" y="636" width="222" height="48" rx="12" class="chip-gray"/>
+  <text x="808" y="665" class="small">fallback: full-text search</text>
+
+  <rect x="1096" y="122" width="250" height="610" rx="18" class="model-card"/>
+  <text x="1122" y="158" class="zone-title">4. Model Interface</text>
+  <text x="1122" y="182" class="zone-subtitle">หน้าสรุปให้ AI ใช้งาน</text>
+
+  <rect x="1126" y="220" width="190" height="74" rx="12" class="chip-orange"/>
+  <text x="1148" y="247" class="label">8 model views</text>
+  <text x="1148" y="270" class="text">ไม่ให้ AI เห็นทุก table</text>
+
+  <rect x="1126" y="324" width="190" height="74" rx="12" class="chip-orange"/>
+  <text x="1148" y="351" class="label">M-Schema</text>
+  <text x="1148" y="374" class="text">คู่มือ schema ใน prompt</text>
+
+  <rect x="1126" y="428" width="190" height="74" rx="12" class="chip-orange"/>
+  <text x="1148" y="455" class="label">grain guidance</text>
+  <text x="1148" y="478" class="text">กัน sum / join ผิด</text>
+
+  <rect x="1126" y="532" width="190" height="74" rx="12" class="chip-orange"/>
+  <text x="1148" y="559" class="label">citation fields</text>
+  <text x="1148" y="582" class="mono">source_table / source_pk</text>
+
+  <rect x="1126" y="636" width="190" height="48" rx="12" class="chip-gray"/>
+  <text x="1148" y="665" class="small">prompt-safe 8 relations</text>
+
+  <rect x="1400" y="122" width="150" height="610" rx="18" class="answer-card"/>
+  <text x="1422" y="158" class="zone-title">5. Answer</text>
+  <text x="1422" y="182" class="zone-subtitle">คำตอบ AI</text>
+
+  <rect x="1418" y="220" width="114" height="88" rx="12" class="chip-orange"/>
+  <text x="1432" y="248" class="label">100 Qs</text>
+  <text x="1432" y="271" class="small">questions.csv</text>
+  <text x="1432" y="292" class="small">answer run</text>
+
+  <rect x="1418" y="344" width="114" height="88" rx="12" class="chip-orange"/>
+  <text x="1432" y="372" class="label">SQL + RAG</text>
+  <text x="1432" y="395" class="small">คำนวณ + ค้น</text>
+  <text x="1432" y="416" class="small">เอกสาร</text>
+
+  <rect x="1418" y="468" width="114" height="88" rx="12" class="chip-orange"/>
+  <text x="1432" y="496" class="label">Citations</text>
+  <text x="1432" y="519" class="small">บอก source</text>
+  <text x="1432" y="540" class="small">ตรวจได้</text>
+
+  <rect x="1418" y="592" width="114" height="88" rx="12" class="chip-gray"/>
+  <text x="1432" y="620" class="label">Trace</text>
+  <text x="1432" y="643" class="small">เก็บ SQL</text>
+  <text x="1432" y="664" class="small">และ evidence</text>
+
+  <path class="arrow" d="M290 427 C318 427 320 427 348 427"/>
+  <path class="arrow" d="M698 427 C726 427 728 427 756 427"/>
+  <path class="arrow" d="M1038 427 C1066 427 1068 427 1096 427"/>
+  <path class="arrow" d="M1346 427 C1370 427 1374 427 1400 427"/>
+
+  <path class="trace" d="M1475 732 C1475 810 198 810 198 692"/>
+  <text x="564" y="800" class="small">trace loop: คำตอบทุกข้อควรย้อนกลับไปหา official source / public-safe evidence ได้</text>
+
+  <rect x="60" y="788" width="1490" height="62" rx="16" class="audit-card"/>
+  <text x="86" y="825" class="note">Goal: ตอบคำถามให้ถูก, ค้น source ได้, และ rebuild ได้บนเครื่องใหม่</text>
+  <text x="1000" y="825" class="small">PostgreSQL + pgvector + BGE-M3 + M-Schema</text>
+</svg>

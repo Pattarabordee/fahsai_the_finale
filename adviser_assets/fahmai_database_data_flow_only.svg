@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">FahMai Database Data Flow Only</title>
+  <desc id="desc">A simplified left-to-right data flow diagram for FahMai, showing source data flowing through PostgreSQL, RAG vector search, model interface, and answer generation.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfcfe; }
+      .title { font: 800 36px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #142033; }
+      .subtitle { font: 400 19px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #526174; }
+      .step-no { font: 800 16px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #ffffff; }
+      .zone-title { font: 800 22px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #172033; }
+      .label { font: 650 15px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #26364f; }
+      .text { font: 400 14px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #43536a; }
+      .small { font: 400 12.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .mono { font: 650 12px "Cascadia Mono", Consolas, monospace; fill: #334155; }
+      .source { fill: #effaf3; stroke: #3ea66b; stroke-width: 2.3; }
+      .postgres { fill: #eef5ff; stroke: #4d7fd0; stroke-width: 2.3; }
+      .rag { fill: #effbf8; stroke: #22a08c; stroke-width: 2.3; }
+      .model { fill: #fff7ea; stroke: #d98b20; stroke-width: 2.3; }
+      .answer { fill: #fff1e8; stroke: #e17432; stroke-width: 2.3; }
+      .card { fill: #ffffff; stroke: #d4deea; stroke-width: 1.5; }
+      .green { stroke: #74c69d; }
+      .blue { stroke: #88adeb; }
+      .teal { stroke: #61c6ba; }
+      .orange { stroke: #e6a44c; }
+      .gray { stroke: #aab6c6; }
+      .arrow { stroke: #536174; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+      .flowline { stroke: #c7d1df; stroke-width: 2; fill: none; }
+      .badge-green { fill: #2f9e60; }
+      .badge-blue { fill: #3f75d6; }
+      .badge-teal { fill: #169b89; }
+      .badge-orange { fill: #d8831c; }
+      .badge-red { fill: #df6b2d; }
+      .icon-line { stroke: #25344a; stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-fill { fill: #ffffff; stroke: #25344a; stroke-width: 2.2; }
+      .note-panel { fill: #f5f7fa; stroke: #94a3b8; stroke-width: 2; }
+    </style>
+    <marker id="arrowhead" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto">
+      <path d="M2,2 L14,8 L2,14 Z" fill="#536174"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <text x="60" y="62" class="title">FahMai Database Data Flow</text>
+  <text x="60" y="94" class="subtitle">แสดงเฉพาะทางเดินของข้อมูลจาก Source Data ไปจนถึง Answer Engine</text>
+
+  <path class="flowline" d="M155 470 H1445"/>
+
+  <rect x="60" y="168" width="240" height="525" rx="22" class="source"/>
+  <circle cx="96" cy="204" r="18" class="badge-green"/>
+  <text x="91" y="210" class="step-no">1</text>
+  <text x="124" y="211" class="zone-title">Source Data</text>
+  <text x="88" y="240" class="small">ข้อมูลตั้งต้นที่โจทย์ให้มา</text>
+
+  <g transform="translate(101 284)">
+    <rect x="0" y="0" width="52" height="64" rx="7" class="icon-fill"/>
+    <path d="M13 18 H39 M13 32 H39 M13 46 H32" class="icon-line"/>
+    <rect x="72" y="9" width="52" height="48" rx="7" class="icon-fill"/>
+    <path d="M84 24 H112 M84 38 H108" class="icon-line"/>
+  </g>
+
+  <rect x="88" y="392" width="184" height="55" rx="12" class="card green"/>
+  <text x="108" y="416" class="label">CSV 31 tables</text>
+  <text x="108" y="436" class="small">FACT / DIM / T2</text>
+
+  <rect x="88" y="466" width="184" height="55" rx="12" class="card green"/>
+  <text x="108" y="490" class="label">Docs + Reports</text>
+  <text x="108" y="510" class="small">policy / contracts / logs</text>
+
+  <rect x="88" y="540" width="184" height="55" rx="12" class="card green"/>
+  <text x="108" y="564" class="label">OCR text</text>
+  <text x="108" y="584" class="small">public-safe artifacts</text>
+
+  <rect x="354" y="168" width="270" height="525" rx="22" class="postgres"/>
+  <circle cx="390" cy="204" r="18" class="badge-blue"/>
+  <text x="385" y="210" class="step-no">2</text>
+  <text x="418" y="211" class="zone-title">PostgreSQL</text>
+  <text x="382" y="240" class="small">โหลดและจัดข้อมูลให้เป็นระเบียบ</text>
+
+  <g transform="translate(426 282)">
+    <ellipse cx="64" cy="24" rx="82" ry="24" fill="#dbeafe" stroke="#4d7fd0" stroke-width="2"/>
+    <path d="M-18 24 V82 C-18 96 19 108 64 108 C109 108 146 96 146 82 V24" fill="#dbeafe" stroke="#4d7fd0" stroke-width="2"/>
+    <ellipse cx="64" cy="82" rx="82" ry="24" fill="none" stroke="#8aa1bd" stroke-width="1.5"/>
+  </g>
+
+  <rect x="386" y="420" width="96" height="55" rx="11" class="card blue"/>
+  <text x="408" y="443" class="mono">raw</text>
+  <text x="408" y="463" class="small">ไฟล์ดิบ</text>
+
+  <rect x="496" y="420" width="96" height="55" rx="11" class="card blue"/>
+  <text x="518" y="443" class="mono">core</text>
+  <text x="518" y="463" class="small">ตารางจริง</text>
+
+  <rect x="386" y="494" width="96" height="55" rx="11" class="card blue"/>
+  <text x="408" y="517" class="mono">rag</text>
+  <text x="408" y="537" class="small">เอกสาร</text>
+
+  <rect x="496" y="494" width="96" height="55" rx="11" class="card blue"/>
+  <text x="518" y="517" class="mono">mart</text>
+  <text x="518" y="537" class="small">views</text>
+
+  <rect x="386" y="568" width="206" height="55" rx="11" class="card gray"/>
+  <text x="408" y="591" class="mono">audit / eval</text>
+  <text x="408" y="611" class="small">เก็บร่องรอยและชุดคำถาม</text>
+
+  <rect x="678" y="168" width="270" height="525" rx="22" class="rag"/>
+  <circle cx="714" cy="204" r="18" class="badge-teal"/>
+  <text x="709" y="210" class="step-no">3</text>
+  <text x="742" y="211" class="zone-title">RAG Search</text>
+  <text x="706" y="240" class="small">ทำให้ค้นเอกสารจากความหมายได้</text>
+
+  <g transform="translate(746 284)">
+    <circle cx="54" cy="54" r="42" fill="#ffffff" stroke="#25344a" stroke-width="2.4"/>
+    <path d="M84 84 L130 130" class="icon-line"/>
+    <path d="M31 54 H77 M54 31 V77" class="icon-line"/>
+  </g>
+
+  <rect x="710" y="420" width="206" height="58" rx="12" class="card teal"/>
+  <text x="732" y="445" class="label">document chunks</text>
+  <text x="732" y="466" class="small">แบ่งเอกสารเป็นชิ้น</text>
+
+  <rect x="710" y="498" width="206" height="58" rx="12" class="card teal"/>
+  <text x="732" y="523" class="label">BGE-M3 embeddings</text>
+  <text x="732" y="544" class="small">แปลงข้อความเป็น vector</text>
+
+  <rect x="710" y="576" width="206" height="58" rx="12" class="card teal"/>
+  <text x="732" y="601" class="label">pgvector / HNSW</text>
+  <text x="732" y="622" class="small">ค้นข้อมูลใกล้เคียงเร็วขึ้น</text>
+
+  <rect x="1002" y="168" width="250" height="525" rx="22" class="model"/>
+  <circle cx="1038" cy="204" r="18" class="badge-orange"/>
+  <text x="1033" y="210" class="step-no">4</text>
+  <text x="1066" y="211" class="zone-title">Model Interface</text>
+  <text x="1030" y="240" class="small">เตรียมข้อมูลให้ AI ใช้ง่าย</text>
+
+  <g transform="translate(1065 290)">
+    <rect x="0" y="0" width="124" height="92" rx="13" class="icon-fill"/>
+    <path d="M26 27 H98 M26 47 H98 M26 67 H76" class="icon-line"/>
+  </g>
+
+  <rect x="1030" y="420" width="194" height="58" rx="12" class="card orange"/>
+  <text x="1052" y="445" class="label">8 model views</text>
+  <text x="1052" y="466" class="small">sales / finance / docs...</text>
+
+  <rect x="1030" y="498" width="194" height="58" rx="12" class="card orange"/>
+  <text x="1052" y="523" class="label">M-Schema</text>
+  <text x="1052" y="544" class="small">schema guide for prompt</text>
+
+  <rect x="1030" y="576" width="194" height="58" rx="12" class="card orange"/>
+  <text x="1052" y="601" class="label">safe columns</text>
+  <text x="1052" y="622" class="small">source_table / source_pk</text>
+
+  <rect x="1306" y="168" width="234" height="525" rx="22" class="answer"/>
+  <circle cx="1342" cy="204" r="18" class="badge-red"/>
+  <text x="1337" y="210" class="step-no">5</text>
+  <text x="1370" y="211" class="zone-title">Answer Engine</text>
+  <text x="1334" y="240" class="small">AI ใช้ SQL + evidence ตอบคำถาม</text>
+
+  <g transform="translate(1360 294)">
+    <path d="M0 18 C0 8 8 0 18 0 H102 C112 0 120 8 120 18 V70 C120 80 112 88 102 88 H59 L30 112 V88 H18 C8 88 0 80 0 70 Z" fill="#ffffff" stroke="#25344a" stroke-width="2.4"/>
+    <path d="M28 30 H92 M28 52 H80" class="icon-line"/>
+  </g>
+
+  <rect x="1334" y="420" width="178" height="58" rx="12" class="card orange"/>
+  <text x="1356" y="445" class="label">100 questions</text>
+  <text x="1356" y="466" class="small">questions.csv</text>
+
+  <rect x="1334" y="498" width="178" height="58" rx="12" class="card orange"/>
+  <text x="1356" y="523" class="label">SQL + RAG</text>
+  <text x="1356" y="544" class="small">คำนวณ + ค้นเอกสาร</text>
+
+  <rect x="1334" y="576" width="178" height="58" rx="12" class="card orange"/>
+  <text x="1356" y="601" class="label">Final answer</text>
+  <text x="1356" y="622" class="small">ตอบพร้อม source</text>
+
+  <path class="arrow" d="M300 470 C326 470 328 470 354 470"/>
+  <path class="arrow" d="M624 470 C650 470 652 470 678 470"/>
+  <path class="arrow" d="M948 470 C974 470 976 470 1002 470"/>
+  <path class="arrow" d="M1252 470 C1278 470 1280 470 1306 470"/>
+
+  <rect x="60" y="760" width="1480" height="72" rx="18" class="note-panel"/>
+  <text x="86" y="792" class="label">Data Flow Only:</text>
+  <text x="202" y="792" class="text">Source Data → PostgreSQL layers → RAG/vector search → model-facing views + M-Schema → AI answer</text>
+  <text x="86" y="817" class="small">เส้นในภาพนี้แสดงเฉพาะทางเดินของข้อมูล ไม่แสดง trace loop ย้อนกลับเพื่อ audit</text>
+</svg>

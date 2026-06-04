@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">BGE-M3 Workspace Evidence Diagram</title>
+  <desc id="desc">A slide-ready diagram explaining BGE-M3 in FahMai using concrete values and files from the workspace.</desc>
+  <defs>
+    <style>
+      .bg { fill: #fbfcfe; }
+      .title { font: 800 34px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #142033; }
+      .subtitle { font: 400 18px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #526174; }
+      .zone-title { font: 800 21px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #172033; }
+      .head { font: 750 16.5px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #1f2d42; }
+      .label { font: 650 14px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #26364f; }
+      .text { font: 400 13px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #43536a; }
+      .small { font: 400 11.8px "Leelawadee UI", "Noto Sans Thai", "Segoe UI", Arial, sans-serif; fill: #64748b; }
+      .mono { font: 650 11.6px "Cascadia Mono", Consolas, monospace; fill: #334155; }
+      .source-panel { fill: #effaf3; stroke: #3ea66b; stroke-width: 2.1; }
+      .script-panel { fill: #eef5ff; stroke: #4d7fd0; stroke-width: 2.1; }
+      .model-panel { fill: #effbf8; stroke: #22a08c; stroke-width: 2.1; }
+      .db-panel { fill: #fff7ea; stroke: #d98b20; stroke-width: 2.1; }
+      .result-panel { fill: #fff1e8; stroke: #e17432; stroke-width: 2.1; }
+      .note-panel { fill: #f5f7fa; stroke: #94a3b8; stroke-width: 2; }
+      .card { fill: #ffffff; stroke: #d4deea; stroke-width: 1.45; }
+      .green { stroke: #74c69d; }
+      .blue { stroke: #88adeb; }
+      .teal { stroke: #61c6ba; }
+      .orange { stroke: #e6a44c; }
+      .red { stroke: #e18a78; }
+      .gray { stroke: #aab6c6; }
+      .highlight { fill: #fff4d8; stroke: #d98b20; stroke-width: 2; }
+      .arrow { stroke: #536174; stroke-width: 3.4; fill: none; marker-end: url(#arrowhead); }
+      .soft-arrow { stroke: #7b8ba1; stroke-width: 2.3; stroke-dasharray: 8 8; fill: none; marker-end: url(#softhead); }
+      .icon-line { stroke: #25344a; stroke-width: 2.3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-fill { fill: #ffffff; stroke: #25344a; stroke-width: 2.1; }
+      .dot { fill: #22a08c; }
+      .dot2 { fill: #4d7fd0; }
+      .dot3 { fill: #d98b20; }
+    </style>
+    <marker id="arrowhead" markerWidth="15" markerHeight="15" refX="12" refY="7.5" orient="auto">
+      <path d="M2,2 L13,7.5 L2,13 Z" fill="#536174"/>
+    </marker>
+    <marker id="softhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#7b8ba1"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="900"/>
+  <text x="60" y="58" class="title">BGE-M3 จาก Workspace จริง</text>
+  <text x="60" y="88" class="subtitle">ภาพนี้สร้างจากค่าที่อยู่ใน migrations, scripts และ production checklist ของ repo</text>
+
+  <rect x="60" y="118" width="1480" height="70" rx="18" class="note-panel"/>
+  <text x="86" y="149" class="zone-title">BGE-M3 ทำอะไรในระบบนี้?</text>
+  <text x="398" y="149" class="label">แปลง `child_chunks` เป็น embedding `vector(1024)` แล้วใช้ `pgvector/HNSW` ค้นหา evidence ที่ความหมายใกล้กับคำถาม</text>
+  <text x="398" y="171" class="small">BGE-M3 is the retrieval embedding model, not the final answer model.</text>
+
+  <rect x="60" y="234" width="240" height="440" rx="20" class="source-panel"/>
+  <text x="88" y="270" class="zone-title">1. Workspace Inputs</text>
+  <text x="88" y="294" class="small">ข้อมูลที่ถูก embed</text>
+  <rect x="90" y="334" width="182" height="58" rx="13" class="card green"/>
+  <text x="112" y="358" class="mono">child_chunks</text>
+  <text x="112" y="378" class="small">retrieval_profile = bge_m3_v1</text>
+  <rect x="90" y="414" width="182" height="58" rx="13" class="card green"/>
+  <text x="112" y="438" class="mono">child_text</text>
+  <text x="112" y="458" class="small">text to embed/search</text>
+  <rect x="90" y="494" width="182" height="58" rx="13" class="card gray"/>
+  <text x="112" y="518" class="mono">parent_chunk_id</text>
+  <text x="112" y="538" class="small">link back to context</text>
+  <rect x="90" y="590" width="182" height="48" rx="13" class="card gray"/>
+  <text x="112" y="614" class="small">Source: db/010 lines 7-14</text>
+
+  <rect x="350" y="234" width="280" height="440" rx="20" class="script-panel"/>
+  <text x="378" y="270" class="zone-title">2. Embedding Script</text>
+  <text x="378" y="294" class="small">ค่าจริงจาก workspace</text>
+  <rect x="382" y="330" width="216" height="56" rx="13" class="card blue"/>
+  <text x="404" y="354" class="mono">scripts/embed_chunks_openai.py</text>
+  <text x="404" y="374" class="small">BGE path branches on profile</text>
+  <rect x="382" y="408" width="216" height="56" rx="13" class="highlight"/>
+  <text x="404" y="432" class="mono">BGE_PROFILE = "bge_m3_v1"</text>
+  <text x="404" y="452" class="small">line 48</text>
+  <rect x="382" y="486" width="216" height="56" rx="13" class="card blue"/>
+  <text x="404" y="510" class="mono">request = "baai/bge-m3"</text>
+  <text x="404" y="530" class="small">line 51</text>
+  <rect x="382" y="564" width="216" height="56" rx="13" class="card blue"/>
+  <text x="404" y="588" class="mono">dimension = 1024</text>
+  <text x="404" y="608" class="small">line 53</text>
+
+  <rect x="690" y="234" width="280" height="440" rx="20" class="model-panel"/>
+  <text x="718" y="270" class="zone-title">3. BGE-M3 Service</text>
+  <text x="718" y="294" class="small">รัน embedding service เองได้</text>
+  <g transform="translate(760 326)">
+    <rect x="0" y="0" width="138" height="94" rx="18" fill="#ffffff" stroke="#25344a" stroke-width="2.3"/>
+    <circle cx="35" cy="34" r="10" class="dot2"/>
+    <circle cx="69" cy="34" r="10" class="dot"/>
+    <circle cx="103" cy="34" r="10" class="dot3"/>
+    <path d="M35 44 V70 M69 44 V70 M103 44 V70 M29 70 H109" class="icon-line"/>
+  </g>
+  <rect x="722" y="456" width="216" height="56" rx="13" class="highlight"/>
+  <text x="744" y="480" class="mono">--model-id BAAI/bge-m3</text>
+  <text x="744" y="500" class="small">PRODUCTION_REBUILD_CHECKLIST line 59</text>
+  <rect x="722" y="534" width="216" height="56" rx="13" class="card teal"/>
+  <text x="744" y="558" class="mono">endpoint /embed</text>
+  <text x="744" y="578" class="small">http://localhost:8080/embed</text>
+  <rect x="722" y="612" width="216" height="36" rx="11" class="card teal"/>
+  <text x="744" y="635" class="small">TEI returns 1024-dimensional vectors</text>
+
+  <rect x="1030" y="234" width="270" height="440" rx="20" class="db-panel"/>
+  <text x="1058" y="270" class="zone-title">4. Store in Postgres</text>
+  <text x="1058" y="294" class="small">schema จาก migration จริง</text>
+  <rect x="1062" y="330" width="206" height="66" rx="13" class="card orange"/>
+  <text x="1084" y="356" class="mono">child_chunk_embeddings</text>
+  <text x="1084" y="378" class="small">db/010 line 29</text>
+  <rect x="1062" y="418" width="206" height="66" rx="13" class="highlight"/>
+  <text x="1084" y="444" class="mono">embedding vector(1024)</text>
+  <text x="1084" y="466" class="small">db/010 line 33</text>
+  <rect x="1062" y="506" width="206" height="66" rx="13" class="card orange"/>
+  <text x="1084" y="532" class="mono">embedding_model</text>
+  <text x="1084" y="554" class="mono">DEFAULT 'BAAI/bge-m3'</text>
+  <rect x="1062" y="594" width="206" height="46" rx="13" class="card orange"/>
+  <text x="1084" y="621" class="mono">INSERT via embed script</text>
+
+  <rect x="1360" y="234" width="180" height="440" rx="20" class="result-panel"/>
+  <text x="1388" y="270" class="zone-title">5. Search Use</text>
+  <text x="1388" y="294" class="small">ใช้ค้น evidence</text>
+  <rect x="1384" y="334" width="132" height="58" rx="13" class="card red"/>
+  <text x="1402" y="358" class="mono">HNSW</text>
+  <text x="1402" y="378" class="small">db/011 line 8</text>
+  <rect x="1384" y="414" width="132" height="58" rx="13" class="card red"/>
+  <text x="1402" y="438" class="mono">cosine</text>
+  <text x="1402" y="458" class="small">vector_cosine_ops</text>
+  <rect x="1384" y="494" width="132" height="58" rx="13" class="highlight"/>
+  <text x="1402" y="518" class="mono">match_public</text>
+  <text x="1402" y="538" class="mono">_chunks_bge_m3</text>
+  <rect x="1384" y="574" width="132" height="58" rx="13" class="card red"/>
+  <text x="1402" y="598" class="mono">document</text>
+  <text x="1402" y="618" class="mono">_evidence</text>
+
+  <path class="arrow" d="M300 454 C325 454 325 454 350 454"/>
+  <path class="arrow" d="M630 454 C660 454 660 454 690 454"/>
+  <path class="arrow" d="M970 454 C1000 454 1000 454 1030 454"/>
+  <path class="arrow" d="M1300 454 C1330 454 1330 454 1360 454"/>
+
+  <path class="soft-arrow" d="M1450 234 C1450 206 830 206 830 234"/>
+  <text x="940" y="216" class="small">query ใหม่ก็ embed ด้วย BGE-M3 แล้วเทียบกับ child vectors ที่เก็บไว้</text>
+
+  <rect x="60" y="732" width="350" height="102" rx="18" class="source-panel"/>
+  <text x="88" y="766" class="zone-title">Why From Workspace</text>
+  <text x="88" y="792" class="label">ไม่ใช่สมมุติ: ทุกค่ามาจากไฟล์จริง</text>
+  <text x="88" y="814" class="small">scripts, SQL migrations, production checklist</text>
+
+  <rect x="436" y="732" width="350" height="102" rx="18" class="model-panel"/>
+  <text x="464" y="766" class="zone-title">What BGE-M3 Produces</text>
+  <text x="464" y="792" class="label">1024-dimensional embedding</text>
+  <text x="464" y="814" class="small">ใช้แทนความหมายของ `child_text`</text>
+
+  <rect x="812" y="732" width="350" height="102" rx="18" class="db-panel"/>
+  <text x="840" y="766" class="zone-title">Where It Lives</text>
+  <text x="840" y="792" class="label">PostgreSQL table + pgvector index</text>
+  <text x="840" y="814" class="small">`child_chunk_embeddings` + HNSW</text>
+
+  <rect x="1188" y="732" width="352" height="102" rx="18" class="note-panel"/>
+  <text x="1216" y="766" class="zone-title">How It Helps Answering</text>
+  <text x="1216" y="792" class="label">ค้น child ที่ใกล้คำถามที่สุด</text>
+  <text x="1216" y="814" class="small">แล้วดึง parent context ผ่าน `document_evidence`</text>
+</svg>

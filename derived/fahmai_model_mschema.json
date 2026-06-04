@@ -26,7 +26,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source primary key for citation and audit trace.",
           "examples": []
         },
         "source_aliases": {
@@ -322,9 +322,9 @@
           "autoincrement": false,
           "comment": "",
           "examples": [
-            "0",
             "-1000",
-            "1000"
+            "-1002",
+            "-1004"
           ]
         },
         "resulting_balance_points": {
@@ -335,9 +335,9 @@
           "autoincrement": false,
           "comment": "",
           "examples": [
-            "0",
             "-1",
-            "-10"
+            "-10",
+            "-101"
           ]
         },
         "resulting_tier": {
@@ -569,7 +569,7 @@
     },
     "fah_sai_lpk_model.document_evidence": {
       "type": "view",
-      "comment": "Model-facing public-safe document evidence surface over RAG chunks and entity links. Does not expose unsafe audit provenance; source_table/source_pk map to official cited entities when available.",
+      "comment": "Model-facing public-safe document evidence surface over compact BGE-M3 parent-child RAG chunks and entity links. Use child chunk text for matching and parent_text for hydrated context.",
       "examples": [],
       "fields": {
         "evidence_row_id": {
@@ -580,9 +580,9 @@
           "autoincrement": false,
           "comment": "",
           "examples": [
-            "chunk_000065cee549b3957c9d8f96",
-            "chunk_000117f62612b702c78f9611",
-            "chunk_0002b2031f34f7987286fd8f"
+            "child_0000951d5a16d7d040dd9be0",
+            "child_00018daed43f26a1115d70c6",
+            "child_0002f655aa5d792263772dac"
           ]
         },
         "source_table": {
@@ -591,7 +591,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source table for citation and routing.",
           "examples": [
             "DIM_BRANCH",
             "DIM_CUSTOMER",
@@ -604,7 +604,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source primary key for citation and audit trace.",
           "examples": []
         },
         "source_aliases": {
@@ -616,6 +616,15 @@
           "comment": "",
           "examples": []
         },
+        "retrieval_profile": {
+          "type": "text",
+          "primary_key": false,
+          "nullable": true,
+          "default": null,
+          "autoincrement": false,
+          "comment": "Retrieval profile for embedded evidence. Default production profile is bge_m3_v1.",
+          "examples": []
+        },
         "chunk_id": {
           "type": "text",
           "primary_key": false,
@@ -623,6 +632,32 @@
           "default": null,
           "autoincrement": false,
           "comment": "",
+          "examples": [
+            "child_0000951d5a16d7d040dd9be0",
+            "child_00018daed43f26a1115d70c6",
+            "child_0002f655aa5d792263772dac"
+          ]
+        },
+        "child_chunk_id": {
+          "type": "text",
+          "primary_key": false,
+          "nullable": true,
+          "default": null,
+          "autoincrement": false,
+          "comment": "Embedding-grain child chunk id for BGE-M3 retrieval and citations.",
+          "examples": [
+            "child_0000951d5a16d7d040dd9be0",
+            "child_00018daed43f26a1115d70c6",
+            "child_0002f655aa5d792263772dac"
+          ]
+        },
+        "parent_chunk_id": {
+          "type": "text",
+          "primary_key": false,
+          "nullable": true,
+          "default": null,
+          "autoincrement": false,
+          "comment": "Parent context row used to hydrate this embedded child chunk.",
           "examples": [
             "chunk_000065cee549b3957c9d8f96",
             "chunk_000117f62612b702c78f9611",
@@ -659,9 +694,9 @@
           "autoincrement": false,
           "comment": "",
           "examples": [
-            "doc_chat_line_oa",
-            "doc_chat_line_works",
-            "doc_DOCS_ANOMALY_INSIGHTS.md"
+            "doc_DOCS_ANOMALY_INSIGHTS.md",
+            "doc_L1_KB_CONSISTENCY_RISK.md",
+            "doc_LOA_EVENT_INSIGHTS.md"
           ]
         },
         "artifact_id": {
@@ -704,6 +739,15 @@
           "comment": "",
           "examples": []
         },
+        "parent_text": {
+          "type": "text",
+          "primary_key": false,
+          "nullable": true,
+          "default": null,
+          "autoincrement": false,
+          "comment": "Hydrated parent context for the matched child chunk. Use for answer context, not as a separate table.",
+          "examples": []
+        },
         "token_count": {
           "type": "integer",
           "primary_key": false,
@@ -712,9 +756,9 @@
           "autoincrement": false,
           "comment": "",
           "examples": [
+            "10",
             "100",
-            "101",
-            "102"
+            "101"
           ]
         },
         "search_tsv": {
@@ -741,7 +785,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "True when this public-safe chunk has an embedding available through the underlying RAG retrieval functions.",
+          "comment": "True when this public-safe BGE-M3 child chunk has a 1024-dimensional embedding available through match_public_chunks_bge_m3.",
           "examples": []
         },
         "document_source_table": {
@@ -858,6 +902,15 @@
           "comment": "",
           "examples": []
         },
+        "parent_metadata": {
+          "type": "jsonb",
+          "primary_key": false,
+          "nullable": true,
+          "default": null,
+          "autoincrement": false,
+          "comment": "",
+          "examples": []
+        },
         "source_metadata": {
           "type": "jsonb",
           "primary_key": false,
@@ -893,7 +946,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source primary key for citation and audit trace.",
           "examples": []
         },
         "source_aliases": {
@@ -1083,9 +1136,9 @@
           "autoincrement": false,
           "comment": "",
           "examples": [
-            "100000.00",
-            "100100.00",
-            "100200.00"
+            "-104500.00",
+            "-12500.00",
+            "-12900.00"
           ]
         },
         "amount_direction": {
@@ -1105,9 +1158,9 @@
           "autoincrement": false,
           "comment": "",
           "examples": [
-            "10000000.00",
-            "100000908.00",
-            "100002046.00"
+            "-10000900.00",
+            "-10032350.00",
+            "-1003800.00"
           ]
         },
         "counterparty": {
@@ -1335,7 +1388,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source table for citation and routing.",
           "examples": [
             "FACT_INVENTORY_MONTHLY_SNAPSHOT",
             "FACT_INVENTORY_MOVEMENT"
@@ -1347,7 +1400,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source primary key for citation and audit trace.",
           "examples": []
         },
         "source_aliases": {
@@ -1592,8 +1645,8 @@
           "comment": "",
           "examples": [
             "-1",
-            "111",
-            "114"
+            "-50",
+            "111"
           ]
         },
         "related_txn_id": {
@@ -1656,11 +1709,11 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source table for citation and routing.",
           "examples": [
             "DIM_POLICY_VERSION",
             "DIM_PROMO_CAMPAIGN",
-            "dim_promo_mechanic"
+            "DIM_VENDOR_CONTRACT_VERSION"
           ]
         },
         "source_pk": {
@@ -1669,7 +1722,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source primary key for citation and audit trace.",
           "examples": []
         },
         "source_aliases": {
@@ -1987,7 +2040,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source table for citation and routing.",
           "examples": [
             "DIM_PRODUCT"
           ]
@@ -1998,7 +2051,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source primary key for citation and audit trace.",
           "examples": []
         },
         "source_aliases": {
@@ -2113,8 +2166,8 @@
           "autoincrement": false,
           "comment": "",
           "examples": [
-            "<10K",
             "10K-30K",
+            "<10K",
             ">=30K"
           ]
         },
@@ -2334,7 +2387,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source table for citation and routing.",
           "examples": [
             "FACT_SALES_LINE_ITEM"
           ]
@@ -2345,7 +2398,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source primary key for citation and audit trace.",
           "examples": []
         },
         "source_aliases": {
@@ -2618,8 +2671,8 @@
           "autoincrement": false,
           "comment": "",
           "examples": [
-            "<10K",
             "10K-30K",
+            "<10K",
             ">=30K"
           ]
         },
@@ -2799,7 +2852,7 @@
           "nullable": true,
           "default": null,
           "autoincrement": false,
-          "comment": "",
+          "comment": "Official source primary key for citation and audit trace.",
           "examples": []
         },
         "source_aliases": {

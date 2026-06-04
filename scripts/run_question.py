@@ -12,6 +12,7 @@ Usage:
   python scripts/run_question.py --question-id FAHMAI-Q-L1-001 --run-label rag-smoke
   python scripts/run_question.py --question-text "Which source mentions refund approval policy?" --run-label ad-hoc
   python scripts/run_question.py --all --limit 100 --run-label eval-v1
+  python scripts/run_question.py --retrieval-profile bge_m3_v1 --question-text "refund approval policy" --no-persist --json
 
 This script is intentionally retrieval-first. It does not invent a final answer;
 it stores sources, candidate SQL templates, and retrieval evidence in
@@ -43,8 +44,13 @@ else:
     PSYCOPG_IMPORT_ERROR = None
 
 
+LEGACY_PROFILE = "legacy_qwen3"
+BGE_PROFILE = "bge_m3_v1"
 DEFAULT_MODEL = "Qwen/Qwen3-Embedding-8B"
 DEFAULT_DIMENSION = 4096
+DEFAULT_BGE_REQUEST_MODEL = "baai/bge-m3"
+DEFAULT_BGE_DIMENSION = 1024
+DEFAULT_OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 DEFAULT_TEI_ENDPOINT = "http://localhost:8080/embed"
 DEFAULT_MATCH_COUNT = 8
 DEFAULT_CANDIDATE_COUNT = 80
@@ -96,6 +102,10 @@ def query_text_for_embedding(question_text: str, model: str) -> tuple[str, bool]
     if "Qwen3-Embedding" not in model:
         return question_text, False
     return f"Instruct: {QWEN_QUERY_TASK}\nQuery: {question_text}", True
+
+
+def is_bge_profile(profile: str) -> bool:
+    return profile == BGE_PROFILE
 
 
 def embed_with_tei(endpoint: str, text: str, timeout_seconds: int, max_retries: int) -> list[float]:
@@ -260,12 +270,25 @@ def load_candidate_templates(conn, tags: list[str], limit: int) -> list[dict[str
         return [json_safe(dict(row)) for row in cur.fetchall()]
 
 
-def fetch_vector_results(conn, embedding: Sequence[float], match_count: int, candidate_count: int, excerpt_chars: int) -> list[dict[str, Any]]:
+def fetch_vector_results(
+    conn,
+    embedding: Sequence[float],
+    match_count: int,
+    candidate_count: int,
+    excerpt_chars: int,
+    retrieval_profile: str,
+    dimension: int,
+) -> list[dict[str, Any]]:
+    function_name = (
+        "fah_sai_lpk_rag.match_public_chunks_bge_m3"
+        if is_bge_profile(retrieval_profile)
+        else "fah_sai_lpk_rag.match_public_chunks"
+    )
     with conn.cursor(row_factory=dict_row) as cur:
         cur.execute(
-            """
+            f"""
             SELECT *
-            FROM fah_sai_lpk_rag.match_public_chunks(%s::vector, %s, %s)
+            FROM {function_name}(%s::vector({dimension}), %s, %s)
             """,
             (vector_literal(embedding), match_count, candidate_count),
         )
@@ -275,12 +298,23 @@ def fetch_vector_results(conn, embedding: Sequence[float], match_count: int, can
     return rows
 
 
-def fetch_text_results(conn, question_text: str, match_count: int, excerpt_chars: int) -> list[dict[str, Any]]:
+def fetch_text_results(
+    conn,
+    question_text: str,
+    match_count: int,
+    excerpt_chars: int,
+    retrieval_profile: str,
+) -> list[dict[str, Any]]:
+    function_name = (
+        "fah_sai_lpk_rag.search_public_child_chunks_text"
+        if is_bge_profile(retrieval_profile)
+        else "fah_sai_lpk_rag.search_public_chunks_text"
+    )
     with conn.cursor(row_factory=dict_row) as cur:
         cur.execute(
-            """
+            f"""
             SELECT *
-            FROM fah_sai_lpk_rag.search_public_chunks_text(%s, %s)
+            FROM {function_name}(%s, %s)
             """,
             (question_text, match_count),
         )
@@ -358,17 +392,27 @@ def save_answer_run(
     )
     source_tables = unique_ordered(
         [
-            (row.get("source_metadata") or {}).get("source_table")
+            row.get("source_table") or (row.get("source_metadata") or {}).get("source_table")
             for row in vector_results
-            if isinstance(row.get("source_metadata"), dict)
+            if row.get("source_table") or isinstance(row.get("source_metadata"), dict)
         ]
     )
-    sql_used = "\n".join(
-        [
-            "SELECT * FROM fah_sai_lpk_rag.match_public_chunks(:query_embedding::vector(4096), :match_count, :candidate_count);",
-            "SELECT * FROM fah_sai_lpk_rag.search_public_chunks_text(:query_text, :match_count);",
-        ]
-    )
+    retrieval_profile = answer_json.get("retrieval_profile", LEGACY_PROFILE)
+    dimension = (answer_json.get("embedding") or {}).get("dimension") or DEFAULT_DIMENSION
+    if is_bge_profile(retrieval_profile):
+        sql_used = "\n".join(
+            [
+                f"SELECT * FROM fah_sai_lpk_rag.match_public_chunks_bge_m3(:query_embedding::vector({dimension}), :match_count, :candidate_count);",
+                "SELECT * FROM fah_sai_lpk_rag.search_public_child_chunks_text(:query_text, :match_count);",
+            ]
+        )
+    else:
+        sql_used = "\n".join(
+            [
+                f"SELECT * FROM fah_sai_lpk_rag.match_public_chunks(:query_embedding::vector({dimension}), :match_count, :candidate_count);",
+                "SELECT * FROM fah_sai_lpk_rag.search_public_chunks_text(:query_text, :match_count);",
+            ]
+        )
 
     with conn.cursor() as cur:
         cur.execute(
@@ -391,7 +435,13 @@ def save_answer_run(
                 template_names,
                 runtime_ms,
                 model_name,
-                Jsonb({"runner": "scripts/run_question.py", "retrieval_only": True}),
+                Jsonb(
+                    {
+                        "runner": "scripts/run_question.py",
+                        "retrieval_only": True,
+                        "retrieval_profile": retrieval_profile,
+                    }
+                ),
             ),
         )
         return str(cur.fetchone()[0])
@@ -417,25 +467,34 @@ def run_one_question(conn, args: argparse.Namespace, question: dict[str, Any]) -
                 args.api_key,
                 args.max_retries,
             )
-        if len(embedding) != DEFAULT_DIMENSION:
-            raise ValueError(f"Query embedding dimension {len(embedding)} != {DEFAULT_DIMENSION}")
+        if len(embedding) != args.dimension:
+            raise ValueError(f"Query embedding dimension {len(embedding)} != {args.dimension}")
         vector_results = fetch_vector_results(
             conn,
             embedding,
             args.match_count,
             args.candidate_count,
             args.excerpt_chars,
+            args.retrieval_profile,
+            args.dimension,
         )
 
-    text_results = fetch_text_results(conn, question["question_text"], args.text_match_count, args.excerpt_chars)
+    text_results = fetch_text_results(
+        conn,
+        question["question_text"],
+        args.text_match_count,
+        args.excerpt_chars,
+        args.retrieval_profile,
+    )
     runtime_ms = int((time.perf_counter() - started) * 1000)
     answer_json = {
         "question": json_safe(question),
         "question_tags": tags,
+        "retrieval_profile": args.retrieval_profile,
         "embedding": {
             "provider": None if args.skip_vector else args.provider,
             "model": None if args.skip_vector else args.model,
-            "dimension": None if args.skip_vector else DEFAULT_DIMENSION,
+            "dimension": None if args.skip_vector else args.dimension,
             "query_instruction": "fahmai_public_rag_v1" if query_instruction_applied else None,
         },
         "vector_results": vector_results,
@@ -493,21 +552,44 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-vector", action="store_true", help="Run text retrieval only, without calling an embedding backend")
     parser.add_argument("--no-persist", action="store_true", help="Print results without inserting fah_sai_lpk_eval.answer_runs")
     parser.add_argument("--json", action="store_true", help="Print machine-readable JSON summary")
-    parser.add_argument("--model", default=os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL))
+    parser.add_argument(
+        "--retrieval-profile",
+        default=os.getenv("RETRIEVAL_PROFILE", LEGACY_PROFILE),
+        choices=[LEGACY_PROFILE, BGE_PROFILE],
+    )
+    parser.add_argument("--model", default=None)
+    parser.add_argument("--dimension", type=int, default=None)
     parser.add_argument(
         "--provider",
         choices=["tei", "openai-compatible"],
-        default=os.getenv("EMBEDDING_PROVIDER", "tei"),
+        default=None,
     )
-    parser.add_argument("--endpoint", default=os.getenv("EMBEDDING_ENDPOINT", DEFAULT_TEI_ENDPOINT))
-    parser.add_argument("--base-url", default=os.getenv("EMBEDDING_BASE_URL"))
-    parser.add_argument("--api-key", default=os.getenv("EMBEDDING_API_KEY") or os.getenv("OPENAI_API_KEY"))
+    parser.add_argument("--endpoint", default=None)
+    parser.add_argument("--base-url", default=None)
+    parser.add_argument("--api-key", default=None)
     parser.add_argument("--timeout-seconds", type=int, default=120)
     parser.add_argument("--max-retries", type=int, default=3)
     args = parser.parse_args()
 
     if not args.database_url:
         raise SystemExit("Set DATABASE_URL or pass --database-url")
+    if is_bge_profile(args.retrieval_profile):
+        args.model = args.model or os.getenv("BGE_EMBEDDING_REQUEST_MODEL") or DEFAULT_BGE_REQUEST_MODEL
+        args.dimension = args.dimension or int(os.getenv("BGE_EMBEDDING_DIMENSION", DEFAULT_BGE_DIMENSION))
+        args.provider = args.provider or os.getenv("BGE_EMBEDDING_PROVIDER")
+        if not args.provider:
+            args.provider = "openai-compatible" if os.getenv("OPENROUTER_API_KEY") else "tei"
+    else:
+        args.model = args.model or os.getenv("EMBEDDING_REQUEST_MODEL") or os.getenv("EMBEDDING_MODEL", DEFAULT_MODEL)
+        args.dimension = args.dimension or int(os.getenv("EMBEDDING_DIMENSION", DEFAULT_DIMENSION))
+        args.provider = args.provider or os.getenv("EMBEDDING_PROVIDER", "tei")
+    args.endpoint = args.endpoint or os.getenv("EMBEDDING_ENDPOINT", DEFAULT_TEI_ENDPOINT)
+    args.base_url = (
+        args.base_url
+        or os.getenv("EMBEDDING_BASE_URL")
+        or (DEFAULT_OPENROUTER_BASE_URL if os.getenv("OPENROUTER_API_KEY") else None)
+    )
+    args.api_key = args.api_key or os.getenv("EMBEDDING_API_KEY") or os.getenv("OPENROUTER_API_KEY") or os.getenv("OPENAI_API_KEY")
     for field in ("match_count", "text_match_count", "candidate_count", "template_limit"):
         if getattr(args, field) < 1:
             raise SystemExit(f"--{field.replace('_', '-')} must be >= 1")
@@ -515,6 +597,8 @@ def parse_args() -> argparse.Namespace:
         raise SystemExit("--limit must be >= 0")
     if args.excerpt_chars < 120:
         raise SystemExit("--excerpt-chars must be >= 120")
+    if args.dimension < 1:
+        raise SystemExit("--dimension must be >= 1")
     if args.timeout_seconds < 1:
         raise SystemExit("--timeout-seconds must be >= 1")
     if args.max_retries < 0:
